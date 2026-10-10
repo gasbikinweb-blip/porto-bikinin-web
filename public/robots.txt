@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Ganti domain sesuai NEXT_PUBLIC_SITE_URL
+Sitemap: https://lini-rumah-jepara.netlify.app/sitemap.xml
