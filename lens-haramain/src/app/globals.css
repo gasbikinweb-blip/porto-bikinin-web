@@ -1,0 +1,391 @@
+@import 'tailwindcss';
+
+/*
+ * Palet diambil dari foto klien: krem pasir (kain payung Nabawi), hijau karpet masjid,
+ * dan emas tua. Mode terang = default; mode gelap lewat data-theme="dark" (public/theme-init.js).
+ * .theme-dark  : paksa palet gelap (teks di atas foto/video)
+ * .theme-green : section berlatar hijau karpet
+ * Kontras teks utama & muted sudah dicek ≥ 4.5:1 di setiap palet.
+ */
+:root {
+  color-scheme: light;
+  --page: #f3ede3;
+  --background: #f3ede3;
+  --surface: #eae1d2;
+  --surface-2: #ddcfb9;
+  --foreground: #1d1a15;
+  --muted: #655a4c;
+  --accent: #7a5a2b;
+  --accent-strong: #5e4420;
+  --line: rgb(29 26 21 / 0.14);
+}
+
+:root[data-theme='dark'],
+.theme-dark {
+  color-scheme: dark;
+  --background: #12100d;
+  --surface: #1b1814;
+  --surface-2: #26211b;
+  --foreground: #f1eadf;
+  --muted: #b0a491;
+  --accent: #c9a46a;
+  --accent-strong: #ddbb84;
+  --line: rgb(241 234 223 / 0.14);
+}
+
+:root[data-theme='dark'] {
+  --page: #12100d;
+}
+
+.theme-green {
+  color-scheme: dark;
+  --background: #1f3329;
+  --surface: #273f33;
+  --surface-2: #314b3e;
+  --foreground: #f0eadf;
+  --muted: #bfc9bd;
+  --accent: #d2b278;
+  --accent-strong: #e3c890;
+  --line: rgb(240 234 223 / 0.16);
+}
+
+:root[data-theme='dark'] .theme-green {
+  --background: #17261f;
+  --surface: #1e3128;
+}
+
+.theme-dark,
+.theme-green {
+  color: var(--foreground);
+}
+
+/* Transisi halus saat ganti tema (hanya warna) */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition:
+    background-color 0.5s ease,
+    border-color 0.5s ease,
+    color 0.5s ease !important;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-line: var(--line);
+  --color-page: var(--page);
+  --font-sans: var(--font-jost);
+  --font-serif: var(--font-cormorant);
+  --font-arabic: var(--font-amiri);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* Tekstur kertas halus di seluruh halaman, agar tidak terasa "flat digital" */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.07;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+:root[data-theme='dark'] body::before {
+  mix-blend-mode: screen;
+  opacity: 0.05;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--background);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 3px;
+}
+
+/* ---------- Elemen khas ---------- */
+
+/* Bingkai lengkung seperti mihrab / pintu masjid */
+.arch {
+  border-top-left-radius: 999px;
+  border-top-right-radius: 999px;
+}
+
+/* Label kecil berhuruf kapital renggang (mengikuti "Photo & Video" pada logo) */
+.eyebrow {
+  font-family: var(--font-jost);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+/* Logo diwarnai lewat mask, mengikuti warna teks (currentColor) */
+.logo-mark {
+  display: inline-block;
+  background-color: currentColor;
+  mask: url('/brand/logo-mark.png') center / contain no-repeat;
+}
+
+/* Ornamen bintang delapan (rub el hizb) sebagai pemisah */
+.star8 {
+  display: inline-block;
+  width: 0.7em;
+  height: 0.7em;
+  background: currentColor;
+  clip-path: polygon(
+    50% 0%,
+    61% 25%,
+    85% 15%,
+    75% 39%,
+    100% 50%,
+    75% 61%,
+    85% 85%,
+    61% 75%,
+    50% 100%,
+    39% 75%,
+    15% 85%,
+    25% 61%,
+    0% 50%,
+    25% 39%,
+    15% 15%,
+    39% 25%
+  );
+}
+
+/* Garis tipis yang tumbuh saat hover pada link */
+.link-line {
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  transition: background-size 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.link-line:hover {
+  background-size: 100% 1px;
+}
+
+/* Scroll horizontal tanpa scrollbar tebal */
+.snap-row {
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+.snap-row > * {
+  scroll-snap-align: start;
+}
+
+/* Dialog galeri */
+dialog.gallery::backdrop {
+  background: rgb(10 9 7 / 0.92);
+}
+dialog.gallery[open] {
+  animation: fade-in 0.35s ease both;
+}
+
+/* FAQ: tanda plus berputar */
+details[open] .faq-icon {
+  transform: rotate(45deg);
+}
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* ---------- Animasi ---------- */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes arch-rise {
+  from {
+    clip-path: inset(100% 0 0 0 round 999px 999px 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0 round 999px 999px 0 0);
+  }
+}
+
+@keyframes scroll-line {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  51% {
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+@keyframes wa-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgb(37 211 102 / 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgb(37 211 102 / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgb(37 211 102 / 0);
+  }
+}
+
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-in {
+  animation: fade-up 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: var(--delay, 0ms);
+}
+.animate-arch {
+  animation: arch-rise 1.6s cubic-bezier(0.7, 0, 0.2, 1) 0.2s both;
+}
+.animate-scroll-line {
+  animation: scroll-line 2.2s cubic-bezier(0.6, 0, 0.3, 1) infinite;
+}
+.animate-wa-pulse {
+  animation: wa-pulse 2.6s ease-out infinite;
+}
+.animate-spin-slow {
+  animation: spin-slow 28s linear infinite;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--duration, 40s) linear infinite;
+}
+.marquee-reverse .marquee-track {
+  animation-direction: reverse;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/*
+ * Muncul saat di-scroll (dipicu RevealObserver).
+ * Varian: .reveal (naik), + .reveal-left / .reveal-right / .reveal-zoom / .reveal-blur / .reveal-curtain.
+ */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}
+@keyframes reveal-left {
+  from {
+    opacity: 0;
+    transform: translateX(-56px);
+  }
+}
+@keyframes reveal-right {
+  from {
+    opacity: 0;
+    transform: translateX(56px);
+  }
+}
+@keyframes reveal-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+}
+@keyframes reveal-blur {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(20px);
+  }
+}
+@keyframes curtain {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.reveal-ready .reveal:not(.is-visible) {
+  opacity: 0;
+}
+.reveal.is-visible {
+  animation: reveal-up 1s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms) backwards;
+}
+.reveal.reveal-left.is-visible {
+  animation-name: reveal-left;
+}
+.reveal.reveal-right.is-visible {
+  animation-name: reveal-right;
+}
+.reveal.reveal-zoom.is-visible {
+  animation-name: reveal-zoom;
+}
+.reveal.reveal-blur.is-visible {
+  animation-name: reveal-blur;
+}
+.reveal.reveal-curtain.is-visible {
+  animation-name: curtain;
+  animation-duration: 1.4s;
+}
+
+/* Hormati pengguna yang meminta gerakan minimal */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}

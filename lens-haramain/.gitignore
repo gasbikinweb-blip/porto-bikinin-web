@@ -1,0 +1,14 @@
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+.env
+.env*.local
+npm-debug.log*
+.DS_Store
+.vercel
+.claude/
+
+# Video mentah (besar); versi terkompresi ada di public/videos
+assets-src/videos/
