@@ -176,7 +176,7 @@ Jalankan `npm run build`, lalu unggah isi folder `out/`.
 
 - **Netlify:** build command `npm run build`, publish directory `out`.
 - **Cloudflare Pages:** framework preset _None_, build command `npm run build`, output `out`.
-- **Vercel:** import repo, isi **Root Directory** dengan `rumah-jepara`, dan biarkan Output Directory default (jangan diisi `out`; Vercel otomatis menangani static export). Header diatur `vercel.json`.
+- **Vercel:** import repo dan isi **Root Directory** dengan `rumah-jepara`. `vercel.json` sudah mengatur semuanya: build sebagai situs statis (`framework: null`, output `out`, `cleanUrls`) plus security headers. Pengaturan ini mengalahkan setelan dashboard.
 - **GitHub Pages / hosting lain:** unggah isi `out/`. Header keamanan harus diatur manual.
 
 Jangan lupa mengisi `NEXT_PUBLIC_SITE_URL` (domain asli), `NEXT_PUBLIC_WA_NUMBER`, dan `NEXT_PUBLIC_SITE_NAME`
