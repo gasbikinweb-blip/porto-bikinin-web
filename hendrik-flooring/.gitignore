@@ -10,3 +10,7 @@ npm-debug.log*
 .vercel
 .claude/
 referensi/
+
+# Foto lepas di root (bahan mentah, bukan bagian situs)
+/*.jpg
+/*.jpeg
