@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 import { HomeSections } from '@/components/sections/HomeSections';
-import { getContent } from '@/content';
+import { defaultLocale, getContent } from '@/content';
 import { buildMetadata } from '@/lib/seo';
 
-const content = getContent('id');
+const content = getContent(defaultLocale);
 
 export const metadata: Metadata = buildMetadata(content);
 
-export default function HomePageId() {
+export default function HomePage() {
   return <HomeSections content={content} />;
 }

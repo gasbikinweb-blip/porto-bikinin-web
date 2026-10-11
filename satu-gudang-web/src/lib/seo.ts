@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { homePath, locales } from '@/content';
+import { defaultLocale, homePath, isMultilingual, locales } from '@/content';
 import type { SiteContent } from '@/content/types';
 import { bedroomPackages } from '@/data/packages';
 import { serviceIds } from '@/data/services';
@@ -19,7 +19,10 @@ export function buildMetadata(content: SiteContent): Metadata {
     keywords: [...content.meta.keywords],
     alternates: {
       canonical: path,
-      languages: { ...languages, 'x-default': homePath('en') },
+      // hreflang hanya bila lebih dari satu bahasa aktif
+      ...(isMultilingual
+        ? { languages: { ...languages, 'x-default': homePath(defaultLocale) } }
+        : {}),
     },
     openGraph: {
       type: 'website',

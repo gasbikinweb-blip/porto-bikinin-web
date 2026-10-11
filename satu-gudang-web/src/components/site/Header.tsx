@@ -14,8 +14,11 @@ export function Header({ content }: { content: SiteContent }) {
   const { common, nav, locale } = content;
   const items = navItems(nav);
   const cta = { href: waLink(content.wa.consultation), label: common.freeConsultation };
+  // Tombol ganti bahasa hanya muncul bila ada bahasa lain yang aktif (lihat src/content/index.ts)
   const target = otherLocale(locale);
-  const language = { href: homePath(target), label: common.languageSwitch.label, hrefLang: target };
+  const language = target
+    ? { href: homePath(target), label: common.languageSwitch.label, hrefLang: target }
+    : null;
 
   return (
     <HeaderShell>
@@ -27,14 +30,16 @@ export function Header({ content }: { content: SiteContent }) {
         <DesktopNav items={items} label={common.mainMenu} />
 
         <div className="flex items-center gap-2">
-          <a
-            href={language.href}
-            hrefLang={language.hrefLang}
-            aria-label={language.label}
-            className="grid size-11 place-items-center rounded-full border border-line text-xs font-extrabold tracking-wider transition-colors hover:border-accent"
-          >
-            {common.languageSwitch.target}
-          </a>
+          {language && (
+            <a
+              href={language.href}
+              hrefLang={language.hrefLang}
+              aria-label={language.label}
+              className="grid size-11 place-items-center rounded-full border border-line text-xs font-extrabold tracking-wider transition-colors hover:border-accent"
+            >
+              {common.languageSwitch.target}
+            </a>
+          )}
           <ThemeToggle label={common.themeToggle} />
           <a
             href={cta.href}

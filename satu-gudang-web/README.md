@@ -3,7 +3,8 @@
 Website statis (Next.js 16, `output: 'export'`) untuk **Satu Gudang Project**: custom furniture, desain interior,
 dan arsitektur & bangun di Bali. Tanpa backend, form, atau login: semua konsultasi & pemesanan lewat **WhatsApp**.
 
-- Bahasa: **English** di `/` (default) dan **Bahasa Indonesia** di `/id`.
+- Bahasa: **Bahasa Indonesia** di `/`. Teks English sudah ada di `src/content/en.ts` tapi **disembunyikan**
+  (lihat “Mengaktifkan bahasa Inggris”).
 - Satu halaman per bahasa: Hero → Layanan → Portofolio (filter + lightbox) → Paket Kamar Tidur → Material →
   Proses & sebelum/sesudah → (Testimoni, hanya saat dev) → FAQ → Kontak WhatsApp.
 
@@ -11,7 +12,7 @@ dan arsitektur & bangun di Bali. Tanpa backend, form, atau login: semua konsulta
 
 ```bash
 npm install
-npm run dev              # http://localhost:3000 (EN) dan /id (ID)
+npm run dev              # http://localhost:3000
 npm run optimize-images  # setelah menambah/mengganti foto di assets-src/
 npm run lint && npm run typecheck && npm run build   # hasil di folder out/
 npm start                # menyajikan out/ secara lokal
@@ -28,9 +29,9 @@ assets-src/            foto ASLI (tidak di-deploy)
   materials/           crop detail material dari foto proyek
   process/             foto sebelum renovasi & progres pengerjaan
 public/                hasil optimize-images (.webp + -sm.webp), og/og-default.jpg, _headers, theme-init.js
-src/app/               halaman tipis: (en)/page.tsx, (id)/id/page.tsx, layout per bahasa, sitemap.ts, robots.ts,
+src/app/               halaman tipis: (site)/page.tsx + layout (bahasa default), sitemap.ts, robots.ts,
                        global-not-found.tsx, globals.css (token warna)
-src/content/           SEMUA teks: types.ts, en.ts, id.ts, index.ts (bahasa default & path)
+src/content/           SEMUA teks: types.ts, id.ts (aktif), en.ts (disimpan), index.ts (bahasa aktif & default)
 src/data/              data terstruktur bertipe ketat: services, projects, packages, materials, process
 src/components/site/   Header, Footer, Logo, MobileNav, ThemeToggle, FloatingWhatsApp, RootDocument
 src/components/sections/ Hero, Services, Portfolio(+Gallery), BedroomPackages, Materials, Process,
@@ -45,7 +46,7 @@ Ganti bisnis cukup ubah `src/content/`, `src/data/`, `src/lib/config.ts`, dan to
 
 | Ingin mengubah | File |
 | --- | --- |
-| Teks apa pun (judul, FAQ, pesan WA) | `src/content/en.ts` **dan** `src/content/id.ts` (TypeScript menolak bila salah satu kurang) |
+| Teks apa pun (judul, FAQ, pesan WA) | `src/content/id.ts` (samakan juga `en.ts` agar siap bila English diaktifkan; TypeScript menolak bila kunci kurang) |
 | Nomor WA, domain, Instagram/Threads | `.env` / Vercel env (`NEXT_PUBLIC_*`) atau default di `src/lib/config.ts` |
 | Warna | token di `src/app/globals.css` (cek kontras ≥ 4.5:1) |
 | Urutan section | `src/components/sections/HomeSections.tsx` |
@@ -78,6 +79,13 @@ Testimoni di content masih contoh dan **otomatis disembunyikan di build producti
   memilih "reduce motion".
 - Render desain 3D: `assets-src/design/01..05.jpg` → `src/data/design.ts`, alt di `design.alts`.
 - Foto request sample warna: `assets-src/process/sample-request-1/2.jpg` (dipakai di section Material & Proses).
+
+### Mengaktifkan bahasa Inggris
+
+1. `src/content/index.ts`: ubah `locales` menjadi `['id', 'en']` (default tetap `id` di `/`, English di `/en`).
+2. Buat route `src/app/(en)/en/layout.tsx` dan `page.tsx` (salin dari `src/app/(site)/`, ganti
+   `defaultLocale` dengan `'en'`, dan import CSS menjadi `'../../globals.css'`).
+3. Tombol ganti bahasa, hreflang + x-default, dan sitemap otomatis aktif saat lebih dari satu bahasa.
 
 ### Foto workshop
 

@@ -9,7 +9,7 @@ type Props = {
   items: NavItem[];
   labels: { open: string; close: string; menu: string };
   cta: { href: string; label: string };
-  language: { href: string; label: string; hrefLang: string };
+  language: { href: string; label: string; hrefLang: string } | null;
 };
 
 export function MobileNav({ items, labels, cta, language }: Props) {
@@ -66,15 +66,17 @@ export function MobileNav({ items, labels, cta, language }: Props) {
               </a>
             </li>
           ))}
-          <li>
-            <a
-              href={language.href}
-              hrefLang={language.hrefLang}
-              className="block py-4 text-sm font-bold tracking-wide"
-            >
-              {language.label}
-            </a>
-          </li>
+          {language && (
+            <li>
+              <a
+                href={language.href}
+                hrefLang={language.hrefLang}
+                className="block py-4 text-sm font-bold tracking-wide"
+              >
+                {language.label}
+              </a>
+            </li>
+          )}
         </ul>
         <div className="px-5 pb-10">
           <a

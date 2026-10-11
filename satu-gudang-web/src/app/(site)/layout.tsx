@@ -1,5 +1,6 @@
 import type { Viewport } from 'next';
 import { RootDocument } from '@/components/site/RootDocument';
+import { defaultLocale } from '@/content';
 import '../globals.css';
 
 export const viewport: Viewport = {
@@ -9,7 +10,7 @@ export const viewport: Viewport = {
   ],
 };
 
-// Root layout bahasa Inggris (default, URL "/")
-export default function EnLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <RootDocument locale="en">{children}</RootDocument>;
+// Root layout bahasa default (saat ini Indonesia, URL "/"), atribut lang mengikuti bahasa tersebut
+export default function SiteLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return <RootDocument locale={defaultLocale}>{children}</RootDocument>;
 }

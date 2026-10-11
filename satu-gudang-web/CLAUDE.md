@@ -1,14 +1,15 @@
 # Panduan untuk Claude
 
 Website **statis** Satu Gudang (custom furniture, desain interior, arsitektur & bangun di Bali).
-Next.js 16 App Router, `output: 'export'`, dua bahasa: EN di `/` (default), ID di `/id`. Semua konversi lewat
+Next.js 16 App Router, `output: 'export'`. Bahasa aktif: **Indonesia saja** di `/` (English disimpan di
+`en.ts` tapi disembunyikan; aktifkan lewat `locales` di `src/content/index.ts`, lihat README). Semua konversi lewat
 WhatsApp. Baca README.md untuk struktur & cara menambah konten.
 
 ## Wajib dipatuhi
 
 - Tidak ada API routes, Server Actions, middleware, form yang mengirim data, keranjang, checkout, atau login.
 - **Semua teks** di `src/content/{en,id}.ts` (bentuk di `types.ts`). Jangan menulis teks langsung di komponen.
-  Setiap perubahan teks harus di kedua bahasa.
+  Ubah teks di `id.ts`; samakan juga `en.ts` agar tetap siap diaktifkan.
 - Data terstruktur di `src/data/*.ts` dengan tipe ketat; teksnya di content dengan kunci id yang sama.
   Data karangan ditandai `// TODO`. Testimoni contoh disembunyikan di production (`isProduction`).
 - Komponen client (`'use client'`) hanya untuk interaksi kecil: PortfolioGallery (filter + lightbox), MobileNav,
@@ -17,7 +18,7 @@ WhatsApp. Baca README.md untuk struktur & cara menambah konten.
 - Semua link WhatsApp lewat `waLink()` / `buildWhatsAppLink()` di `src/lib/whatsapp.ts`; template pesan di `content.wa`.
 - Konfigurasi hanya di `src/lib/config.ts` (nilai `NEXT_PUBLIC_*` bersifat publik). Tidak ada domain hardcode;
   URL absolut dari `NEXT_PUBLIC_SITE_URL`.
-- Dua root layout (`app/(en)/layout.tsx`, `app/(id)/id/layout.tsx`) memakai `RootDocument` agar `lang` benar;
+- Root layout `app/(site)/layout.tsx` memakai `RootDocument` (bahasa default) agar `lang` benar;
   404 lewat `app/global-not-found.tsx` (flag `experimental.globalNotFound`).
 - Dilarang `dangerouslySetInnerHTML` (ESLint `react/no-danger`). JSON-LD lewat `components/ui/JsonLd.tsx`.
 - Link eksternal: `target="_blank" rel="noopener noreferrer"` (pakai `ExternalLink`).
