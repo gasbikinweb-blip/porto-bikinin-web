@@ -1,0 +1,491 @@
+@import 'tailwindcss';
+
+/*
+ * Token warna Satu Gudang. Semua komponen memakai token ini; ganti brand cukup di sini.
+ * Default terang (krem batu kapur), gelap mengikuti sistem atau tombol tema (data-theme di <html>).
+ * Kontras sudah dicek: teks ≥ 4.5:1 di latar & surface. Tombol oranye memakai teks GELAP
+ * (--on-accent), karena putih di atas oranye logo hanya 2.8:1.
+ */
+:root {
+  color-scheme: light;
+  --background: #f6f1e9; /* krem batu kapur */
+  --surface: #ebe2d3; /* krem kayu muda */
+  --surface-2: #e0d3be;
+  --foreground: #22201c; /* arang dari logo */
+  --muted: #5f574d;
+  --accent: #ee7a2c; /* oranye titik logo: untuk isian/aksen, bukan teks kecil */
+  --accent-text: #a8480c; /* oranye gelap untuk teks di latar terang */
+  --on-accent: #1b1814;
+  --wood: #8a5a35; /* jati */
+  --leaf: #2e5b44; /* dinding tanaman spa */
+  --line: rgb(34 32 28 / 0.14);
+}
+
+/* Palet gelap: dipakai saat sistem gelap (kecuali dipaksa terang), saat dipilih, dan di area .theme-dark */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --background: #171512;
+    --surface: #201d19;
+    --surface-2: #2b2722;
+    --foreground: #f1ebe2;
+    --muted: #b3a998;
+    --accent: #ee7a2c;
+    --accent-text: #f29150;
+    --on-accent: #1b1814;
+    --wood: #c08a5c;
+    --leaf: #7fb08f;
+    --line: rgb(241 235 226 / 0.13);
+  }
+}
+:root[data-theme='dark'],
+.theme-dark {
+  color-scheme: dark;
+  --background: #171512;
+  --surface: #201d19;
+  --surface-2: #2b2722;
+  --foreground: #f1ebe2;
+  --muted: #b3a998;
+  --accent: #ee7a2c;
+  --accent-text: #f29150;
+  --on-accent: #1b1814;
+  --wood: #c08a5c;
+  --leaf: #7fb08f;
+  --line: rgb(241 235 226 / 0.13);
+}
+
+.theme-dark {
+  color: var(--foreground);
+}
+
+/* Transisi halus saat ganti tema (hanya warna) */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition:
+    background-color 0.5s ease,
+    border-color 0.5s ease,
+    color 0.5s ease !important;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
+  --color-on-accent: var(--on-accent);
+  --color-wood: var(--wood);
+  --color-leaf: var(--leaf);
+  --color-line: var(--line);
+  --font-sans: var(--font-manrope);
+  --font-serif: var(--font-fraunces);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Judul serif dengan sedikit "kelembutan" (sumbu SOFT Fraunces) */
+.font-serif {
+  font-variation-settings:
+    'SOFT' 60,
+    'WONK' 0;
+}
+
+/* ---------- Elemen khas: lengkung plafon kayu (dari proyek spa) ---------- */
+/* Garis lengkung tipis berwarna kayu dengan titik oranye logo di ujungnya */
+.timber-arc {
+  color: var(--wood);
+}
+
+/* Label kecil section: titik oranye + teks kapital */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+.eyebrow::before {
+  content: '';
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: var(--accent);
+  flex: none;
+}
+
+/* ---------- Animasi ---------- */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes ken-burns {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes draw-arc {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Animasi masuk saat halaman dibuka (hero) */
+.animate-in {
+  animation: fade-up 1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: var(--delay, 0ms);
+}
+
+.animate-ken-burns {
+  animation: ken-burns 16s ease-out both;
+}
+
+/* Lengkung "tergambar" saat muncul */
+.arc-draw path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+.reveal-ready .arc-draw:not(.is-visible) path {
+  stroke-dashoffset: 1;
+}
+.arc-draw.is-visible path {
+  animation: draw-arc 1.8s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+/*
+ * Muncul saat di-scroll (dipicu RevealObserver).
+ * Varian: .reveal (naik), + .reveal-zoom / .reveal-curtain.
+ */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}
+@keyframes reveal-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+}
+@keyframes curtain {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.reveal-ready .reveal:not(.is-visible) {
+  opacity: 0;
+}
+.reveal.is-visible {
+  animation: reveal-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms) backwards;
+}
+.reveal.reveal-zoom.is-visible {
+  animation-name: reveal-zoom;
+}
+.reveal.reveal-curtain.is-visible {
+  animation-name: curtain;
+  animation-duration: 1.3s;
+}
+
+/* Lightbox (<dialog>) */
+/* Panel di tengah (bukan layar penuh) yang muncul & menutup dengan fade + sedikit zoom */
+dialog.lightbox {
+  width: min(1100px, calc(100vw - 1.5rem));
+  max-width: none;
+  max-height: 92dvh;
+  margin: auto;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 1.75rem;
+  background: var(--surface);
+  box-shadow: 0 40px 120px -30px rgb(0 0 0 / 0.7);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(18px) scale(0.96);
+  transition:
+    opacity 0.4s ease,
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    overlay 0.4s allow-discrete,
+    display 0.4s allow-discrete;
+}
+dialog.lightbox[open] {
+  opacity: 1;
+  transform: none;
+}
+dialog.lightbox::backdrop {
+  background: rgb(12 11 9 / 0);
+  backdrop-filter: blur(0);
+  transition:
+    background-color 0.4s ease,
+    backdrop-filter 0.4s ease,
+    overlay 0.4s allow-discrete,
+    display 0.4s allow-discrete;
+}
+dialog.lightbox[open]::backdrop {
+  background: rgb(12 11 9 / 0.72);
+  backdrop-filter: blur(6px);
+}
+@starting-style {
+  dialog.lightbox[open] {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+  }
+  dialog.lightbox[open]::backdrop {
+    background: rgb(12 11 9 / 0);
+    backdrop-filter: blur(0);
+  }
+}
+/* Foto berganti dengan fade lembut */
+@keyframes photo-in {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+}
+.lightbox-photo {
+  animation: photo-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+/* Halaman di belakang tidak ikut ter-scroll saat lightbox terbuka */
+html:has(dialog.lightbox[open]) {
+  overflow: hidden;
+}
+
+/* Hormati pengguna yang meminta gerakan minimal */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+  .arc-draw path {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}
+
+/* ---------- Logo: versi gelap/terang mengikuti tema ---------- */
+.logo-light {
+  display: none;
+}
+:root[data-theme='dark'] .logo-light,
+.theme-dark .logo-light {
+  display: block;
+}
+:root[data-theme='dark'] .logo-dark,
+.theme-dark .logo-dark {
+  display: none;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .logo-light {
+    display: block;
+  }
+  :root:not([data-theme='light']) .logo-dark {
+    display: none;
+  }
+}
+
+/* Latar halaman luar (TIDAK ikut .theme-dark): untuk lengkung penyambung antar section */
+:root {
+  --page-bg: #f6f1e9;
+}
+:root[data-theme='dark'] {
+  --page-bg: #171512;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --page-bg: #171512;
+  }
+}
+
+/* ================= Animasi tambahan ================= */
+
+/* Hero slideshow: zoom pelan pada gambar aktif, teks berganti dengan fade-up, garis progres slide */
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.hero-zoom {
+  animation: hero-zoom 9s ease-out both;
+}
+@keyframes hero-text {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(6px);
+  }
+}
+.hero-text {
+  animation: hero-text 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes hero-progress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+.hero-progress {
+  animation: hero-progress var(--duration, 6s) linear both;
+}
+
+/* Judul section muncul seperti tirai dari bawah */
+@keyframes title-rise {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(40%);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 -20% 0);
+    transform: none;
+  }
+}
+.reveal.reveal-title.is-visible {
+  animation: title-rise 1.1s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms) both;
+}
+
+/* Foto di dalam elemen yang muncul: zoom-out pelan ("mengendap") */
+@keyframes img-settle {
+  from {
+    transform: scale(1.18);
+  }
+}
+.reveal.is-visible img {
+  animation: img-settle 1.6s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms) both;
+}
+
+/* Kartu terangkat sedikit saat disorot */
+.lift {
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.5s ease;
+}
+.lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px -30px rgb(0 0 0 / 0.35);
+}
+
+/* Pita teks berjalan */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--duration, 38s) linear infinite;
+}
+
+/* Fitur scroll-driven (Chrome/Edge/Safari terbaru); browser lain cukup tanpa efek ini */
+@supports (animation-timeline: view()) {
+  /* Garis progres baca di atas halaman */
+  @keyframes grow-x {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+  .scroll-progress {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 40;
+    height: 3px;
+    background: var(--accent);
+    transform-origin: left;
+    animation: grow-x linear both;
+    animation-timeline: scroll(root);
+  }
+
+  /* Parallax lembut: foto bergeser pelan saat elemen melintasi layar */
+  @keyframes parallax-y {
+    from {
+      transform: translateY(-7%) scale(1.14);
+    }
+    to {
+      transform: translateY(7%) scale(1.14);
+    }
+  }
+  .parallax-soft img,
+  .reveal.is-visible.parallax-soft img {
+    animation: parallax-y linear both;
+    animation-timeline: view();
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-zoom,
+  .hero-text,
+  .reveal.is-visible img,
+  .parallax-soft img,
+  .marquee-track {
+    animation: none !important;
+  }
+  .scroll-progress {
+    display: none;
+  }
+  .lift:hover {
+    transform: none;
+  }
+}
