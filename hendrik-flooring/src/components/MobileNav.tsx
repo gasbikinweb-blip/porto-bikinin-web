@@ -1,0 +1,62 @@
+'use client';
+
+// Menu HP: butuh state buka/tutup, jadi client component kecil
+import { useEffect, useState } from 'react';
+import { navLinks } from './nav-links';
+
+export function MobileNav({ light = false }: { light?: boolean }) {
+  // light = tombol di atas hero gelap (navbar transparan)
+  const [open, setOpen] = useState(false);
+
+  // Tutup dengan tombol Esc
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
+
+  return (
+    <div className="lg:hidden">
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-controls="menu-hp"
+        onClick={() => setOpen((v) => !v)}
+        className={`grid size-11 place-items-center rounded-full border transition-colors ${light && !open ? 'border-white/50' : 'border-line bg-background'}`}
+      >
+        <span className="sr-only">{open ? 'Tutup menu' : 'Buka menu'}</span>
+        <span aria-hidden="true" className="relative block h-3 w-5">
+          <span
+            className={`absolute left-0 h-0.5 w-5 transition-all ${light && !open ? 'bg-white' : 'bg-foreground'} duration-200 ${open ? 'top-1.5 rotate-45' : 'top-0'}`}
+          />
+          <span
+            className={`absolute left-0 h-0.5 w-5 transition-all ${light && !open ? 'bg-white' : 'bg-foreground'} duration-200 ${open ? 'top-1.5 -rotate-45' : 'top-3'}`}
+          />
+        </span>
+      </button>
+      <nav
+        id="menu-hp"
+        aria-label="Menu utama (HP)"
+        hidden={!open}
+        className="absolute inset-x-0 top-full h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-line bg-background shadow-xl"
+      >
+        <ul className="flex flex-col px-4 py-2">
+          {navLinks.map((l, i) => (
+            <li key={l.href} className="menu-item" style={{ '--i': i } as React.CSSProperties}>
+              <a
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="block border-b border-line py-4 text-lg font-semibold"
+              >
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+  );
+}
