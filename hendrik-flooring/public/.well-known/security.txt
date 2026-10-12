@@ -1,6 +1,6 @@
 # Kontak untuk pelaporan celah keamanan situs ini (RFC 9116)
-# TODO: ganti email dan domain dengan data asli
-Contact: mailto:info@example.com
+# TODO: ganti domain dengan domain asli
+Contact: tel:+6285923736006
 Expires: 2027-10-11T00:00:00.000Z
 Preferred-Languages: id, en
 Canonical: https://example.com/.well-known/security.txt

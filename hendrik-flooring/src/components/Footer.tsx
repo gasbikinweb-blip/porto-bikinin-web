@@ -41,11 +41,6 @@ export function Footer() {
             </p>
             <p>WhatsApp: {siteConfig.waDisplay}</p>
             <p>{siteConfig.hours.map((h) => `${h.day}: ${h.time}`).join(' · ')}</p>
-            <p>
-              <a href={`mailto:${siteConfig.email}`} className="hover:text-accent">
-                {siteConfig.email}
-              </a>
-            </p>
           </address>
         </div>
       </div>

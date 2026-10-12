@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { BrandCatalog } from '@/components/BrandCatalog';
 import { HeroSlider, type HeroSlide } from '@/components/HeroSlider';
 import { FaqList, FeatureGrid, ProcessSteps } from '@/components/cards';
-import { MailIcon, PinIcon, WhatsAppIcon } from '@/components/icons';
+import { PinIcon, WhatsAppIcon } from '@/components/icons';
 import { JsonLd } from '@/components/JsonLd';
 import { ProjectGallery } from '@/components/ProjectGallery';
 import { SampleBooks } from '@/components/SampleBooks';
@@ -287,18 +287,6 @@ export default function HomePage() {
                 <span>
                   <span className="block text-muted">WhatsApp / Telepon</span>
                   <span className="block text-lg font-semibold">{siteConfig.waDisplay}</span>
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <MailIcon className="mt-0.5 size-6 shrink-0 text-accent" />
-                <span>
-                  <span className="block text-muted">Email</span>
-                  <a
-                    href={`mailto:${siteConfig.email}`}
-                    className="text-lg font-semibold hover:text-accent"
-                  >
-                    {siteConfig.email}
-                  </a>
                 </span>
               </li>
               <li className="flex gap-3">

@@ -49,7 +49,6 @@ export const siteConfig = {
     },
     { name: 'Shopee', handle: 'hendrikflooring', href: 'https://shopee.co.id/hendrikflooring' },
   ],
-  email: 'info@example.com', // TODO: email asli
   // Showroom/workshop Gading Serpong (BSD)
   address:
     'BSD Raya Utama, Ruko Mendrisio 2B, Jl. Boulevard Raya Gading Serpong No. 23, Cihuni, Kec. Pagedangan, Kab. Tangerang, Banten 15332',

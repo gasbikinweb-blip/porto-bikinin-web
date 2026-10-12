@@ -46,7 +46,6 @@ const organizationLd = {
   logo: new URL('/img/brand/logo-bulat.png', siteConfig.url).href,
   image: new URL('/img/og.jpg', siteConfig.url).href,
   telephone: `+${siteConfig.waNumber}`,
-  email: siteConfig.email,
   address: {
     '@type': 'PostalAddress',
     streetAddress: siteConfig.addressParts.street,
