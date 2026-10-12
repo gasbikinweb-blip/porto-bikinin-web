@@ -18,7 +18,7 @@ export function Logo() {
       />
       <span className="leading-tight">
         <span className="block text-lg font-bold tracking-tight">hendrik</span>
-        <span className="block text-[0.7rem] font-semibold tracking-wider text-muted uppercase">
+        <span className="block text-[0.7rem] font-semibold tracking-wider whitespace-nowrap text-muted uppercase">
           Flooring &amp; Wall Covering
         </span>
       </span>

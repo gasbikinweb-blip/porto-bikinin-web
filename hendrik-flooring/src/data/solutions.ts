@@ -36,7 +36,7 @@ export const solutions: Solution[] = [
       'Plint naik ke dinding untuk sudut yang mudah dibersihkan',
       'Tahan cairan pembersih sesuai rekomendasi produsen', // TODO: verifikasi
     ],
-    recommended: ['vinyl-homogen', 'vinyl-antistatik-konduktif'],
+    recommended: ['vinyl-homogen', 'vinyl-antistatik'],
     image: getProject('rs-ruang-tindakan-hijau'),
   },
   {
@@ -48,7 +48,7 @@ export const solutions: Solution[] = [
       'Ketahanan terhadap bahan kimia sesuai datasheet', // TODO: verifikasi
       'Opsi antistatik untuk ruang peralatan sensitif',
     ],
-    recommended: ['vinyl-homogen', 'vinyl-antistatik-konduktif'],
+    recommended: ['vinyl-homogen', 'vinyl-antistatik'],
     image: getProject('lab-ruang-kabinet-abu'),
   },
   {

@@ -57,6 +57,7 @@ export const products: Product[] = [
       { icon: 'seamless', label: 'Permukaan rata' },
       { icon: 'clean', label: 'Mudah dipel' },
     ],
+    brands: ['Marvel Decoflex'], // dari buku sampel Decoflex Heterogeneous Flooring
     image: getProject('ilustrasi-klinik-gigi-hijau'),
   },
   {

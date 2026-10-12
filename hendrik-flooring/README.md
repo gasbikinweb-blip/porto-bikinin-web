@@ -52,7 +52,6 @@ src/
   lib/            config.ts (nomor WA & info situs), whatsapp.ts (buildWhatsAppLink), seo.ts
 assets-src/       foto asli (tidak di-deploy)
 public/img/       hasil optimasi foto (WebP)
-public/katalog/   PDF katalog untuk diunduh
 scripts/          optimize-images.mjs, flatten-rsc-segments.mjs
 referensi/        bahan referensi dari klien (diabaikan git & tidak di-deploy)
 ```
@@ -73,9 +72,6 @@ deretan ikon di modal). Kartu dan modalnya muncul otomatis di bagian Produk.
 3. Tambah entri di `src/data/projects.ts` lengkap dengan `width`/`height` (dicetak oleh script),
    `alt` yang deskriptif, dan `kind`. Gunakan `kind: 'ilustrasi'` untuk render/gambar ilustrasi
    (saat ini label "Ilustrasi" sengaja tidak ditampilkan atas permintaan pemilik).
-
-**Katalog PDF:** ganti `public/katalog/katalog-lantai-vinyl-hendrik-flooring.pdf` (saat ini
-placeholder satu halaman). Kalau namanya diubah, sesuaikan `brochure.href` di `src/lib/config.ts`.
 
 ## Foto, izin klien & privasi
 

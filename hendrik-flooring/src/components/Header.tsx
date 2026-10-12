@@ -70,7 +70,7 @@ export function Header() {
         <div className={solid ? '' : 'logo-light'}>
           <Logo />
         </div>
-        <nav aria-label="Menu utama" className="hidden lg:block">
+        <nav aria-label="Menu utama" className="hidden xl:block">
           <ul ref={listRef} className="relative flex items-center gap-1">
             {/* Penanda menu aktif */}
             <span
@@ -87,7 +87,7 @@ export function Header() {
                     href={l.href}
                     data-id={id}
                     aria-current={isActive ? 'location' : undefined}
-                    className={`relative block rounded-full px-4 py-2 font-medium transition-colors ${solid ? (isActive ? 'text-accent-strong' : 'text-muted hover:text-foreground') : isActive ? 'text-white' : 'text-white/85 hover:text-white'}`}
+                    className={`relative block rounded-full px-3 py-2 text-[0.95rem] font-medium whitespace-nowrap 2xl:px-4 2xl:text-base transition-colors ${solid ? (isActive ? 'text-accent-strong' : 'text-muted hover:text-foreground') : isActive ? 'text-white' : 'text-white/85 hover:text-white'}`}
                   >
                     {l.label}
                   </a>
@@ -98,7 +98,7 @@ export function Header() {
         </nav>
         <div className="flex items-center gap-2">
           {/* Di HP sudah ada tombol WhatsApp mengambang */}
-          <div className="hidden sm:block">
+          <div className="hidden sm:block xl:hidden 2xl:block">
             <WhatsAppButton>Minta Penawaran</WhatsAppButton>
           </div>
           <MobileNav light={!solid} />

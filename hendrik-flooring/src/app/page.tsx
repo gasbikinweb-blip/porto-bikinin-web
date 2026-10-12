@@ -3,15 +3,17 @@ import Image from 'next/image';
 import { BrandCatalog } from '@/components/BrandCatalog';
 import { HeroSlider, type HeroSlide } from '@/components/HeroSlider';
 import { FaqList, FeatureGrid, ProcessSteps } from '@/components/cards';
-import { DownloadIcon, MailIcon, PinIcon, WhatsAppIcon } from '@/components/icons';
+import { MailIcon, PinIcon, WhatsAppIcon } from '@/components/icons';
 import { JsonLd } from '@/components/JsonLd';
 import { ProjectGallery } from '@/components/ProjectGallery';
+import { SampleBooks } from '@/components/SampleBooks';
 import { Showcase, type ShowcaseItem } from '@/components/Showcase';
 import { SocialLinks } from '@/components/SocialLinks';
 import { Container, SectionHeading, StatsBar } from '@/components/ui';
 import { WhatsAppMessageBuilder } from '@/components/WhatsAppMessageBuilder';
 import { faqs } from '@/data/faq';
 import { brandCatalogs, processStages } from '@/data/catalog';
+import { extraProducts, sampleBooks } from '@/data/more-products';
 import { products } from '@/data/products';
 import { getProject, projects } from '@/data/projects';
 import { solutions } from '@/data/solutions';
@@ -38,6 +40,18 @@ const heroSlides: HeroSlide[] = [
     title: ['Tanpa sudut mati,', 'cepat dibersihkan'],
     text: 'Pertemuan lantai dan dinding dibuat melengkung agar sudut ruangan mudah dijangkau petugas kebersihan.',
     image: getProject('rs-ruang-rawat-biru-panel'),
+  },
+  {
+    eyebrow: 'Desain pola custom',
+    title: ['Lantai vinyl', 'sesuai desain ruangan'],
+    text: 'Potongan warna bisa dibentuk mengikuti desain interior, misalnya pola gelombang di area tunggu.',
+    image: getProject('vinyl-pola-custom-ruang-terbuka'),
+  },
+  {
+    eyebrow: 'Handrail rumah sakit',
+    title: ['Pegangan aman,', 'dinding terlindungi'],
+    text: 'Handrail anti benturan di koridor dan ruang tunggu untuk membantu pasien berjalan dengan aman.',
+    image: getProject('handrail-koridor-rs'),
   },
   {
     eyebrow: 'Pilihan warna lengkap',
@@ -68,6 +82,21 @@ const productItems: ShowcaseItem[] = products.map((p) => ({
 
 // Pilihan ruangan di atas kartu produk
 const roomOptions = solutions.map((s) => ({ key: s.room, label: s.title, summary: s.summary }));
+// Produk pendukung: modal tanpa pilihan ruangan; galeri = gambar merek & hasil pemasangan
+const extraItems: ShowcaseItem[] = extraProducts.map((p) => ({
+  id: p.id,
+  eyebrow: p.eyebrow,
+  title: p.name,
+  summary: p.summary,
+  description: p.description,
+  image: p.image,
+  highlights: p.highlights,
+  brands: p.brands,
+  relatedTitle: 'Merek & hasil pemasangan',
+  related: p.gallery,
+  areas: [],
+  waMessage: productMessage(p.name),
+}));
 
 export default function HomePage() {
   return (
@@ -119,8 +148,31 @@ export default function HomePage() {
         </Container>
       </section>
 
+      {/* Produk pendukung: handrail & karpet roll */}
+      <section
+        id="handrail-karpet"
+        aria-labelledby="handrail-karpet-judul"
+        className="scroll-mt-20 py-16 sm:py-24"
+      >
+        <Container>
+          <SectionHeading
+            id="handrail-karpet-judul"
+            eyebrow="Produk pendukung"
+            title="Handrail rumah sakit & karpet roll"
+            intro="Selain lantai vinyl, kami juga menyediakan dan memasang handrail anti benturan serta karpet roll. Ketuk kartu untuk melihat merek dan hasil pemasangannya."
+          />
+          <div className="mt-10">
+            <Showcase items={extraItems} columns={2} />
+          </div>
+        </Container>
+      </section>
+
       {/* Katalog merek vinyl roll */}
-      <section id="katalog" aria-labelledby="katalog-judul" className="scroll-mt-20 py-16 sm:py-24">
+      <section
+        id="katalog"
+        aria-labelledby="katalog-judul"
+        className="scroll-mt-20 bg-surface py-16 sm:py-24"
+      >
         <Container>
           <SectionHeading
             id="katalog-judul"
@@ -131,6 +183,15 @@ export default function HomePage() {
           <div className="mt-10">
             <BrandCatalog catalogs={brandCatalogs} />
           </div>
+          <div className="mt-16">
+            <h3 className="reveal text-2xl font-bold">Merek lain yang tersedia</h3>
+            <p className="reveal mt-2 text-muted">
+              Ketuk buku sampel untuk melihat lebih jelas, lalu tanyakan pilihan warnanya.
+            </p>
+            <div className="mt-6">
+              <SampleBooks books={sampleBooks} />
+            </div>
+          </div>
         </Container>
       </section>
 
@@ -138,7 +199,7 @@ export default function HomePage() {
       <section
         id="portofolio"
         aria-labelledby="portofolio-judul"
-        className="scroll-mt-20 bg-surface py-16 sm:py-24"
+        className="scroll-mt-20 py-16 sm:py-24"
       >
         <Container>
           <SectionHeading
@@ -282,14 +343,6 @@ export default function HomePage() {
               <span className="font-semibold text-foreground">Area layanan: </span>
               {siteConfig.serviceAreas.join(', ')}
             </p>
-            <a
-              href={siteConfig.brochure.href}
-              download
-              className="mt-6 inline-flex min-h-12 items-center gap-2 rounded-full border border-line bg-background px-6 font-semibold hover:border-accent hover:text-accent-strong"
-            >
-              <DownloadIcon />
-              Unduh Katalog (PDF)
-            </a>
             <p className="mt-8 font-bold">Ikuti & belanja kami</p>
             <div className="mt-3">
               <SocialLinks />

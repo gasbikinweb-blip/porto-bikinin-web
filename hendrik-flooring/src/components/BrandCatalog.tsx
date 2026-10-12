@@ -3,31 +3,20 @@
 // Katalog merek vinyl roll: pilih merek, ketuk foto kecil untuk mengganti foto utama,
 // ketuk kode warna untuk melihat detail teksturnya, lalu minta contoh warna lewat WhatsApp.
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import type { BrandCatalog as Catalog } from '@/data/catalog';
 import { siteConfig } from '@/lib/config';
 import { trapTab } from '@/lib/dialog';
+import { useModal } from '@/lib/useModal';
 import { buildWhatsAppLink } from '@/lib/whatsapp';
 import { ChevronIcon, CloseIcon, WhatsAppIcon } from './icons';
 
 export function BrandCatalog({ catalogs }: { catalogs: Catalog[] }) {
   const [brandIndex, setBrandIndex] = useState(0);
   const [photoIndex, setPhotoIndex] = useState(0);
-  const [colorIndex, setColorIndex] = useState<number | null>(null);
-  const dialogRef = useRef<HTMLDialogElement>(null);
-  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const modal = useModal<number>();
+  const colorIndex = modal.value;
   const photoRef = useRef<HTMLDivElement>(null);
-
-  // Tampilkan modal detail warna, kunci scroll halaman
-  useEffect(() => {
-    const dialog = dialogRef.current;
-    if (!dialog || colorIndex === null) return;
-    if (!dialog.open) dialog.showModal();
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [colorIndex]);
 
   const catalog = catalogs[brandIndex] ?? catalogs[0];
   if (!catalog) return null;
@@ -37,9 +26,9 @@ export function BrandCatalog({ catalogs }: { catalogs: Catalog[] }) {
   const total = catalog.colors.length;
 
   const step = (delta: number) =>
-    setColorIndex((i) => (i === null ? i : (i + delta + total) % total));
+    modal.setValue((i) => (i === null ? i : (i + delta + total) % total));
 
-  const close = () => dialogRef.current?.close();
+  const close = modal.close;
 
   // Tutup modal lalu tampilkan halaman buku sampel yang memuat warna ini
   const showInBook = (index: number) => {
@@ -127,10 +116,7 @@ export function BrandCatalog({ catalogs }: { catalogs: Catalog[] }) {
                 <button
                   type="button"
                   aria-haspopup="dialog"
-                  onClick={(e) => {
-                    triggerRef.current = e.currentTarget;
-                    setColorIndex(i);
-                  }}
+                  onClick={(e) => modal.open(i, e.currentTarget)}
                   className="group flex w-full items-center gap-2.5 rounded-xl border border-line bg-background p-2 text-left transition-all hover:-translate-y-0.5 hover:border-accent hover:shadow-md"
                 >
                   <span className="relative size-11 shrink-0 overflow-hidden rounded-lg shadow-inner ring-1 ring-black/10">
@@ -173,24 +159,17 @@ export function BrandCatalog({ catalogs }: { catalogs: Catalog[] }) {
 
       {/* Modal detail warna */}
       <dialog
-        ref={dialogRef}
-        onClose={() => {
-          setColorIndex(null);
-          triggerRef.current?.focus();
-        }}
+        {...modal.dialogProps}
         onKeyDown={(e) => {
           if (e.key === 'ArrowRight') step(1);
           else if (e.key === 'ArrowLeft') step(-1);
           else trapTab(e);
         }}
-        onClick={(e) => {
-          if (e.target === e.currentTarget) close();
-        }}
         aria-labelledby="warna-judul"
-        className="showcase-dialog m-auto max-h-[94dvh] w-[min(94vw,52rem)] overflow-hidden rounded-3xl bg-background p-0 text-foreground"
+        className="showcase-dialog m-auto max-h-[90dvh] w-[min(94vw,52rem)] overflow-hidden rounded-3xl bg-background p-0 text-foreground"
       >
         {color && (
-          <div className="no-scrollbar grid max-h-[94dvh] overflow-y-auto sm:grid-cols-[1.1fr_1fr]">
+          <div className="no-scrollbar grid max-h-[90dvh] overflow-y-auto sm:grid-cols-[1.1fr_1fr]">
             {/* Tekstur warna besar */}
             <div className="relative aspect-[4/3] bg-surface-2 sm:aspect-auto sm:min-h-[26rem]">
               <Image

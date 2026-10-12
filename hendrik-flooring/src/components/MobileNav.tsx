@@ -19,7 +19,7 @@ export function MobileNav({ light = false }: { light?: boolean }) {
   }, [open]);
 
   return (
-    <div className="lg:hidden">
+    <div className="xl:hidden">
       <button
         type="button"
         aria-expanded={open}

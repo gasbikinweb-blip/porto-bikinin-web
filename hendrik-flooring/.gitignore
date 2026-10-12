@@ -14,3 +14,6 @@ referensi/
 # Foto lepas di root (bahan mentah, bukan bagian situs)
 /*.jpg
 /*.jpeg
+/*.pdf
+# Bahan mentah dari klien (berisi invoice/data pribadi), jangan di-commit
+/Tambahan*/

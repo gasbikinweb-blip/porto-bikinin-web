@@ -69,10 +69,6 @@ export const siteConfig = {
   ],
   // TODO: konfirmasi area layanan
   serviceAreas: ['BSD & Gading Serpong', 'Tangerang Raya', 'Jabodetabek', 'Luar kota by request'],
-  brochure: {
-    href: '/katalog/katalog-lantai-vinyl-hendrik-flooring.pdf', // TODO: ganti dengan PDF katalog asli
-    label: 'Katalog Lantai Vinyl Fasilitas Kesehatan (PDF)',
-  },
 } as const;
 
 /** Link keluar ke Google Maps (bukan iframe embed, sesuai kebijakan CSP) */

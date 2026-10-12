@@ -1,6 +1,12 @@
 // Tipe data bersama untuk seluruh situs
 
-export const FACILITY_TYPES = ['rumah-sakit', 'klinik', 'klinik-gigi', 'laboratorium'] as const;
+export const FACILITY_TYPES = [
+  'rumah-sakit',
+  'klinik',
+  'klinik-gigi',
+  'laboratorium',
+  'kantor',
+] as const;
 export type FacilityType = (typeof FACILITY_TYPES)[number];
 
 export const ROOM_TYPES = [
@@ -10,6 +16,8 @@ export const ROOM_TYPES = [
   'klinik-gigi',
   'toilet',
   'koridor',
+  'lobi',
+  'ruang-kerja',
 ] as const;
 export type RoomType = (typeof ROOM_TYPES)[number];
 
@@ -18,6 +26,7 @@ export const facilityLabels: Record<FacilityType, string> = {
   klinik: 'Klinik',
   'klinik-gigi': 'Klinik Gigi',
   laboratorium: 'Laboratorium',
+  kantor: 'Kantor & Gedung',
 };
 
 export const roomLabels: Record<RoomType, string> = {
@@ -27,6 +36,8 @@ export const roomLabels: Record<RoomType, string> = {
   'klinik-gigi': 'Ruang Praktik Gigi',
   toilet: 'Toilet & Kamar Mandi',
   koridor: 'Koridor',
+  lobi: 'Lobi & Ruang Tunggu',
+  'ruang-kerja': 'Ruang Kerja',
 };
 
 /** Gambar dengan ukuran asli agar tidak terjadi layout shift */

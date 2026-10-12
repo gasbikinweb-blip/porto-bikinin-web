@@ -1,5 +1,13 @@
 import type { FacilityType, RoomType } from './types';
 
+export type ProjectCategory = 'lantai' | 'handrail' | 'karpet';
+
+export const categoryLabels: Record<ProjectCategory, string> = {
+  lantai: 'Lantai vinyl',
+  handrail: 'Handrail',
+  karpet: 'Karpet roll',
+};
+
 export type Project = {
   id: string;
   src: string;
@@ -10,6 +18,8 @@ export type Project = {
   floorType: string;
   /** Luas terpasang dalam m² (opsional) */
   area?: number;
+  /** Jenis pekerjaan; default 'lantai' */
+  category?: ProjectCategory;
   kind: 'proyek' | 'ilustrasi';
   width: number;
   height: number;
@@ -22,7 +32,7 @@ const img = (name: string) => ({
 
 // TODO: verifikasi tipe fasilitas, tipe ruangan, jenis lantai, dan luas tiap foto dengan data proyek asli.
 // Jangan tampilkan nama rumah sakit/klinik, logo, atau data pasien. Pastikan klien sudah memberi izin publikasi.
-// Urutan di sini = urutan tampil di galeri (6 pertama tampil di Beranda).
+// Urutan di sini = urutan tampil di galeri (8 pertama tampil sebelum "Tampilkan semua").
 export const projects: Project[] = [
   {
     id: 'rs-ruang-rawat-biru-luas',
@@ -34,6 +44,78 @@ export const projects: Project[] = [
     kind: 'proyek',
     width: 1600,
     height: 1200,
+  },
+  {
+    id: 'vinyl-pola-custom-ruang-terbuka',
+    ...img('vinyl-pola-custom-ruang-terbuka'),
+    alt: 'Lantai vinyl krem dengan pola gelombang biru muda yang dipotong custom di ruangan terbuka',
+    facilityType: 'klinik', // TODO: verifikasi tipe fasilitas
+    roomType: 'lobi', // TODO: verifikasi
+    floorType: 'Vinyl lembaran dengan pola custom (inlay)', // TODO: verifikasi
+    category: 'lantai',
+    kind: 'proyek',
+    width: 1204,
+    height: 1600,
+  },
+  {
+    id: 'handrail-koridor-rs',
+    ...img('handrail-koridor-rs'),
+    alt: 'Handrail putih dengan aksen kayu terpasang di sepanjang koridor rumah sakit',
+    facilityType: 'rumah-sakit', // TODO: verifikasi
+    roomType: 'koridor',
+    floorType: 'Handrail anti benturan', // TODO: isi merek yang dipasang
+    category: 'handrail',
+    kind: 'proyek',
+    width: 1600,
+    height: 1200,
+  },
+  {
+    id: 'karpet-roll-lobi-lift',
+    ...img('karpet-roll-lobi-lift'),
+    alt: 'Karpet bermotif abu-abu terpasang rapi di lobi lift gedung perkantoran',
+    facilityType: 'kantor',
+    roomType: 'lobi',
+    floorType: 'Karpet roll motif abu-abu', // TODO: verifikasi
+    category: 'karpet',
+    kind: 'proyek',
+    width: 1204,
+    height: 1600,
+  },
+  {
+    id: 'vinyl-pola-custom-area-resepsionis',
+    ...img('vinyl-pola-custom-area-resepsionis'),
+    alt: 'Area resepsionis dengan lantai vinyl krem dan potongan pola biru muda yang mengalir',
+    facilityType: 'klinik', // TODO: verifikasi tipe fasilitas
+    roomType: 'lobi', // TODO: verifikasi
+    floorType: 'Vinyl lembaran dengan pola custom (inlay)', // TODO: verifikasi
+    category: 'lantai',
+    kind: 'proyek',
+    width: 1204,
+    height: 1600,
+  },
+  {
+    id: 'handrail-ruang-tunggu',
+    ...img('handrail-ruang-tunggu'),
+    alt: 'Handrail dengan bumper merah-biru di dinding ruang tunggu dekat meja pendaftaran',
+    facilityType: 'rumah-sakit', // TODO: verifikasi
+    roomType: 'lobi',
+    floorType: 'Handrail anti benturan', // TODO: isi merek yang dipasang
+    category: 'handrail',
+    kind: 'proyek',
+    width: 1600,
+    height: 1200,
+  },
+  {
+    id: 'karpet-roll-biru-ruang-kerja',
+    ...img('karpet-roll-biru-ruang-kerja'),
+    alt: 'Karpet biru polos terpasang di ruang kerja dengan deretan meja panjang',
+    facilityType: 'kantor',
+    roomType: 'ruang-kerja',
+    floorType: 'Karpet roll biru', // TODO: verifikasi
+    category: 'karpet',
+    kind: 'proyek',
+    width: 1088,
+    height: 1445,
   },
   {
     id: 'rs-ruang-tindakan-hijau',
@@ -177,6 +259,54 @@ export const projects: Project[] = [
     kind: 'proyek',
     width: 1600,
     height: 1200,
+  },
+  {
+    id: 'vinyl-pola-custom-lorong',
+    ...img('vinyl-pola-custom-lorong'),
+    alt: 'Lorong dengan lantai vinyl krem dan aksen pola biru muda menuju ruang dalam',
+    facilityType: 'klinik', // TODO: verifikasi tipe fasilitas
+    roomType: 'koridor',
+    floorType: 'Vinyl lembaran dengan pola custom (inlay)', // TODO: verifikasi
+    category: 'lantai',
+    kind: 'proyek',
+    width: 1204,
+    height: 1600,
+  },
+  {
+    id: 'handrail-lorong-baru',
+    ...img('handrail-lorong-baru'),
+    alt: 'Handrail putih dengan aksen kayu di dinding lorong yang baru selesai dibangun',
+    facilityType: 'rumah-sakit', // TODO: verifikasi
+    roomType: 'koridor',
+    floorType: 'Handrail anti benturan', // TODO: isi merek yang dipasang
+    category: 'handrail',
+    kind: 'proyek',
+    width: 1600,
+    height: 1200,
+  },
+  {
+    id: 'karpet-roll-lobi-resepsionis',
+    ...img('karpet-roll-lobi-resepsionis'),
+    alt: 'Karpet bermotif abu-abu di lobi resepsionis dengan meja berlampu',
+    facilityType: 'kantor',
+    roomType: 'lobi',
+    floorType: 'Karpet roll motif abu-abu', // TODO: verifikasi
+    category: 'karpet',
+    kind: 'proyek',
+    width: 1204,
+    height: 1600,
+  },
+  {
+    id: 'karpet-roll-area-tunggu',
+    ...img('karpet-roll-area-tunggu'),
+    alt: 'Karpet bermotif abu-abu di area tunggu dengan sofa hitam dekat tangga',
+    facilityType: 'kantor',
+    roomType: 'lobi',
+    floorType: 'Karpet roll motif abu-abu', // TODO: verifikasi
+    category: 'karpet',
+    kind: 'proyek',
+    width: 1204,
+    height: 1600,
   },
 ];
 

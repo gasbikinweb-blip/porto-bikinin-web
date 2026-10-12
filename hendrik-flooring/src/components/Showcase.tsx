@@ -4,11 +4,12 @@
 // deretan ikon keunggulan, baris gambar terkait, dan bar bawah dengan tombol WhatsApp.
 // Memakai <dialog> bawaan: Esc atau klik di luar modal menutup, fokus kembali ke kartu.
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { useId, useState } from 'react';
 import type { Highlight } from '@/data/products';
 import { trustItems } from '@/data/site';
 import type { ImageAsset } from '@/data/types';
 import { trapTab } from '@/lib/dialog';
+import { useModal } from '@/lib/useModal';
 import { buildWhatsAppLink } from '@/lib/whatsapp';
 import { ArrowIcon, CheckIcon, CloseIcon, FeatureIcon, WhatsAppIcon } from './icons';
 
@@ -33,70 +34,67 @@ export type RoomOption = { key: string; label: string; summary: string };
 
 const delay = (i: number) => ({ '--i': i }) as React.CSSProperties;
 
-export function Showcase({ items, rooms }: { items: ShowcaseItem[]; rooms: RoomOption[] }) {
-  const [active, setActive] = useState<ShowcaseItem | null>(null);
+export function Showcase({
+  items,
+  rooms = [],
+  columns = 4,
+}: {
+  items: ShowcaseItem[];
+  /** Pilihan ruangan di atas kartu; kosong = tanpa pilihan */
+  rooms?: RoomOption[];
+  columns?: 2 | 4;
+}) {
+  // id unik: komponen ini bisa dipakai lebih dari sekali di satu halaman
+  const uid = useId();
+  const headingId = `${uid}-judul`;
+  const roomLabelId = `${uid}-ruangan`;
   const [room, setRoom] = useState<string | null>(null);
-  const dialogRef = useRef<HTMLDialogElement>(null);
-  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const modal = useModal<ShowcaseItem>();
+  const active = modal.value;
   const selectedRoom = rooms.find((r) => r.key === room);
-
-  useEffect(() => {
-    const dialog = dialogRef.current;
-    if (!dialog || !active) return;
-    if (!dialog.open) dialog.showModal();
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [active]);
-
-  const open = (item: ShowcaseItem, trigger: HTMLButtonElement) => {
-    triggerRef.current = trigger;
-    setActive(item);
-  };
-
-  const onClose = () => {
-    setActive(null);
-    triggerRef.current?.focus();
-  };
 
   return (
     <>
       {/* Pilihan ruangan: menandai jenis lantai yang cocok */}
-      <div className="reveal rounded-2xl border border-line bg-background p-4 sm:p-5">
-        <p id="pilih-ruangan" className="font-bold">
-          Untuk ruangan apa?
-        </p>
-        <div
-          role="group"
-          aria-labelledby="pilih-ruangan"
-          className="no-scrollbar -mx-4 mt-3 flex gap-2 overflow-x-auto px-4 sm:mx-0 sm:flex-wrap sm:px-0"
-        >
-          {[{ key: null, label: 'Semua' }, ...rooms].map((r) => (
-            <button
-              key={r.label}
-              type="button"
-              aria-pressed={room === r.key}
-              onClick={() => setRoom(r.key)}
-              className="min-h-11 shrink-0 rounded-full border border-line px-4 font-semibold text-muted transition-all hover:border-accent hover:text-accent-strong aria-pressed:border-accent aria-pressed:bg-accent aria-pressed:text-white"
-            >
-              {r.label}
-            </button>
-          ))}
+      {rooms.length > 0 && (
+        <div className="reveal mb-6 rounded-2xl border border-line bg-background p-4 sm:p-5">
+          <p id={roomLabelId} className="font-bold">
+            Untuk ruangan apa?
+          </p>
+          <div
+            role="group"
+            aria-labelledby={roomLabelId}
+            className="no-scrollbar -mx-4 mt-3 flex gap-2 overflow-x-auto px-4 sm:mx-0 sm:flex-wrap sm:px-0"
+          >
+            {[{ key: null, label: 'Semua' }, ...rooms].map((r) => (
+              <button
+                key={r.label}
+                type="button"
+                aria-pressed={room === r.key}
+                onClick={() => setRoom(r.key)}
+                className="min-h-11 shrink-0 rounded-full border border-line px-4 font-semibold text-muted transition-all hover:border-accent hover:text-accent-strong aria-pressed:border-accent aria-pressed:bg-accent aria-pressed:text-white"
+              >
+                {r.label}
+              </button>
+            ))}
+          </div>
+          <p role="status" className="mt-3 min-h-6 text-muted">
+            {selectedRoom
+              ? `${selectedRoom.summary} Lantai yang cocok ditandai di bawah.`
+              : 'Pilih ruangan untuk melihat jenis lantai yang cocok.'}
+          </p>
         </div>
-        <p role="status" className="mt-3 min-h-6 text-muted">
-          {selectedRoom
-            ? `${selectedRoom.summary} Lantai yang cocok ditandai di bawah.`
-            : 'Pilih ruangan untuk melihat jenis lantai yang cocok.'}
-        </p>
-      </div>
+      )}
 
-      <ul className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4" data-stagger>
+      <ul
+        className={`grid gap-5 sm:grid-cols-2 ${columns === 4 ? 'lg:grid-cols-4' : 'lg:gap-8'}`}
+        data-stagger
+      >
         {items.map((item) => (
           <li key={item.id} className="reveal">
             <ProductCard
               item={item}
-              onOpen={open}
+              onOpen={modal.open}
               match={room === null ? null : item.areas.includes(room)}
             />
           </li>
@@ -104,18 +102,13 @@ export function Showcase({ items, rooms }: { items: ShowcaseItem[]; rooms: RoomO
       </ul>
 
       <dialog
-        ref={dialogRef}
-        onClose={onClose}
+        {...modal.dialogProps}
         onKeyDown={trapTab}
-        // Klik pada area gelap di luar modal (target = elemen dialog itu sendiri) menutup modal
-        onClick={(e) => {
-          if (e.target === e.currentTarget) e.currentTarget.close();
-        }}
-        aria-labelledby="showcase-judul"
-        className="showcase-dialog m-auto h-dvh max-h-none w-full max-w-none overflow-hidden bg-transparent p-0 sm:h-auto sm:max-h-[94dvh] sm:w-[min(94vw,68rem)] sm:rounded-3xl"
+        aria-labelledby={headingId}
+        className="showcase-dialog m-auto h-dvh max-h-none w-full max-w-none overflow-hidden bg-transparent p-0 sm:h-auto sm:max-h-[90dvh] sm:w-[min(94vw,68rem)] sm:rounded-3xl"
       >
         {active && (
-          <Poster key={active.id} item={active} onClose={() => dialogRef.current?.close()} />
+          <Poster key={active.id} item={active} headingId={headingId} onClose={modal.close} />
         )}
       </dialog>
     </>
@@ -170,7 +163,15 @@ function ProductCard({
 }
 
 /** Isi modal bergaya poster */
-function Poster({ item, onClose }: { item: ShowcaseItem; onClose: () => void }) {
+function Poster({
+  item,
+  headingId,
+  onClose,
+}: {
+  item: ShowcaseItem;
+  headingId: string;
+  onClose: () => void;
+}) {
   // Foto latar bisa diganti dengan mengetuk gambar di baris "terkait"
   const [bg, setBg] = useState<{ label: string | null; image: ImageAsset }>({
     label: null,
@@ -201,14 +202,14 @@ function Poster({ item, onClose }: { item: ShowcaseItem; onClose: () => void }) 
         Tutup
       </button>
 
-      <div className="no-scrollbar flex h-full max-h-dvh flex-col overflow-y-auto sm:max-h-[94dvh]">
-        <div className="flex-1 px-6 pt-20 pb-5 sm:px-10 sm:pt-8 lg:grid lg:grid-cols-[1.2fr_1fr] lg:items-end lg:gap-10">
+      <div className="no-scrollbar flex h-full max-h-dvh flex-col overflow-y-auto sm:max-h-[90dvh]">
+        <div className="flex-1 px-6 pt-20 pb-4 sm:px-10 sm:pt-6 lg:grid lg:grid-cols-[1.2fr_1fr] lg:items-end lg:gap-10">
           <div>
             <p className="showcase-in text-lg font-semibold text-[#9be3d8] italic" style={delay(0)}>
               {item.eyebrow}
             </p>
             <h2
-              id="showcase-judul"
+              id={headingId}
               className="showcase-in mt-1 max-w-xl text-4xl leading-[1.05] font-extrabold tracking-tight text-balance uppercase sm:text-5xl lg:text-[clamp(2.5rem,7vh,3.5rem)]"
               style={delay(1)}
             >
@@ -221,7 +222,7 @@ function Poster({ item, onClose }: { item: ShowcaseItem; onClose: () => void }) 
 
             {item.brands && item.brands.length > 0 && (
               <div className="showcase-in mt-4 flex flex-wrap items-center gap-2" style={delay(2)}>
-                <span className="text-sm font-semibold text-white/80">Merek yang kami pasang:</span>
+                <span className="text-sm font-semibold text-white/80">Merek tersedia:</span>
                 {item.brands.map((b) => (
                   <span
                     key={b}
@@ -237,7 +238,7 @@ function Poster({ item, onClose }: { item: ShowcaseItem; onClose: () => void }) 
           {/* Kolom kanan (desktop): panel kaca berisi ikon & gambar terkait */}
           <div className="mt-6 lg:mt-0 lg:rounded-2xl lg:border lg:border-white/15 lg:bg-black/35 lg:p-5 lg:backdrop-blur-md">
             {item.highlights && (
-              <ul className="grid max-w-xl grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-2 lg:gap-3">
+              <ul className="grid max-w-xl grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-4 lg:gap-2">
                 {item.highlights.map((h, i) => (
                   <li
                     key={h.label}
@@ -247,7 +248,9 @@ function Poster({ item, onClose }: { item: ShowcaseItem; onClose: () => void }) 
                     <span className="grid size-14 place-items-center rounded-full border-2 lg:size-12 border-white/60 bg-white/5">
                       <FeatureIcon name={h.icon} className="size-6" />
                     </span>
-                    <span className="text-sm leading-tight font-bold uppercase">{h.label}</span>
+                    <span className="text-sm leading-tight font-bold uppercase lg:text-[0.7rem]">
+                      {h.label}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -309,7 +312,7 @@ function Poster({ item, onClose }: { item: ShowcaseItem; onClose: () => void }) 
 
         {/* Bar bawah: ajakan WhatsApp + janji layanan */}
         <div
-          className="showcase-in sticky bottom-0 flex flex-col gap-4 border-t border-white/15 bg-[#081416]/85 p-4 backdrop-blur sm:flex-row sm:items-center sm:gap-6 sm:px-10 sm:py-3"
+          className="showcase-fade sticky bottom-0 flex flex-col gap-4 border-t border-white/15 bg-[#081416]/85 p-4 backdrop-blur sm:flex-row sm:items-center sm:gap-6 sm:px-10 sm:py-2.5"
           style={delay(8)}
         >
           <a

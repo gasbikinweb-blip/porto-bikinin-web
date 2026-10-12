@@ -5,12 +5,13 @@
 // strip thumbnail di bawah, fokus kembali ke foto pemicu.
 import Image from 'next/image';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import type { Project } from '@/data/projects';
+import { categoryLabels, type Project } from '@/data/projects';
 import { facilityLabels, roomLabels, type FacilityType } from '@/data/types';
 import { trapTab } from '@/lib/dialog';
+import { useModal } from '@/lib/useModal';
 import { ChevronIcon, CloseIcon, PlusIcon } from './icons';
 
-type FilterKey = 'semua' | FacilityType | 'toilet';
+type FilterKey = 'semua' | FacilityType | 'toilet' | 'handrail' | 'karpet';
 
 const FILTERS: { key: FilterKey; label: string }[] = [
   { key: 'semua', label: 'Semua' },
@@ -19,11 +20,20 @@ const FILTERS: { key: FilterKey; label: string }[] = [
   { key: 'klinik-gigi', label: facilityLabels['klinik-gigi'] },
   { key: 'laboratorium', label: facilityLabels.laboratorium },
   { key: 'toilet', label: 'Toilet' },
+  { key: 'handrail', label: 'Handrail' },
+  { key: 'karpet', label: 'Karpet' },
 ];
+
+/** Judul foto: nama ruangan, diawali jenis pekerjaan bila bukan lantai vinyl */
+const titleOf = (p: Project) =>
+  p.category && p.category !== 'lantai'
+    ? `${categoryLabels[p.category]} · ${roomLabels[p.roomType]}`
+    : roomLabels[p.roomType];
 
 function matches(p: Project, f: FilterKey) {
   if (f === 'semua') return true;
   if (f === 'toilet') return p.roomType === 'toilet';
+  if (f === 'handrail' || f === 'karpet') return p.category === f;
   return p.facilityType === f;
 }
 
@@ -41,9 +51,9 @@ export function ProjectGallery({
 }) {
   const [expanded, setExpanded] = useState(false);
   const [filter, setFilter] = useState<FilterKey>('semua');
-  const [index, setIndex] = useState<number | null>(null);
-  const dialogRef = useRef<HTMLDialogElement>(null);
-  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const modal = useModal<number>();
+  const index = modal.value;
+  const setIndex = modal.setValue;
   const touchX = useRef<number | null>(null);
 
   const visible = useMemo(() => projects.filter((p) => matches(p, filter)), [projects, filter]);
@@ -52,27 +62,13 @@ export function ProjectGallery({
 
   const countFor = (f: FilterKey) => projects.filter((p) => matches(p, f)).length;
 
-  const open = (i: number, trigger: HTMLButtonElement) => {
-    triggerRef.current = trigger;
-    setIndex(i);
-  };
+  const open = (i: number, trigger: HTMLButtonElement) => modal.open(i, trigger);
 
   const step = useCallback(
     (delta: number) =>
       setIndex((i) => (i === null ? i : (i + delta + visible.length) % visible.length)),
-    [visible.length],
+    [visible.length, setIndex],
   );
-
-  // Tampilkan dialog saat index terisi, kunci scroll halaman
-  useEffect(() => {
-    const dialog = dialogRef.current;
-    if (!dialog || index === null) return;
-    if (!dialog.open) dialog.showModal();
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [index]);
 
   // Thumbnail aktif selalu terlihat di strip bawah
   useEffect(() => {
@@ -82,13 +78,7 @@ export function ProjectGallery({
       ?.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
   }, [index]);
 
-  const close = () => dialogRef.current?.close();
-
-  // Event "close" dipicu oleh Esc maupun tombol tutup: kembalikan fokus ke pemicu
-  const handleClose = () => {
-    setIndex(null);
-    triggerRef.current?.focus();
-  };
+  const close = modal.close;
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLDialogElement>) => {
     if (e.key === 'ArrowRight') {
@@ -164,7 +154,7 @@ export function ProjectGallery({
                 <span className="mb-1.5 inline-block rounded-full bg-white/20 px-2.5 py-0.5 text-[0.7rem] font-semibold tracking-wide uppercase backdrop-blur">
                   {facilityLabels[p.facilityType]}
                 </span>
-                <span className="block font-bold sm:text-lg">{roomLabels[p.roomType]}</span>
+                <span className="block font-bold sm:text-lg">{titleOf(p)}</span>
                 <span className="block max-h-0 overflow-hidden text-sm text-white/85 transition-all duration-500 group-hover:max-h-12">
                   {p.floorType}
                 </span>
@@ -188,8 +178,7 @@ export function ProjectGallery({
       )}
 
       <dialog
-        ref={dialogRef}
-        onClose={handleClose}
+        {...modal.dialogProps}
         onKeyDown={onKeyDown}
         aria-label="Foto proyek"
         className="lightbox-dialog m-0 h-dvh max-h-none w-full max-w-none bg-transparent p-0 text-white"
@@ -272,7 +261,7 @@ export function ProjectGallery({
 
             <div className="px-4 pt-4 pb-5 text-center" onClick={closeOnEmpty}>
               <p className="text-lg font-bold">
-                {roomLabels[current.roomType]}
+                {titleOf(current)}
                 <span className="font-normal text-white/70">
                   {' '}
                   · {facilityLabels[current.facilityType]}
@@ -294,7 +283,7 @@ export function ProjectGallery({
                     >
                       <Image src={p.thumb} alt="" fill sizes="5rem" className="object-cover" />
                       <span className="sr-only">
-                        Foto {i + 1}: {roomLabels[p.roomType]}
+                        Foto {i + 1}: {titleOf(p)}
                       </span>
                     </button>
                   </li>

@@ -236,6 +236,10 @@ dialog::backdrop {
 .showcase-bg {
   animation: poster-zoom 1.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
+/* Bar bawah modal: hanya memudar (tanpa geser) agar tidak menambah area scroll */
+.showcase-fade {
+  animation: backdrop-in 0.6s ease-out 0.6s both;
+}
 .showcase-in {
   animation: poster-item 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
   animation-delay: calc(150ms + var(--i, 0) * 90ms);
@@ -260,6 +264,38 @@ dialog::backdrop {
 }
 .lightbox-img {
   animation: poster-pop 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------- Tombol WhatsApp mengambang: cincin berdenyut + ikon redup-nyala ---------- */
+@keyframes wa-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgb(21 128 61 / 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgb(21 128 61 / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgb(21 128 61 / 0);
+  }
+}
+@keyframes wa-glow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+.wa-pulse {
+  animation: wa-ring 2.2s ease-out infinite;
+}
+.wa-glow {
+  animation: wa-glow 2.2s ease-in-out infinite;
+}
+.wa-pulse:hover,
+.wa-pulse:hover .wa-glow {
+  animation-play-state: paused;
 }
 
 /* Hormati pengguna yang meminta gerakan minimal */
