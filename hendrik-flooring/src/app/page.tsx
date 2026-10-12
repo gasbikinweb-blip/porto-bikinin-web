@@ -71,11 +71,13 @@ const productItems: ShowcaseItem[] = products.map((p) => ({
   image: p.image,
   highlights: p.highlights,
   brands: p.brands,
-  relatedTitle: 'Cocok untuk ruangan',
-  related: p.areas.flatMap((room) => {
-    const s = solutions.find((x) => x.room === room);
-    return s ? [{ label: roomLabels[room], image: s.image }] : [];
-  }),
+  relatedTitle: p.gallery ? 'Contoh pemasangan & sampel' : 'Cocok untuk ruangan',
+  related:
+    p.gallery ??
+    p.areas.flatMap((room) => {
+      const s = solutions.find((x) => x.room === room);
+      return s ? [{ label: roomLabels[room], image: s.image }] : [];
+    }),
   areas: p.areas,
   waMessage: productMessage(p.name),
 }));

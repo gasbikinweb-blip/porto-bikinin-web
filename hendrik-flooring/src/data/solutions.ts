@@ -60,7 +60,7 @@ export const solutions: Solution[] = [
       'Pilihan warna yang membuat ruangan terasa segar',
       'Plint naik ke dinding di area kabinet',
     ],
-    recommended: ['vinyl-homogen', 'vinyl-heterogen'],
+    recommended: ['vinyl-homogen'],
     image: getProject('ilustrasi-klinik-gigi-hijau'),
   },
   {
