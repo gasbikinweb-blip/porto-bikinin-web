@@ -9,7 +9,7 @@ import { ProjectGallery } from '@/components/ProjectGallery';
 import { SampleBooks } from '@/components/SampleBooks';
 import { Showcase, type ShowcaseItem } from '@/components/Showcase';
 import { SocialLinks } from '@/components/SocialLinks';
-import { Container, SectionHeading, StatsBar } from '@/components/ui';
+import { Container, SectionHeading } from '@/components/ui';
 import { WhatsAppMessageBuilder } from '@/components/WhatsAppMessageBuilder';
 import { faqs } from '@/data/faq';
 import { brandCatalogs, processStages } from '@/data/catalog';
@@ -106,14 +106,6 @@ export default function HomePage() {
         Lantai Vinyl Higienis untuk Rumah Sakit dan Klinik | {siteConfig.name}
       </h1>
       <HeroSlider slides={heroSlides} />
-
-      <section aria-label="Pencapaian" className="relative z-10 -mt-10">
-        <Container>
-          <div className="rounded-2xl bg-background shadow-xl shadow-black/5">
-            <StatsBar />
-          </div>
-        </Container>
-      </section>
 
       {/* Keunggulan */}
       <section aria-labelledby="keunggulan" className="py-16 sm:py-24">

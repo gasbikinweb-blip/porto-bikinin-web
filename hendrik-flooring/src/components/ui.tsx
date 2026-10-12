@@ -1,5 +1,4 @@
 // Komponen tampilan kecil yang dipakai di banyak halaman (server component)
-import { stats } from '@/data/site';
 
 export function Container({
   children,
@@ -43,21 +42,5 @@ export function SectionHeading({
       </h2>
       {intro && <p className="mt-4 text-lg text-pretty text-muted">{intro}</p>}
     </div>
-  );
-}
-
-/** Angka pencapaian. Nilai kosong ditampilkan jujur sebagai "Data menyusul". */
-export function StatsBar() {
-  return (
-    <dl className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-3">
-      {stats.map((s) => (
-        <div key={s.label} className="bg-background p-6 text-center">
-          <dt className="text-sm text-muted">{s.label}</dt>
-          <dd className="mt-1 text-3xl font-bold text-accent-strong">
-            {s.value ?? <span className="text-base font-semibold text-muted">Data menyusul</span>}
-          </dd>
-        </div>
-      ))}
-    </dl>
   );
 }

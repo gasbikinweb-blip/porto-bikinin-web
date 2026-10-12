@@ -18,12 +18,12 @@ export function SampleBooks({ books }: { books: SampleBook[] }) {
     <>
       <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5" data-stagger>
         {books.map((b) => (
-          <li key={b.brand} className="reveal">
+          <li key={b.brand} className="reveal flex">
             <button
               type="button"
               aria-haspopup="dialog"
               onClick={(e) => modal.open(b, e.currentTarget)}
-              className="group block w-full overflow-hidden rounded-2xl border border-line bg-background text-left transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-black/10"
+              className="group flex w-full flex-col overflow-hidden rounded-2xl border border-line bg-background text-left transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-black/10"
             >
               <span className="relative block aspect-[3/4] overflow-hidden bg-surface-2">
                 <Image
@@ -37,10 +37,12 @@ export function SampleBooks({ books }: { books: SampleBook[] }) {
                   <PlusIcon />
                 </span>
               </span>
-              <span className="block p-3 sm:p-4">
+              <span className="block flex-1 p-3 sm:p-4">
                 <span className="block text-xs font-semibold text-accent uppercase">{b.type}</span>
                 <span className="mt-0.5 block font-bold">{b.brand}</span>
-                <span className="mt-0.5 block text-sm leading-snug text-muted">{b.lines}</span>
+                <span className="mt-0.5 line-clamp-2 min-h-[2.5em] text-sm leading-snug text-muted">
+                  {b.lines}
+                </span>
               </span>
             </button>
           </li>

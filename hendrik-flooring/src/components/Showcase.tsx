@@ -105,7 +105,7 @@ export function Showcase({
         {...modal.dialogProps}
         onKeyDown={trapTab}
         aria-labelledby={headingId}
-        className="showcase-dialog m-auto h-dvh max-h-none w-full max-w-none overflow-hidden bg-transparent p-0 sm:h-auto sm:max-h-[90dvh] sm:w-[min(94vw,68rem)] sm:rounded-3xl"
+        className="showcase-dialog m-auto h-dvh max-h-none w-full max-w-none overflow-hidden bg-transparent p-0 sm:h-[min(90dvh,48rem)] sm:max-h-none sm:w-[min(94vw,68rem)] sm:rounded-3xl"
       >
         {active && (
           <Poster key={active.id} item={active} headingId={headingId} onClose={modal.close} />
@@ -177,19 +177,31 @@ function Poster({
     label: null,
     image: item.image,
   });
+  // Mode lihat foto: teks disembunyikan agar fokus ke gambar
+  const viewing = bg.label !== null;
+  const reset = () => setBg({ label: null, image: item.image });
 
   return (
     <div className="relative isolate h-full text-white">
       <div className="absolute inset-0 -z-10 overflow-hidden bg-[#081416]">
-        <Image
-          key={bg.image.src}
-          src={bg.image.src}
-          alt={bg.image.alt}
-          fill
-          sizes="(min-width: 640px) 68rem, 100vw"
-          className="showcase-bg object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#081416]/95 via-[#081416]/75 to-[#081416]/40 sm:bg-gradient-to-r sm:from-[#081416]/95 sm:via-[#081416]/70 sm:to-transparent" />
+        {/* Saat melihat foto di HP: foto di area atas, panel pilihan di bawah (tidak menutupi) */}
+        <div
+          className={`absolute ${viewing ? 'inset-x-0 top-16 bottom-[25rem] sm:inset-0' : 'inset-0'}`}
+        >
+          <Image
+            key={bg.image.src}
+            src={bg.image.src}
+            alt={bg.image.alt}
+            fill
+            sizes="(min-width: 640px) 68rem, 100vw"
+            className={`showcase-bg ${viewing ? 'object-contain' : 'object-cover'}`}
+          />
+        </div>
+        {viewing ? (
+          <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-[#081416]/90 to-transparent" />
+        ) : (
+          <div className="absolute inset-0 bg-gradient-to-t from-[#081416]/95 via-[#081416]/75 to-[#081416]/40 sm:bg-gradient-to-r sm:from-[#081416]/95 sm:via-[#081416]/70 sm:to-transparent" />
+        )}
       </div>
 
       <button
@@ -203,8 +215,10 @@ function Poster({
       </button>
 
       <div className="no-scrollbar flex h-full max-h-dvh flex-col overflow-y-auto sm:max-h-[90dvh]">
-        <div className="flex-1 px-6 pt-20 pb-4 sm:px-10 sm:pt-6 lg:grid lg:grid-cols-[1.2fr_1fr] lg:items-end lg:gap-10">
-          <div>
+        <div
+          className={`flex-1 px-6 pt-20 pb-4 sm:px-10 sm:pt-6 ${viewing ? 'flex flex-col justify-end' : 'lg:grid lg:grid-cols-[1.2fr_1fr] lg:items-end lg:gap-10'}`}
+        >
+          <div className={viewing ? 'hidden' : ''}>
             <p className="showcase-in text-lg font-semibold text-[#9be3d8] italic" style={delay(0)}>
               {item.eyebrow}
             </p>
@@ -236,8 +250,10 @@ function Poster({
           </div>
 
           {/* Kolom kanan (desktop): panel kaca berisi ikon & gambar terkait */}
-          <div className="mt-6 lg:mt-0 lg:rounded-2xl lg:border lg:border-white/15 lg:bg-black/35 lg:p-5 lg:backdrop-blur-md">
-            {item.highlights && (
+          <div
+            className={`lg:mt-0 lg:rounded-2xl lg:border lg:border-white/15 lg:bg-black/35 lg:p-5 lg:backdrop-blur-md ${viewing ? 'w-full max-w-xl min-w-0 self-start rounded-2xl bg-black/50 p-4 backdrop-blur-md' : 'mt-6'}`}
+          >
+            {item.highlights && !viewing && (
               <ul className="grid max-w-xl grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-4 lg:gap-2">
                 {item.highlights.map((h, i) => (
                   <li
@@ -272,7 +288,7 @@ function Poster({
                         <button
                           type="button"
                           aria-pressed={selected}
-                          onClick={() => setBg(selected ? { label: null, image: item.image } : r)}
+                          onClick={() => (selected ? reset() : setBg(r))}
                           className="group block w-full text-center"
                         >
                           <span
@@ -296,13 +312,13 @@ function Poster({
                     );
                   })}
                 </ul>
-                {bg.label && (
+                {viewing && (
                   <button
                     type="button"
-                    onClick={() => setBg({ label: null, image: item.image })}
-                    className="mt-2 text-sm font-semibold text-white/80 underline underline-offset-4 hover:text-white"
+                    onClick={reset}
+                    className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-5 font-semibold text-foreground hover:bg-mint"
                   >
-                    Kembali ke foto awal
+                    ← Kembali ke penjelasan
                   </button>
                 )}
               </div>

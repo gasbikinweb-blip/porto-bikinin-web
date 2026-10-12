@@ -77,15 +77,6 @@ export const steps: Step[] = [
   },
 ];
 
-export type Stat = { label: string; value: string | null };
-
-// TODO: isi angka asli. Nilai null ditampilkan sebagai "Data menyusul", bukan angka karangan.
-export const stats: Stat[] = [
-  { label: 'Proyek fasilitas kesehatan', value: null },
-  { label: 'Meter persegi terpasang', value: null },
-  { label: 'Tahun pengalaman', value: null },
-];
-
 // Janji layanan singkat untuk bar bawah modal (gaya referensi 4). TODO: verifikasi, terutama garansi
 export const trustItems: { icon: IconName; label: string }[] = [
   { icon: 'ruler', label: 'Survei & ukur langsung' },
