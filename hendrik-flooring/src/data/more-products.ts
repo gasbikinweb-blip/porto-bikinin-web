@@ -94,14 +94,15 @@ export const extraProducts: ExtraProduct[] = [
       { icon: 'ruler', label: 'Cocok area luas' },
       { icon: 'team', label: 'Dipasang rapi' },
     ],
-    brands: ['Beyond Floor'], // TODO: konfirmasi merek karpet lain
+    // Merek karpet sesuai info klien (13 Okt 2026)
+    brands: ['King', 'Beyond', 'CNR', 'Classic'],
     image: getProject('karpet-roll-lobi-lift'),
     gallery: [
       { label: 'Lobi resepsionis', image: getProject('karpet-roll-lobi-resepsionis') },
       { label: 'Area tunggu', image: getProject('karpet-roll-area-tunggu') },
       { label: 'Ruang kerja', image: getProject('karpet-roll-biru-ruang-kerja') },
       {
-        label: 'Sampel Beyond Floor',
+        label: 'Sampel karpet',
         image: img(
           'sampel',
           'beyond-floor-karpet',
@@ -149,7 +150,7 @@ export const sampleBooks: SampleBook[] = [
       'Empat seri vinyl dalam satu merek, masing-masing dengan pilihan warna sendiri.',
       'Cocok dibandingkan langsung saat survei untuk memilih seri yang pas.',
     ],
-    type: 'Vinyl',
+    type: 'Vinyl Roll',
     image: img(
       'sampel',
       'armstrong-flooring',
@@ -165,7 +166,7 @@ export const sampleBooks: SampleBook[] = [
       'Vinyl lembaran (sheet).',
       'Sampul menyebut penggunaan di area pendidikan, apartemen, olahraga, dan komersial.',
     ],
-    type: 'Vinyl lembaran',
+    type: 'Vinyl Roll',
     image: img(
       'sampel',
       'lg-hausys-mini',
@@ -181,7 +182,7 @@ export const sampleBooks: SampleBook[] = [
       'Lima seri motif: polos (Origin, Victoria), terazo, marmer, dan kayu.',
       'Pilihan untuk ruangan yang ingin tampil lebih dekoratif.',
     ],
-    type: 'Vinyl',
+    type: 'Vinyl Roll',
     image: img(
       'sampel',
       'purva',
@@ -191,13 +192,13 @@ export const sampleBooks: SampleBook[] = [
     ),
   },
   {
-    brand: 'Beyond Floor',
-    lines: 'Karpet tile polypropylene',
+    brand: 'Karpet',
+    lines: 'King, Beyond, CNR, Classic',
     points: [
-      'Karpet bentuk tile (potongan) berbahan polypropylene.',
+      'Empat merek karpet dengan pilihan motif dan warna masing-masing.',
       'Untuk kantor, ruang rapat, dan area publik.',
     ],
-    type: 'Karpet',
+    type: 'Merek karpet',
     image: img(
       'sampel',
       'beyond-floor-karpet',
