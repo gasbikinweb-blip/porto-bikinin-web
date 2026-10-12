@@ -146,13 +146,13 @@ export const processStages: ProcessStage[] = [
   },
   {
     title: 'Las sambungan',
-    text: 'Sambungan antar lembaran dilas panas dengan kawat las yang warnanya disesuaikan agar rapat dan rapi.',
+    text: 'Sambungan antar lembaran dilas panas memakai batang las berbahan vinyl yang warnanya disesuaikan dengan lantai agar rapat dan rapi.',
     image: img(
       'proses',
       'pengelasan-sambungan-vinyl',
       1170,
       1119,
-      'Teknisi mengelas sambungan lantai vinyl dengan alat las panas, di samping gulungan kawat las berbagai warna',
+      'Teknisi mengelas sambungan lantai vinyl dengan alat las panas, di samping gulungan batang las vinyl berbagai warna',
     ),
   },
   {

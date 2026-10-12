@@ -58,7 +58,15 @@ export const products: Product[] = [
       { icon: 'clean', label: 'Mudah dipel' },
     ],
     brands: ['Marvel Decoflex'], // dari buku sampel Decoflex Heterogeneous Flooring
-    image: getProject('ilustrasi-klinik-gigi-hijau'),
+    // Foto sampul buku sampel Marvel Decoflex (vinyl heterogen asli)
+    image: {
+      src: '/img/sampel/marvel-decoflex.webp',
+      thumb: '/img/sampel/marvel-decoflex-thumb.webp',
+      alt: 'Buku sampel Marvel Decoflex Heterogeneous Flooring',
+      width: 1200,
+      height: 820,
+      kind: 'proyek',
+    },
   },
   {
     slug: 'vinyl-anti-slip',
