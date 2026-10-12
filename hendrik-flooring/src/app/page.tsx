@@ -285,12 +285,6 @@ export default function HomePage() {
                 <span>
                   <span className="block text-muted">WhatsApp / Telepon</span>
                   <span className="block text-lg font-semibold">{siteConfig.waDisplay}</span>
-                  <a
-                    href={siteConfig.phone2.href}
-                    className="block text-lg font-semibold hover:text-accent"
-                  >
-                    {siteConfig.phone2.display}
-                  </a>
                 </span>
               </li>
               <li className="flex gap-3">

@@ -50,8 +50,6 @@ export const siteConfig = {
     { name: 'Shopee', handle: 'hendrikflooring', href: 'https://shopee.co.id/hendrikflooring' },
   ],
   email: 'info@example.com', // TODO: email asli
-  // Nomor kedua (telepon/WA). Tombol WA tetap memakai waNumber di atas.
-  phone2: { display: '+62 851-9938-2258', href: 'tel:+6285199382258' },
   // Showroom/workshop Gading Serpong (BSD)
   address:
     'BSD Raya Utama, Ruko Mendrisio 2B, Jl. Boulevard Raya Gading Serpong No. 23, Cihuni, Kec. Pagedangan, Kab. Tangerang, Banten 15332',
