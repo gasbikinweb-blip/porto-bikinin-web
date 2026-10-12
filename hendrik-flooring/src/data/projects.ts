@@ -46,6 +46,18 @@ export const projects: Project[] = [
     height: 1200,
   },
   {
+    id: 'vinyl-heterogen-motif-kayu',
+    ...img('vinyl-heterogen-motif-kayu-ruang-luas'),
+    alt: 'Lantai vinyl roll heterogen motif kayu cokelat di ruangan luas dengan plint kayu di dinding',
+    facilityType: 'kantor', // TODO: verifikasi tipe fasilitas
+    roomType: 'ruang-kerja', // TODO: verifikasi
+    floorType: 'Vinyl roll heterogen motif kayu',
+    category: 'lantai',
+    kind: 'proyek',
+    width: 1170,
+    height: 1551,
+  },
+  {
     id: 'vinyl-pola-custom-ruang-terbuka',
     ...img('vinyl-pola-custom-ruang-terbuka'),
     alt: 'Lantai vinyl krem dengan pola gelombang biru muda yang dipotong custom di ruangan terbuka',
