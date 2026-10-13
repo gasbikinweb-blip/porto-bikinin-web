@@ -102,7 +102,17 @@ export const extraProducts: ExtraProduct[] = [
       { label: 'Area tunggu', image: getProject('karpet-roll-area-tunggu') },
       { label: 'Ruang kerja', image: getProject('karpet-roll-biru-ruang-kerja') },
       {
-        label: 'Sampel karpet',
+        label: 'Buku sampel karpet',
+        image: img(
+          'sampel',
+          'karpet-buku-sampel-merek',
+          1200,
+          1600,
+          'Tumpukan buku sampel karpet dari beberapa merek, termasuk Beyond Floor',
+        ),
+      },
+      {
+        label: 'Sampel Beyond',
         image: img(
           'sampel',
           'beyond-floor-karpet',
@@ -201,10 +211,10 @@ export const sampleBooks: SampleBook[] = [
     type: 'Merek karpet',
     image: img(
       'sampel',
-      'beyond-floor-karpet',
+      'karpet-buku-sampel-merek',
       1200,
       1600,
-      'Buku sampel karpet Beyond Floor dengan beberapa pilihan warna',
+      'Tumpukan buku sampel karpet dari beberapa merek, termasuk Beyond Floor',
     ),
   },
 ];
