@@ -92,7 +92,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               addressRegion: siteConfig.province,
               addressCountry: siteConfig.country,
             },
-            priceRange: 'Rp 900.000 - Rp 15.000.000',
             openingHoursSpecification: [
               {
                 '@type': 'OpeningHoursSpecification',
