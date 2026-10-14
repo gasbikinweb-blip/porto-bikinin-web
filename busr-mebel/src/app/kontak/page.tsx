@@ -125,7 +125,14 @@ export default function ContactPage() {
           {...external}
           className="rounded-full border border-line bg-surface px-6 py-2.5 text-xs font-medium transition-colors hover:border-accent"
         >
-          TikTok
+          TikTok: @busrmebel
+        </a>
+        <a
+          href={siteConfig.youtube}
+          {...external}
+          className="rounded-full border border-line bg-surface px-6 py-2.5 text-xs font-medium transition-colors hover:border-accent"
+        >
+          YouTube: Busr Mebel
         </a>
       </div>
     </section>

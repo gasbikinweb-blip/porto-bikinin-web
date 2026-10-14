@@ -212,7 +212,7 @@ export function RoomSelector({ rooms }: { rooms: Room[] }) {
               </div>
               <div className="rounded-xl bg-surface p-4">
                 <dt className="text-xs tracking-widest text-muted uppercase">Ukuran</dt>
-                <dd className="mt-1">{item.dimensions}</dd>
+                <dd className="mt-1">{item.dimensions ?? 'Custom, tanyakan via WhatsApp'}</dd>
               </div>
             </dl>
             <div

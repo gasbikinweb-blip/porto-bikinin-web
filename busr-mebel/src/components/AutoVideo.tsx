@@ -6,7 +6,7 @@ import { useEffect, useRef } from 'react';
 
 type Props = {
   src: string;
-  poster: string;
+  poster?: string;
   label: string;
   className?: string;
 };

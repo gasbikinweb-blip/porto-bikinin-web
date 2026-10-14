@@ -30,7 +30,8 @@ export interface Product {
   images: readonly [ProductImage, ...ProductImage[]];
   specs: {
     material: string;
-    dimensions: string;
+    /** Hanya diisi bila tertera di foto/data resmi; kosong = custom, tanya via WhatsApp */
+    dimensions?: string;
     colors: readonly string[];
   };
   /** Harga dalam Rupiah. Kosongkan untuk "Hubungi kami untuk penawaran" */
@@ -95,7 +96,6 @@ const products: readonly Product[] = [
     images: makeImages('rak-jati-bersiluet', 5, 'Rak Jati Bersiluet dengan Laci'),
     specs: {
       material: 'Kayu Jati Solid Pilihan, Rel Laci Besi Presisi',
-      dimensions: 'P 100 × L 45 × T 195 cm',
       colors: ["Teak Natural Melamine","Dark Teak Oil","Walnut"],
     },
     featured: true,
@@ -110,7 +110,6 @@ const products: readonly Product[] = [
     images: makeImages('set-meja-bundar', 5, 'Set Meja Kopi Bundar Bertingkat'),
     specs: {
       material: 'Kayu Jati Solid Grade A',
-      dimensions: 'D 85 / 60 cm × T 45 / 38 cm',
       colors: ["Natural Teak Polyurethane","Bleached Teak","Dark Brown"],
     },
     featured: true,
@@ -125,7 +124,7 @@ const products: readonly Product[] = [
     images: makeImages('kursi-makan-neva', 6, 'Kursi Makan Neva Curve'),
     specs: {
       material: 'Kayu Jati Solid Premium Finishing Satin',
-      dimensions: 'P 54 × L 52 × T 78 cm',
+      dimensions: 'P 58 × L 54 × T 83 cm (tinggi dudukan 46 cm)',
       colors: ["Natural Teak Doff","Walnut Smooth","Black Stained Teak"],
     },
     featured: true,
@@ -140,7 +139,7 @@ const products: readonly Product[] = [
     images: makeImages('barchair-jati-minimalis', 4, 'Kursi Bar Jati Modern Minimalis'),
     specs: {
       material: 'Kayu Jati Solid dengan Footrest Besi / Kayu',
-      dimensions: 'P 42 × L 44 × T 95 cm (Tinggi Dudukan 75 cm)',
+      dimensions: 'P 48 × L 52 × T 93 cm (tinggi dudukan 60 cm)',
       colors: ["Natural Matte","Dark Oak","Custom Stain"],
     },
     featured: false,
@@ -155,7 +154,6 @@ const products: readonly Product[] = [
     images: makeImages('kursi-santai-paduan-rangka-jati', 5, 'Kursi Santai Paduan Rangka Jati & Fabric'),
     specs: {
       material: 'Kayu Jati Solid, Busa High Density Foam, Fabric Linen Pelapis',
-      dimensions: 'P 72 × L 80 × T 75 cm',
       colors: ["Oatmeal Beige / Natural Teak","Charcoal Grey","Olive Green"],
     },
     featured: false,
@@ -170,7 +168,6 @@ const products: readonly Product[] = [
     images: makeImages('meja-kopi-stella-noir', 6, 'Meja Kopi Stella Noir Solid'),
     specs: {
       material: 'Kayu Jati Solid Finishing Dark Rustic Noir',
-      dimensions: 'P 120 × L 65 × T 40 cm',
       colors: ["Rustic Black","Dark Espresso Teak"],
     },
     featured: true,
@@ -185,7 +182,7 @@ const products: readonly Product[] = [
     images: makeImages('kursi-makan-viridian-emerald', 5, 'Kursi Makan Viridian Emerald Upholstered'),
     specs: {
       material: 'Kayu Jati Solid, Velvet Fabric Viridian Green, Busa Tebal',
-      dimensions: 'P 55 × L 58 × T 82 cm',
+      dimensions: 'P 47 × L 47 × T 80 cm (tinggi dudukan 48 cm)',
       colors: ["Emerald Green Velvet","Royal Navy","Sand Dune"],
     },
     featured: true,
@@ -200,7 +197,6 @@ const products: readonly Product[] = [
     images: makeImages('kursi-santai-anyaman-lipat-outdoor', 6, 'Kursi Santai Anyaman Lipat Outdoor'),
     specs: {
       material: 'Kayu Jati Pilihan Outdoor Grade, Anyaman Polyrope Weatherproof',
-      dimensions: 'P 62 × L 78 × T 74 cm',
       colors: ["Natural Teak / Tali Hitam","Natural Teak / Tali Khaki"],
     },
     featured: false,
@@ -215,7 +211,7 @@ const products: readonly Product[] = [
     images: makeImages('kursi-makan-aster', 5, 'Kursi Makan Aster Solid Wood'),
     specs: {
       material: 'Kayu Jati Solid Grade Perhutani',
-      dimensions: 'P 50 × L 52 × T 80 cm',
+      dimensions: 'P 45 × L 54 × T 80 cm (tinggi dudukan 45 cm)',
       colors: ["Natural Teak Doff","Medium Brown Lacquer"],
     },
     featured: false,
@@ -230,7 +226,7 @@ const products: readonly Product[] = [
     images: makeImages('kursi-makan-solenne-curve', 6, 'Kursi Makan Solenne Curve Velvet'),
     specs: {
       material: 'Struktur Kayu Jati / Plywood Tebal, Velvet Pelapis Mewah',
-      dimensions: 'P 58 × L 56 × T 76 cm',
+      dimensions: 'P 60 × L 55 × T 75 cm (tinggi dudukan 45 cm)',
       colors: ["Sage Velvet","Terracotta Velvet","Midnight Blue"],
     },
     featured: true,
@@ -245,7 +241,6 @@ const products: readonly Product[] = [
     images: makeImages('set-meja-makan-outdoor-anyaman-jati', 5, 'Set Meja Makan Outdoor Anyaman Jati'),
     specs: {
       material: 'Kayu Jati Outdoor Treatment, Anyaman Sintetis All-Weather',
-      dimensions: 'Meja: P 160 × L 90 × T 75 cm, Kursi: P 54 × L 56 × T 84 cm',
       colors: ["Natural Weather-Resistant Teak"],
     },
     featured: false,
@@ -260,7 +255,7 @@ const products: readonly Product[] = [
     images: makeImages('kursi-bar-jati-teak-counter-stool', 5, 'Kursi Bar Jati Teak Counter Stool'),
     specs: {
       material: 'Kayu Jati Solid Utuh',
-      dimensions: 'P 40 × L 40 × T 70 cm',
+      dimensions: 'P 45 × L 45 × T 93 cm (tinggi dudukan 65 cm)',
       colors: ["Natural Teak Finishing Lilin Alami","Dark Walnut"],
     },
     featured: false,
@@ -275,7 +270,6 @@ const products: readonly Product[] = [
     images: makeImages('set-kursi-santai-outdoor-jati', 6, 'Set Kursi Santai Outdoor Jati & Meja Teras'),
     specs: {
       material: 'Kayu Jati Solid Grade Outdoor',
-      dimensions: 'Kursi: P 68 × L 72 × T 70 cm, Meja: D 50 × T 45 cm',
       colors: ["Natural Teak Doff","Teak Oil Finish"],
     },
     featured: false,
@@ -290,7 +284,6 @@ const products: readonly Product[] = [
     images: makeImages('kursi-santai-lounge-chair-ottoman', 5, 'Kursi Santai Lounge Chair & Ottoman'),
     specs: {
       material: 'Rangka Kayu Jati Solid, Bantalan Busa Rebound & Fabric Lembut',
-      dimensions: 'Lounge: P 75 × L 85 × T 82 cm, Ottoman: P 60 × L 45 × T 40 cm',
       colors: ["Warm Grey Fabric","Cream Linen","Mustard Fabric"],
     },
     featured: true,
@@ -305,7 +298,6 @@ const products: readonly Product[] = [
     images: makeImages('dipan-tempat-tidur-jati-bedframe', 6, 'Dipan Tempat Tidur Jati Bedframe Minimalis'),
     specs: {
       material: 'Kayu Jati Solid Pilihan, Rangka Tulang Baja Penguat',
-      dimensions: 'P 200 × L 180 × T 90 cm (Ukuran Kasur King)',
       colors: ["Natural Teak Semi-Gloss","Walnut Smooth","Bleached Teak"],
     },
     featured: false,
@@ -320,7 +312,6 @@ const products: readonly Product[] = [
     images: makeImages('kursi-santai-anyaman-tali-jati', 5, 'Kursi Santai Anyaman Tali Jati'),
     specs: {
       material: 'Kayu Jati Solid, Anyaman Tali Tambang Sintetis Premium',
-      dimensions: 'P 64 × L 70 × T 72 cm',
       colors: ["Natural Teak / Tali Charcoal","Natural Teak / Tali Krem"],
     },
     featured: false,
@@ -335,7 +326,7 @@ const products: readonly Product[] = [
     images: makeImages('meja-kerja-jati-teak-desk', 5, 'Meja Kerja Jati Teak Desk Kantor'),
     specs: {
       material: 'Kayu Jati Solid Finishing Dark Teak Beveled',
-      dimensions: 'P 150 × L 75 × T 75 cm',
+      dimensions: 'P 150 × L 60 × T 75 cm',
       colors: ["Dark Teak Espresso","Natural Teak Matte","Classic Walnut"],
     },
     featured: true,
@@ -350,7 +341,6 @@ const products: readonly Product[] = [
     images: makeImages('armchair-klasik-eropa', 5, 'Armchair Klasik Eropa Ukir Jati'),
     specs: {
       material: 'Kayu Jati Solid Ukir Halus, Kain Pelapis Mewah, Busa Royal Foam',
-      dimensions: 'P 72 × L 75 × T 98 cm',
       colors: ["Natural Teak Ukir / Broken White Fabric","Gold Leaf Accents"],
     },
     featured: false,
@@ -365,7 +355,7 @@ const products: readonly Product[] = [
     images: makeImages('meja-makan-jati-peanut', 4, 'Meja Makan Jati Peanut Organic Shape'),
     specs: {
       material: 'Kayu Jati Solid Pilihan Sambungan Rapi',
-      dimensions: 'P 210 × L 105 × T 75 cm',
+      dimensions: 'P 165 × L 100 × T 75 cm',
       colors: ["Natural Teak Satin","Warm Honey Teak"],
     },
     featured: true,
@@ -380,7 +370,7 @@ const products: readonly Product[] = [
     images: makeImages('kursi-cantilever-chrome-bauhaus', 5, 'Kursi Cantilever Chrome Bauhaus'),
     specs: {
       material: 'Pipa Besi Tubular Chrome Tebal Anti-Karat, Velvet Upholstery Terracotta',
-      dimensions: 'P 52 × L 55 × T 79 cm',
+      dimensions: 'P 54 × L 56 × T 80 cm (tinggi dudukan 48 cm)',
       colors: ["Terracotta Orange Velvet","Mustard Velvet","Black Velvet"],
     },
     featured: true,
@@ -410,7 +400,6 @@ const products: readonly Product[] = [
     images: makeImages('kursi-makan-jati-geometris', 5, 'Kursi Makan Jati Geometris Minimal'),
     specs: {
       material: 'Kayu Jati Solid Grade Perhutani',
-      dimensions: 'P 48 × L 50 × T 82 cm',
       colors: ["Natural Doff","Dark Walnut"],
     },
     featured: false,
@@ -425,7 +414,7 @@ const products: readonly Product[] = [
     images: makeImages('bangku-santai-jati-bench', 5, 'Bangku Santai Jati Solid Bench'),
     specs: {
       material: 'Kayu Jati Solid Tebal Sambungan Presisi',
-      dimensions: 'P 150 × L 40 × T 45 cm',
+      dimensions: 'P 160 × L 48 × T 45 cm',
       colors: ["Natural Teak Doff","Smoked Teak"],
     },
     featured: false,
@@ -455,7 +444,6 @@ const products: readonly Product[] = [
     images: makeImages('tempat-tidur-jati-tailored-serenity', 5, 'Tempat Tidur Jati Tailored Serenity'),
     specs: {
       material: 'Kayu Jati Solid Grade A, Headboard Pelapis Natural Linen',
-      dimensions: 'P 205 × L 185 × T 100 cm',
       colors: ["Natural Teak & Sand Beige Linen","Walnut & Grey Linen"],
     },
     featured: true,
@@ -470,7 +458,7 @@ const products: readonly Product[] = [
     images: makeImages('kursi-geometris-rosso', 7, 'Kursi Geometris Rosso Terrazzo Art'),
     specs: {
       material: 'Kayu Jati Solid, Top Corak Terrazzo Motif Spesial',
-      dimensions: 'P 55 × L 45 × T 83 cm',
+      dimensions: 'P 55 × L 55 × T 83 cm',
       colors: ["Teak Natural & Rosso Red Terrazzo"],
     },
     featured: true,
@@ -485,7 +473,7 @@ const products: readonly Product[] = [
     images: makeImages('sofa-modular-aera-curve', 5, 'Sofa Modular Aera Curve Sectional'),
     specs: {
       material: 'Rangka Kayu Solid Internal, Busa High Resilient, Fabric Soft Texture',
-      dimensions: 'P 280 × L 210 × T 68 cm (Tinggi Dudukan 40 cm)',
+      dimensions: 'P 280 × L 210 × T 68 cm (tinggi dudukan 40 cm)',
       colors: ["Light Grey Heather","Warm Oat","Forest Green"],
     },
     featured: true,

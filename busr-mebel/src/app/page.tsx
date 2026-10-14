@@ -6,6 +6,7 @@ import { HeroSlider, type HeroSlide } from '@/components/HeroSlider';
 import { ArrowIcon, PlusIcon, WhatsAppIcon } from '@/components/icons';
 import { OrderSteps } from '@/components/OrderSteps';
 import { PieceGrid } from '@/components/PieceGrid';
+import { SocialReels } from '@/components/SocialReels';
 import { getAllProducts, getCategories, getProductBySlug, type Product } from '@/data/products';
 import { siteConfig } from '@/lib/config';
 import { buildWhatsAppLink, catalogQuoteMessage, generalMessage } from '@/lib/whatsapp';
@@ -380,6 +381,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <SocialReels />
 
       <OrderSteps />
 

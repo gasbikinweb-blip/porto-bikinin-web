@@ -85,6 +85,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             image: `${siteConfig.url}/products/meja-kerja-eksekutif-volo/og.jpg`,
             telephone: siteConfig.waDisplay,
             email: siteConfig.email,
+            sameAs: [siteConfig.instagram, siteConfig.tiktok, siteConfig.youtube],
             address: {
               '@type': 'PostalAddress',
               streetAddress: siteConfig.address,

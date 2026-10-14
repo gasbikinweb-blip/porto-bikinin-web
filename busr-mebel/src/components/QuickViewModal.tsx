@@ -187,7 +187,7 @@ export function QuickViewModal({ product, onClose }: Props) {
               </div>
               <div className="grid grid-cols-[6rem_1fr] gap-3 py-3">
                 <dt className="text-muted">Ukuran</dt>
-                <dd>{product.specs.dimensions}</dd>
+                <dd>{product.specs.dimensions ?? 'Custom, tanyakan via WhatsApp'}</dd>
               </div>
             </dl>
 

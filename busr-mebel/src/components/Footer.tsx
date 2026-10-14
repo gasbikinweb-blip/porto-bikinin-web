@@ -89,6 +89,16 @@ export function Footer() {
                 Instagram: @busrmebel
               </a>
             </li>
+            <li>
+              <a href={siteConfig.tiktok} {...external} className="hover:text-accent-strong transition-colors">
+                TikTok: @busrmebel
+              </a>
+            </li>
+            <li>
+              <a href={siteConfig.youtube} {...external} className="hover:text-accent-strong transition-colors">
+                YouTube: @busrmebel1904
+              </a>
+            </li>
             <li className="pt-1 text-xs leading-relaxed">
               <span>{siteConfig.address}</span>
               <div className="mt-1">

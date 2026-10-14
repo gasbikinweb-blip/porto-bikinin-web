@@ -29,7 +29,8 @@ export const siteConfig = {
   waDisplay: '0822-3180-7569',
   email: 'busrmebel@gmail.com',
   instagram: 'https://www.instagram.com/busrmebel', // Akun Instagram Busr Mebel
-  tiktok: 'https://www.tiktok.com/@busrmebel', // TODO: akun TikTok jika ada
+  tiktok: 'https://www.tiktok.com/@busrmebel',
+  youtube: 'https://www.youtube.com/@busrmebel1904',
   address: 'Jl. Ratu Kalinyamat, Tahunan, Kabupaten Jepara, Jawa Tengah 59421', // TODO: lengkapi nomor & RT/RW workshop
   city: 'Jepara',
   province: 'Jawa Tengah',

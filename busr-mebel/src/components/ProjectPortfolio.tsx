@@ -113,11 +113,12 @@ export function ProjectPortfolio({ projects }: Props) {
       </div>
 
       {/* Grid Portofolio */}
-      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div key={activeFilter} className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {filteredProjects.map((p, idx) => (
           <article
             key={p.id}
-            className="reveal group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-all duration-300 hover:border-accent/50 hover:shadow-xl hover:shadow-black/10"
+            style={{ '--delay': `${Math.min(idx, 8) * 70}ms` } as React.CSSProperties}
+            className="animate-card group relative flex flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-all duration-300 hover:border-accent/50 hover:shadow-xl hover:shadow-black/10"
           >
             {/* Foto Proyek */}
             <div className="relative aspect-[4/5] overflow-hidden bg-surface-2">

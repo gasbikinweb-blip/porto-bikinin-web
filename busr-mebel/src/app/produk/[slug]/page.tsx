@@ -61,7 +61,7 @@ export default async function ProductDetailPage({ params }: Props) {
 
   const specs = [
     { label: 'Material', value: product.specs.material },
-    { label: 'Dimensi (PxLxT)', value: product.specs.dimensions },
+    { label: 'Dimensi (PxLxT)', value: product.specs.dimensions ?? 'Custom, tanyakan via WhatsApp' },
     { label: 'Pilihan Warna / Kain', value: product.specs.colors.join(', ') },
     {
       label: 'Kustomisasi',

@@ -95,7 +95,7 @@ export type RoomItem = {
   description: string;
   image: { src: string; alt: string };
   material: string;
-  dimensions: string;
+  dimensions?: string;
 };
 
 export type Room = {
