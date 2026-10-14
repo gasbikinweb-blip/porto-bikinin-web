@@ -13,7 +13,7 @@ export function Footer() {
     <footer className="border-t border-line bg-surface">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:grid-cols-2 sm:px-6 lg:grid-cols-[1.4fr_1fr_1fr_1.4fr]">
         <div>
-          <Logo />
+          <Logo className="h-16" />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
             {siteConfig.tagline}. Wallpaper dinding, gorden, lantai SPC, dan kasa nyamuk magnet,
             lengkap dengan jasa ukur dan pasang.

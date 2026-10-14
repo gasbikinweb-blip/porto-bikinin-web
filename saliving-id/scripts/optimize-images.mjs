@@ -37,12 +37,36 @@ for await (const file of walk(SRC)) {
   const base = parts.pop().replace(/\.[^.]+$/, '');
   const target = path.join(OUT, ...parts, `${base}.webp`);
 
+  // Logo (putih di atas latar hitam) diubah menjadi "mask" PNG: putih + transparansi dari kecerahan.
+  // Di website dipakai sebagai CSS mask sehingga warnanya mengikuti tema (terang/gelap).
+  if (parts[0] === 'brand') {
+    const mask = path.join(OUT, ...parts, `${base}-mask.png`);
+    if (!(await isFresh(file, mask))) {
+      await mkdir(path.dirname(mask), { recursive: true });
+      const { data, info } = await sharp(file)
+        .grayscale()
+        .trim({ threshold: 30 })
+        .resize({ height: 240 })
+        .raw()
+        .toBuffer({ resolveWithObject: true });
+      await sharp({
+        create: { width: info.width, height: info.height, channels: 3, background: '#fff' },
+      })
+        .joinChannel(data, { raw: { width: info.width, height: info.height, channels: 1 } })
+        .png({ compressionLevel: 9 })
+        .toFile(mask);
+      count++;
+      console.log(`✓ ${rel} -> ${mask} (${info.width}×${info.height})`);
+    }
+    continue;
+  }
+
   if (!(await isFresh(file, target))) {
     await mkdir(path.dirname(target), { recursive: true });
     await sharp(file)
       .rotate()
       // Logo cukup kecil; foto produk maksimal MAX_WIDTH
-      .resize({ width: parts[0] === 'brand' ? 256 : MAX_WIDTH, withoutEnlargement: true })
+      .resize({ width: MAX_WIDTH, withoutEnlargement: true })
       .webp({ quality: 78 })
       .toFile(target);
     count++;

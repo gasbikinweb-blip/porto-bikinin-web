@@ -185,10 +185,8 @@ export default function HomePage() {
               <span aria-hidden="true" className="hidden h-px w-16 bg-line lg:block" />
               <span
                 aria-hidden="true"
-                className="font-serif text-4xl leading-none font-semibold text-accent italic"
-              >
-                SA
-              </span>
+                className="block aspect-[285/240] h-14 shrink-0 bg-accent [mask-image:url(/brand/logo-mask.png)] [mask-position:center] [mask-repeat:no-repeat] [mask-size:contain]"
+              />
               <p className="max-w-md font-serif text-xl leading-snug sm:text-2xl">
                 Satu toko untuk dinding, jendela, dan lantai rumah Anda.
               </p>

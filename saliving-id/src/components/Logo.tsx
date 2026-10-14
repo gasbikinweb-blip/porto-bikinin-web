@@ -1,12 +1,15 @@
 import Link from 'next/link';
 import { siteConfig } from '@/lib/config';
 
-// Wordmark teks (belum ada file logo resmi). TODO: ganti dengan logo asli SA Living bila tersedia
-export function Logo({ className = '' }: { className?: string }) {
+// Logo resmi SA Living dipakai sebagai CSS mask (public/brand/logo-mask.png),
+// sehingga warnanya mengikuti token --foreground di mode terang maupun gelap.
+export function Logo({ className = 'h-12 sm:h-14' }: { className?: string }) {
   return (
-    <Link href="/" className={`group flex items-baseline gap-1.5 leading-none ${className}`}>
-      <span className="font-serif text-2xl font-semibold tracking-tight sm:text-[1.7rem]">SA</span>
-      <span className="font-serif text-2xl italic text-accent sm:text-[1.7rem]">living</span>
+    <Link href="/" className="inline-flex shrink-0 items-center">
+      <span
+        aria-hidden="true"
+        className={`block aspect-[285/240] bg-foreground [mask-image:url(/brand/logo-mask.png)] [mask-size:contain] [mask-repeat:no-repeat] [mask-position:center] ${className}`}
+      />
       <span className="sr-only">{siteConfig.name}, ke beranda</span>
     </Link>
   );
