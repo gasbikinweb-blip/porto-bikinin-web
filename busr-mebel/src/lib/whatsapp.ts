@@ -14,9 +14,6 @@ export const catalogQuoteMessage = `Halo ${siteConfig.name}, saya ingin meminta 
 export type ProductInquiry = {
   slug: string;
   name: string;
-  material?: string;
-  dimensions?: string;
-  colors?: readonly string[];
   price?: number;
 };
 
@@ -32,12 +29,9 @@ export function productMessage(p: ProductInquiry): string {
     `Halo ${siteConfig.name}, saya tertarik dengan produk berikut:`,
     '',
     `• Produk   : ${p.name}`,
-    p.material && `• Material : ${p.material}`,
-    p.dimensions && `• Ukuran   : ${p.dimensions}`,
-    p.colors?.length && `• Pilihan  : ${p.colors.join(', ')}`,
     p.price !== undefined && `• Estimasi : ${formatPrice(p.price)}`,
     '',
-    'Mohon info ketersediaan stok, opsi custom, serta estimasi ongkos kirim. Terima kasih.',
+    'Mohon info harga, ukuran, ketersediaan stok, dan opsi custom. Terima kasih.',
     '',
     productUrl(p.slug),
   ];

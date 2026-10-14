@@ -177,37 +177,6 @@ export function QuickViewModal({ product, onClose }: Props) {
               {product.description}
             </p>
 
-            <dl
-              className="animate-rise mt-6 divide-y divide-line border-y border-line text-sm"
-              style={{ '--delay': '320ms' } as React.CSSProperties}
-            >
-              <div className="grid grid-cols-[6rem_1fr] gap-3 py-3">
-                <dt className="text-muted">Material</dt>
-                <dd>{product.specs.material}</dd>
-              </div>
-              <div className="grid grid-cols-[6rem_1fr] gap-3 py-3">
-                <dt className="text-muted">Ukuran</dt>
-                <dd>{product.specs.dimensions ?? 'Custom, tanyakan via WhatsApp'}</dd>
-              </div>
-            </dl>
-
-            {product.specs.colors.length > 0 && (
-              <div className="animate-rise mt-5" style={{ '--delay': '380ms' } as React.CSSProperties}>
-                <p className="text-xs font-semibold tracking-wider text-muted uppercase">
-                  Pilihan finishing
-                </p>
-                <ul className="mt-2 flex flex-wrap gap-2">
-                  {product.specs.colors.map((c) => (
-                    <li
-                      key={c}
-                      className="rounded-full border border-line bg-surface px-3 py-1 text-xs"
-                    >
-                      {c}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
 
             <div
               className="animate-rise mt-8 flex flex-col gap-3 sm:flex-row md:mt-auto md:pt-8"
@@ -218,9 +187,6 @@ export function QuickViewModal({ product, onClose }: Props) {
                   productMessage({
                     slug: product.slug,
                     name: product.name,
-                    material: product.specs.material,
-                    dimensions: product.specs.dimensions,
-                    colors: product.specs.colors,
                     price: product.price,
                   }),
                 )}

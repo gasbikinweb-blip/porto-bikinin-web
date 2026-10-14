@@ -202,19 +202,6 @@ export function RoomSelector({ rooms }: { rooms: Room[] }) {
 
           <div key={`detail-${item.slug}`} className="mt-8 border-t border-line pt-6">
             <p className="animate-rise leading-relaxed text-foreground/85">{item.description}</p>
-            <dl
-              className="animate-rise mt-5 grid gap-3 text-sm sm:grid-cols-2"
-              style={{ '--delay': '80ms' } as React.CSSProperties}
-            >
-              <div className="rounded-xl bg-surface p-4">
-                <dt className="text-xs tracking-widest text-muted uppercase">Bahan</dt>
-                <dd className="mt-1">{item.material}</dd>
-              </div>
-              <div className="rounded-xl bg-surface p-4">
-                <dt className="text-xs tracking-widest text-muted uppercase">Ukuran</dt>
-                <dd className="mt-1">{item.dimensions ?? 'Custom, tanyakan via WhatsApp'}</dd>
-              </div>
-            </dl>
             <div
               className="animate-rise mt-6 flex flex-col gap-3 sm:flex-row"
               style={{ '--delay': '160ms' } as React.CSSProperties}

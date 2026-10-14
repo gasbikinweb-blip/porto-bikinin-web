@@ -5,7 +5,6 @@ import { JsonLd } from '@/components/JsonLd';
 import { ProductCard } from '@/components/ProductCard';
 import { ProductGallery } from '@/components/ProductGallery';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
-import { CheckIcon } from '@/components/icons';
 import { getAllProducts, getCategory, getProductBySlug } from '@/data/products';
 import { siteConfig } from '@/lib/config';
 import { formatPrice } from '@/lib/format';
@@ -59,17 +58,6 @@ export default async function ProductDetailPage({ params }: Props) {
     )
     .slice(0, 4);
 
-  const specs = [
-    { label: 'Material', value: product.specs.material },
-    { label: 'Dimensi (PxLxT)', value: product.specs.dimensions ?? 'Custom, tanyakan via WhatsApp' },
-    { label: 'Pilihan Warna / Kain', value: product.specs.colors.join(', ') },
-    {
-      label: 'Kustomisasi',
-      value: product.isCustomizable
-        ? 'Tersedia Custom Dimensi, Finishing HPL/Kayu & Kain'
-        : 'Ukuran & Model Standar',
-    },
-  ];
 
   return (
     <>
@@ -80,7 +68,6 @@ export default async function ProductDetailPage({ params }: Props) {
           name: product.name,
           description: product.description,
           category: category.name,
-          material: product.specs.material,
           image: product.images.map((img) => new URL(img.src, siteConfig.url).href),
           brand: { '@type': 'Brand', name: siteConfig.name },
           ...(product.price !== undefined && {
@@ -131,30 +118,11 @@ export default async function ProductDetailPage({ params }: Props) {
               {product.description}
             </p>
 
-            <h2 className="mt-10 font-serif text-2xl text-foreground font-medium">Spesifikasi Detail</h2>
-            <dl className="mt-4 divide-y divide-line border-y border-line">
-              {specs.map((s) => (
-                <div key={s.label} className="grid grid-cols-3 gap-4 py-4 text-sm">
-                  <dt className="text-muted">{s.label}</dt>
-                  <dd className="col-span-2 text-foreground font-medium">{s.value}</dd>
-                </div>
-              ))}
-            </dl>
 
-            <div className="mt-8 rounded-2xl bg-surface p-4 border border-line text-xs text-muted space-y-2">
-              <div className="flex items-center gap-2 text-foreground/90 font-medium">
-                <CheckIcon className="size-4 text-accent" />
-                <span>Pengiriman terproteksi packing kayu & asuransi ke seluruh Indonesia</span>
-              </div>
-              <div className="flex items-center gap-2 text-foreground/90 font-medium">
-                <CheckIcon className="size-4 text-accent" />
-                <span>Bebas konsultasi ukuran dan opsi finishing sebelum proses pengerjaan</span>
-              </div>
-            </div>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <WhatsAppButton
-                message={productMessage({ ...product, ...product.specs })}
+                message={productMessage(product)}
                 className="sm:flex-1 py-4 text-sm"
               >
                 Pesan via WhatsApp

@@ -94,8 +94,6 @@ export type RoomItem = {
   category: string;
   description: string;
   image: { src: string; alt: string };
-  material: string;
-  dimensions?: string;
 };
 
 export type Room = {
@@ -126,8 +124,6 @@ export function getRooms(): Room[] {
             category: getCategory(p.category).name,
             description: p.description,
             image: p.images[0],
-            material: p.specs.material,
-            dimensions: p.specs.dimensions,
           },
         ];
       }),

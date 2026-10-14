@@ -68,8 +68,6 @@ export function ProductCard({
               productMessage({
                 slug: product.slug,
                 name: product.name,
-                material: product.specs.material,
-                dimensions: product.specs.dimensions,
                 price: product.price,
               }),
             )}
