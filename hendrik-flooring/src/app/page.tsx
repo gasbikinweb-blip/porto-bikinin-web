@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { BrandCatalog } from '@/components/BrandCatalog';
 import { HeroSlider, type HeroSlide } from '@/components/HeroSlider';
 import { FaqList, FeatureGrid, ProcessSteps } from '@/components/cards';
-import { PinIcon, WhatsAppIcon } from '@/components/icons';
+import { FeatureIcon, PinIcon, WhatsAppIcon } from '@/components/icons';
 import { JsonLd } from '@/components/JsonLd';
 import { ProjectGallery } from '@/components/ProjectGallery';
 import { SampleBooks } from '@/components/SampleBooks';
@@ -18,7 +18,7 @@ import { products } from '@/data/products';
 import { getProject, projects } from '@/data/projects';
 import { solutions } from '@/data/solutions';
 import { roomLabels } from '@/data/types';
-import { mapsUrl, siteConfig } from '@/lib/config';
+import { mapsEmbedUrl, mapsUrl, siteConfig } from '@/lib/config';
 import { productMessage } from '@/lib/whatsapp';
 
 // Slide hero: tiap slide punya foto & pesan berbeda
@@ -267,64 +267,98 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Kontak + pembuat pesan WhatsApp */}
+      {/* Kontak: info + pembuat pesan WhatsApp, lalu peta lokasi */}
       <section
         id="kontak"
         aria-labelledby="kontak-judul"
         className="scroll-mt-20 bg-surface py-16 sm:py-24"
       >
-        <Container className="grid gap-10 lg:grid-cols-[1fr_1.25fr]">
-          <div>
-            <SectionHeading
-              id="kontak-judul"
-              eyebrow="Kontak"
-              title="Minta survei dan penawaran"
-              intro="Cara tercepat adalah lewat WhatsApp. Atau susun pesan otomatis di samping."
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-14">
+            <div className="flex flex-col">
+              <div className="reveal reveal-left">
+                <span className="inline-flex items-center gap-2 rounded-full border border-line bg-background px-3 py-1.5 text-sm font-semibold">
+                  <WhatsAppIcon className="size-4 text-wa" />
+                  Hubungi kami
+                </span>
+                <h2
+                  id="kontak-judul"
+                  className="mt-4 text-4xl font-bold tracking-tight text-balance sm:text-5xl"
+                >
+                  Minta survei dan penawaran
+                </h2>
+                <p className="mt-4 max-w-md text-lg text-muted">
+                  Cara tercepat lewat WhatsApp. Isi pilihan di samping, pesan akan tersusun
+                  otomatis.
+                </p>
+              </div>
+
+              <ul className="reveal mt-10 space-y-6 lg:mt-auto lg:pt-10">
+                <li className="flex gap-4">
+                  <span className="grid size-11 shrink-0 place-items-center rounded-full bg-background shadow-sm">
+                    <PinIcon className="size-5 text-accent" />
+                  </span>
+                  <span>
+                    <span className="block font-bold">Showroom & workshop</span>
+                    <address className="text-muted not-italic">{siteConfig.address}</address>
+                    <a
+                      href={mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-1 inline-block text-sm font-semibold text-accent underline underline-offset-4"
+                    >
+                      Buka di Google Maps<span className="sr-only"> (tab baru)</span>
+                    </a>
+                  </span>
+                </li>
+                <li className="flex gap-4">
+                  <span className="grid size-11 shrink-0 place-items-center rounded-full bg-background shadow-sm">
+                    <WhatsAppIcon className="size-5 text-wa" />
+                  </span>
+                  <span>
+                    <span className="block font-bold">WhatsApp / Telepon</span>
+                    <span className="text-muted">{siteConfig.waDisplay}</span>
+                  </span>
+                </li>
+                <li className="flex gap-4">
+                  <span className="grid size-11 shrink-0 place-items-center rounded-full bg-background shadow-sm">
+                    <FeatureIcon name="clock" className="size-5 text-accent" />
+                  </span>
+                  <span>
+                    <span className="block font-bold">Jam operasional</span>
+                    {siteConfig.hours.map((h) => (
+                      <span key={h.day} className="block text-muted">
+                        {h.day}: {h.time}
+                      </span>
+                    ))}
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div className="reveal">
+              <WhatsAppMessageBuilder />
+            </div>
+          </div>
+
+          {/* Peta lokasi (iframe Google Maps, dimuat lazy) */}
+          <div className="reveal mt-12 overflow-hidden rounded-3xl border border-line bg-background shadow-sm">
+            <iframe
+              src={mapsEmbedUrl}
+              title={`Peta lokasi ${siteConfig.name}`}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="block h-[22rem] w-full sm:h-[28rem] lg:h-[32rem]"
+              allowFullScreen
             />
-            <ul className="mt-8 space-y-5">
-              <li className="flex gap-3">
-                <WhatsAppIcon className="mt-0.5 size-6 shrink-0 text-wa" />
-                <span>
-                  <span className="block text-muted">WhatsApp / Telepon</span>
-                  <span className="block text-lg font-semibold">{siteConfig.waDisplay}</span>
-                </span>
-              </li>
-              <li className="flex gap-3">
-                <PinIcon className="mt-0.5 size-6 shrink-0 text-accent" />
-                <span>
-                  <span className="block text-muted">Alamat</span>
-                  <address className="text-lg font-semibold not-italic">
-                    {siteConfig.address}
-                  </address>
-                  <a
-                    href={mapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-accent underline underline-offset-4"
-                  >
-                    Buka di Google Maps<span className="sr-only"> (tab baru)</span>
-                  </a>
-                </span>
-              </li>
-            </ul>
-            <dl className="mt-8 divide-y divide-line rounded-2xl border border-line bg-background">
-              {siteConfig.hours.map((h) => (
-                <div key={h.day} className="flex justify-between gap-4 px-4 py-3">
-                  <dt>{h.day}</dt>
-                  <dd className="font-semibold">{h.time}</dd>
-                </div>
-              ))}
-            </dl>
-            <p className="mt-4 text-muted">
+          </div>
+
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-muted">
               <span className="font-semibold text-foreground">Area layanan: </span>
               {siteConfig.serviceAreas.join(', ')}
             </p>
-            <p className="mt-8 font-bold">Ikuti & belanja kami</p>
-            <div className="mt-3">
-              <SocialLinks />
-            </div>
+            <SocialLinks />
           </div>
-          <WhatsAppMessageBuilder />
         </Container>
       </section>
 

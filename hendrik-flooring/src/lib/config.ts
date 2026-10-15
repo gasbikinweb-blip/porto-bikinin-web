@@ -68,5 +68,10 @@ export const siteConfig = {
   serviceAreas: ['BSD & Gading Serpong', 'Tangerang Raya', 'Jabodetabek', 'Luar kota by request'],
 } as const;
 
-/** Link keluar ke Google Maps (bukan iframe embed, sesuai kebijakan CSP) */
+/** Link keluar ke Google Maps */
 export const mapsUrl = 'https://share.google/Zbr8JjHXUiRYhKJl4';
+
+/** Peta tersemat (tanpa API key). Domain google.com diizinkan di frame-src CSP */
+export const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(
+  'Hendrik Flooring, Ruko Mendrisio 2B, Jl. Boulevard Raya Gading Serpong No. 23, Pagedangan, Tangerang',
+)}&output=embed`;
