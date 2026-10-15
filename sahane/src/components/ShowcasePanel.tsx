@@ -82,7 +82,7 @@ export function ShowcasePanel({ id, title, listTitle, items, ctaLabel, reverse =
           <h2 id={id} className="font-serif text-xl font-semibold sm:text-2xl">
             {title}
           </h2>
-          <span className="rounded-full bg-white/10 px-3 py-1.5 font-mono text-[11px] tracking-wider text-white/80 uppercase">
+          <span className="shrink-0 rounded-full bg-white/10 px-3 py-1.5 font-mono whitespace-nowrap text-[11px] tracking-wider text-white/80 uppercase">
             {items.length} item
           </span>
         </div>
@@ -93,7 +93,7 @@ export function ShowcasePanel({ id, title, listTitle, items, ctaLabel, reverse =
           {/* Kartu utama */}
           <div
             ref={featured}
-            className={`${reverse ? 'lg:order-2' : ''} relative isolate flex min-h-[520px] scroll-mt-24 flex-col justify-between overflow-hidden rounded-[1.4rem] p-5 sm:min-h-[600px] sm:p-7`}
+            className={`${reverse ? 'lg:order-2' : ''} relative isolate flex min-w-0 min-h-[520px] scroll-mt-24 flex-col justify-between overflow-hidden rounded-[1.4rem] p-5 sm:min-h-[600px] sm:p-7`}
           >
             <Image
               key={item.id}
@@ -139,8 +139,8 @@ export function ShowcasePanel({ id, title, listTitle, items, ctaLabel, reverse =
             </div>
           </div>
 
-          {/* Daftar */}
-          <div>
+          {/* Daftar (min-w-0: kolom grid boleh menyusut, teks panjang terpotong rapi) */}
+          <div className="min-w-0">
             <h3 className="px-2 pb-3 text-sm font-semibold text-white/90">{listTitle}</h3>
             <ul className="no-scrollbar space-y-2.5 lg:max-h-[600px] lg:overflow-y-auto">
               {items.map((it, i) => (
@@ -149,21 +149,22 @@ export function ShowcasePanel({ id, title, listTitle, items, ctaLabel, reverse =
                     type="button"
                     onClick={() => select(i)}
                     aria-pressed={i === active}
-                    className="group flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.06] p-2.5 text-left transition-colors hover:bg-white/[0.12] aria-pressed:border-white/35 aria-pressed:bg-white/[0.16]"
+                    className="group flex w-full min-w-0 items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.06] p-2.5 text-left transition-colors hover:bg-white/[0.12] aria-pressed:border-white/35 aria-pressed:bg-white/[0.16]"
                   >
-                    <span className="relative size-[4.5rem] shrink-0 overflow-hidden rounded-xl">
+                    <span className="relative size-16 shrink-0 sm:size-[4.5rem] overflow-hidden rounded-xl">
                       <Image src={it.image.src} alt="" fill sizes="72px" className="object-cover" />
                     </span>
                     <span className="min-w-0 flex-1">
                       <span className="block truncate text-[15px] font-semibold">{it.title}</span>
                       <span className="block truncate text-xs text-white/75">{it.subtitle}</span>
-                      <span className="mt-1.5 flex items-center gap-1 truncate text-xs text-white/70">
-                        <PinIcon /> {it.meta}
+                      <span className="mt-1.5 flex min-w-0 items-center gap-1 text-xs text-white/70">
+                        <PinIcon className="size-3.5 shrink-0" />
+                        <span className="truncate">{it.meta}</span>
                       </span>
                     </span>
                     <span
                       aria-hidden="true"
-                      className="grid size-10 shrink-0 place-items-center rounded-xl border border-white/15 text-white/80 transition-colors group-aria-pressed:bg-white group-aria-pressed:text-[#2f2620]"
+                      className="grid size-9 shrink-0 place-items-center rounded-xl sm:size-10 border border-white/15 text-white/80 transition-colors group-aria-pressed:bg-white group-aria-pressed:text-[#2f2620]"
                     >
                       →
                     </span>
