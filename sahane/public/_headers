@@ -1,0 +1,16 @@
+# Security headers untuk Netlify / Cloudflare Pages (Vercel: lihat vercel.json)
+# 'unsafe-inline' di script-src diperlukan karena Next.js static export menyisipkan inline script
+# untuk hydration (lihat README). Tidak ada script pihak ketiga yang diizinkan.
+# form-action 'none': website ini tidak punya form yang mengirim data.
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=(), browsing-topics=()
+  Cross-Origin-Opener-Policy: same-origin
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+# Aset statis ber-hash boleh di-cache lama
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable

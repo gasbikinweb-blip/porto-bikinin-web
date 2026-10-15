@@ -1,0 +1,163 @@
+@import 'tailwindcss';
+
+/*
+ * Palet Sahane.id: krem, beige, cokelat muda, putih tulang, dan cokelat tua untuk teks.
+ * Mode terang (default) di :root, mode gelap di [data-theme='dark'] (lihat public/theme-init.js).
+ * Kontras teks utama & muted sudah dicek ≥ 4.5:1 terhadap --background dan --surface.
+ * Kelas .theme-dark memaksa palet gelap di area tertentu (teks di atas foto).
+ */
+:root {
+  color-scheme: light;
+  --background: #f8f4ee; /* putih tulang */
+  --surface: #efe7dc; /* krem */
+  --surface-2: #e4d7c6; /* beige */
+  --foreground: #2f2620; /* cokelat tua */
+  --muted: #6b5b4e;
+  --accent: #8a5b3d; /* cokelat susu */
+  --accent-strong: #6e4529;
+  --blush: #e9d3c8; /* salem pucat, dekoratif saja */
+  --line: rgb(47 38 32 / 0.12);
+}
+
+:root[data-theme='dark'],
+.theme-dark {
+  color-scheme: dark;
+  --background: #1d1814;
+  --surface: #26201b;
+  --surface-2: #322a23;
+  --foreground: #f4ede4;
+  --muted: #c2b3a3;
+  --accent: #d9b08f;
+  --accent-strong: #ecc7a8;
+  --blush: #4a3a33;
+  --line: rgb(244 237 228 / 0.14);
+}
+
+.theme-dark {
+  color: var(--foreground);
+}
+
+/* Transisi halus saat ganti tema (hanya warna) */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition:
+    background-color 0.4s ease,
+    border-color 0.4s ease,
+    color 0.4s ease !important;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-blush: var(--blush);
+  --color-line: var(--line);
+  --font-sans: var(--font-geist);
+  /* Heading memakai Geist juga (kelas font-serif dipertahankan sebagai penanda heading) */
+  --font-serif: var(--font-geist);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Anchor tidak tertutup header sticky */
+[id] {
+  scroll-margin-top: 6rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--background);
+}
+
+/* Heading: rapat & tegas */
+.font-serif {
+  letter-spacing: -0.03em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Sembunyikan scrollbar pada baris yang bisa digeser (slider kategori di HP) */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- Animasi: hanya fade halus ---------- */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Saat halaman dibuka (hero) */
+.animate-in {
+  animation: fade-up 0.9s ease-out both;
+  animation-delay: var(--delay, 0ms);
+}
+
+.animate-fade {
+  animation: fade 0.35s ease-out both;
+}
+
+/* Muncul saat di-scroll (dipicu RevealObserver); anak [data-stagger] bergiliran */
+.reveal-ready .reveal:not(.is-visible) {
+  opacity: 0;
+}
+.reveal.is-visible {
+  animation: fade-up 0.8s ease-out var(--reveal-delay, 0ms) backwards;
+}
+
+/* Hormati pengguna yang meminta gerakan minimal */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Latar titik halus pada hero (tanpa gambar, cukup gradient) */
+.hero-dots {
+  background-color: var(--surface);
+  background-image: radial-gradient(rgb(47 38 32 / 0.09) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+:root[data-theme='dark'] .hero-dots {
+  background-image: radial-gradient(rgb(244 237 228 / 0.08) 1px, transparent 1px);
+}
