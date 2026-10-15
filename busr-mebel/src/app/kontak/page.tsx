@@ -69,16 +69,15 @@ export default function ContactPage() {
               {siteConfig.address}
             </address>
             <p className="mt-2 text-[11px] text-accent">
-              Kunjungan workshop dengan janji temu terlebih dahulu.
+              Lokasi showroom & workshop dibagikan via WhatsApp. Kunjungan dengan janji temu.
             </p>
           </div>
-          {/* Peta hanya link keluar, tanpa iframe */}
           <a
-            href={siteConfig.mapsUrl}
+            href={buildWhatsAppLink(`Halo ${siteConfig.name}, boleh minta lokasi showroom/workshop untuk kunjungan? Terima kasih.`)}
             {...external}
             className="mt-6 inline-flex w-full items-center justify-center gap-1.5 rounded-full border border-line bg-surface-2 px-4 py-3 text-xs font-semibold text-foreground hover:border-accent transition-colors"
           >
-            Buka di Google Maps <ArrowIcon className="size-3" />
+            Minta Lokasi via WhatsApp <ArrowIcon className="size-3" />
           </a>
         </div>
 

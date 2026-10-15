@@ -31,11 +31,11 @@ export const siteConfig = {
   instagram: 'https://www.instagram.com/busrmebel', // Akun Instagram Busr Mebel
   tiktok: 'https://www.tiktok.com/@busrmebel',
   youtube: 'https://www.youtube.com/@busrmebel1904',
-  address: 'Jl. Ratu Kalinyamat, Tahunan, Kabupaten Jepara, Jawa Tengah 59421', // TODO: lengkapi nomor & RT/RW workshop
+  // Alamat lengkap belum dicantumkan; lokasi showroom dibagikan via WhatsApp
+  address: 'Jepara, Jawa Tengah',
   city: 'Jepara',
   province: 'Jawa Tengah',
   country: 'Indonesia',
-  mapsUrl: 'https://maps.google.com/?q=Tahunan,+Kabupaten+Jepara,+Jawa+Tengah',
   shippingCoverage: 'Melayani Pengiriman & Perakitan ke Seluruh Wilayah Indonesia (Jabodetabek, Jawa, Bali, Sumatera, Kalimantan, Sulawesi, dll.)',
   establishedYear: 2018, // TODO: tahun berdiri perusahaan
   catalogPdfUrl: '/katalog-busr-mebel.pdf',

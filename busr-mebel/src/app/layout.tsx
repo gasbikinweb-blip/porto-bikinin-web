@@ -88,7 +88,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             sameAs: [siteConfig.instagram, siteConfig.tiktok, siteConfig.youtube],
             address: {
               '@type': 'PostalAddress',
-              streetAddress: siteConfig.address,
               addressLocality: siteConfig.city,
               addressRegion: siteConfig.province,
               addressCountry: siteConfig.country,
