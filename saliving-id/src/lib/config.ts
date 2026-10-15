@@ -29,7 +29,8 @@ export const siteConfig = {
   tagline: 'Gorden, Wallpaper Batam',
   description:
     'SA Living Batam: wallpaper dinding, gorden blackout & vitrase, lantai SPC, dan kasa nyamuk magnet. Gratis ukur & konsultasi, dipasang rapi oleh tim kami.',
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://saliving.id',
+  // TODO: ganti ke https://saliving.id saat domain sudah aktif
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://porto-saliving-id.vercel.app',
   waNumber,
   waDisplay: '0813 7722 8802', // TODO: verifikasi
   waExtra: extraNumbers.map((display) => ({ display, number: normalizeWaNumber(display)! })),
