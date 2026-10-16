@@ -2,7 +2,7 @@ import { site } from '@/data/site';
 import { generalMessage } from '@/lib/whatsapp';
 import { WhatsAppButton } from './ui';
 
-// Info kontak: WA, Instagram, email, alamat, jam kerja, area layanan (peta ada di MapEmbed)
+// Info kontak: WA, Instagram, alamat, jam kerja, area layanan (peta ada di MapEmbed)
 export function ContactDetails() {
   const ext = { target: '_blank', rel: 'noopener noreferrer' } as const;
   const link = 'font-semibold text-plum underline-offset-4 hover:underline';
@@ -16,14 +16,6 @@ export function ContactDetails() {
           <dd>
             <a href={site.instagramUrl} {...ext} className={link}>
               @{site.instagramHandle}
-            </a>
-          </dd>
-        </div>
-        <div>
-          <dt className="text-muted">Email</dt>
-          <dd>
-            <a href={`mailto:${site.email}`} className={link}>
-              {site.email}
             </a>
           </dd>
         </div>

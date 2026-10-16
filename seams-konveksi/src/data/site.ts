@@ -14,8 +14,7 @@ export const site = {
   // Query untuk peta embed Google Maps (tanpa API key)
   mapsQuery: 'Jalan Lapangan Merah 1 No. 30, Srengseng Sawah, Jagakarsa, Jakarta Selatan 12640',
   mapsUrl: 'https://share.google/I5z7v0jqEgPHqhoi2',
-  email: 'halo@example.com', // TODO: email asli
-  waDisplay: '0812-3456-7890', // TODO: tampilan nomor WA (harus sama dengan NEXT_PUBLIC_WA_NUMBER)
+  waDisplay: '0877-2181-8893', // harus sama dengan NEXT_PUBLIC_WA_NUMBER
   instagramHandle: 'seams.konveksi',
   instagramUrl: 'https://www.instagram.com/seams.konveksi/',
   hours: [

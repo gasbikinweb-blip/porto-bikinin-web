@@ -43,11 +43,6 @@ export function Footer() {
                 Instagram @{site.instagramHandle}
               </a>
             </li>
-            <li>
-              <a href={`mailto:${site.email}`} className="hover:text-plum">
-                {site.email}
-              </a>
-            </li>
             <li>{site.city}</li>
           </ul>
         </div>

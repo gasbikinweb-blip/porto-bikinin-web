@@ -49,7 +49,7 @@ export default function HomePage() {
           description: site.description,
           url: config.siteUrl,
           image: new URL('/og.jpg', config.siteUrl).href,
-          email: site.email,
+          telephone: '+62-877-2181-8893',
           sameAs: [site.instagramUrl],
           address: {
             '@type': 'PostalAddress',

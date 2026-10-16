@@ -1,6 +1,6 @@
 // Konfigurasi dari environment. Semua nilai NEXT_PUBLIC_* BERSIFAT PUBLIK (ikut ke browser), bukan secret.
 
-const DEFAULT_WA_NUMBER = '6281234567890'; // TODO: nomor WA asli Seams Konveksi (format 62xxx)
+const DEFAULT_WA_NUMBER = '6287721818893'; // Nomor WA Seams Konveksi (format 62xxx)
 
 /**
  * Bersihkan nomor WA ke format internasional tanpa "+" dan spasi (contoh: 628123456789).

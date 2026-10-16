@@ -145,7 +145,7 @@ lewat script post-build. Risikonya rendah di situs ini karena tidak ada input pe
 dirender sebagai HTML dan tidak ada script pihak ketiga. `default-src 'self'` tetap memblokir
 semua domain luar.
 
-`.well-known/security.txt` berisi kontak placeholder; ganti email dan tanggal `Expires`.
+`.well-known/security.txt` berisi kontak WhatsApp; perpanjang tanggal `Expires` tiap tahun.
 
 ### Dependency
 
@@ -185,7 +185,7 @@ Metadata per halaman (title, description, canonical, Open Graph, Twitter card) l
 Cari semua dengan: `grep -rn "TODO" src public`. Ringkasnya:
 
 - `src/lib/config.ts` & env: nomor WA, domain
-- `src/data/site.ts`: nama pemilik, tahun berdiri, kota, alamat, link Maps, email, tampilan nomor
+- `src/data/site.ts`: nama pemilik, tahun berdiri, kota, alamat, link Maps, tampilan nomor
   WA, jam kerja, area layanan, status slot, file katalog PDF, angka pencapaian, verifikasi klaim
   keunggulan
 - `src/data/products.ts`: foto asli, verifikasi model/ukuran/bahan/jahitan
@@ -193,4 +193,4 @@ Cari semua dengan: `grep -rn "TODO" src public`. Ringkasnya:
 - `src/data/faq.ts`: semua jawaban
 - `src/app/tentang/page.tsx`: cerita profil asli
 - `src/app/page.tsx`: alamat di JSON-LD
-- `public/.well-known/security.txt`: email & tanggal kedaluwarsa
+- `public/.well-known/security.txt`: tanggal kedaluwarsa

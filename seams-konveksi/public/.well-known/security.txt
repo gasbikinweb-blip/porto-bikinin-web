@@ -1,4 +1,4 @@
-# TODO: ganti email dan tanggal kedaluwarsa (maksimal 1 tahun ke depan)
-Contact: mailto:halo@example.com
+# Kontak keamanan lewat WhatsApp. TODO: perpanjang tanggal Expires (maksimal 1 tahun ke depan)
+Contact: https://wa.me/6287721818893
 Expires: 2027-10-16T00:00:00.000Z
 Preferred-Languages: id, en
