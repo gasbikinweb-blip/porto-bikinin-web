@@ -1,0 +1,65 @@
+@import 'tailwindcss';
+
+/* Palet: gading & abu hangat sebagai dasar, plum/mauve aksen utama, sage aksen kedua.
+   Kontras teks utama dan aksen terhadap latar >= 4.5:1 (WCAG AA). */
+@theme {
+  --color-background: #faf7f2;
+  --color-surface: #f2ece4;
+  --color-foreground: #2e2629;
+  --color-muted: #625a55;
+  --color-line: #e2d9cf;
+  --color-plum: #6b4a5e;
+  --color-plum-strong: #553a4b;
+  --color-mauve: #c9b1bd;
+  --color-sage: #b7c2ae;
+  --color-sage-strong: #4c5a47;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+/* Fokus keyboard yang jelas di semua elemen interaktif */
+:focus-visible {
+  outline: 2px solid var(--color-plum);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Animasi muncul saat scroll: hanya aktif kalau JS jalan dan pengguna tidak memilih reduced motion */
+.reveal-ready .reveal:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(16px);
+}
+.reveal {
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* Akordeon FAQ: ikon plus berputar saat terbuka */
+details[open] > summary .faq-icon {
+  transform: rotate(45deg);
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

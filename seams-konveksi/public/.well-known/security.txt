@@ -1,0 +1,4 @@
+# TODO: ganti email dan tanggal kedaluwarsa (maksimal 1 tahun ke depan)
+Contact: mailto:halo@example.com
+Expires: 2027-10-16T00:00:00.000Z
+Preferred-Languages: id, en
