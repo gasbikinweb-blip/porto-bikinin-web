@@ -10,13 +10,25 @@ export function ProductCard({ product }: { product: Product }) {
   return (
     <Link href={`/produk/${product.slug}`} className="group block">
       <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-surface">
-        <Image
-          src={product.image.src}
-          alt={product.image.alt}
-          fill
-          sizes="(min-width: 1024px) 270px, 50vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-        />
+        {product.image ? (
+          <Image
+            src={product.image.src}
+            alt={product.image.alt}
+            fill
+            sizes="(min-width: 1024px) 270px, 50vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        ) : (
+          // Tanpa foto: kartu tipografi, bukan placeholder palsu
+          <div className="flex h-full flex-col justify-end bg-gradient-to-br from-mauve/60 via-surface to-sage/40 p-5 transition-colors group-hover:from-mauve/80">
+            <span aria-hidden="true" className="font-serif text-5xl text-plum/80 sm:text-6xl">
+              {product.name.charAt(0)}
+            </span>
+            <span className="mt-2 text-xs font-semibold tracking-[0.2em] text-plum uppercase">
+              Bisa dikerjakan
+            </span>
+          </div>
+        )}
       </div>
       <h3 className="mt-3 font-serif text-xl group-hover:text-plum">{product.name}</h3>
       <p className="mt-1 text-sm text-muted">{product.summary}</p>

@@ -2,7 +2,7 @@
 // preload="none" agar video tidak diunduh sebelum diputar, dan poster sebagai pratinjau.
 import type { Video } from '@/data/videos';
 
-export function VideoGrid({ items }: { items: Video[] }) {
+export function VideoGrid({ items, onDark = false }: { items: Video[]; onDark?: boolean }) {
   return (
     <ul data-stagger className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
       {items.map((v) => (
@@ -23,7 +23,9 @@ export function VideoGrid({ items }: { items: Video[] }) {
             </video>
             <figcaption className="mt-2">
               <span className="block text-sm font-semibold">{v.title}</span>
-              <span className="block text-xs text-muted">{v.description}</span>
+              <span className={`block text-xs ${onDark ? 'text-background/75' : 'text-muted'}`}>
+                {v.description}
+              </span>
             </figcaption>
           </figure>
         </li>

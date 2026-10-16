@@ -10,7 +10,8 @@ export type Product = {
   description: string;
   suitableFor: string[];
   details: string[];
-  image: { src: string; alt: string; width: number; height: number };
+  /** Foto produk; kosongkan bila belum ada foto hasil produksi asli (kartu tampil tanpa foto) */
+  image?: { src: string; alt: string; width: number; height: number };
 };
 
 export const categoryLabels: Record<ProductCategory, string> = {
@@ -20,7 +21,7 @@ export const categoryLabels: Record<ProductCategory, string> = {
   lainnya: 'Lainnya',
 };
 
-// TODO: khimar, gamis, dan outer masih placeholder; ganti dengan foto hasil produksi Seams (lihat README bagian Foto)
+// TODO: tambahkan `image` untuk khimar, gamis, dan outer setelah ada foto hasil produksi asli
 export const products: Product[] = [
   {
     slug: 'abaya',
@@ -55,12 +56,6 @@ export const products: Product[] = [
       'Jahitan tepi sesuai kebutuhan desain', // TODO: verifikasi jenis jahitan
       'Bisa dipadukan dengan abaya dalam satu set',
     ],
-    image: {
-      src: '/placeholder/khimar.svg',
-      alt: 'Placeholder foto khimar hasil produksi Seams Konveksi',
-      width: 800,
-      height: 1000,
-    },
   },
   {
     slug: 'gamis',
@@ -75,12 +70,6 @@ export const products: Product[] = [
       'Bisa dibuat dalam beberapa ukuran', // TODO: verifikasi
       'Cocok dipasangkan dengan khimar',
     ],
-    image: {
-      src: '/placeholder/gamis.svg',
-      alt: 'Placeholder foto gamis hasil produksi Seams Konveksi',
-      width: 800,
-      height: 1000,
-    },
   },
   {
     slug: 'outer-dan-lainnya',
@@ -94,12 +83,6 @@ export const products: Product[] = [
       'Kelayakan produksi dicek saat konsultasi', // TODO: daftar produk lain yang bisa dikerjakan
       'Tetap melalui tahap sampel',
     ],
-    image: {
-      src: '/placeholder/outer.svg',
-      alt: 'Placeholder foto outer hasil produksi Seams Konveksi',
-      width: 800,
-      height: 1000,
-    },
   },
 ];
 

@@ -47,7 +47,7 @@ export function PortfolioGallery({
       {visible.length === 0 ? (
         <p className="text-muted">Belum ada foto untuk kategori ini.</p>
       ) : (
-        <ul className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
+        <ul className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
           {visible.map((p, i) => (
             <li key={p.id}>
               <button
@@ -60,7 +60,7 @@ export function PortfolioGallery({
                     src={p.thumb ?? p.src}
                     alt={p.alt}
                     fill
-                    sizes="(min-width: 1024px) 360px, 50vw"
+                    sizes="(min-width: 1024px) 270px, 50vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                   {p.kind === 'ilustrasi' && (

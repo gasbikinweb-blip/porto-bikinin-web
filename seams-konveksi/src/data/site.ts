@@ -37,13 +37,18 @@ export const site = {
   catalogPdf: null as string | null, // TODO: mis. '/katalog/katalog-seams-konveksi.pdf'
 };
 
-// Angka pencapaian. value null = belum diisi, ditampilkan "—" agar tidak tampak seperti data resmi.
+// Bukti pengalaman, diambil dari konten Instagram @seams.konveksi (sumber di komentar).
+// value null = belum diisi, ditampilkan "—" agar tidak tampak seperti data resmi.
 export type Stat = { label: string; value: string | null };
 export const stats: Stat[] = [
-  { label: 'Tahun pengalaman', value: null }, // TODO: isi angka asli
-  { label: 'Pesanan selesai', value: null }, // TODO: isi angka asli
-  { label: 'Pcs diproduksi', value: null }, // TODO: isi angka asli
-  { label: 'Brand dilayani', value: null }, // TODO: isi angka asli
+  // Video story "kejar deadline orderan 1200pcs++". TODO: verifikasi
+  { label: 'pcs dalam satu pesanan', value: '1.200+' },
+  // Postingan "Partner Jahit" 11 Okt 2026. TODO: verifikasi
+  { label: 'kapasitas pcs per bulan', value: '3.000' },
+  // Video "Proses potong 9 roll kain". TODO: verifikasi
+  { label: 'roll kain dipotong sekaligus', value: '9' },
+  // Postingan Instagram pertama tahun 2023. TODO: ganti dengan tahun berdiri asli
+  { label: 'aktif berkarya', value: 'Sejak 2023' },
 ];
 
 export type Point = { title: string; description: string };

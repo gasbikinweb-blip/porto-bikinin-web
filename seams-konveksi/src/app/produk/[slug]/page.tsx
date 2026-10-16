@@ -37,14 +37,25 @@ export default async function ProductDetailPage({ params }: Props) {
     <>
       <section className={`${container} grid gap-10 py-10 sm:py-14 lg:grid-cols-2`}>
         <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-2xl bg-surface">
-          <Image
-            src={product.image.src}
-            alt={product.image.alt}
-            fill
-            priority
-            sizes="(min-width: 1024px) 448px, 90vw"
-            className="object-cover"
-          />
+          {product.image ? (
+            <Image
+              src={product.image.src}
+              alt={product.image.alt}
+              fill
+              priority
+              sizes="(min-width: 1024px) 448px, 90vw"
+              className="object-cover"
+            />
+          ) : (
+            <div className="flex h-full flex-col justify-end bg-gradient-to-br from-mauve/60 via-surface to-sage/40 p-8">
+              <span aria-hidden="true" className="font-serif text-8xl text-plum/80">
+                {product.name.charAt(0)}
+              </span>
+              <span className="mt-3 text-sm text-muted">
+                Contoh hasil {product.name.toLowerCase()} bisa Anda minta saat konsultasi.
+              </span>
+            </div>
+          )}
         </div>
         <div>
           <nav aria-label="Breadcrumb" className="mb-4 text-sm text-muted">
