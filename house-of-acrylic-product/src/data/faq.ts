@@ -26,6 +26,6 @@ export const faqs: readonly Faq[] = [
   },
   {
     q: 'Apakah bisa kirim ke luar kota?',
-    a: 'Bisa. Produk dikemas aman dan dikirim lewat ekspedisi ke seluruh Indonesia, termasuk luar pulau Jawa. Bisa juga diambil langsung di workshop.',
+    a: 'Bisa. Produk dikemas aman dan dikirim lewat ekspedisi ke seluruh Indonesia, termasuk luar pulau Jawa.',
   },
 ];

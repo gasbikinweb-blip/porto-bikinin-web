@@ -24,7 +24,7 @@ export function Footer() {
           </ul>
         </nav>
         <address className="text-sm not-italic">
-          {site.address.street}, {site.address.city}
+          {site.address.city}, {site.address.region}
           <br />
           WA {site.waDisplay}
           <br />

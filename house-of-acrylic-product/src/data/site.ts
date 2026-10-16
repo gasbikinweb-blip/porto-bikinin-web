@@ -6,14 +6,12 @@ export const site = {
   instagram: 'https://www.instagram.com/akriliksurabaya/',
   tiktok: 'https://www.tiktok.com/@hap.project.surabaya',
   waDisplay: '0852-3321-5781',
-  // TODO: caption Instagram menyebut "Jl. Gebang Lor No.105 B" — pastikan alamat mana yang benar
+  // Belum ada lokasi tetap: hanya kota (tanpa alamat jalan & peta). TODO: isi alamat bila sudah ada
   address: {
-    street: 'Jl. Pucang Lor No. 109A',
     city: 'Surabaya',
     region: 'Jawa Timur',
     country: 'ID',
   },
-  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Jl.+Pucang+Lor+No.+109A+Surabaya',
   // TODO: verifikasi jam buka workshop
   hours: [
     { day: 'Senin – Sabtu', time: '08.00 – 17.00 WIB' },

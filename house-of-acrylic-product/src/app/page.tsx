@@ -21,7 +21,7 @@ const steps = [
   { title: 'Produksi', text: 'Cutting laser, UV print, dan perakitan di workshop kami.' },
   {
     title: 'Kirim / ambil',
-    text: 'Dikirim via ekspedisi ke seluruh Indonesia atau ambil di workshop.',
+    text: 'Dikemas aman dan dikirim via ekspedisi ke seluruh Indonesia.',
   },
 ] as const;
 
@@ -69,7 +69,6 @@ export default function HomePage() {
     sameAs: [site.instagram, site.tiktok],
     address: {
       '@type': 'PostalAddress',
-      streetAddress: site.address.street,
       addressLocality: site.address.city,
       addressRegion: site.address.region,
       addressCountry: site.address.country,
@@ -278,18 +277,10 @@ export default function HomePage() {
               <li className="flex gap-3">
                 <PinIcon className="mt-0.5 size-5 shrink-0 text-steel" />
                 <div>
-                  <p className="font-semibold">Workshop</p>
-                  <address className="text-steel not-italic">
-                    {site.address.street}, {site.address.city}, Jawa Timur
-                  </address>
-                  <a
-                    href={site.mapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-semibold underline underline-offset-4"
-                  >
-                    Buka di Google Maps
-                  </a>
+                  <p className="font-semibold">Area layanan</p>
+                  <p className="text-steel">
+                    {site.address.city}, {site.address.region} · kirim ke seluruh Indonesia
+                  </p>
                 </div>
               </li>
               <li className="flex gap-3">
