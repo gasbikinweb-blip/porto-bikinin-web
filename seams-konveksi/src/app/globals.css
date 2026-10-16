@@ -43,6 +43,41 @@ html {
   transition-delay: var(--reveal-delay, 0ms);
 }
 
+/* Lencana teks melingkar berputar pelan (dimatikan oleh reduced motion di bawah) */
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin-slow 24s linear infinite;
+}
+
+/* Tombol WA mengambang: redup-nyala pelan dengan cahaya yang memudar (dimatikan oleh reduced motion) */
+@keyframes wa-glow {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow:
+      0 10px 25px -8px rgb(31 143 78 / 0.55),
+      0 0 0 0 rgb(37 211 102 / 0.45);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow:
+      0 10px 25px -8px rgb(31 143 78 / 0.25),
+      0 0 0 14px rgb(37 211 102 / 0);
+  }
+}
+.animate-wa-glow {
+  animation: wa-glow 2.4s ease-in-out infinite;
+}
+.animate-wa-glow:hover,
+.animate-wa-glow:focus-visible {
+  animation-play-state: paused;
+  opacity: 1;
+}
+
 /* Akordeon FAQ: ikon plus berputar saat terbuka */
 details[open] > summary .faq-icon {
   transform: rotate(45deg);

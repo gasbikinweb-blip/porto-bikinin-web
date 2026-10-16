@@ -1,9 +1,9 @@
+// Website satu halaman: setiap menu menuju section di beranda
 export const navLinks = [
-  { href: '/produk', label: 'Produk' },
-  { href: '/solusi', label: 'Solusi' },
-  { href: '/portofolio', label: 'Portofolio' },
-  { href: '/layanan', label: 'Layanan' },
-  { href: '/tentang', label: 'Tentang' },
-  { href: '/faq', label: 'FAQ' },
-  { href: '/kontak', label: 'Kontak' },
+  { href: '/#koleksi', label: 'Koleksi' },
+  { href: '/#pengalaman', label: 'Pengalaman' },
+  { href: '/#layanan', label: 'Layanan' },
+  { href: '/#alur', label: 'Alur' },
+  { href: '/#faq', label: 'FAQ' },
+  { href: '/#kontak', label: 'Kontak' },
 ] as const;

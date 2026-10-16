@@ -1,40 +1,7 @@
 // Bagian-bagian halaman yang dipakai ulang (server component)
-import Image from 'next/image';
-import Link from 'next/link';
 import type { Faq } from '@/data/faq';
-import type { Product } from '@/data/products';
-import { productionSteps, site, stats, type SlotStatus } from '@/data/site';
-import { CheckIcon, DownloadIcon, PlusIcon } from './icons';
-
-export function ProductCard({ product }: { product: Product }) {
-  return (
-    <Link href={`/produk/${product.slug}`} className="group block">
-      <div className="relative aspect-[4/5] overflow-hidden rounded-lg bg-surface">
-        {product.image ? (
-          <Image
-            src={product.image.src}
-            alt={product.image.alt}
-            fill
-            sizes="(min-width: 1024px) 270px, 50vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-          />
-        ) : (
-          // Tanpa foto: kartu tipografi, bukan placeholder palsu
-          <div className="flex h-full flex-col justify-end bg-gradient-to-br from-mauve/60 via-surface to-sage/40 p-5 transition-colors group-hover:from-mauve/80">
-            <span aria-hidden="true" className="font-serif text-5xl text-plum/80 sm:text-6xl">
-              {product.name.charAt(0)}
-            </span>
-            <span className="mt-2 text-xs font-semibold tracking-[0.2em] text-plum uppercase">
-              Bisa dikerjakan
-            </span>
-          </div>
-        )}
-      </div>
-      <h3 className="mt-3 font-serif text-xl group-hover:text-plum">{product.name}</h3>
-      <p className="mt-1 text-sm text-muted">{product.summary}</p>
-    </Link>
-  );
-}
+import { productionSteps, site, type SlotStatus } from '@/data/site';
+import { DownloadIcon, PlusIcon } from './icons';
 
 export function ProcessSteps() {
   return (
@@ -62,40 +29,6 @@ export function SlotInfo() {
       <span aria-hidden="true" className={`size-2.5 rounded-full ${slotStyle[site.slot.status]}`} />
       <span>{site.slot.label}</span>
     </div>
-  );
-}
-
-export function StatsRow() {
-  return (
-    <div>
-      <dl className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-        {stats.map((s) => (
-          <div
-            key={s.label}
-            className="flex flex-col-reverse rounded-xl border border-line bg-background p-5 text-center"
-          >
-            <dt className="mt-1 text-sm text-muted">{s.label}</dt>
-            <dd className="font-serif text-4xl text-plum">{s.value ?? '—'}</dd>
-          </div>
-        ))}
-      </dl>
-      {stats.some((s) => s.value === null) && (
-        <p className="mt-3 text-xs text-muted">Angka pencapaian akan segera diperbarui.</p>
-      )}
-    </div>
-  );
-}
-
-export function CheckList({ items }: { items: string[] }) {
-  return (
-    <ul className="space-y-2">
-      {items.map((it) => (
-        <li key={it} className="flex gap-2 text-sm">
-          <CheckIcon className="mt-0.5 size-4 shrink-0 text-sage-strong" />
-          {it}
-        </li>
-      ))}
-    </ul>
   );
 }
 

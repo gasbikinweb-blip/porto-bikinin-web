@@ -2,13 +2,13 @@
 
 // Menu HP: butuh state buka/tutup, jadi client component kecil
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { navLinks } from './nav-links';
+import { isActive, useActiveNav } from './useActiveNav';
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
+  const active = useActiveNav();
 
   // Tutup menu dengan Esc
   useEffect(() => {
@@ -49,7 +49,7 @@ export function MobileNav() {
               <Link
                 href={l.href}
                 onClick={() => setOpen(false)}
-                aria-current={pathname.startsWith(l.href) ? 'page' : undefined}
+                aria-current={isActive(l.href, active) ? 'page' : undefined}
                 className="block border-b border-line py-4 font-serif text-2xl aria-[current=page]:text-plum"
               >
                 {l.label}

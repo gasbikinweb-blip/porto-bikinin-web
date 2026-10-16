@@ -41,9 +41,9 @@ tidak valid membuat build gagal (supaya tidak ada tombol WA rusak). Ubah juga `w
 
 ```
 src/
-  app/            halaman (/, /produk, /produk/[slug], /solusi, /portofolio, /layanan, /tentang, /kontak, /faq)
+  app/            satu halaman (/): hero, koleksi, pengalaman, layanan, alur, FAQ, kontak
   components/     Header, Footer, Lightbox, PortfolioGallery, MessageBuilder, ui.tsx, sections.tsx
-  data/           site.ts, products.ts, solutions.ts (+ layanan & ketentuan), projects.ts, faq.ts
+  data/           site.ts, products.ts (abaya & khimar), projects.ts, videos.ts, faq.ts
   lib/            config.ts (env + validasi WA), whatsapp.ts (buildWhatsAppLink), metadata.ts
 assets-src/       foto ASLI (tidak ikut ter-deploy)
 public/           file statis: _headers, .well-known/security.txt, og.jpg, placeholder/, images/
@@ -99,8 +99,7 @@ klaim harga atau info yang sudah tidak berlaku (`-ss` / `-t`).
 
 ## Menambah jenis produk
 
-Tambah objek di `src/data/products.ts`. Halaman `/produk/<slug>` dan sitemap ikut dibuat
-otomatis saat build (`generateStaticParams`, `dynamicParams = false`).
+Tambah objek di `src/data/products.ts`; kartunya otomatis muncul di section Layanan.
 
 ## Katalog PDF
 
@@ -189,7 +188,6 @@ Cari semua dengan: `grep -rn "TODO" src public`. Ringkasnya:
   keunggulan
 - `src/data/products.ts`: foto asli, verifikasi model/ukuran/bahan/jahitan
 - `src/data/projects.ts`: ganti semua placeholder dengan foto asli
-- `src/data/solutions.ts`: estimasi waktu, minimum order, harga, kapasitas
 - `src/data/faq.ts`: semua jawaban
 - `src/app/tentang/page.tsx`: cerita profil asli
 - `src/app/page.tsx`: alamat di JSON-LD

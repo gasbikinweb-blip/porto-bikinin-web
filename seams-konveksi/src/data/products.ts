@@ -21,7 +21,7 @@ export const categoryLabels: Record<ProductCategory, string> = {
   lainnya: 'Lainnya',
 };
 
-// TODO: tambahkan `image` untuk khimar, gamis, dan outer setelah ada foto hasil produksi asli
+// Fokus layanan: abaya & khimar (permintaan klien). TODO: tambahkan `image` khimar bila ada foto asli
 export const products: Product[] = [
   {
     slug: 'abaya',
@@ -55,33 +55,6 @@ export const products: Product[] = [
       'Model instan atau non-instan', // TODO: verifikasi model yang bisa dikerjakan
       'Jahitan tepi sesuai kebutuhan desain', // TODO: verifikasi jenis jahitan
       'Bisa dipadukan dengan abaya dalam satu set',
-    ],
-  },
-  {
-    slug: 'gamis',
-    name: 'Gamis',
-    category: 'gamis',
-    summary: 'Gamis harian maupun acara untuk lini produk brand Anda.',
-    description:
-      'Konveksi busana muslimah untuk gamis dengan berbagai potongan. Pola dan sampel dibuat dulu, lalu produksi mengikuti sampel yang sudah Anda setujui.',
-    suitableFor: ['Brand fashion muslim', 'Seragam acara keluarga', 'Instansi dan komunitas'],
-    details: [
-      'Potongan mengikuti desain Anda',
-      'Bisa dibuat dalam beberapa ukuran', // TODO: verifikasi
-      'Cocok dipasangkan dengan khimar',
-    ],
-  },
-  {
-    slug: 'outer-dan-lainnya',
-    name: 'Outer & Lainnya',
-    category: 'lainnya',
-    summary: 'Outer, tunik, dan busana muslimah lain sesuai kebutuhan.',
-    description:
-      'Selain abaya, khimar, dan gamis, kami bisa mendiskusikan busana muslimah lain seperti outer atau tunik. Konsultasikan desain Anda untuk memastikan bisa dikerjakan.',
-    suitableFor: ['Pelengkap koleksi brand', 'Produk musiman', 'Pesanan khusus'],
-    details: [
-      'Kelayakan produksi dicek saat konsultasi', // TODO: daftar produk lain yang bisa dikerjakan
-      'Tetap melalui tahap sampel',
     ],
   },
 ];
