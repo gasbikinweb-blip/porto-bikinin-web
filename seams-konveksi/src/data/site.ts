@@ -9,7 +9,8 @@ export const site = {
     'Seams Konveksi melayani jasa konveksi abaya dan khimar (CMT) untuk brand fashion muslim, butik, dan reseller: mulai dari sampel, produksi jahit, QC, sampai packing.',
   owner: '[Nama Pemilik]', // TODO: nama pemilik
   foundedYear: null as number | null, // TODO: tahun berdiri, mis. 2020
-  city: '[Kota]', // TODO: kota
+  // TODO: verifikasi; dari hashtag Instagram (#konveksijakarta, #konveksitangerangselatan)
+  city: 'Jakarta & Tangerang Selatan',
   address: '[Alamat lengkap workshop]', // TODO: alamat lengkap
   // TODO: link Google Maps (tombol "Bagikan" di Google Maps lalu salin link). Kosong = tombol peta disembunyikan.
   mapsUrl: '',
@@ -27,8 +28,9 @@ export const site = {
   serviceArea: 'Melayani klien dari berbagai kota. Pengiriman lewat ekspedisi atau kargo.',
   // Status slot jahit: ubah manual lalu build ulang (tidak ada server)
   slot: {
-    status: 'tersedia' as SlotStatus, // TODO: 'tersedia' | 'terbatas' | 'penuh'
-    label: 'Slot produksi bulan ini: [TODO]', // TODO: mis. "Slot produksi November 2026: masih tersedia"
+    // Dari postingan Instagram 11 Okt 2026 ("Open Slot"). TODO: perbarui tiap bulan
+    status: 'tersedia' as SlotStatus,
+    label: 'Open slot: menerima produksi baru',
     note: 'Hubungi kami untuk memastikan jadwal produksi terdekat.',
   },
   // File brosur di public/. Taruh PDF asli dengan nama ini. null = tombol unduh disembunyikan.

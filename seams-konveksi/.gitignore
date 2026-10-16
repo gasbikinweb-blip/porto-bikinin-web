@@ -9,3 +9,6 @@ npm-debug.log*
 .DS_Store
 .vercel
 .claude/
+
+# Unduhan mentah (video klien bersifat rahasia, ukuran besar)
+assets/

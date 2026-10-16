@@ -20,7 +20,7 @@ export const categoryLabels: Record<ProductCategory, string> = {
   lainnya: 'Lainnya',
 };
 
-// TODO: ganti gambar placeholder dengan foto hasil produksi Seams (lihat README bagian Foto)
+// TODO: khimar, gamis, dan outer masih placeholder; ganti dengan foto hasil produksi Seams (lihat README bagian Foto)
 export const products: Product[] = [
   {
     slug: 'abaya',
@@ -36,10 +36,10 @@ export const products: Product[] = [
       'Bahan dari klien atau didiskusikan saat konsultasi', // TODO: verifikasi kebijakan bahan
     ],
     image: {
-      src: '/placeholder/abaya.svg',
-      alt: 'Placeholder foto abaya hasil produksi Seams Konveksi',
-      width: 800,
-      height: 1000,
+      src: '/images/portofolio/abaya-tie-dye-mauve-manekin.webp',
+      alt: 'Abaya motif tie-dye mauve berkerah V pada manekin, hasil produksi Seams Konveksi',
+      width: 900,
+      height: 1600,
     },
   },
   {

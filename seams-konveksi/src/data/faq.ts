@@ -21,7 +21,9 @@ export const faqs: Faq[] = [
   },
   {
     question: 'Bagaimana sistem pembayaran / DP?',
-    answer: '[TODO: jelaskan sistem DP dan pelunasan].',
+    // Urutan dari infografis "Production Process" Seams. TODO: isi persentase DP
+    answer:
+      'Pembayaran bertahap: biaya sampel dibayar sebelum sampling, DP produksi setelah sampel disetujui, dan pelunasan setelah QC dan packing sebelum barang dikirim.',
   },
   {
     question: 'Apakah bisa kirim ke luar kota?',

@@ -80,5 +80,6 @@ export const services: Service[] = [
 export const terms = [
   { label: 'Minimum order', value: '[TODO]' },
   { label: 'Harga', value: '[TODO: mis. per pcs, tergantung model dan jumlah]' },
-  { label: 'Kapasitas produksi', value: '[TODO]' },
+  // Dari postingan Instagram 11 Okt 2026. TODO: verifikasi angka terbaru
+  { label: 'Kapasitas produksi', value: 'Hingga 3.000 pcs/bulan' },
 ];

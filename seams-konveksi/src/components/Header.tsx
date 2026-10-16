@@ -23,11 +23,13 @@ export function Header() {
             ))}
           </ul>
         </nav>
-        <WhatsAppButton
-          message={generalMessage}
-          label="Konsultasi"
-          className="hidden min-h-10! px-5! py-2! lg:inline-flex"
-        />
+        <div className="hidden lg:block">
+          <WhatsAppButton
+            message={generalMessage}
+            label="Konsultasi"
+            className="min-h-10! px-5! py-2!"
+          />
+        </div>
         <MobileNav />
       </div>
     </header>
