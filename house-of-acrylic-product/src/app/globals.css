@@ -1,0 +1,165 @@
+@import 'tailwindcss';
+
+/*
+ * Palet House of Acrylic Product: hitam, putih, abu-abu besi/silver,
+ * dengan aksen hijau WhatsApp khusus untuk tombol CTA.
+ * Kontras teks sudah dicek ≥ 4.5:1 (WCAG AA).
+ */
+:root {
+  --ink: #0d0e10;
+  --ink-2: #17191c;
+  --ink-3: #23262b;
+  --paper: #ffffff;
+  --paper-2: #f3f4f6;
+  --steel: #5b616b;
+  --silver: #b9bec6;
+  --line: #e2e5e9;
+  --line-dark: rgb(255 255 255 / 0.12);
+  --accent: #25d366;
+  --accent-strong: #1fb457;
+  /* Emas: hanya dekoratif (tombol panah); teks emas pakai --gold-text agar kontras ≥ 4.5:1 */
+  --gold: #d9a21b;
+  --gold-text: #8a6410;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-steel: var(--steel);
+  --color-silver: var(--silver);
+  --color-line: var(--line);
+  --color-line-dark: var(--line-dark);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-gold: var(--gold);
+  --color-gold-text: var(--gold-text);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-oswald);
+}
+
+/* Teks outline (judul hero ala poster produk) */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--ink);
+}
+
+/* Track carousel horizontal tanpa scrollbar terlihat */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+.animate-slide {
+  animation: slide-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Jarak anchor agar judul section tidak tertutup header */
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 3px;
+}
+
+/* Grid garis tipis ala meja potong (kesan industrial) */
+.bg-grid {
+  background-image:
+    linear-gradient(var(--line-dark) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-dark) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@keyframes wa-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgb(37 211 102 / 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgb(37 211 102 / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgb(37 211 102 / 0);
+  }
+}
+
+.animate-wa-pulse {
+  animation: wa-pulse 2.4s ease-out infinite;
+}
+
+/* Modal memakai <dialog> bawaan browser (Esc & focus trap native) */
+dialog::backdrop {
+  background: rgb(10 10 12 / 0.75);
+  backdrop-filter: blur(6px);
+  animation: fade-in 0.3s ease both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(32px) scale(0.97);
+  }
+}
+@keyframes photo-in {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+.detail-dialog[open] {
+  animation: modal-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-photo {
+  animation: photo-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-rise {
+  animation: rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--delay, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
