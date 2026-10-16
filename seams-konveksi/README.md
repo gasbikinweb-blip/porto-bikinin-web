@@ -121,7 +121,9 @@ ulang. Tidak ada server, jadi status diperbarui manual.
   merangkai teks (dengan whitelist pilihan, batas panjang, angka positif, dan `encodeURIComponent`)
   lalu membuka `wa.me`.
 - Semua link eksternal memakai `target="_blank" rel="noopener noreferrer"`.
-- Tidak ada embed Google Maps atau feed Instagram; hanya link keluar.
+- Peta lokasi memakai iframe Google Maps (lazy load) di section Kontak; CSP `frame-src` hanya
+  mengizinkan `www.google.com` dan `maps.google.com`. Catatan privasi: Google menerima data
+  kunjungan saat peta dimuat. Feed Instagram tidak di-embed, hanya link keluar.
 
 ### Security headers
 

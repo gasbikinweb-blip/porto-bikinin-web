@@ -5,6 +5,7 @@ import { MessageBuilder } from '@/components/MessageBuilder';
 import { PortfolioGallery } from '@/components/PortfolioGallery';
 import { VideoGrid } from '@/components/VideoGrid';
 import { ContactDetails } from '@/components/ContactDetails';
+import { MapEmbed } from '@/components/MapEmbed';
 import { CatalogDownload, FaqList, ProcessSteps, SlotInfo } from '@/components/sections';
 import { CircleBadge } from '@/components/CircleBadge';
 import { ChevronIcon } from '@/components/icons';
@@ -50,7 +51,14 @@ export default function HomePage() {
           image: new URL('/og.jpg', config.siteUrl).href,
           email: site.email,
           sameAs: [site.instagramUrl],
-          // TODO: tambahkan "address" (PostalAddress) setelah alamat asli tersedia
+          address: {
+            '@type': 'PostalAddress',
+            streetAddress: 'Jl. Lapangan Merah 1 No. 30, Srengseng Sawah',
+            addressLocality: 'Jagakarsa, Jakarta Selatan',
+            addressRegion: 'DKI Jakarta',
+            postalCode: '12640',
+            addressCountry: 'ID',
+          },
         }}
       />
 
@@ -312,6 +320,9 @@ export default function HomePage() {
             <MessageBuilder />
             <CatalogDownload />
           </div>
+        </div>
+        <div className={`${container} mt-10`}>
+          <MapEmbed />
         </div>
       </section>
     </>

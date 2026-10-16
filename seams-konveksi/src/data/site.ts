@@ -9,11 +9,11 @@ export const site = {
     'Seams Konveksi melayani jasa konveksi abaya dan khimar (CMT) untuk brand fashion muslim, butik, dan reseller: mulai dari sampel, produksi jahit, QC, sampai packing.',
   owner: '[Nama Pemilik]', // TODO: nama pemilik
   foundedYear: null as number | null, // TODO: tahun berdiri, mis. 2020
-  // TODO: verifikasi; dari hashtag Instagram (#konveksijakarta, #konveksitangerangselatan)
-  city: 'Jakarta & Tangerang Selatan',
-  address: '[Alamat lengkap workshop]', // TODO: alamat lengkap
-  // TODO: link Google Maps (tombol "Bagikan" di Google Maps lalu salin link). Kosong = tombol peta disembunyikan.
-  mapsUrl: '',
+  city: 'Jagakarsa, Jakarta Selatan',
+  address: 'Jl. Lapangan Merah 1 No. 30, Srengseng Sawah, Jagakarsa, Jakarta Selatan 12640',
+  // Query untuk peta embed Google Maps (tanpa API key)
+  mapsQuery: 'Jalan Lapangan Merah 1 No. 30, Srengseng Sawah, Jagakarsa, Jakarta Selatan 12640',
+  mapsUrl: 'https://share.google/I5z7v0jqEgPHqhoi2',
   email: 'halo@example.com', // TODO: email asli
   waDisplay: '0812-3456-7890', // TODO: tampilan nomor WA (harus sama dengan NEXT_PUBLIC_WA_NUMBER)
   instagramHandle: 'seams.konveksi',
