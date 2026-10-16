@@ -41,7 +41,7 @@ export function MobileNav() {
         id="menu-hp"
         aria-label="Menu utama"
         hidden={!open}
-        className="absolute inset-x-0 top-full h-[calc(100dvh-4rem)] overflow-y-auto border-t border-line bg-background"
+        className="absolute inset-x-0 top-full h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-line bg-background"
       >
         <ul className="flex flex-col px-4 py-2">
           {navLinks.map((l) => (

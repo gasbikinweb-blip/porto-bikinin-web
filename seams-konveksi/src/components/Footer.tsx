@@ -12,7 +12,7 @@ export function Footer() {
     <footer className="border-t border-line bg-surface">
       <div className={`${container} grid gap-10 py-14 sm:grid-cols-3`}>
         <div>
-          <Logo className="text-plum" />
+          <Logo className="h-16" />
           <p className="mt-3 text-sm text-muted">
             Jasa konveksi abaya dan khimar (CMT) untuk brand busana muslimah, dari sampel sampai
             packing.

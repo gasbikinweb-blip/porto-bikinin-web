@@ -1,9 +1,21 @@
-// Logo teks Seams: "SEAMS" dengan subjudul "CUT · MAKE · TRIM", mengikuti logo di konten Instagram
-export function Logo({ className = '' }: { className?: string }) {
+// Logo resmi Seams (SEAMS / CUT · MAKE · TRIM), dipotong dari file logo asli di assets-src/brand/
+import Image from 'next/image';
+
+export function Logo({
+  className = 'h-11',
+  priority = false,
+}: {
+  className?: string;
+  priority?: boolean;
+}) {
   return (
-    <span className={`inline-flex flex-col items-center leading-none ${className}`}>
-      <span className="font-serif text-[1.65rem] font-semibold tracking-[0.12em]">SEAMS</span>
-      <span className="mt-1 text-[0.55rem] font-medium tracking-[0.3em]">CUT · MAKE · TRIM</span>
-    </span>
+    <Image
+      src="/brand/logo-seams.webp"
+      alt="Seams Cut Make Trim"
+      width={480}
+      height={251}
+      priority={priority}
+      className={`w-auto rounded-md ${className}`}
+    />
   );
 }
