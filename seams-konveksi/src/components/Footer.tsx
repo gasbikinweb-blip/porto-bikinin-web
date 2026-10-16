@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { site } from '@/data/site';
 import { config } from '@/lib/config';
 import { buildWhatsAppLink, generalMessage } from '@/lib/whatsapp';
+import { Logo } from './Logo';
 import { navLinks } from './nav-links';
 import { container } from './ui';
 
@@ -11,7 +12,7 @@ export function Footer() {
     <footer className="border-t border-line bg-surface">
       <div className={`${container} grid gap-10 py-14 sm:grid-cols-3`}>
         <div>
-          <p className="font-serif text-2xl text-plum">{config.siteName}</p>
+          <Logo className="text-plum" />
           <p className="mt-3 text-sm text-muted">
             Jasa konveksi abaya dan khimar (CMT) untuk brand busana muslimah, dari sampel sampai
             packing.

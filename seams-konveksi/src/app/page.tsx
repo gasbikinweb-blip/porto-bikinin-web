@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { JsonLd } from '@/components/JsonLd';
 import { MessageBuilder } from '@/components/MessageBuilder';
 import { PortfolioGallery } from '@/components/PortfolioGallery';
+import { VideoGrid } from '@/components/VideoGrid';
 import {
   CatalogDownload,
   ProcessSteps,
@@ -13,6 +14,7 @@ import { CtaBand, SectionHeading, TextLink, WhatsAppButton, container } from '@/
 import { products } from '@/data/products';
 import { projects } from '@/data/projects';
 import { advantages, site } from '@/data/site';
+import { videos } from '@/data/videos';
 import { config } from '@/lib/config';
 import { generalMessage } from '@/lib/whatsapp';
 
@@ -125,8 +127,24 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Video di balik produksi */}
+      <section aria-labelledby="produksi" className="py-16 sm:py-20">
+        <div className={container}>
+          <SectionHeading
+            id="produksi"
+            eyebrow="Di balik produksi"
+            title="Workshop kami sedang bekerja"
+            intro="Potongan video dari Instagram @seams.konveksi: proses potong, jahit, pasang kancing, sampai pesanan ribuan pcs siap dikirim."
+          />
+          <VideoGrid items={videos.slice(0, 4)} />
+          <div className="mt-8">
+            <TextLink href="/portofolio#video">Lihat semua video produksi</TextLink>
+          </div>
+        </div>
+      </section>
+
       {/* Alur produksi */}
-      <section aria-labelledby="alur" className="py-16 sm:py-20">
+      <section aria-labelledby="alur" className="bg-surface py-16 sm:py-20">
         <div className={container}>
           <SectionHeading
             id="alur"
@@ -138,7 +156,7 @@ export default function HomePage() {
       </section>
 
       {/* Pembuat pesan WA + katalog */}
-      <section aria-label="Minta penawaran" className="pb-16 sm:pb-20">
+      <section aria-label="Minta penawaran" className="py-16 sm:py-20">
         <div className={`${container} grid gap-6`}>
           <MessageBuilder />
           <CatalogDownload />

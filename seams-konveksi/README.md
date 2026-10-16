@@ -80,6 +80,23 @@ Client component hanya: `MobileNav`, `PortfolioGallery` + `Lightbox`, `MessageBu
 Foto produk/hero: taruh di `assets-src/produk/`, lalu ganti `image` di `src/data/products.ts`.
 Hero beranda memakai foto produk pertama.
 
+## Menambah video produksi
+
+Video ada di `public/videos/` (sudah dikompres) dan datanya di `src/data/videos.ts`. Video mentah
+disimpan di `assets/` (diabaikan git). Kompres video baru dengan ffmpeg sebelum dipakai:
+
+```bash
+ffmpeg -i mentah.mp4 -an -vf "scale=540:-2,fps=30" -c:v libx264 -crf 28 -preset slow -pix_fmt yuv420p -movflags +faststart -map_metadata -1 public/videos/nama-video.mp4
+```
+
+```bash
+ffmpeg -ss 1 -i public/videos/nama-video.mp4 -frames:v 1 -q:v 3 public/videos/nama-video-poster.jpg
+```
+
+Audio sengaja dibuang (`-an`) karena musik Instagram bisa kena hak cipta dan supaya file lebih
+kecil. Video memakai `preload="none"`, jadi baru diunduh saat diputar. Potong bagian yang memuat
+klaim harga atau info yang sudah tidak berlaku (`-ss` / `-t`).
+
 ## Menambah jenis produk
 
 Tambah objek di `src/data/products.ts`. Halaman `/produk/<slug>` dan sitemap ikut dibuat
