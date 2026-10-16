@@ -1,6 +1,6 @@
 // Landing page satu halaman: semua section ada di sini dan dinavigasi lewat anchor
 import Image from 'next/image';
-import { ClockIcon, InstagramIcon, PinIcon } from '@/components/icons';
+import { ClockIcon, InstagramIcon, PinIcon, TikTokIcon } from '@/components/icons';
 import { HeroSlider } from '@/components/HeroSlider';
 import { JsonLd } from '@/components/JsonLd';
 import { PortfolioGallery } from '@/components/PortfolioGallery';
@@ -317,6 +317,20 @@ export default function HomePage() {
                     className="text-steel underline underline-offset-4 hover:text-ink"
                   >
                     {site.handle}
+                  </a>
+                </div>
+              </li>
+              <li className="flex gap-3">
+                <TikTokIcon className="mt-0.5 size-5 shrink-0 text-steel" />
+                <div>
+                  <p className="font-semibold">TikTok</p>
+                  <a
+                    href={site.tiktok}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-steel underline underline-offset-4 hover:text-ink"
+                  >
+                    @hap.project.surabaya
                   </a>
                 </div>
               </li>

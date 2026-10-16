@@ -140,6 +140,51 @@ dialog::backdrop {
   }
 }
 
+/* ---------- Animasi saat scroll (dipicu RevealObserver) ---------- */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}
+@keyframes reveal-up-alt {
+  from {
+    opacity: 0;
+    transform: translateY(56px) scale(0.97);
+  }
+}
+@keyframes reveal-left {
+  from {
+    opacity: 0;
+    transform: translateX(-48px);
+    filter: blur(6px);
+  }
+}
+@keyframes reveal-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+    clip-path: inset(12% 12% 12% 12% round 1rem);
+  }
+}
+
+.reveal-ready .reveal:not(.is-visible) {
+  opacity: 0;
+}
+.reveal.is-visible {
+  animation: reveal-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms) backwards;
+}
+.reveal.reveal-up-alt.is-visible {
+  animation-name: reveal-up-alt;
+}
+.reveal.reveal-left.is-visible {
+  animation-name: reveal-left;
+}
+.reveal.reveal-zoom.is-visible {
+  animation-name: reveal-zoom;
+  animation-duration: 1.2s;
+}
+
 .detail-dialog[open] {
   animation: modal-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }

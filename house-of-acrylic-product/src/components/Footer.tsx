@@ -36,6 +36,15 @@ export function Footer() {
           >
             Instagram {site.handle}
           </a>
+          <br />
+          <a
+            href={site.tiktok}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-paper"
+          >
+            TikTok @hap.project.surabaya
+          </a>
         </address>
       </div>
       <p className="border-t border-line-dark py-5 text-center text-xs">

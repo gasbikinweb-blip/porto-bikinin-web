@@ -3,6 +3,7 @@ import { Inter, Oswald } from 'next/font/google';
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
+import { RevealObserver } from '@/components/RevealObserver';
 import { site } from '@/data/site';
 import { siteConfig } from '@/lib/config';
 import './globals.css';
@@ -69,6 +70,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </main>
         <Footer />
         <FloatingWhatsApp />
+        <RevealObserver />
       </body>
     </html>
   );
