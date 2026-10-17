@@ -101,6 +101,15 @@ export function Footer() {
             </li>
             <li className="pt-1 text-xs leading-relaxed">
               <span>{siteConfig.address}</span>
+              <div className="mt-1">
+                <a
+                  href={siteConfig.mapsUrl}
+                  {...external}
+                  className="text-accent hover:underline inline-flex items-center gap-1"
+                >
+                  Lihat di Google Maps →
+                </a>
+              </div>
             </li>
           </ul>
         </div>

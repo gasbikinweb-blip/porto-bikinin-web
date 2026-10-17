@@ -64,20 +64,20 @@ export default function ContactPage() {
         {/* Alamat & Maps Link */}
         <div className="reveal rounded-2xl border border-line bg-surface p-6 sm:p-8 flex flex-col justify-between">
           <div>
-            <h2 className="font-serif text-2xl text-foreground font-medium">Workshop & Kantor</h2>
+            <h2 className="font-serif text-2xl text-foreground font-medium">Showroom & Workshop</h2>
             <address className="mt-3 text-xs leading-relaxed text-muted not-italic">
               {siteConfig.address}
             </address>
             <p className="mt-2 text-[11px] text-accent">
-              Lokasi showroom & workshop dibagikan via WhatsApp. Kunjungan dengan janji temu.
+              Silakan datang langsung, atau kabari kami dulu via WhatsApp agar disambut tim.
             </p>
           </div>
           <a
-            href={buildWhatsAppLink(`Halo ${siteConfig.name}, boleh minta lokasi showroom/workshop untuk kunjungan? Terima kasih.`)}
+            href={siteConfig.mapsUrl}
             {...external}
             className="mt-6 inline-flex w-full items-center justify-center gap-1.5 rounded-full border border-line bg-surface-2 px-4 py-3 text-xs font-semibold text-foreground hover:border-accent transition-colors"
           >
-            Minta Lokasi via WhatsApp <ArrowIcon className="size-3" />
+            Buka di Google Maps <ArrowIcon className="size-3" />
           </a>
         </div>
 
@@ -103,6 +103,30 @@ export default function ContactPage() {
         <p className="mt-2 text-sm leading-relaxed text-muted">
           {siteConfig.shippingCoverage}. Kami bekerjasama dengan ekspedisi kargo furnitur terpercaya yang menyediakan proteksi packing kayu dan opsi perakitan langsung di lokasi Anda.
         </p>
+      </div>
+
+      {/* Peta lokasi (iframe Google Maps, dimuat saat mendekati layar) */}
+      <div className="reveal mt-16">
+        <div className="relative aspect-[4/5] overflow-hidden border border-line bg-surface-2 sm:aspect-[16/7]">
+          <iframe
+            src={siteConfig.mapsEmbedUrl}
+            title={`Peta lokasi ${siteConfig.name}: ${siteConfig.address}`}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
+            className="absolute inset-0 size-full border-0"
+          />
+        </div>
+        <div className="mt-4 flex flex-col justify-between gap-3 text-sm sm:flex-row sm:items-center">
+          <p className="text-muted">{siteConfig.address}</p>
+          <a
+            href={siteConfig.mapsUrl}
+            {...external}
+            className="inline-flex shrink-0 items-center gap-2 border-b border-foreground pb-1 text-[11px] font-semibold tracking-[0.25em] uppercase"
+          >
+            Petunjuk arah <ArrowIcon className="size-3.5" />
+          </a>
+        </div>
       </div>
 
       {/* WhatsApp Inquiry Builder */}

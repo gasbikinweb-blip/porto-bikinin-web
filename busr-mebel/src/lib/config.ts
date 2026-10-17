@@ -31,17 +31,17 @@ export const siteConfig = {
   instagram: 'https://www.instagram.com/busrmebel', // Akun Instagram Busr Mebel
   tiktok: 'https://www.tiktok.com/@busrmebel',
   youtube: 'https://www.youtube.com/@busrmebel1904',
-  // Alamat lengkap belum dicantumkan; lokasi showroom dibagikan via WhatsApp
-  address: 'Jepara, Jawa Tengah',
-  city: 'Jepara',
+  address: 'Jl. K.H. Nawawi, RW 2, Sinanggul, Kec. Mlonggo, Kabupaten Jepara, Jawa Tengah 59452',
+  streetAddress: 'Jl. K.H. Nawawi, RW 2, Sinanggul, Kec. Mlonggo',
+  postalCode: '59452',
+  mapsUrl: 'https://share.google/NpUZsVhAX2fXPpw0Y',
+  mapsEmbedUrl:
+    'https://www.google.com/maps?q=Busrmebel,+Jl.+K.H.+Nawawi,+Sinanggul,+Mlonggo,+Jepara,+Jawa+Tengah+59452&output=embed',
+  city: 'Kabupaten Jepara',
   province: 'Jawa Tengah',
   country: 'Indonesia',
   shippingCoverage: 'Melayani Pengiriman & Perakitan ke Seluruh Wilayah Indonesia (Jabodetabek, Jawa, Bali, Sumatera, Kalimantan, Sulawesi, dll.)',
   establishedYear: 2018, // TODO: tahun berdiri perusahaan
   catalogPdfUrl: '/katalog-busr-mebel.pdf',
-  hours: [
-    { day: 'Senin – Jumat', time: '08.00 – 17.00 WIB' },
-    { day: 'Sabtu', time: '08.00 – 15.00 WIB' },
-    { day: 'Minggu & Hari Libur', time: 'Konsultasi Online via WhatsApp' },
-  ],
+  hours: [{ day: 'Senin – Minggu', time: '08.00 – 21.00 WIB' }],
 } as const;

@@ -88,22 +88,19 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             sameAs: [siteConfig.instagram, siteConfig.tiktok, siteConfig.youtube],
             address: {
               '@type': 'PostalAddress',
+              streetAddress: siteConfig.streetAddress,
+              postalCode: siteConfig.postalCode,
               addressLocality: siteConfig.city,
               addressRegion: siteConfig.province,
               addressCountry: siteConfig.country,
             },
+            hasMap: siteConfig.mapsUrl,
             openingHoursSpecification: [
               {
                 '@type': 'OpeningHoursSpecification',
-                dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+                dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
                 opens: '08:00',
-                closes: '17:00',
-              },
-              {
-                '@type': 'OpeningHoursSpecification',
-                dayOfWeek: 'Saturday',
-                opens: '08:00',
-                closes: '15:00',
+                closes: '21:00',
               },
             ],
           }}
