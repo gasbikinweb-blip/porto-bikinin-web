@@ -272,7 +272,7 @@ export function ProjectGallery() {
           })}
         </div>
 
-        {/* Tombol Tampilkan Semua 38 Foto */}
+        {/* Tombol Tampilkan Semua Foto Proyek */}
         {activeFilter === 'Semua' && filteredProjects.length > INITIAL_PHOTO_COUNT && (
           <div className="mt-12 flex justify-center">
             <button

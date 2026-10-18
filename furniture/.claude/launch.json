@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "busr-mebel", "runtimeExecutable": "npx", "runtimeArgs": ["serve", "busr-mebel/out", "-l", "4173"], "port": 4173 }
+  ]
+}

@@ -213,8 +213,8 @@ const products: readonly Product[] = [
       'Cocok untuk bidang jendela yang lebar maupun tinggi',
     ],
     images: gallery('vertical-blinds', [
-      'Pemasangan tirai blinds abu-abu rapi pada jendela ruangan berlapis keramik putih',
-      'Tirai blinds putih bersih yang presisi menutup bidang jendela ruangan',
+      'Referensi pemasangan tirai blinds warna abu-abu rapi pada jendela ruangan berlapis keramik putih',
+      'Referensi tirai blinds putih bersih yang presisi menutup bidang jendela ruang kerja dan kantor',
     ]),
     specs: {
       material:
@@ -273,8 +273,8 @@ const products: readonly Product[] = [
       'Mekanisme gulung halus dan mudah dioperasikan',
     ],
     images: gallery('roller-blinds', [
-      'Pemasangan tirai blinds warna krem bersih pada area jendela ruangan',
-      'Detail kemiringan bilah tirai warna cokelat hangat yang menahan terik matahari',
+      'Referensi pemasangan tirai blinds warna krem bersih pada area jendela ruangan modern',
+      'Detail kemiringan bilah tirai blinds warna cokelat kayu hangat penahan terik matahari',
     ]),
     specs: {
       material:

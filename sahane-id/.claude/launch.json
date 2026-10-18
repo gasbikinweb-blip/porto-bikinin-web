@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "sahane-static", "runtimeExecutable": "npx", "runtimeArgs": ["--prefix", "nextjs-static-catalog-starter", "serve", "nextjs-static-catalog-starter/out", "-l", "4321"], "port": 4321 }
+  ]
+}

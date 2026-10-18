@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "seams-out",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--prefix", "seams-konveksi", "serve", "seams-konveksi/out", "-l", "4321"],
+      "port": 4321
+    }
+  ]
+}
