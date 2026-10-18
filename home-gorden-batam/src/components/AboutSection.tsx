@@ -26,8 +26,8 @@ const quickLinks = [
     tag: 'Jahit Presisi Sesuai Ukuran',
     thumbs: [
       '/projects/thumbs/gorden-minimalis-krem-ruang-tamu-modern-01.webp',
-      '/projects/thumbs/gorden-spanyol-klasik-emas-navy-01.webp',
-      '/projects/thumbs/gorden-blackout-cokelat-tua-kamar-tidur-01.webp',
+      '/projects/thumbs/gorden-custom-emas-poni-klasik-01.webp',
+      '/projects/thumbs/gorden-blackout-cokelat-tua-ruang-tamu-klasik-01.webp',
     ],
     href: '#katalog',
   },
@@ -37,7 +37,7 @@ const quickLinks = [
     thumbs: [
       '/projects/thumbs/horizontal-blinds-abu-dapur-01.webp',
       '/projects/thumbs/gorden-minimalis-abu-vitrase-pintu-besar-01.webp',
-      '/projects/thumbs/gorden-minimalis-abu-tua-vitrase-jendela-tinggi.webp',
+      '/projects/thumbs/rell-besi-tutup-endcup-katalog-02.webp',
     ],
     href: '#solusi-ruangan',
   },
@@ -346,7 +346,7 @@ export function AboutSection() {
           <div className="relative pb-8 lg:col-span-6 lg:pr-8">
             <div className="reveal relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-line bg-surface-2 shadow-xl">
               <Image
-                src="/projects/gorden-minimalis-abu-tua-vitrase-jendela-tinggi.webp"
+                src="/projects/gorden-custom-abu-vitrase-void-tinggi-01.webp"
                 alt="Jatuhan gelombang gorden minimalis yang simetris di jendela tinggi"
                 fill
                 sizes="(min-width: 1024px) 45vw, 100vw"
