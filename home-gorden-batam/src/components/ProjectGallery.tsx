@@ -126,30 +126,14 @@ export function ProjectGallery() {
 
   return (
     <div className="space-y-24">
-      {/* Bagian 1: Filter & Grid Foto Portofolio Sejajar Rapi */}
-      <section aria-labelledby="galeri-foto-heading">
-        <div className="flex flex-col items-start justify-between gap-5 border-b border-line pb-6 lg:flex-row lg:items-end">
-          <div>
-            <h3
-              id="galeri-foto-heading"
-              className="font-serif text-2xl font-semibold text-foreground sm:text-3xl"
-            >
-              Koleksi Proyek <span className="text-accent">({filteredProjects.length})</span>
-            </h3>
-            <p className="mt-1 text-xs text-muted">
-              Klik pada foto untuk membuka detail proyek. Gambar referensi desain ditandai badge{' '}
-              <span className="inline-block rounded bg-navy px-2 py-0.5 font-semibold text-white">
-                Ilustrasi
-              </span>
-              .
-            </p>
-          </div>
-
-          {/* Filter Kategori */}
+      {/* Bagian 1: Filter Kategori Terpusat & Grid Foto Portofolio Sejajar Rapi */}
+      <section aria-labelledby="judul-portofolio">
+        <div className="flex flex-col items-center text-center">
+          {/* Filter Kategori Terpusat Satu Baris Rapi */}
           <div
             role="toolbar"
             aria-label="Filter kategori portofolio"
-            className="flex flex-wrap gap-2"
+            className="-mx-4 flex max-w-full gap-2 overflow-x-auto px-4 pb-2 [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:justify-center sm:px-0 [&::-webkit-scrollbar]:hidden"
           >
             {FILTER_OPTIONS.map((category) => {
               const isSelected = activeFilter === category;
@@ -167,17 +151,31 @@ export function ProjectGallery() {
                     setLightboxIndex(null);
                   }}
                   aria-pressed={isSelected}
-                  className={`min-h-10 cursor-pointer rounded-full px-4 py-2 text-xs font-semibold whitespace-nowrap transition-all sm:text-sm ${
+                  className={`shrink-0 cursor-pointer rounded-full border px-5 py-2 text-xs font-semibold whitespace-nowrap transition-all duration-300 sm:text-sm ${
                     isSelected
-                      ? 'bg-accent text-background shadow-md shadow-accent/20'
-                      : 'border border-line bg-surface text-muted hover:border-accent/50 hover:text-foreground'
+                      ? 'border-accent bg-accent text-background shadow-md shadow-accent/20'
+                      : 'border-line bg-surface text-muted hover:border-accent/50 hover:text-foreground'
                   }`}
                 >
-                  {category} <span className="ml-1 opacity-75">({count})</span>
+                  {category} <sup className="ml-0.5 text-[10px] opacity-75">{count}</sup>
                 </button>
               );
             })}
           </div>
+
+          <p className="mt-3 flex flex-wrap items-center justify-center gap-1.5 text-xs text-muted">
+            <span>
+              Menampilkan{' '}
+              <strong className="font-semibold text-foreground">{filteredProjects.length}</strong>{' '}
+              dokumentasi foto • Klik kartu untuk memperbesar.
+            </span>
+            <span className="inline-flex items-center gap-1">
+              <span>Referensi desain ditandai</span>
+              <span className="inline-block rounded-full bg-navy px-2 py-0.5 text-[10px] font-semibold tracking-wider text-white uppercase">
+                Ilustrasi
+              </span>
+            </span>
+          </p>
         </div>
 
         {/* Grid Foto SEJAJAR RAPI (tanpa offset naik-turun, responsif di zoom 120%) */}
