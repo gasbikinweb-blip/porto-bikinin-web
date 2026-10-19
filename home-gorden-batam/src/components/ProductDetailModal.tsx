@@ -182,10 +182,10 @@ export function ProductDetailModal({ product, onClose }: Props) {
             sizes="(min-width: 1024px) 1150px, 100vw"
             className="animate-in object-cover object-center lg:object-right"
           />
-          {/* Gradasi kiri ke kanan agar teks sangat jelas seperti ARCEVO */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#110f0c] via-[#110f0c]/88 to-[#110f0c]/25" />
-          {/* Gradasi atas & bawah untuk bar navigasi dan bar statistik */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0e0c0a] via-transparent to-[#0e0c0a]/75" />
+          {/* Gradasi kiri ke kanan diperhalus agar foto gorden terlihat terang & jelas, namun teks kiri tetap terbaca */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#110f0c]/85 via-[#110f0c]/45 to-transparent" />
+          {/* Gradasi tipis di bagian atas & bawah hanya untuk area header dan bar spesifikasi */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0e0c0a]/80 via-transparent to-[#0e0c0a]/35" />
         </div>
 
         {/* ---------- 1. TOP BAR MODAL (Gaya ARCEVO Header) ---------- */}
@@ -336,10 +336,10 @@ export function ProductDetailModal({ product, onClose }: Props) {
 
           {/* Kanan Bawah: Thumbnail Pratinjau Gambar Produk agar pengunjung bisa ganti sudut foto */}
           <div className="flex min-w-0 flex-col items-start gap-2.5 lg:col-span-5 lg:items-end">
-            <p className="text-[11px] font-medium tracking-wider text-white/75 uppercase">
+            <p className="text-[11px] font-medium tracking-wider text-white/85 uppercase drop-shadow-sm">
               Pilih Contoh Pemasangan ({imageIndex + 1}/{activeProduct.images.length})
             </p>
-            <div className="flex max-w-full items-center gap-2 overflow-x-auto rounded-2xl border border-white/15 bg-black/60 p-2.5 backdrop-blur-md">
+            <div className="flex max-w-full items-center gap-2 overflow-x-auto rounded-2xl border border-white/15 bg-black/50 p-2.5 backdrop-blur-md [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {activeProduct.images.map((img, i) => {
                 const active = i === imageIndex;
                 return (
