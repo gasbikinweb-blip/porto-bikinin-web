@@ -357,12 +357,16 @@ export function AboutSection() {
             <div className="reveal absolute right-0 -bottom-2 w-48 overflow-hidden rounded-2xl border-4 border-background bg-surface shadow-2xl sm:w-64">
               <div className="relative aspect-[16/10] w-full">
                 <Image
-                  src="/brand/logo.webp"
-                  alt={`Identitas logo ${siteConfig.name}`}
+                  src="/projects/gorden-custom-krem-ruang-tamu-mewah-01.webp"
+                  alt="Detail pemasangan gorden custom krem dan vitrase ruang tamu oleh Home Gorden Batam"
                   fill
                   sizes="260px"
-                  className="bg-black object-contain p-2"
+                  className="object-cover"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                <span className="absolute bottom-2 left-2.5 rounded-full bg-black/55 px-2.5 py-0.5 text-[10px] font-semibold tracking-wider text-white uppercase backdrop-blur-sm">
+                  Detail Gelombang Rapi
+                </span>
               </div>
             </div>
           </div>
