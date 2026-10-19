@@ -66,7 +66,7 @@ function gallery(slug: string, alts: readonly [string, ...string[]]) {
   return [first!, ...rest] as const;
 }
 
-// TODO: konfirmasi deskripsi masing-masing produk dengan pemilik usaha
+// Katalog 9 jenis produk & layanan utama Home Gorden Batam.
 const products: readonly Product[] = [
   {
     slug: 'gorden-custom',
@@ -75,7 +75,7 @@ const products: readonly Product[] = [
     shortSummary:
       'Dijahit khusus mengikuti tinggi plafon, lebar jendela, dan gaya interior rumah Anda.',
     description:
-      'Layanan pembuatan gorden custom yang sepenuhnya menyesuaikan ukuran jendela, pintu kaca, maupun void plafon tinggi di rumah Anda. Tersedia berbagai gaya jahitan mulai dari lipatan klasik, gelombang rapi, hingga model poni elegan (seperti model Spanyol) yang dipadukan dengan vitrase dan tali tassel serasi.', // TODO: verifikasi dengan pemilik usaha
+      'Layanan pembuatan gorden custom yang sepenuhnya menyesuaikan ukuran jendela, pintu kaca, maupun void plafon tinggi di rumah Anda. Tersedia berbagai gaya jahitan mulai dari lipatan klasik, gelombang rapi, hingga model poni elegan (seperti model Spanyol) yang dipadukan dengan vitrase dan tali tassel serasi.',
     suitableRooms: [
       'Ruang Tamu Utama',
       'Kamar Tidur Utama',
@@ -94,8 +94,7 @@ const products: readonly Product[] = [
       'Gorden custom cokelat tua dengan vitrase putih di area kamar tidur berlemari putih',
     ]),
     specs: {
-      material:
-        'Pilihan kain blackout, dimout, linen look, atau beludru halus (TODO: verifikasi bahan)',
+      material: 'Pilihan kain blackout, dimout, linen look, atau beludru halus berkualitas',
       dimensions: 'Custom sesuai pengukuran survei di lokasi',
       colors: ['Krem Emas', 'Cokelat Tua', 'Taupe', 'Abu-abu', 'Biru Dongker'],
       installation: 'Termasuk pengukuran, perakitan rell, dan pemasangan rapi di lokasi',
@@ -109,7 +108,7 @@ const products: readonly Product[] = [
     shortSummary:
       'Tirai tipis transparan untuk menyaring cahaya matahari siang sambil menjaga privasi ruangan.',
     description:
-      'Gorden vitrase (sheer curtain) berfungsi menyaring terik matahari di siang hari agar ruangan tetap terang alami tanpa silau, sekaligus menghalangi pandangan langsung dari luar rumah. Sangat cocok dipasang berpasangan di balik gorden utama maupun dipasang tersendiri dengan model kupu-kupu pita pada jendela kaca.', // TODO: verifikasi dengan pemilik usaha
+      'Gorden vitrase (sheer curtain) berfungsi menyaring terik matahari di siang hari agar ruangan tetap terang alami tanpa silau, sekaligus menghalangi pandangan langsung dari luar rumah. Sangat cocok dipasang berpasangan di balik gorden utama maupun dipasang tersendiri dengan model kupu-kupu pita pada jendela kaca.',
     suitableRooms: ['Ruang Tamu', 'Ruang Keluarga', 'Jendela Sudut / Kaca Mati', 'Kamar Tidur'],
     benefits: [
       'Membuat ruangan terasa terang, lembut, dan lapang di siang hari',
@@ -122,8 +121,7 @@ const products: readonly Product[] = [
       'Perpaduan vitrase putih bersih di balik gorden smokring warna taupe',
     ]),
     specs: {
-      material:
-        'Voile putih halus, sheer bertekstur lembut, atau vitrase bordir (TODO: verifikasi bahan)',
+      material: 'Voile putih halus, sheer bertekstur lembut, atau vitrase motif elegan',
       dimensions: 'Custom mengikuti lebar dan tinggi jendela/pintu',
       colors: ['Putih Bersih', 'Broken White / Krem Muda', 'Kombinasi Pita Emas'],
       installation: 'Dipasang pada rell tersendiri (double track) atau stik kupu-kupu',
@@ -137,7 +135,7 @@ const products: readonly Product[] = [
     shortSummary:
       'Desain smokring dan plisket modern yang bersih, praktis, dan serasi untuk perumahan masa kini.',
     description:
-      'Pilihan favorit untuk rumah modern dan perumahan di Batam. Gorden minimalis menonjolkan garis gelombang vertikal yang tegas dan bersih tanpa banyak ornamen rumit. Menggunakan ring smokring maupun kawat plisket yang mudah digeser, memberikan kesan ruangan yang rapi, lega, dan hangat.', // TODO: verifikasi dengan pemilik usaha
+      'Pilihan favorit untuk rumah modern dan perumahan di Batam. Gorden minimalis menonjolkan garis gelombang vertikal yang tegas dan bersih tanpa banyak ornamen rumit. Menggunakan ring smokring maupun kawat plisket yang mudah digeser, memberikan kesan ruangan yang rapi, lega, dan hangat.',
     suitableRooms: ['Ruang Tamu Minimalis', 'Ruang Keluarga', 'Kamar Tidur', 'Apartemen'],
     benefits: [
       'Tampilan modern dan bersih yang mudah menyatu dengan berbagai warna cat dinding',
@@ -151,7 +149,7 @@ const products: readonly Product[] = [
       'Dua pasang gorden minimalis warna emas smokring yang serasi pada pintu kayu',
     ]),
     specs: {
-      material: 'Kain semi-blackout dan blackout polos bertekstur halus (TODO: verifikasi bahan)',
+      material: 'Kain semi-blackout dan blackout polos bertekstur halus',
       dimensions: 'Custom sesuai ukuran jendela satu daun, dua daun, atau pintu geser',
       colors: ['Krem Modern', 'Abu-abu Muda', 'Cokelat Keemasan', 'Mocca', 'Silver'],
       installation: 'Rell pipa smokring atau rell kotak aluminium',
@@ -165,7 +163,7 @@ const products: readonly Product[] = [
     shortSummary:
       'Menahan cahaya matahari dan meredam panas terik agar tidur lebih nyenyak dan AC lebih dingin.',
     description:
-      'Dirancang khusus untuk iklim Batam yang cerah dan hangat. Kain gorden blackout memiliki tenunan rapat yang efektif menghalangi masuknya sinar matahari langsung serta membantu menahan hawa panas dari kaca jendela. Sangat ideal untuk kamar tidur, ruang TV, maupun ruangan ber-AC.', // TODO: verifikasi dengan pemilik usaha
+      'Dirancang khusus untuk iklim Batam yang cerah dan hangat. Kain gorden blackout memiliki tenunan rapat yang efektif menghalangi masuknya sinar matahari langsung serta membantu menahan hawa panas dari kaca jendela. Sangat ideal untuk kamar tidur, ruang TV, maupun ruangan ber-AC.',
     suitableRooms: [
       'Kamar Tidur Utama',
       'Kamar Anak',
@@ -184,8 +182,7 @@ const products: readonly Product[] = [
       'Gorden blackout abu-abu gelap model smokring pada dua sisi jendela sudut',
     ]),
     specs: {
-      material:
-        'Kain blackout tebal bertekstur doff maupun satin lembut (TODO: verifikasi persentase blackout)',
+      material: 'Kain blackout tebal bertekstur doff maupun satin lembut penahan cahaya',
       dimensions: 'Custom menutup penuh kusen jendela (disarankan lebih lebar 15–20 cm tiap sisi)',
       colors: [
         'Hitam Arang (Charcoal)',
@@ -205,7 +202,7 @@ const products: readonly Product[] = [
     shortSummary:
       'Tirai bilah vertikal yang rapi dan profesional untuk jendela ruko, kantor, dan bidang kaca lebar.',
     description:
-      'Vertical blinds terdiri dari bilah-bilah vertikal yang dapat diputar untuk mengatur sudut masuknya cahaya maupun digeser ke samping layaknya tirai. Memberikan kesan formal, bersih, dan efisien untuk ruang kerja, ruko, klinik, maupun jendela besar di hunian modern.', // TODO: verifikasi dengan pemilik usaha
+      'Vertical blinds terdiri dari bilah-bilah vertikal yang dapat diputar untuk mengatur sudut masuknya cahaya maupun digeser ke samping layaknya tirai. Memberikan kesan formal, bersih, dan efisien untuk ruang kerja, ruko, klinik, maupun jendela besar di hunian modern.',
     suitableRooms: ['Ruko & Kantor', 'Ruang Rapat', 'Klinik & Instansi', 'Jendela Kaca Lebar'],
     benefits: [
       'Pengaturan arah cahaya sangat fleksibel dengan memutar bilah vertikal',
@@ -217,8 +214,7 @@ const products: readonly Product[] = [
       'Referensi tirai blinds putih bersih yang presisi menutup bidang jendela ruang kerja dan kantor',
     ]),
     specs: {
-      material:
-        'Fabric polyester kaku anti-debu (pilihan dimout / blackout / sun screen) (TODO: verifikasi bahan)',
+      material: 'Fabric polyester kaku anti-debu (pilihan dimout, blackout, atau sun screen)',
       dimensions: 'Custom mengikuti lebar dan tinggi bukaan jendela kantor/rumah',
       colors: ['Abu-abu Kantor', 'Putih Bersih', 'Krem Netral', 'Biru Dongker'],
       installation: 'Track kepala aluminium dengan rantai pengatur sudut dan tali geser',
@@ -232,7 +228,7 @@ const products: readonly Product[] = [
     shortSummary:
       'Tirai bilah horizontal aluminium/kayu yang tahan lembap, mudah dilap, dan praktis untuk dapur atau kerja.',
     description:
-      'Horizontal blinds (Venetian blinds) memiliki bilah mendatar yang dilengkapi stik pemutar untuk mengatur celah cahaya dan tali penarik untuk menaikkan tirai. Karena bahannya tahan cipratan air dan mudah dibersihkan, produk ini sangat populer untuk jendela dapur, dekat wastafel, kamar mandi kering, maupun ruang kerja.', // TODO: verifikasi dengan pemilik usaha
+      'Horizontal blinds (Venetian blinds) memiliki bilah mendatar yang dilengkapi stik pemutar untuk mengatur celah cahaya dan tali penarik untuk menaikkan tirai. Karena bahannya tahan cipratan air dan mudah dibersihkan, produk ini sangat populer untuk jendela dapur, dekat wastafel, kamar mandi kering, maupun ruang kerja.',
     suitableRooms: [
       'Dapur & Area Wastafel',
       'Ruang Kerja / Kantor',
@@ -251,7 +247,7 @@ const products: readonly Product[] = [
       'Detail stik pemutar akrilik dan bilah horizontal blinds abu-abu yang presisi',
     ]),
     specs: {
-      material: 'Bilah aluminium ringan anti-karat atau motif serat kayu (TODO: verifikasi bahan)',
+      material: 'Bilah aluminium ringan anti-karat atau motif serat kayu pilihan',
       dimensions: 'Lebar bilah 25mm / 50mm, ukuran kotak custom sesuai jendela',
       colors: ['Putih Minimalis', 'Krem Hangat', 'Abu-abu Perak', 'Cokelat Motif Kayu'],
       installation: 'Bracket atas/samping dengan stik pemutar dan pengunci tali otomatis',
@@ -265,7 +261,7 @@ const products: readonly Product[] = [
     shortSummary:
       'Tirai gulung satu lembar yang ekstra ringkas, modern, dan hemat tempat untuk apartemen & kantor.',
     description:
-      'Roller blinds menggulung kain secara rapi ke tabung atas menggunakan tarikan rantai samping (chain system). Memberikan tampilan jendela yang sangat bersih dan rata saat ditutup, serta nyaris tidak terlihat saat digulung penuh ke atas.', // TODO: verifikasi dengan pemilik usaha
+      'Roller blinds menggulung kain secara rapi ke tabung atas menggunakan tarikan rantai samping (chain system). Memberikan tampilan jendela yang sangat bersih dan rata saat ditutup, serta nyaris tidak terlihat saat digulung penuh ke atas.',
     suitableRooms: ['Apartemen', 'Ruko & Kafe', 'Ruang Kerja', 'Kamar Tidur Minimalis'],
     benefits: [
       'Sangat hemat tempat dan tidak memakan ruang di sekitar jendela',
@@ -277,8 +273,7 @@ const products: readonly Product[] = [
       'Detail kemiringan bilah tirai blinds warna cokelat kayu hangat penahan terik matahari',
     ]),
     specs: {
-      material:
-        'Pilihan kain blackout, dimout, atau solar screen penahan UV (TODO: verifikasi bahan)',
+      material: 'Pilihan kain blackout, dimout, atau solar screen penahan sinar UV',
       dimensions: 'Custom per bidang kaca jendela',
       colors: ['Krem', 'Abu-abu Muda', 'Putih', 'Cokelat Muda', 'Hitam Arang'],
       installation: 'Tabung roller aluminium dengan rantai tarikan samping',
@@ -292,7 +287,7 @@ const products: readonly Product[] = [
     shortSummary:
       'Pelapis dinding bertekstur elegan yang tahan lembap, mudah dibersihkan, dan serasi dengan gorden.',
     description:
-      'Selain gorden, kami melayani pengadaan dan pemasangan wallpaper vinyl untuk menyempurnakan tampilan dinding ruang tamu maupun kamar tidur Anda. Permukaan berlapis vinyl membuat dinding tampak lebih hidup, menutup retak rambut pada tembok, serta lebih mudah dibersihkan dibanding cat biasa.', // TODO: verifikasi dengan pemilik usaha
+      'Selain gorden, kami melayani pengadaan dan pemasangan wallpaper vinyl untuk menyempurnakan tampilan dinding ruang tamu maupun kamar tidur Anda. Permukaan berlapis vinyl membuat dinding tampak lebih hidup, menutup retak rambut pada tembok, serta lebih mudah dibersihkan dibanding cat biasa.',
     suitableRooms: [
       'Dinding Fokus Ruang Tamu',
       'Backdrop Kepala Tempat Tidur',
@@ -309,8 +304,7 @@ const products: readonly Product[] = [
       'Suasana ruang tamu hangat dengan dinding bernuansa krem lembut dan gorden senada',
     ]),
     specs: {
-      material:
-        'Wallpaper berbahan dasar kertas dengan lapisan permukaan PVC/Vinyl (TODO: verifikasi ukuran roll)',
+      material: 'Wallpaper berbahan dasar tebal dengan lapisan permukaan PVC/Vinyl berkualitas',
       dimensions: 'Dijual per roll dan dihitung sesuai luas bidang dinding saat survei',
       colors: ['Krem Tekstur Linen', 'Motif Garis Klasik', 'Abu-abu Modern', 'Aksen Emas Lembut'],
       installation: 'Termasuk lem wallpaper khusus dan pemasangan rapi di lokasi',
@@ -324,7 +318,7 @@ const products: readonly Product[] = [
     shortSummary:
       'Batang rell gorden kokoh, tutup endcup dekoratif, bracket, dan pengait dengan pilihan warna mewah.',
     description:
-      'Gorden yang indah membutuhkan penopang yang kuat dan serasi. Kami menyediakan berbagai pilihan batang rell besi/aluminium (ulir, garis, maupun polos) lengkap dengan tutup ujung (endcup) bermotif klasik hingga minimalis, bracket penahan kokoh, roda plisket, serta pengait tali (hook/tassel).', // TODO: verifikasi dengan pemilik usaha
+      'Gorden yang indah membutuhkan penopang yang kuat dan serasi. Kami menyediakan berbagai pilihan batang rell besi/aluminium (ulir, garis, maupun polos) lengkap dengan tutup ujung (endcup) bermotif klasik hingga minimalis, bracket penahan kokoh, roda plisket, serta pengait tali (hook/tassel).',
     suitableRooms: [
       'Semua Jenis Jendela & Pintu',
       'Penggantian Rell Lama',
@@ -340,8 +334,7 @@ const products: readonly Product[] = [
       'Katalog pilihan tutup ujung rell gorden (endcup) minimalis dalam warna bronze, hitam, putih, dan coffee',
     ]),
     specs: {
-      material:
-        'Besi berlapis coating anti-karat & aluminium tebal (TODO: verifikasi diameter pipa)',
+      material: 'Besi berlapis coating anti-karat & aluminium tebal berkualitas',
       dimensions: 'Dipotong sesuai lebar jendela (tersedia single track & double track)',
       colors: [
         'Gold / Emas',

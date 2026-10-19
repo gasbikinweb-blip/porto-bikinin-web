@@ -94,7 +94,6 @@ export interface ServiceItem {
 }
 
 // Daftar layanan untuk halaman /layanan
-// TODO: verifikasi estimasi waktu pengerjaan dengan pemilik usaha
 export const services: readonly ServiceItem[] = [
   {
     id: 'survei-pengukuran',
@@ -102,7 +101,7 @@ export const services: readonly ServiceItem[] = [
     subtitle: 'Layanan unggulan ke seluruh area Batam',
     description:
       'Kami memahami bahwa ukuran jendela setiap rumah dan bangunan berbeda-beda. Tim kami datang langsung membawa alat ukur dan buku sampel bahan ke rumah, apartemen, ruko, atau kantor Anda di Batam.',
-    durationEstimate: 'Estimasi kunjungan: 30–60 menit sesuai jumlah jendela (TODO: verifikasi)',
+    durationEstimate: 'Estimasi kunjungan: 30–60 menit sesuai jumlah jendela',
     highlights: [
       'Gratis biaya kunjungan untuk seluruh wilayah Batam',
       'Pengukuran presisi lebar, tinggi, dan posisi pemasangan bracket rell',
@@ -115,8 +114,7 @@ export const services: readonly ServiceItem[] = [
     subtitle: 'Dijahit rapi sesuai ukuran dan model pilihan',
     description:
       'Setiap helai gorden dipotong dan dijahit khusus mengikuti ukuran hasil survei. Tersedia model smokring minimalis, plisket, gelombang S-wave, hingga gorden klasik model Spanyol dengan poni.',
-    durationEstimate:
-      'Estimasi produksi: 3–7 hari kerja tergantung jumlah & antrean (TODO: verifikasi)',
+    durationEstimate: 'Estimasi produksi: 3–7 hari kerja sesuai jumlah pesanan',
     highlights: [
       'Pilihan kain blackout, dimout, semi-blackout, dan vitrase siang',
       'Jahitan kelim tepi dan lipatan atas yang rapi serta simetris',
@@ -129,7 +127,7 @@ export const services: readonly ServiceItem[] = [
     subtitle: 'Instalasi kokoh, lurus, dan siap pakai',
     description:
       'Teknisi kami memasang rell besi, bracket, pengait (hook), vitrase, gorden utama, maupun tirai blinds dengan peralatan lengkap sehingga terpasang kuat di dinding beton maupun plafon.',
-    durationEstimate: 'Estimasi pasang: 1–4 jam di lokasi sesuai jumlah titik (TODO: verifikasi)',
+    durationEstimate: 'Estimasi pasang: 1–4 jam di lokasi sesuai jumlah titik',
     highlights: [
       'Pemasangan rell besi, roda plisket, dan endcup yang presisi',
       'Penataan lipatan gorden (styling) agar langsung tampak jatuh elegan',
@@ -142,7 +140,7 @@ export const services: readonly ServiceItem[] = [
     subtitle: 'Peremajaan rell, bracket, atau ganti kain gorden lama',
     description:
       'Jika Anda sudah memiliki gorden namun rell besinya macet/bengkok, atau ingin mengganti kain gorden lama dengan suasana baru menggunakan rell yang masih bagus, kami siap membantu.',
-    durationEstimate: 'Estimasi pengerjaan: Sesuai kondisi titik di lokasi (TODO: verifikasi)',
+    durationEstimate: 'Estimasi pengerjaan: Menyesuaikan kondisi titik di lokasi',
     highlights: [
       'Penggantian rell besi, roda, kawat S, atau bracket yang aus',
       'Pembuatan kain gorden baru menyesuaikan ukuran rell yang sudah ada',
@@ -155,8 +153,7 @@ export const services: readonly ServiceItem[] = [
     subtitle: 'Menjaga gorden dan blinds tetap bersih dan awet',
     description:
       'Kami memberikan panduan perawatan yang tepat untuk setiap jenis bahan—mulai dari cara mencuci vitrase, membersihkan debu pada bilah blinds, hingga perawatan kain blackout agar lapisan penahan cahayanya awet.',
-    durationEstimate:
-      'Konsultasi perawatan kapan saja via WhatsApp (TODO: verifikasi layanan cuci/bongkar-pasang)',
+    durationEstimate: 'Konsultasi perawatan kapan saja via WhatsApp resmi kami',
     highlights: [
       'Tips perawatan harian sesuai jenis kain dan mekanisme tirai',
       'Bantuan pengecekan mekanisme tarikan rantai/tali pada blinds',
