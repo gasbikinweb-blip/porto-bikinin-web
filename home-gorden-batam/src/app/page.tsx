@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { AboutSection } from '@/components/AboutSection';
-import { CatalogDownload } from '@/components/CatalogDownload';
 import { ArrowIcon, PlusIcon } from '@/components/icons';
 import { OrderSteps } from '@/components/OrderSteps';
 import { ProductCatalog } from '@/components/ProductCatalog';
@@ -166,14 +165,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ---------- 7. Unduh Katalog PDF ---------- */}
-      <section aria-label="Unduh katalog PDF" className="py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <CatalogDownload />
-        </div>
-      </section>
-
-      {/* ---------- 8. FAQ Aksesibel ---------- */}
+      {/* ---------- 7. FAQ Aksesibel ---------- */}
       <section id="faq" aria-labelledby="judul-faq" className="scroll-mt-20 py-20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <SectionHeading
