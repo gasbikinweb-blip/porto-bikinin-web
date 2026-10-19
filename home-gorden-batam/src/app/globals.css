@@ -73,11 +73,13 @@ html.theme-transition *::after {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  overflow-x: clip;
 }
 
 ::selection {

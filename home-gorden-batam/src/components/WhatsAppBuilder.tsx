@@ -140,7 +140,7 @@ export function WhatsAppBuilder({
   }
 
   return (
-    <div className="rounded-3xl border border-line bg-surface p-6 shadow-xl sm:p-8 lg:p-10">
+    <div className="overflow-hidden rounded-3xl border border-line bg-surface p-5 shadow-xl sm:p-8 lg:p-10">
       <div className="max-w-2xl">
         <span className="inline-flex items-center gap-2 rounded-full border border-accent/35 bg-accent/10 px-3.5 py-1 text-xs font-medium tracking-widest text-accent uppercase">
           Pembuat Pesan Cepat
@@ -153,10 +153,10 @@ export function WhatsAppBuilder({
       <div
         role="group"
         aria-label="Pengaturan pesan survei gratis WhatsApp"
-        className="mt-7 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+        className="mt-7 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
       >
         {/* 1. Pilih Jenis Produk */}
-        <div className="flex flex-col gap-2">
+        <div className="flex min-w-0 flex-col gap-2">
           <label
             htmlFor="wa-builder-product"
             className="text-xs font-semibold tracking-wider text-muted uppercase"
@@ -167,7 +167,7 @@ export function WhatsAppBuilder({
             id="wa-builder-product"
             value={selectedProduct}
             onChange={(e) => setSelectedProduct(e.target.value)}
-            className="min-h-11 rounded-xl border border-line bg-background px-3.5 py-2.5 text-sm font-medium text-foreground transition-colors focus:border-accent focus:outline-none"
+            className="min-h-11 w-full max-w-full min-w-0 truncate rounded-xl border border-line bg-background px-3.5 py-2.5 text-sm font-medium text-foreground transition-colors focus:border-accent focus:outline-none"
           >
             {PRODUCT_LIST.map((product) => (
               <option key={product.slug} value={product.name}>
@@ -178,7 +178,7 @@ export function WhatsAppBuilder({
         </div>
 
         {/* 2. Pilih Ruangan */}
-        <div className="flex flex-col gap-2">
+        <div className="flex min-w-0 flex-col gap-2">
           <label
             htmlFor="wa-builder-room"
             className="text-xs font-semibold tracking-wider text-muted uppercase"
@@ -189,7 +189,7 @@ export function WhatsAppBuilder({
             id="wa-builder-room"
             value={selectedRoom}
             onChange={(e) => setSelectedRoom(e.target.value as RoomOption)}
-            className="min-h-11 rounded-xl border border-line bg-background px-3.5 py-2.5 text-sm font-medium text-foreground transition-colors focus:border-accent focus:outline-none"
+            className="min-h-11 w-full max-w-full min-w-0 truncate rounded-xl border border-line bg-background px-3.5 py-2.5 text-sm font-medium text-foreground transition-colors focus:border-accent focus:outline-none"
           >
             {ROOM_OPTIONS.map((room) => (
               <option key={room} value={room}>
@@ -200,7 +200,7 @@ export function WhatsAppBuilder({
         </div>
 
         {/* 3. Jumlah Jendela / Pintu */}
-        <div className="flex flex-col gap-2">
+        <div className="flex min-w-0 flex-col gap-2">
           <label
             htmlFor="wa-builder-count"
             className="text-xs font-semibold tracking-wider text-muted uppercase"
@@ -220,7 +220,7 @@ export function WhatsAppBuilder({
             }}
             aria-invalid={!isValidCount}
             aria-describedby={!isValidCount ? 'wa-builder-count-error' : undefined}
-            className="min-h-11 rounded-xl border border-line bg-background px-3.5 py-2.5 text-sm font-medium text-foreground transition-colors focus:border-accent focus:outline-none"
+            className="min-h-11 w-full max-w-full min-w-0 rounded-xl border border-line bg-background px-3.5 py-2.5 text-sm font-medium text-foreground transition-colors focus:border-accent focus:outline-none"
           />
           {!isValidCount && (
             <p id="wa-builder-count-error" className="text-xs text-accent">
@@ -230,7 +230,7 @@ export function WhatsAppBuilder({
         </div>
 
         {/* 4. Perkiraan Ukuran (Opsional) */}
-        <div className="flex flex-col gap-2">
+        <div className="flex min-w-0 flex-col gap-2">
           <label
             htmlFor="wa-builder-width"
             className="text-xs font-semibold tracking-wider text-muted uppercase"
@@ -244,12 +244,12 @@ export function WhatsAppBuilder({
             placeholder="Contoh: lebar 2m x tinggi 2.5m"
             value={widthEstimateRaw}
             onChange={(e) => setWidthEstimateRaw(e.target.value.slice(0, 40))}
-            className="min-h-11 rounded-xl border border-line bg-background px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted/60 transition-colors focus:border-accent focus:outline-none"
+            className="min-h-11 w-full max-w-full min-w-0 rounded-xl border border-line bg-background px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted/60 transition-colors focus:border-accent focus:outline-none"
           />
         </div>
 
         {/* 5. Kecamatan / Kawasan di Batam */}
-        <div className="flex flex-col gap-2">
+        <div className="flex min-w-0 flex-col gap-2">
           <label
             htmlFor="wa-builder-area"
             className="text-xs font-semibold tracking-wider text-muted uppercase"
@@ -260,7 +260,7 @@ export function WhatsAppBuilder({
             id="wa-builder-area"
             value={selectedArea}
             onChange={(e) => setSelectedArea(e.target.value as AreaOption)}
-            className="min-h-11 rounded-xl border border-line bg-background px-3.5 py-2.5 text-sm font-medium text-foreground transition-colors focus:border-accent focus:outline-none"
+            className="min-h-11 w-full max-w-full min-w-0 truncate rounded-xl border border-line bg-background px-3.5 py-2.5 text-sm font-medium text-foreground transition-colors focus:border-accent focus:outline-none"
           >
             {batamAreas.map((area) => (
               <option key={area} value={area}>
@@ -271,7 +271,7 @@ export function WhatsAppBuilder({
         </div>
 
         {/* 6. Nama Perumahan / Gedung (Opsional) */}
-        <div className="flex flex-col gap-2">
+        <div className="flex min-w-0 flex-col gap-2">
           <label
             htmlFor="wa-builder-area-detail"
             className="text-xs font-semibold tracking-wider text-muted uppercase"
@@ -285,13 +285,13 @@ export function WhatsAppBuilder({
             placeholder="Contoh: Legenda Malaka / Ruko Nagoya"
             value={areaDetailRaw}
             onChange={(e) => setAreaDetailRaw(e.target.value.slice(0, 60))}
-            className="min-h-11 rounded-xl border border-line bg-background px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted/60 transition-colors focus:border-accent focus:outline-none"
+            className="min-h-11 w-full max-w-full min-w-0 rounded-xl border border-line bg-background px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted/60 transition-colors focus:border-accent focus:outline-none"
           />
         </div>
 
         {/* 7. Sharelock / Titik Lokasi Google Maps Calon Customer (Opsional) */}
-        <div className="flex flex-col gap-2 sm:col-span-2 lg:col-span-3">
-          <div className="flex flex-wrap items-center justify-between gap-2">
+        <div className="flex min-w-0 flex-col gap-2 sm:col-span-2 lg:col-span-3">
+          <div className="flex flex-wrap items-center justify-between gap-1.5">
             <label
               htmlFor="wa-builder-shareloc"
               className="text-xs font-semibold tracking-wider text-muted uppercase"
@@ -303,19 +303,19 @@ export function WhatsAppBuilder({
             </span>
           </div>
 
-          <div className="flex flex-col gap-2.5 sm:flex-row">
-            <div className="relative flex-1">
+          <div className="flex min-w-0 flex-col gap-2.5 sm:flex-row">
+            <div className="relative min-w-0 flex-1">
               <input
                 id="wa-builder-shareloc"
                 type="url"
                 maxLength={160}
-                placeholder="Tempel link Google Maps atau klik 'Ambil Titik Lokasi Saya' di samping ->"
+                placeholder="Tempel link Google Maps atau klik tombol GPS"
                 value={sharelocRaw}
                 onChange={(e) => {
                   setSharelocRaw(e.target.value.slice(0, 160));
                   if (locStatus) setLocStatus(null);
                 }}
-                className="min-h-11 w-full rounded-xl border border-line bg-background px-3.5 py-2.5 pr-9 text-sm text-foreground placeholder:text-muted/60 transition-colors focus:border-accent focus:outline-none"
+                className="min-h-11 w-full max-w-full min-w-0 rounded-xl border border-line bg-background px-3.5 py-2.5 pr-9 text-sm text-foreground placeholder:text-muted/60 transition-colors focus:border-accent focus:outline-none"
               />
               {sharelocRaw && (
                 <button
@@ -336,7 +336,7 @@ export function WhatsAppBuilder({
               type="button"
               onClick={handleDetectLocation}
               disabled={locLoading}
-              className="inline-flex min-h-11 shrink-0 cursor-pointer items-center justify-center gap-2 rounded-xl border border-accent/50 bg-accent/15 px-4 py-2.5 text-xs font-semibold whitespace-nowrap text-foreground transition-all hover:border-accent hover:bg-accent hover:text-background disabled:cursor-wait disabled:opacity-60 sm:text-sm"
+              className="inline-flex min-h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-xl border border-accent/50 bg-accent/15 px-4 py-2.5 text-center text-xs font-semibold text-foreground transition-all hover:border-accent hover:bg-accent hover:text-background disabled:cursor-wait disabled:opacity-60 sm:w-auto sm:shrink-0 sm:whitespace-nowrap sm:text-sm"
             >
               <svg
                 aria-hidden="true"
@@ -391,7 +391,7 @@ export function WhatsAppBuilder({
         <button
           type="button"
           onClick={handleOpenWhatsApp}
-          className="inline-flex min-h-12 w-full shrink-0 cursor-pointer items-center justify-center gap-2.5 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold whitespace-nowrap text-background shadow-lg shadow-accent/20 transition-all hover:bg-accent-strong sm:w-auto"
+          className="inline-flex min-h-12 w-full cursor-pointer items-center justify-center gap-2.5 rounded-full bg-accent px-5 py-3.5 text-center text-sm font-semibold text-background shadow-lg shadow-accent/20 transition-all hover:bg-accent-strong sm:w-auto sm:shrink-0 sm:px-7 sm:whitespace-nowrap"
         >
           <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 shrink-0 fill-current">
             <path d="M20.52 3.48A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.15 1.6 5.95L0 24l6.3-1.65a11.86 11.86 0 0 0 5.75 1.47h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.43-8.44ZM12.05 21.8h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.64-.24-.37a9.86 9.86 0 0 1-1.51-5.28c0-5.45 4.44-9.89 9.9-9.89 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.9 7c0 5.45-4.44 9.89-9.9 9.89Zm5.43-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.08.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z" />
