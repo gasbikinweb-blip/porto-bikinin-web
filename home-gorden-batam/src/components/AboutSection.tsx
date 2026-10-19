@@ -181,7 +181,7 @@ export function AboutSection() {
           <div className="reveal relative min-h-[380px] overflow-hidden rounded-3xl border border-line bg-surface-2 shadow-lg sm:min-h-[460px] lg:col-span-7">
             <Image
               src="/projects/gorden-minimalis-krem-ruang-tamu-modern-01.webp"
-              alt="Pemasangan gorden minimalis plafon tinggi yang rapi oleh Home Gorden Batam"
+              alt="Pemasangan gorden minimalis plafon tinggi yang rapi oleh Gorden Interior Batam"
               fill
               sizes="(min-width: 1024px) 58vw, 100vw"
               className="object-cover transition-transform duration-700 hover:scale-105"
@@ -358,7 +358,7 @@ export function AboutSection() {
               <div className="relative aspect-[16/10] w-full">
                 <Image
                   src="/projects/gorden-custom-krem-ruang-tamu-mewah-01.webp"
-                  alt="Detail pemasangan gorden custom krem dan vitrase ruang tamu oleh Home Gorden Batam"
+                  alt="Detail pemasangan gorden custom krem dan vitrase ruang tamu oleh Gorden Interior Batam"
                   fill
                   sizes="260px"
                   className="object-cover"

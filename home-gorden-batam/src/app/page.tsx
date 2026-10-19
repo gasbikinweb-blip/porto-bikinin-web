@@ -33,7 +33,7 @@ export default function HomePage() {
         {/* Poster fallback statis & bagi pengguna dengan penghemat gerak (motion-reduce) */}
         <Image
           src="/videos/video-pemasangan-gorden-01-poster.webp"
-          alt="Hasil pemasangan gorden minimalis dan vitrase oleh Home Gorden Batam"
+          alt="Hasil pemasangan gorden minimalis dan vitrase oleh Gorden Interior Batam"
           fill
           priority
           sizes="100vw"

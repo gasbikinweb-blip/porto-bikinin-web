@@ -46,7 +46,7 @@ export const faqs: readonly FaqItem[] = [
   },
   {
     id: 'area-layanan',
-    question: 'Area mana saja yang dilayani oleh Home Gorden Batam?',
+    question: 'Area mana saja yang dilayani oleh Gorden Interior Batam?',
     answer:
       'Kami melayani survei dan pemasangan untuk perumahan, apartemen, ruko, kantor, villa, hingga hotel di seluruh wilayah Pulau Batam, termasuk Batam Centre, Nagoya, Baloi, Bengkong, Tiban, Sekupang, Batu Aji, Sagulung, Muka Kuning, Kabil, dan Nongsa.',
   },

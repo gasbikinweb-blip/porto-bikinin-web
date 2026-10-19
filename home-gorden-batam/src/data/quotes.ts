@@ -15,7 +15,7 @@ export const quotes: readonly Quote[] = [
   {
     text: 'Mulai dari gorden blackout penahan terik matahari hingga vitrase lembut dan tirai blinds modern—semua dikerjakan sesuai ukuran dan pilihan bahan Anda.',
     author: 'Komitmen Kualitas',
-    role: 'Home Gorden Batam',
+    role: 'Gorden Interior Batam',
   },
   {
     text: 'Konsultasi mudah tanpa harus langsung memesan. Tim kami siap membawakan sampel kain ke rumah, apartemen, ruko, atau kantor Anda di Batam.',

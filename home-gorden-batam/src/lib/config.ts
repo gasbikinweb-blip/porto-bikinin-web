@@ -20,9 +20,8 @@ if (!waNumber) {
 }
 
 export const siteConfig = {
-  // TODO: konfirmasi ejaan nama brand (di logo tertulis "Gorden Interior Batam" / "Gorden Interrior Batam", sedangkan nama usaha dipilih "Home Gorden Batam")
-  name: process.env.NEXT_PUBLIC_SITE_NAME ?? 'Home Gorden Batam',
-  legalOrLogoName: 'Gorden Interior Batam',
+  name: process.env.NEXT_PUBLIC_SITE_NAME ?? 'Gorden Interior Batam',
+  legalOrLogoName: 'Home Gorden Batam',
   tagline: 'Gorden Rapi & Elegan untuk Rumah dan Bangunan Anda di Batam',
   description:
     'Jasa pembuatan dan pemasangan gorden custom, vitrase, gorden minimalis, blackout, vertical/horizontal/roller blinds, wallpaper vinyl, dan rell besi di Batam. Gratis survei dan pengukuran ke seluruh area Batam.',
