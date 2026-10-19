@@ -203,29 +203,38 @@ export function ProductDetailModal({ product, onClose }: Props) {
             </span>
           </div>
 
-          {/* Pemilih Foto (01 / 02 / 03) di Tengah Atas */}
+          {/* Navigasi Foto (Prev / Counter / Next) di Tengah Atas */}
           {activeProduct.images.length > 1 && (
             <div
               role="group"
-              aria-label="Pilih tampilan foto produk"
-              className="flex items-center gap-1.5 rounded-full border border-white/15 bg-black/45 p-1 backdrop-blur-md"
+              aria-label="Navigasi foto produk"
+              className="flex items-center gap-1.5 rounded-full border border-white/15 bg-black/50 p-1 backdrop-blur-md"
             >
-              {activeProduct.images.map((img, i) => {
-                const active = i === imageIndex;
-                return (
-                  <button
-                    key={img.src}
-                    type="button"
-                    onClick={() => setImageIndex(i)}
-                    aria-pressed={active}
-                    className={`cursor-pointer rounded-full px-3 py-1 text-[11px] font-semibold tracking-wider uppercase transition-all ${
-                      active ? 'bg-[#c8a98e] text-[#12100d]' : 'text-white/70 hover:text-white'
-                    }`}
-                  >
-                    Foto 0{i + 1}
-                  </button>
-                );
-              })}
+              <button
+                type="button"
+                onClick={() =>
+                  setImageIndex(
+                    (prev) =>
+                      (prev - 1 + activeProduct.images.length) % activeProduct.images.length,
+                  )
+                }
+                aria-label="Foto sebelumnya"
+                className="grid size-7 cursor-pointer place-items-center rounded-full text-xs text-white/80 transition-colors hover:bg-white/15 hover:text-white"
+              >
+                ←
+              </button>
+              <span className="px-2.5 text-[11px] font-semibold tracking-wider text-[#c8a98e] uppercase">
+                Foto {String(imageIndex + 1).padStart(2, '0')} /{' '}
+                {String(activeProduct.images.length).padStart(2, '0')}
+              </span>
+              <button
+                type="button"
+                onClick={() => setImageIndex((prev) => (prev + 1) % activeProduct.images.length)}
+                aria-label="Foto berikutnya"
+                className="grid size-7 cursor-pointer place-items-center rounded-full text-xs text-white/80 transition-colors hover:bg-white/15 hover:text-white"
+              >
+                →
+              </button>
             </div>
           )}
 
@@ -326,8 +335,11 @@ export function ProductDetailModal({ product, onClose }: Props) {
           </div>
 
           {/* Kanan Bawah: Thumbnail Pratinjau Gambar Produk agar pengunjung bisa ganti sudut foto */}
-          <div className="flex flex-col items-start gap-3 lg:col-span-5 lg:items-end">
-            <div className="flex items-center gap-2.5 rounded-2xl border border-white/15 bg-black/55 p-2.5 backdrop-blur-md">
+          <div className="flex min-w-0 flex-col items-start gap-2.5 lg:col-span-5 lg:items-end">
+            <p className="text-[11px] font-medium tracking-wider text-white/75 uppercase">
+              Pilih Contoh Pemasangan ({imageIndex + 1}/{activeProduct.images.length})
+            </p>
+            <div className="flex max-w-full items-center gap-2 overflow-x-auto rounded-2xl border border-white/15 bg-black/60 p-2.5 backdrop-blur-md">
               {activeProduct.images.map((img, i) => {
                 const active = i === imageIndex;
                 return (
@@ -336,9 +348,9 @@ export function ProductDetailModal({ product, onClose }: Props) {
                     type="button"
                     onClick={() => setImageIndex(i)}
                     aria-label={`Lihat foto ${i + 1} ${activeProduct.name}`}
-                    className={`relative h-16 w-14 cursor-pointer overflow-hidden rounded-xl transition-all sm:h-20 sm:w-16 ${
+                    className={`relative h-16 w-14 shrink-0 cursor-pointer overflow-hidden rounded-xl transition-all sm:h-20 sm:w-16 ${
                       active
-                        ? 'ring-2 ring-[#c8a98e] scale-105 opacity-100'
+                        ? 'scale-105 opacity-100 ring-2 ring-[#c8a98e]'
                         : 'opacity-60 hover:opacity-95'
                     }`}
                   >

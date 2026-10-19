@@ -14,14 +14,29 @@ const OUT_DIR = path.resolve('public');
 const MAX_WIDTH = 1600;
 const THUMB_WIDTH = 640;
 
-// Foto arsip atau poster teks penuh yang dikecualikan dari galeri proyek
-const EXCLUDED_FILES = new Set([
-  'arsip-screenshot-fb-gorden-abu.jpeg',
-  'poster-promosi-gorden-spanyol-ilustrasi.jpeg',
-  'logo-home-gorden-batam.jpeg',
-]);
+// Foto logo yang diproses khusus ke public/brand/ (bukan foto gorden)
+const EXCLUDED_FILES = new Set(['logo-home-gorden-batam.jpeg']);
 
-// Foto yang memiliki letterbox bar hitam atas/bawah dari screenshot HP -> di-trim otomatis bagian bar hitamnya
+// Pemetaan foto di subfolder "assets/Jenis Blind" ke nama slug yang rapi & deskriptif
+const SUBFOLDER_BLIND_FILES = [
+  {
+    relPath: path.join('Jenis Blind', 'WhatsApp Image 2026-10-19 at 11.21.54.jpeg'),
+    slug: 'vertical-blinds-putih-jendela-besar-01',
+    cropKey: 'vertical-blinds-putih-jendela-besar-01',
+  },
+  {
+    relPath: path.join('Jenis Blind', 'WhatsApp Image 2026-10-19 at 11.21.53 (1).jpeg'),
+    slug: 'roller-blinds-cokelat-rantai-01',
+    cropKey: 'roller-blinds-cokelat-rantai-01',
+  },
+  {
+    relPath: path.join('Jenis Blind', 'WhatsApp Image 2026-10-19 at 11.21.53.jpeg'),
+    slug: 'roller-blinds-abu-ruang-kantor-01',
+    cropKey: 'roller-blinds-abu-ruang-kantor-01',
+  },
+];
+
+// Foto yang memiliki letterbox bar hitam/UI atas/bawah dari screenshot HP -> di-trim otomatis bagian bar-nya
 const LETTERBOX_CROPS = {
   'gorden-minimalis-abu-silver-01.jpeg': { top: 280, bottom: 280 },
   'rell-besi-batang-gorden-koleksi-01.jpeg': { top: 250, bottom: 250 },
@@ -31,46 +46,79 @@ const LETTERBOX_CROPS = {
   'gorden-minimalis-kuning-emas-vitrase-01.jpeg': { top: 110, bottom: 310 },
   'gorden-minimalis-cokelat-susu-tanaman-01.jpeg': { top: 140, bottom: 330 },
   'gorden-custom-emas-sudut-ruang-tamu-01.jpeg': { top: 315, bottom: 390 },
+  'roller-blinds-abu-ruang-kantor-01': { top: 385, bottom: 375 },
+  'arsip-screenshot-fb-gorden-abu.jpeg': { top: 335, bottom: 185 },
 };
 
-// Pemetaan sampul & galeri untuk 9 produk utama
+// Pemetaan sampul & galeri lengkap untuk 9 produk utama (menggunakan seluruh foto gorden & blinds dari assets/)
 const PRODUCT_GALLERIES = {
   'gorden-custom': [
     'gorden-custom-krem-ruang-tamu-mewah-01.jpeg',
     'gorden-custom-krem-ruang-tamu-mewah-02.jpeg',
+    'gorden-custom-emas-poni-klasik-01.jpeg',
     'gorden-custom-krem-vitrase-kamar-01.jpeg',
+    'gorden-custom-krem-tertutup-kamar-02.jpeg',
+    'gorden-custom-krem-vitrase-kamar-utama-01.jpeg',
+    'gorden-custom-abu-vitrase-void-tinggi-01.jpeg',
+    'gorden-custom-emas-sudut-ruang-tamu-01.jpeg',
     'gorden-custom-cokelat-tua-wardrobe-kamar-01.jpeg',
+    'gorden-custom-taupe-vitrase-tangga-lampu-01.jpeg',
+    'poster-promosi-gorden-spanyol-ilustrasi.jpeg',
   ],
   'gorden-vitrase': [
     'gorden-vitrase-putih-polos-minimalis-01.jpeg',
     'gorden-vitrase-putih-kupu-pita-emas-01.jpeg',
     'gorden-minimalis-taupe-vitrase-putih-01.jpeg',
+    'gorden-minimalis-silver-vitrase-jendela-01.jpeg',
+    'gorden-minimalis-emas-vitrase-jendela-tinggi-01.jpeg',
+    'gorden-minimalis-krem-lantai-kayu-01.jpeg',
   ],
   'gorden-minimalis': [
     'gorden-minimalis-krem-ruang-tamu-modern-01.jpeg',
     'gorden-minimalis-abu-vitrase-pintu-besar-01.jpeg',
     'gorden-minimalis-cokelat-keemasan-pintu-kaca-01.jpeg',
     'gorden-minimalis-emas-dua-jendela-01.jpeg',
+    'gorden-minimalis-emas-smokring-01.jpeg',
+    'gorden-minimalis-cokelat-terracotta-vitrase-01.jpeg',
+    'gorden-minimalis-cokelat-vitrase-ruang-tamu-03.jpeg',
+    'gorden-minimalis-cokelat-muda-tinggi-01.jpeg',
+    'gorden-minimalis-merah-maroon-vitrase-01.jpeg',
+    'gorden-minimalis-krem-hangat-ruang-keluarga-01.jpeg',
+    'gorden-minimalis-cokelat-tua-vitrase-sofa-01.jpeg',
+    'gorden-minimalis-biru-muda-pembatas-ruang-01.jpeg',
+    'gorden-minimalis-abu-vitrase-ruang-tamu-02.jpeg',
+    'gorden-minimalis-abu-vitrase-ruang-makan-01.jpeg',
+    'gorden-minimalis-mocca-krem-jendela-lebar-01.jpeg',
+    'gorden-minimalis-cokelat-susu-tanaman-01.jpeg',
+    'gorden-minimalis-kuning-emas-vitrase-01.jpeg',
   ],
   'gorden-blackout': [
     'gorden-blackout-hitam-arang-vitrase-kamar-01.jpeg',
     'gorden-blackout-abu-sofa-ruang-tamu-01.jpeg',
     'gorden-blackout-abu-tua-pintu-01.jpeg',
     'gorden-blackout-abu-gelap-sudut-01.jpeg',
+    'gorden-blackout-cokelat-tinggi-pintu-01.jpeg',
+    'gorden-blackout-cokelat-tua-ruang-tamu-klasik-01.jpeg',
+    'gorden-blackout-cokelat-vitrase-ruang-makan-01.jpeg',
+    'gorden-blackout-abu-kebiruan-kamar-01.jpeg',
+    'gorden-blackout-cokelat-plafon-led-01.jpeg',
+    'arsip-screenshot-fb-gorden-abu.jpeg',
   ],
   'vertical-blinds': [
-    'horizontal-blinds-abu-dapur-01.jpeg',
+    path.join('Jenis Blind', 'WhatsApp Image 2026-10-19 at 11.21.54.jpeg'),
     'horizontal-blinds-putih-minimalis-01.jpeg',
+    'horizontal-blinds-abu-dapur-01.jpeg',
   ],
   'horizontal-blinds': [
     'horizontal-blinds-putih-minimalis-01.jpeg',
     'horizontal-blinds-krem-dapur-01.jpeg',
     'horizontal-blinds-abu-dapur-01.jpeg',
     'horizontal-blinds-abu-detail-stik-02.jpeg',
+    'horizontal-blinds-cokelat-kayu-detail-01.jpeg',
   ],
   'roller-blinds': [
-    'horizontal-blinds-krem-dapur-01.jpeg',
-    'horizontal-blinds-cokelat-kayu-detail-01.jpeg',
+    path.join('Jenis Blind', 'WhatsApp Image 2026-10-19 at 11.21.53 (1).jpeg'),
+    path.join('Jenis Blind', 'WhatsApp Image 2026-10-19 at 11.21.53.jpeg'),
   ],
   'wallpaper-vinyl': [
     'gorden-minimalis-abu-silver-01.jpeg',
@@ -82,8 +130,8 @@ const PRODUCT_GALLERIES = {
   ],
 };
 
-function applyCrop(pipeline, filename, meta) {
-  const crop = LETTERBOX_CROPS[filename];
+function applyCrop(pipeline, cropKey, meta) {
+  const crop = LETTERBOX_CROPS[cropKey];
   if (!crop || !meta.width || !meta.height) return pipeline;
   const top = crop.top ?? 0;
   const bottom = crop.bottom ?? 0;
@@ -128,48 +176,56 @@ async function main() {
 
   console.log('✓ Logo (logo.webp, og-logo.jpg, src/app/icon.png) berhasil dibuat tanpa EXIF.');
 
-  // 2. Proses Semua Foto Proyek & Deteksi Duplikat Hash MD5
+  // 2. Proses Semua Foto Proyek di root assets/ + subfolder assets/Jenis Blind/
   const entries = await readdir(SRC_DIR, { withFileTypes: true });
-  const imageFiles = entries
+  const rootFiles = entries
     .filter((e) => e.isFile() && /\.(jpe?g|png|webp)$/i.test(e.name))
-    .map((e) => e.name)
-    .sort();
+    .map((e) => ({
+      relPath: e.name,
+      slug: e.name.replace(/\.[^.]+$/, ''),
+      cropKey: e.name,
+    }))
+    .sort((a, b) => a.relPath.localeCompare(b.relPath));
+
+  const allProjectSources = [...rootFiles, ...SUBFOLDER_BLIND_FILES];
 
   const seenHashes = new Map();
   const dimensionsReport = {};
   let processedProjects = 0;
   let skippedDuplicates = 0;
 
-  for (const filename of imageFiles) {
-    if (EXCLUDED_FILES.has(filename)) continue;
+  for (const item of allProjectSources) {
+    if (EXCLUDED_FILES.has(item.relPath)) continue;
 
-    const fullPath = path.join(SRC_DIR, filename);
+    const fullPath = path.join(SRC_DIR, item.relPath);
+    if (!existsSync(fullPath)) continue;
     const buf = await readFile(fullPath);
     const hash = createHash('md5').update(buf).digest('hex');
 
     if (seenHashes.has(hash)) {
-      console.log(`⚠ Lewati duplikat identik: ${filename} (sama dengan ${seenHashes.get(hash)})`);
+      console.log(
+        `⚠ Lewati duplikat identik: ${item.relPath} (sama dengan ${seenHashes.get(hash)})`,
+      );
       skippedDuplicates++;
       continue;
     }
-    seenHashes.set(hash, filename);
+    seenHashes.set(hash, item.relPath);
 
-    const slug = filename.replace(/\.[^.]+$/, '');
-    const outWebp = path.join(OUT_DIR, 'projects', `${slug}.webp`);
-    const outThumb = path.join(OUT_DIR, 'projects', 'thumbs', `${slug}.webp`);
+    const outWebp = path.join(OUT_DIR, 'projects', `${item.slug}.webp`);
+    const outThumb = path.join(OUT_DIR, 'projects', 'thumbs', `${item.slug}.webp`);
 
     const meta = await sharp(buf).metadata();
-    const info = await applyCrop(sharp(buf).rotate(), filename, meta)
+    const info = await applyCrop(sharp(buf).rotate(), item.cropKey, meta)
       .resize({ width: MAX_WIDTH, withoutEnlargement: true })
       .webp({ quality: 80 })
       .toFile(outWebp);
 
-    await applyCrop(sharp(buf).rotate(), filename, meta)
+    await applyCrop(sharp(buf).rotate(), item.cropKey, meta)
       .resize({ width: THUMB_WIDTH, withoutEnlargement: true })
       .webp({ quality: 75 })
       .toFile(outThumb);
 
-    dimensionsReport[slug] = { width: info.width, height: info.height };
+    dimensionsReport[item.slug] = { width: info.width, height: info.height };
     processedProjects++;
   }
 
@@ -185,16 +241,22 @@ async function main() {
   let processedProductImages = 0;
   for (const [productSlug, files] of Object.entries(PRODUCT_GALLERIES)) {
     const prodDir = path.join(OUT_DIR, 'products', productSlug);
+    await rm(prodDir, { recursive: true, force: true });
     await mkdir(prodDir, { recursive: true });
 
     for (let i = 0; i < files.length; i++) {
-      const srcFile = path.join(SRC_DIR, files[i]);
+      const relFile = files[i];
+      const srcFile = path.join(SRC_DIR, relFile);
       const buf = await readFile(srcFile);
       const meta = await sharp(buf).metadata();
       const indexStr = String(i + 1).padStart(2, '0');
       const targetWebp = path.join(prodDir, `${indexStr}.webp`);
 
-      await applyCrop(sharp(buf).rotate(), files[i], meta)
+      // Cari cropKey jika berasal dari subfolder Jenis Blind
+      const blindMatch = SUBFOLDER_BLIND_FILES.find((b) => b.relPath === relFile);
+      const cropKey = blindMatch ? blindMatch.cropKey : relFile;
+
+      await applyCrop(sharp(buf).rotate(), cropKey, meta)
         .resize({ width: MAX_WIDTH, withoutEnlargement: true })
         .webp({ quality: 80 })
         .toFile(targetWebp);
@@ -202,7 +264,7 @@ async function main() {
 
       if (i === 0) {
         const ogJpg = path.join(prodDir, 'og.jpg');
-        await applyCrop(sharp(buf).rotate(), files[i], meta)
+        await applyCrop(sharp(buf).rotate(), cropKey, meta)
           .resize({ width: 600, withoutEnlargement: true })
           .jpeg({ quality: 80, mozjpeg: true })
           .toFile(ogJpg);
@@ -213,6 +275,17 @@ async function main() {
   console.log(
     `Selesai: ${processedProjects} foto proyek (+ thumbnail), ${processedProductImages} foto produk diproses. Duplikat dilewati: ${skippedDuplicates}.`,
   );
+  console.log('Dimensi foto baru:', {
+    'vertical-blinds-putih-jendela-besar-01':
+      dimensionsReport['vertical-blinds-putih-jendela-besar-01'],
+    'roller-blinds-cokelat-rantai-01': dimensionsReport['roller-blinds-cokelat-rantai-01'],
+    'roller-blinds-abu-ruang-kantor-01': dimensionsReport['roller-blinds-abu-ruang-kantor-01'],
+    'arsip-screenshot-fb-gorden-abu': dimensionsReport['arsip-screenshot-fb-gorden-abu'],
+    'poster-promosi-gorden-spanyol-ilustrasi':
+      dimensionsReport['poster-promosi-gorden-spanyol-ilustrasi'],
+    'horizontal-blinds-cokelat-kayu-detail-01':
+      dimensionsReport['horizontal-blinds-cokelat-kayu-detail-01'],
+  });
 }
 
 main().catch((err) => {
