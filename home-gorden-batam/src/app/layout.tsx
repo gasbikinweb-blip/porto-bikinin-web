@@ -76,6 +76,7 @@ const localBusinessSchema = {
     longitude: siteConfig.coordinates.lng,
   },
   hasMap: siteConfig.mapsUrl,
+  sameAs: [siteConfig.instagram, siteConfig.threads],
   areaServed: {
     '@type': 'City',
     name: 'Batam',

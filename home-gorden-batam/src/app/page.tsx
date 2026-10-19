@@ -311,6 +311,13 @@ export default function HomePage() {
                     <span>IG: @{siteConfig.instagramHandle}</span>
                   </a>
                   <a
+                    href={siteConfig.threads}
+                    {...external}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-4 py-2 whitespace-nowrap transition-colors hover:border-accent hover:text-accent"
+                  >
+                    <span>Threads: @{siteConfig.threadsHandle}</span>
+                  </a>
+                  <a
                     href={siteConfig.facebook}
                     {...external}
                     className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface px-4 py-2 whitespace-nowrap transition-colors hover:border-accent hover:text-accent"

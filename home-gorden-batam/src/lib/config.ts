@@ -29,9 +29,11 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://homegordenbatam.com',
   waNumber,
   waDisplay: '0821-6272-5097',
-  instagram: 'https://www.instagram.com/homegordenbatam', // TODO: konfirmasi URL username Instagram "home gorden batam"
-  instagramHandle: 'home gorden batam',
-  facebook: 'https://www.facebook.com/search/top?q=Gorden%20interior%20batam', // TODO: ganti dengan URL halaman Facebook langsung "Gorden interior batam"
+  instagram: 'https://www.instagram.com/homegordenbatam',
+  instagramHandle: 'homegordenbatam',
+  threads: 'https://www.threads.com/@homegordenbatam',
+  threadsHandle: 'homegordenbatam',
+  facebook: 'https://www.facebook.com/search/top?q=Gorden%20interior%20batam',
   facebookName: 'Gorden interior batam',
   email: 'info@homegordenbatam.com', // TODO: konfirmasi alamat email resmi toko
   address: 'Legenda Villa Hang Lekir, Blok DD2 No 07, Batam Centre, Kota Batam, Kepulauan Riau',

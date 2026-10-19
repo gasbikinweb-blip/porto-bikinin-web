@@ -86,6 +86,15 @@ export function Footer() {
             </li>
             <li>
               <a
+                href={siteConfig.threads}
+                {...external}
+                className="transition-colors hover:text-accent-strong"
+              >
+                Threads: @{siteConfig.threadsHandle}
+              </a>
+            </li>
+            <li>
+              <a
                 href={siteConfig.facebook}
                 {...external}
                 className="transition-colors hover:text-accent-strong"
