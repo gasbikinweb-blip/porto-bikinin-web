@@ -70,6 +70,12 @@ const localBusinessSchema = {
     addressRegion: 'Kepulauan Riau',
     addressCountry: 'ID',
   },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: siteConfig.coordinates.lat,
+    longitude: siteConfig.coordinates.lng,
+  },
+  hasMap: siteConfig.mapsUrl,
   areaServed: {
     '@type': 'City',
     name: 'Batam',

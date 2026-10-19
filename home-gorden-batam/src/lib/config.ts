@@ -36,10 +36,12 @@ export const siteConfig = {
   facebookName: 'Gorden interior batam',
   email: 'info@homegordenbatam.com', // TODO: konfirmasi alamat email resmi toko
   address: 'Legenda Villa Hang Lekir, Blok DD2 No 07, Batam Centre, Kota Batam, Kepulauan Riau',
-  mapsUrl:
-    'https://www.google.com/maps/search/?api=1&query=Legenda+Villa+Hang+Lekir+Blok+DD2+No+07+Batam+Centre',
-  mapsEmbedUrl:
-    'https://maps.google.com/maps?q=Legenda%20Villa%20Hang%20Lekir%2C%20Batam%20Centre%2C%20Kota%20Batam&t=&z=15&ie=UTF8&iwloc=&output=embed',
+  coordinates: {
+    lat: 1.089116,
+    lng: 104.034214,
+  },
+  mapsUrl: 'https://www.google.com/maps?q=1.089116,104.034214',
+  mapsEmbedUrl: 'https://maps.google.com/maps?q=1.089116,104.034214&hl=id&z=17&output=embed',
   serviceArea:
     'Seluruh Area Batam (Batam Centre, Nagoya, Lubuk Baja, Sekupang, Batu Aji, Tiban, Bengkong, Nongsa, Kabil, Muka Kuning, dan sekitarnya)',
   // TODO: konfirmasi jam operasional toko dengan pemilik usaha
