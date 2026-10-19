@@ -248,13 +248,13 @@ export function WhatsAppBuilder({
           />
         </div>
 
-        {/* 5. Kawasan di Batam */}
+        {/* 5. Kecamatan / Kawasan di Batam */}
         <div className="flex flex-col gap-2">
           <label
             htmlFor="wa-builder-area"
             className="text-xs font-semibold tracking-wider text-muted uppercase"
           >
-            5. Kawasan di Batam
+            5. Kecamatan / Kawasan di Batam
           </label>
           <select
             id="wa-builder-area"

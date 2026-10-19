@@ -174,17 +174,18 @@ export const targetClients = [
   'Developer & Kontraktor Interior',
 ] as const;
 
+// 12 Kecamatan Resmi di Kota Batam beserta kawasan populernya
 export const batamAreas = [
-  'Batam Centre',
-  'Nagoya / Lubuk Baja',
-  'Bengkong',
-  'Batu Aji',
-  'Sekupang',
-  'Tiban',
-  'Nongsa',
-  'Muka Kuning / Batamindo',
-  'Kabil / Punggur',
-  'Batu Ampar',
-  'Tanjung Piayu',
-  'Area Batam Lainnya',
+  'Kec. Batam Kota (Batam Centre, Botania, Sukajadi)',
+  'Kec. Lubuk Baja (Nagoya, Baloi, Penuin)',
+  'Kec. Bengkong (Bengkong Indah, Sadai, Tg. Buntung)',
+  'Kec. Batu Ampar (Jodoh, Sei Panas, Tg. Sengkuang)',
+  'Kec. Sekupang (Tiban, Patam Lestari, Tg. Riau)',
+  'Kec. Batu Aji (Tanjung Uncang, Buliang, Kibing)',
+  'Kec. Sagulung (Tembesi, Dapur 12, Sei Langkai)',
+  'Kec. Sei Beduk (Tanjung Piayu, Muka Kuning, Mangsang)',
+  'Kec. Nongsa (Batu Besar, Kabil, Punggur, Sambau)',
+  'Kec. Galang (Barelang, Rempang, Sembulang)',
+  'Kec. Bulang (Setokok, Pulau Buluh, Temoyong)',
+  'Kec. Belakang Padang',
 ] as const;
