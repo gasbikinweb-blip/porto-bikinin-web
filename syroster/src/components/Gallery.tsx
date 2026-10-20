@@ -154,10 +154,10 @@ function Lightbox({
       role="dialog"
       aria-modal="true"
       aria-labelledby="lightbox-judul"
-      className="lightbox-backdrop fixed inset-0 z-50 flex items-center justify-center bg-ink/45 p-3 backdrop-blur-sm sm:p-6"
+      className="lightbox-backdrop fixed inset-0 z-50 flex items-center justify-center bg-ink/45 backdrop-blur-sm sm:p-6"
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
-      <div className="lightbox-panel relative flex max-h-full w-full max-w-6xl flex-col overflow-hidden rounded-[1.75rem] bg-page shadow-[0_40px_120px_-30px_rgb(12_14_40/0.55)]">
+      <div className="lightbox-panel relative flex h-dvh w-full max-w-6xl flex-col overflow-y-auto overscroll-contain bg-page shadow-[0_40px_120px_-30px_rgb(12_14_40/0.55)] sm:h-auto sm:max-h-full sm:rounded-[1.75rem] lg:overflow-hidden">
         {/* Latar: foto yang sama, sangat tipis & buram, supaya panel terasa menyatu dengan foto */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
           <Image
@@ -172,7 +172,7 @@ function Lightbox({
         </div>
 
         {/* Bilah atas: merek, navigasi foto, tombol tutup */}
-        <div className="relative flex items-center justify-between gap-3 border-b border-line px-4 py-3.5 sm:px-8 sm:py-5">
+        <div className="sticky top-0 z-10 flex items-center justify-between gap-3 border-b border-line bg-page/95 px-4 py-3 backdrop-blur sm:px-8 sm:py-5 lg:relative lg:bg-transparent lg:backdrop-blur-none">
           <Logo className="hidden h-7 w-auto sm:block" />
           {many ? (
             <div className="flex items-center gap-2">
@@ -203,7 +203,7 @@ function Lightbox({
         </div>
 
         {/* Isi: teks di kiri, foto di kanan (di HP foto di atas) */}
-        <div className="relative grid flex-1 items-center gap-8 overflow-y-auto px-4 py-6 sm:px-8 sm:py-10 lg:grid-cols-[1fr_minmax(0,26rem)] lg:gap-14">
+        <div className="relative grid flex-1 items-center gap-6 px-4 py-5 sm:gap-8 sm:px-8 sm:py-10 lg:grid-cols-[1fr_minmax(0,26rem)] lg:gap-14 lg:overflow-y-auto">
           <div key={item.id} className="order-2 lg:order-1">
             <p className="lightbox-in flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-bold tracking-[0.18em] text-gold-ink uppercase">
               <span>{categoryLabels[item.category]}</span>
@@ -212,7 +212,7 @@ function Lightbox({
             </p>
             <h2
               id="lightbox-judul"
-              className="lightbox-in mt-4 font-display text-3xl leading-[1.1] font-bold tracking-tight text-ink sm:text-5xl"
+              className="lightbox-in mt-3 font-display text-[1.7rem] leading-[1.15] font-bold tracking-tight text-ink sm:mt-4 sm:text-5xl"
               style={{ '--d': '60ms' } as React.CSSProperties}
             >
               {item.caption}
@@ -256,14 +256,17 @@ function Lightbox({
           </div>
           <figure className="order-1 lg:order-2">
             <div className="rounded-[1.5rem] border border-line bg-white p-2.5 shadow-[0_24px_60px_-30px_rgb(28_33_80/0.45)]">
-              <div className="relative mx-auto aspect-[4/5] max-h-[46vh] overflow-hidden rounded-[1.1rem] bg-surface lg:max-h-[56vh]">
+              <div
+                className="relative mx-auto max-h-[56svh] overflow-hidden rounded-[1.1rem] bg-surface lg:max-h-[56vh]"
+                style={{ aspectRatio: `${item.width} / ${item.height}` }}
+              >
                 <Image
                   key={item.id}
                   src={item.src}
                   alt={item.alt}
                   fill
                   sizes="(min-width: 1024px) 420px, 92vw"
-                  className="dialog-photo object-cover"
+                  className="dialog-photo object-contain"
                 />
                 {item.kind === 'ilustrasi' && <IlustrasiBadge />}
               </div>
@@ -276,13 +279,13 @@ function Lightbox({
           {facts.map(([value, label], i) => (
             <div
               key={label}
-              className={`flex flex-col-reverse px-4 py-4 sm:px-8 sm:py-5 ${i % 2 === 1 ? 'border-l border-line' : ''} ${i === 2 ? 'lg:border-l lg:border-line' : ''} ${i > 1 ? 'border-t border-line lg:border-t-0' : ''}`}
+              className={`flex flex-col-reverse px-4 py-3 sm:px-8 sm:py-5 ${i % 2 === 1 ? 'border-l border-line' : ''} ${i === 2 ? 'lg:border-l lg:border-line' : ''} ${i > 1 ? 'border-t border-line lg:border-t-0' : ''}`}
             >
               <dt className="mt-1 text-[0.7rem] font-bold tracking-[0.16em] text-muted uppercase">
                 {label}
               </dt>
               <dd
-                className={`font-display text-lg font-bold sm:text-xl ${i === 3 ? 'text-brand' : 'text-ink'}`}
+                className={`font-display text-[0.95rem] leading-snug font-bold sm:text-xl ${i === 3 ? 'text-brand' : 'text-ink'}`}
               >
                 {value}
               </dd>

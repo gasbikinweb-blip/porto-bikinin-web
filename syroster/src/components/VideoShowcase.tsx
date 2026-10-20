@@ -17,13 +17,11 @@ export function VideoShowcase({ videos }: { videos: VideoItem[] }) {
     const idx = Math.max(0, Math.min(videos.length - 1, i));
     setActive(idx);
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    trackRef.current
-      ?.querySelectorAll('li')
-      [idx]?.scrollIntoView({
-        behavior: reduce ? 'auto' : 'smooth',
-        inline: 'center',
-        block: 'nearest',
-      });
+    trackRef.current?.querySelectorAll('li')[idx]?.scrollIntoView({
+      behavior: reduce ? 'auto' : 'smooth',
+      inline: 'center',
+      block: 'nearest',
+    });
   };
 
   const toggle = (v: VideoItem, i: number) => {
@@ -77,8 +75,7 @@ export function VideoShowcase({ videos }: { videos: VideoItem[] }) {
       <ul
         ref={trackRef}
         aria-label="Video Syroster Industrie"
-        className="-mx-4 mt-10 flex snap-x snap-mandatory items-center gap-5 overflow-x-auto px-4 py-6 [scrollbar-width:none] sm:justify-center sm:gap-7 [&::-webkit-scrollbar]:hidden"
-        data-stagger
+        className="reveal reveal-zoom -mx-4 mt-10 flex snap-x snap-mandatory items-center gap-5 overflow-x-auto px-4 py-6 [scrollbar-width:none] sm:justify-center sm:gap-7 [&::-webkit-scrollbar]:hidden"
       >
         {videos.map((v, i) => {
           const isPlaying = playing === v.id;
@@ -86,7 +83,7 @@ export function VideoShowcase({ videos }: { videos: VideoItem[] }) {
           return (
             <li
               key={v.id}
-              className={`reveal reveal-zoom relative aspect-[9/16] w-[64vw] max-w-[270px] shrink-0 snap-center overflow-hidden rounded-[2rem] bg-ink shadow-[0_30px_60px_-28px_rgb(28_33_80/0.55)] transition-[transform,box-shadow] duration-500 sm:w-[270px] ${isActive ? 'ring-4 ring-gold/60 sm:scale-[1.03]' : 'ring-1 ring-line'}`}
+              className={`relative aspect-[9/16] w-[64vw] max-w-[270px] shrink-0 snap-center overflow-hidden rounded-[2rem] bg-ink shadow-[0_30px_60px_-28px_rgb(28_33_80/0.55)] transition-[transform,box-shadow] duration-500 sm:w-[270px] ${isActive ? 'ring-4 ring-gold/60 sm:scale-[1.03]' : 'ring-1 ring-line'}`}
             >
               <video
                 ref={(el) => {

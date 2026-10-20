@@ -30,14 +30,32 @@ export function RevealObserver() {
       document.querySelectorAll('.reveal:not(.is-visible)').forEach((el) => io.observe(el));
     };
 
+    // Pengaman: elemen yang sudah berada di layar (mis. setelah lompat lewat link #anchor)
+    // langsung ditampilkan, supaya tidak ada konten yang tertinggal tersembunyi.
+    const showInView = () => {
+      document.querySelectorAll<HTMLElement>('.reveal:not(.is-visible)').forEach((el) => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) {
+          el.classList.add('is-visible');
+          io.unobserve(el);
+        }
+      });
+    };
+
     scan();
     document.documentElement.classList.add('reveal-ready');
 
     const mo = new MutationObserver(scan);
     mo.observe(document.body, { childList: true, subtree: true });
+    const timer = window.setTimeout(showInView, 1200);
+    window.addEventListener('hashchange', showInView);
+    window.addEventListener('scrollend', showInView);
     return () => {
       io.disconnect();
       mo.disconnect();
+      window.clearTimeout(timer);
+      window.removeEventListener('hashchange', showInView);
+      window.removeEventListener('scrollend', showInView);
     };
   }, []);
 
