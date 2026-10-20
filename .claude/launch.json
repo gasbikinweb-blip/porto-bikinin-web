@@ -4,8 +4,28 @@
     {
       "name": "seams-out",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["--prefix", "seams-konveksi", "serve", "seams-konveksi/out", "-l", "4321"],
+      "runtimeArgs": [
+        "--prefix",
+        "seams-konveksi",
+        "serve",
+        "seams-konveksi/out",
+        "-l",
+        "4321"
+      ],
       "port": 4321
+    },
+    {
+      "name": "syroster-out",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "--prefix",
+        "syroster",
+        "serve",
+        "syroster/out",
+        "-l",
+        "4173"
+      ],
+      "port": 4173
     }
   ]
 }
