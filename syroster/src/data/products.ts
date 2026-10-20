@@ -31,7 +31,6 @@ export const typeLabels: Record<ProductType, string> = {
   lingkaran: 'Motif lingkaran',
   sirip: 'Sirip & nako',
   bata: 'Bata tempel',
-  custom: 'Custom',
 };
 
 // Ukuran yang disebut di unggahan Instagram: 20 × 20 cm, 15 × 30 cm, dan nako 25 × 15 cm.

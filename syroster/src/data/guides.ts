@@ -21,8 +21,8 @@ export const guides: Guide[] = [
     id: 'ruko',
     title: 'Ruko & bangunan komersial',
     need: 'Fasad yang menonjol dan mudah dikenali, sekaligus menyaring panas matahari.',
-    recommendation: 'Motif geometris dua warna atau desain custom untuk identitas brand yang kuat.',
-    types: ['geometris', 'custom'],
+    recommendation: 'Motif geometris dua warna membuat fasad mudah dikenali dan terlihat modern.',
+    types: ['geometris'],
   },
   {
     id: 'gudang',

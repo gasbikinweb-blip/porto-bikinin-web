@@ -13,11 +13,10 @@ import { IlustrasiBadge } from './SectionHeading';
 type Props = {
   product: Product | null;
   labels: Record<ProductType, string>;
-  siteName: string;
   onClose: () => void;
 };
 
-export function ProductDialog({ product: selected, labels, siteName, onClose }: Props) {
+export function ProductDialog({ product: selected, labels, onClose }: Props) {
   const ref = useRef<HTMLDialogElement>(null);
   // Produk terakhir tetap ditampilkan selama animasi tutup berjalan
   const [shown, setShown] = useState(selected);
@@ -138,7 +137,7 @@ export function ProductDialog({ product: selected, labels, siteName, onClose }: 
             </dl>
 
             <div
-              className="dialog-in mt-7 grid gap-3 sm:grid-cols-2"
+              className="dialog-in mt-7 grid gap-3"
               style={{ '--d': '360ms' } as React.CSSProperties}
             >
               <a
@@ -149,23 +148,13 @@ export function ProductDialog({ product: selected, labels, siteName, onClose }: 
               >
                 <WhatsAppIcon /> Tanya via WhatsApp <span className="sr-only">(tab baru)</span>
               </a>
-              <a
-                href={buildWhatsAppLink(
-                  `Halo ${siteName}, saya ingin memesan ${product.name} dengan ukuran/warna custom.`,
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border-2 border-line px-5 font-semibold text-ink transition-colors hover:border-brand hover:text-brand"
-              >
-                <WhatsAppIcon /> Tanya Custom <span className="sr-only">(tab baru)</span>
-              </a>
             </div>
             <p
               className="dialog-in mt-4 text-xs leading-relaxed text-muted"
               style={{ '--d': '420ms' } as React.CSSProperties}
             >
-              Ukuran, warna, dan motif dapat disesuaikan. Pemesanan dan pembayaran dilakukan setelah
-              konsultasi via WhatsApp.
+              Harga, stok, dan ongkos kirim dikonfirmasi lewat WhatsApp. Pemesanan dan pembayaran
+              dilakukan setelah konsultasi.
             </p>
           </div>
 

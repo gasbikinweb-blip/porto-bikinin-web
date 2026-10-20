@@ -10,17 +10,12 @@ export const faqs: FaqItem[] = [
   {
     question: 'Berapa lama waktu produksi dan pengiriman?',
     answer:
-      'Untuk motif yang tersedia biasanya lebih cepat, sedangkan desain custom butuh waktu produksi tambahan. Estimasi pasti diberikan di penawaran.', // TODO: isi estimasi waktu
+      'Untuk motif yang tersedia di stok biasanya lebih cepat. Estimasi pasti diberikan di penawaran.', // TODO: isi estimasi waktu
   },
   {
     question: 'Berapa kebutuhan roster per m²?',
     answer:
       'Untuk roster ukuran 20 × 20 cm, perkiraan kasarnya sekitar 25 keping per m² sebelum nat dan cadangan. Gunakan kalkulator di bagian Panduan, lalu konfirmasi angka pastinya ke kami.', // TODO: verifikasi angka per produk
-  },
-  {
-    question: 'Apakah bisa pesan motif atau warna custom?',
-    answer:
-      'Bisa. Kirim sketsa, foto referensi, atau gambar kerja arsitek lewat WhatsApp untuk kami pelajari.', // TODO: batasan custom
   },
   {
     question: 'Bagaimana cara merawat roster?',

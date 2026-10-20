@@ -7,9 +7,9 @@ import type { ProductType } from '@/data/projects';
 import { ProductCard } from './ProductCard';
 import { ProductDialog } from './ProductDialog';
 
-type Props = { products: Product[]; labels: Record<ProductType, string>; siteName: string };
+type Props = { products: Product[]; labels: Record<ProductType, string> };
 
-export function ProductCollection({ products, labels, siteName }: Props) {
+export function ProductCollection({ products, labels }: Props) {
   const types = Array.from(new Set(products.map((p) => p.type)));
   const [active, setActive] = useState<ProductType | 'semua'>('semua');
   const [selected, setSelected] = useState<Product | null>(null);
@@ -48,12 +48,7 @@ export function ProductCollection({ products, labels, siteName }: Props) {
           </li>
         ))}
       </ul>
-      <ProductDialog
-        product={selected}
-        labels={labels}
-        siteName={siteName}
-        onClose={() => setSelected(null)}
-      />
+      <ProductDialog product={selected} labels={labels} onClose={() => setSelected(null)} />
     </div>
   );
 }

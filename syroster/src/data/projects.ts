@@ -2,7 +2,7 @@
 // kind: 'proyek' = foto nyata, 'ilustrasi' = render/CGI/hasil edit (UI otomatis menampilkan label "Ilustrasi").
 
 export type GalleryCategory = 'roster' | 'bata-tempel' | 'pemasangan';
-export type ProductType = 'geometris' | 'lingkaran' | 'sirip' | 'bata' | 'custom';
+export type ProductType = 'geometris' | 'lingkaran' | 'sirip' | 'bata';
 
 export type GalleryItem = {
   id: string;

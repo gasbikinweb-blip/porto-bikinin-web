@@ -21,7 +21,7 @@ const heading = Archivo({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | Roster Beton & Bata Dekoratif Custom`,
+    default: `${siteConfig.name} | Roster Beton Minimalis & Bata Tempel`,
     template: `%s | ${siteConfig.name}`,
   },
   description: company.description,

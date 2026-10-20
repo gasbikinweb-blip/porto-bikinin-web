@@ -18,7 +18,7 @@ export function pageMetadata({
   const img = image ?? OG_IMAGE;
   const fullTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.name;
   return {
-    title: title ?? { absolute: `${siteConfig.name} | Roster Beton & Bata Dekoratif Custom` },
+    title: title ?? { absolute: `${siteConfig.name} | Roster Beton Minimalis & Bata Tempel` },
     description,
     alternates: { canonical: path },
     openGraph: {

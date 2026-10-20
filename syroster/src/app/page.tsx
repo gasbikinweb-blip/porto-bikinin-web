@@ -226,7 +226,7 @@ export default function HomePage() {
           align="center"
         />
         <div className="mt-8">
-          <ProductCollection products={products} labels={typeLabels} siteName={siteConfig.name} />
+          <ProductCollection products={products} labels={typeLabels} />
         </div>
       </section>
 

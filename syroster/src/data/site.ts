@@ -64,11 +64,6 @@ export const advantages: Feature[] = [
     description: 'Motif berlubang menyaring pandangan dari luar tanpa menutup ruangan sepenuhnya.',
   },
   {
-    title: 'Desain custom',
-    description:
-      'Bisa dibuat sesuai motif, warna, atau ukuran yang Anda inginkan. Diskusikan lewat WhatsApp.', // TODO: verifikasi batasan custom
-  },
-  {
     title: 'Pilihan motif & warna',
     description:
       'Motif lingkaran, piramida, kotak, diagonal, dan kombinasi warna natural hingga gelap.',
@@ -108,11 +103,6 @@ export const services: Service[] = [
     title: 'Penjualan & pengadaan',
     description: 'Roster motif katalog untuk rumah tinggal hingga proyek komersial.',
     duration: 'Stok siap: 1–3 hari kerja', // TODO
-  },
-  {
-    title: 'Produksi desain custom',
-    description: 'Motif, warna, atau ukuran khusus sesuai desain arsitek atau keinginan Anda.',
-    duration: 'Estimasi 2–4 minggu', // TODO
   },
   {
     title: 'Pengiriman',
