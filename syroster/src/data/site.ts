@@ -30,20 +30,17 @@ export const company = {
   description:
     'Syroster Industrie adalah produsen roster beton minimalis, bata tempel, wall panel beton, dan lisplang beton. Melayani pemilik rumah hingga kontraktor, dengan pengiriman ke seluruh Jabodetabek.',
   // TODO: semua data kontak di bawah masih placeholder
-  email: 'halo@example.com', // TODO: email asli
+  // Data di bawah disembunyikan di website selama bernilai null/kosong.
+  email: null as string | null, // TODO: email asli
   waDisplay: '0821-2472-3648', // dari bio Instagram
-  address: 'Jl. Contoh No. 1, Kota, Provinsi', // TODO: alamat workshop/pabrik
+  address: null as string | null, // TODO: alamat workshop/pabrik
   city: 'Kota', // TODO: kota
-  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Indonesia', // TODO: link Google Maps lokasi asli
+  mapsUrl: null as string | null, // TODO: link Google Maps lokasi asli
   instagram: 'https://www.instagram.com/sy_roster.industrie/',
   instagramHandle: '@sy_roster.industrie',
   shopee: 'https://shopee.co.id/syrosterminimalis',
   foundedYear: null as number | null, // TODO: tahun berdiri
-  hours: [
-    { day: 'Senin – Jumat', time: '08.00 – 17.00 WIB' }, // TODO: verifikasi jam kerja
-    { day: 'Sabtu', time: '08.00 – 14.00 WIB' }, // TODO
-    { day: 'Minggu & libur nasional', time: 'Tutup' }, // TODO
-  ],
+  hours: [] as { day: string; time: string }[], // TODO: jam kerja asli, mis. { day: 'Senin – Sabtu', time: '08.00 – 17.00 WIB' }
   // Dari unggahan Threads: kirim ke seluruh Jabodetabek, gratis ongkir. TODO: verifikasi syarat gratis ongkir
   serviceAreas: ['Jabodetabek (gratis ongkir)', 'Luar Jabodetabek: tanyakan ongkir'],
   threads: 'https://www.threads.com/@sy_roster.industrie',

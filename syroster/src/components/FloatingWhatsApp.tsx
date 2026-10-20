@@ -1,7 +1,7 @@
 import { buildWhatsAppLink, defaultQuoteMessage } from '@/lib/whatsapp';
 import { WhatsAppIcon } from './icons';
 
-/** Tombol WhatsApp mengambang di semua halaman. */
+/** Tombol WhatsApp mengambang di semua halaman, dengan denyut cahaya (mati bila reduced motion). */
 export function FloatingWhatsApp() {
   return (
     <a
@@ -9,9 +9,17 @@ export function FloatingWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat WhatsApp untuk minta penawaran (tab baru)"
-      className="fixed right-4 bottom-4 z-40 inline-flex size-14 items-center justify-center rounded-full bg-wa text-white shadow-lg ring-4 ring-white transition-transform hover:scale-105 hover:bg-wa-dark sm:right-6 sm:bottom-6"
+      className="group fixed right-4 bottom-4 z-40 sm:right-6 sm:bottom-6"
     >
-      <WhatsAppIcon className="size-7" />
+      {/* Dua cincin yang memancar bergantian */}
+      <span aria-hidden="true" className="wa-pulse absolute inset-0 rounded-full bg-wa" />
+      <span
+        aria-hidden="true"
+        className="wa-pulse wa-pulse-late absolute inset-0 rounded-full bg-wa"
+      />
+      <span className="wa-glow relative inline-flex size-14 items-center justify-center rounded-full bg-wa text-white ring-4 ring-white transition-transform group-hover:scale-105 group-hover:bg-wa-dark">
+        <WhatsAppIcon className="size-7" />
+      </span>
     </a>
   );
 }

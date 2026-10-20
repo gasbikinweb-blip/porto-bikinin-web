@@ -275,3 +275,42 @@ html:has(dialog[open]) {
 .lightbox-in {
   animation: dialog-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) calc(80ms + var(--d, 0ms)) both;
 }
+
+/* ---------- Tombol WhatsApp mengambang: denyut redup-nyala ---------- */
+@keyframes wa-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  80%,
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+@keyframes wa-glow {
+  0%,
+  100% {
+    box-shadow: 0 8px 24px -6px rgb(26 127 69 / 0.45);
+  }
+  50% {
+    box-shadow: 0 8px 34px 2px rgb(26 127 69 / 0.75);
+  }
+}
+.wa-pulse {
+  animation: wa-pulse 2.4s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+}
+.wa-pulse-late {
+  animation-delay: 1.2s;
+}
+.wa-glow {
+  animation: wa-glow 2.4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wa-pulse {
+    display: none;
+  }
+  .wa-glow {
+    animation: none;
+  }
+}

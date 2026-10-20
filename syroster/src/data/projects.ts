@@ -239,9 +239,39 @@ export type VideoItem = {
   height: number;
 };
 
-// Video asli bertanda SY.ROSTER.IND (dikompres & metadata dihapus, lihat public/videos/).
-// Video lain di folder aset memuat watermark akun lain, sengaja TIDAK dipakai.
+// Video dari akun @sy_roster.industrie (metadata dihapus, lihat public/videos/).
+// Tiga video inspirasi memuat watermark akun lain; dipakai atas izin pemiliknya.
 export const videos: VideoItem[] = [
+  {
+    id: 'roster-minimalis-fasad-putih',
+    src: '/videos/roster-minimalis-fasad-putih.mp4',
+    poster: '/videos/roster-minimalis-fasad-putih-poster.webp',
+    title: 'Roster beton minimalis putih memanjang di fasad',
+    meta: 'Inspirasi • Fasad',
+    tag: 'Roster minimalis',
+    width: 360,
+    height: 640,
+  },
+  {
+    id: 'roster-dinding-aksen-rumah',
+    src: '/videos/roster-dinding-aksen-rumah.mp4',
+    poster: '/videos/roster-dinding-aksen-rumah-poster.webp',
+    title: 'Dinding aksen roster dengan lampu di sisi rumah',
+    meta: 'Inspirasi • Dinding aksen',
+    tag: 'Berbagai motif',
+    width: 360,
+    height: 640,
+  },
+  {
+    id: 'roster-pagar-depan-rumah',
+    src: '/videos/roster-pagar-depan-rumah.mp4',
+    poster: '/videos/roster-pagar-depan-rumah-poster.webp',
+    title: 'Pagar roster putih sebagai penghemat biaya rumah',
+    meta: 'Inspirasi • Pagar',
+    tag: 'Roster putih',
+    width: 576,
+    height: 1024,
+  },
   {
     id: 'pemasangan-roster-nako',
     src: '/videos/pemasangan-roster-nako.mp4',

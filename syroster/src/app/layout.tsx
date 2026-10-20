@@ -60,14 +60,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             url: siteConfig.url,
             logo: `${siteConfig.url}/brand/logo-400.png`,
             image: `${siteConfig.url}/brand/og-image.jpg`,
-            email: company.email, // TODO: data kontak asli
             telephone: `+${siteConfig.waNumber}`,
+            ...(company.email && { email: company.email }),
             address: {
               '@type': 'PostalAddress',
-              streetAddress: company.address,
+              ...(company.address && { streetAddress: company.address }),
               addressCountry: 'ID',
-            }, // TODO
-            sameAs: [company.shopee, company.instagram],
+            },
+            areaServed: 'Jabodetabek',
+            sameAs: [company.instagram, company.threads, company.shopee],
           }}
         />
       </body>

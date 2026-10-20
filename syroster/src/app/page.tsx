@@ -9,6 +9,7 @@ import { JsonLd } from '@/components/JsonLd';
 import { OrderSteps } from '@/components/OrderSteps';
 import { ProductCollection } from '@/components/ProductCollection';
 import { SectionHeading } from '@/components/SectionHeading';
+import { SocialLinks } from '@/components/SocialLinks';
 import { WaButton } from '@/components/WaButton';
 import { WaMessageBuilder } from '@/components/WaMessageBuilder';
 import { faqs } from '@/data/faq';
@@ -392,51 +393,47 @@ export default function HomePage() {
                 </a>
               </dd>
             </div>
-            <div>
-              <dt className="font-display font-bold text-ink">Media sosial</dt>
-              <dd className="flex flex-wrap gap-x-4">
-                <a href={company.instagram} {...ext} className="text-brand hover:underline">
-                  Instagram {company.instagramHandle} <span className="sr-only">(tab baru)</span>
-                </a>
-                <a href={company.threads} {...ext} className="text-brand hover:underline">
-                  Threads <span className="sr-only">(tab baru)</span>
-                </a>
-                <a href={company.shopee} {...ext} className="text-brand hover:underline">
-                  Shopee <span className="sr-only">(tab baru)</span>
-                </a>
-              </dd>
-            </div>
-            <div>
-              <dt className="font-display font-bold text-ink">Alamat</dt>
-              <dd className="text-muted">
-                {company.address}{' '}
-                {/* Sengaja tanpa embed iframe Google Maps (privasi & CSP); cukup link keluar */}
-                <a
-                  href={company.mapsUrl}
-                  {...ext}
-                  className="font-semibold text-brand hover:underline"
-                >
-                  Buka peta <span className="sr-only">(tab baru)</span>
-                </a>
-              </dd>
-            </div>
-            <div>
-              <dt className="font-display font-bold text-ink">Jam kerja</dt>
-              <dd>
-                <ul className="text-muted">
-                  {company.hours.map((h) => (
-                    <li key={h.day}>
-                      {h.day}: {h.time}
-                    </li>
-                  ))}
-                </ul>
-              </dd>
-            </div>
+            {company.address && (
+              <div>
+                <dt className="font-display font-bold text-ink">Alamat</dt>
+                <dd className="text-muted">
+                  {company.address}{' '}
+                  {/* Sengaja tanpa embed iframe Google Maps (privasi & CSP); cukup link keluar */}
+                  {company.mapsUrl && (
+                    <a
+                      href={company.mapsUrl}
+                      {...ext}
+                      className="font-semibold text-brand hover:underline"
+                    >
+                      Buka peta <span className="sr-only">(tab baru)</span>
+                    </a>
+                  )}
+                </dd>
+              </div>
+            )}
+            {company.hours.length > 0 && (
+              <div>
+                <dt className="font-display font-bold text-ink">Jam kerja</dt>
+                <dd>
+                  <ul className="text-muted">
+                    {company.hours.map((h) => (
+                      <li key={h.day}>
+                        {h.day}: {h.time}
+                      </li>
+                    ))}
+                  </ul>
+                </dd>
+              </div>
+            )}
             <div>
               <dt className="font-display font-bold text-ink">Area pengiriman</dt>
               <dd className="text-muted">{company.serviceAreas.join(' · ')}</dd>
             </div>
           </dl>
+          <div className="mt-8">
+            <p className="mb-3 font-display font-bold text-ink">Ikuti & belanja di</p>
+            <SocialLinks withLabel />
+          </div>
         </div>
         <div className="reveal reveal-right rounded-3xl bg-surface p-6 sm:p-8">
           <h3 className="mb-6 font-display text-2xl font-bold text-ink">Susun pesan penawaran</h3>

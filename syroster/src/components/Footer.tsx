@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { company, navLinks } from '@/data/site';
 import { siteConfig } from '@/lib/config';
+import { SocialLinks } from './SocialLinks';
 import { buildWhatsAppLink, defaultQuoteMessage } from '@/lib/whatsapp';
 
 const ext = { target: '_blank', rel: 'noopener noreferrer' } as const;
@@ -51,18 +52,19 @@ export function Footer() {
                 WhatsApp: {company.waDisplay}
               </a>
             </li>
-            <li>
-              <a href={`mailto:${company.email}`} className="hover:text-white hover:underline">
-                {company.email}
-              </a>
-            </li>
-            <li>{company.address}</li>
-            <li>
-              <a href={company.shopee} {...ext} className="hover:text-white hover:underline">
-                Toko Shopee
-              </a>
-            </li>
+            {company.email && (
+              <li>
+                <a href={`mailto:${company.email}`} className="hover:text-white hover:underline">
+                  {company.email}
+                </a>
+              </li>
+            )}
+            {company.address && <li>{company.address}</li>}
+            <li>Pengiriman: {company.serviceAreas[0]}</li>
           </ul>
+          <div className="mt-5">
+            <SocialLinks tone="dark" />
+          </div>
         </div>
       </div>
       <div className="border-t border-white/15">

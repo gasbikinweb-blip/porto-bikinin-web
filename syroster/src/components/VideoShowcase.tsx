@@ -75,7 +75,7 @@ export function VideoShowcase({ videos }: { videos: VideoItem[] }) {
       <ul
         ref={trackRef}
         aria-label="Video Syroster Industrie"
-        className="reveal reveal-zoom -mx-4 mt-10 flex snap-x snap-mandatory items-center gap-5 overflow-x-auto px-4 py-6 [scrollbar-width:none] sm:justify-center sm:gap-7 [&::-webkit-scrollbar]:hidden"
+        className="reveal reveal-zoom -mx-4 mt-10 flex snap-x snap-mandatory items-center gap-5 overflow-x-auto px-4 py-6 [scrollbar-width:none] sm:gap-7 [&>li:first-child]:ml-auto [&>li:last-child]:mr-auto [&::-webkit-scrollbar]:hidden"
       >
         {videos.map((v, i) => {
           const isPlaying = playing === v.id;
