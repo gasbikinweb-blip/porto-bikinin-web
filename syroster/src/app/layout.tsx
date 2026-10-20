@@ -68,7 +68,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               addressCountry: 'ID',
             },
             areaServed: 'Jabodetabek',
-            sameAs: [company.instagram, company.threads, company.shopee],
+            sameAs: [company.instagram, company.threads, company.tiktok, company.shopee],
           }}
         />
       </body>

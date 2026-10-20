@@ -44,6 +44,7 @@ export const company = {
   // Dari unggahan Threads: kirim ke seluruh Jabodetabek, gratis ongkir. TODO: verifikasi syarat gratis ongkir
   serviceAreas: ['Jabodetabek (gratis ongkir)', 'Luar Jabodetabek: tanyakan ongkir'],
   threads: 'https://www.threads.com/@sy_roster.industrie',
+  tiktok: 'https://www.tiktok.com/@sy.roster.ind',
 };
 
 // TODO: ganti dengan angka asli. Selama "—", UI menampilkan label "data menyusul".

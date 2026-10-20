@@ -1,11 +1,12 @@
 import { company } from '@/data/site';
 import { buildWhatsAppLink, defaultQuoteMessage } from '@/lib/whatsapp';
-import { InstagramIcon, ShopeeIcon, ThreadsIcon, WhatsAppIcon } from './icons';
+import { InstagramIcon, ShopeeIcon, ThreadsIcon, TikTokIcon, WhatsAppIcon } from './icons';
 
 const links = [
   { label: 'WhatsApp', href: buildWhatsAppLink(defaultQuoteMessage), Icon: WhatsAppIcon },
   { label: 'Instagram', href: company.instagram, Icon: InstagramIcon },
   { label: 'Threads', href: company.threads, Icon: ThreadsIcon },
+  { label: 'TikTok', href: company.tiktok, Icon: TikTokIcon },
   { label: 'Shopee', href: company.shopee, Icon: ShopeeIcon },
 ];
 
