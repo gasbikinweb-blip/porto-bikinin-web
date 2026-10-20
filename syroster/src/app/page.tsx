@@ -37,7 +37,7 @@ const img = (id: string): GalleryItem => {
 
 const heroCards: HeroCard[] = [
   ['pemasangan-roster-terakota-area-duduk', 'Area duduk', 'Roster terakota'],
-  ['pemasangan-roster-putih-teras', 'Dinding teras', 'Roster putih'],
+  ['pemasangan-roster-putih-teras', 'Bukaan dinding', 'Roster krem'],
   ['pemasangan-roster-krem-kafe', 'Kafe & resto', 'Roster krem'],
   ['pemasangan-roster-terakota-pagar', 'Pagar atas', 'Roster terakota'],
   ['pemasangan-roster-sirip-terakota', 'Dinding aksen', 'Roster sirip'],

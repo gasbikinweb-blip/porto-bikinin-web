@@ -100,7 +100,7 @@ export const products: Product[] = [
     summary: 'Lubang lingkaran beragam ukuran, kesan ringan dan playful.',
     suitableFor: ['Teras', 'Carport'],
     colors: ['Putih', 'Krem natural'],
-    size: '20 × 20 cm', // TODO verifikasi
+    size: null, // TODO: ukuran motif ini
     piecesPerM2: null,
     image: photo('roster-lingkaran-putih'),
     extraImages: [photo('roster-krem-motif-lingkaran')],
@@ -124,7 +124,7 @@ export const products: Product[] = [
     material: 'Beton',
     summary: 'Bingkai kotak dengan bukaan lebar untuk sirkulasi maksimal.',
     suitableFor: ['Gudang', 'Area servis', 'Carport'],
-    colors: ['Terakota', 'Putih', 'Abu tua'],
+    colors: ['Terakota'], // TODO: konfirmasi warna lain
     size: null,
     piecesPerM2: null,
     image: photo('roster-kotak-terakota'),

@@ -43,6 +43,6 @@ export const faqs: FaqItem[] = [
   },
   {
     question: 'Apakah bisa minta sampel?',
-    answer: 'Bisa. Hubungi kami lewat WhatsApp untuk ketentuan pengambilan atau pengiriman sampel.', // TODO: kebijakan sampel
+    answer: 'Tanyakan ketersediaan dan ketentuan sampel lewat WhatsApp.', // TODO: kebijakan sampel
   },
 ];
