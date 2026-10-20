@@ -23,7 +23,7 @@ import { buildWhatsAppLink, defaultQuoteMessage } from '@/lib/whatsapp';
 
 export const metadata = pageMetadata({
   description:
-    'Produsen roster beton minimalis dan bata tempel langsung dari pabrik. Puluhan motif, ukuran 20×20 dan 15×30 cm, gratis ongkir Jabodetabek, bisa COD. Tanya harga via WhatsApp.',
+    'Produsen roster beton minimalis dan bata tempel langsung dari pabrik. Belasan motif, ukuran 20×20 dan 15×30 cm, pengiriman ke seluruh Jabodetabek, bisa COD. Tanya harga via WhatsApp.',
   path: '/',
 });
 

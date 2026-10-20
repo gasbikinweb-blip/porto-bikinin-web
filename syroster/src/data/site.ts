@@ -6,7 +6,7 @@ export type Perk = { title: string; description: string; icon: 'truck' | 'cash' 
 // Fakta dari caption Instagram/Threads @sy_roster.industrie. TODO: verifikasi syarat & ketentuannya
 export const perks: Perk[] = [
   {
-    title: 'Gratis ongkir Jabodetabek',
+    title: 'Pengiriman ke seluruh Jabodetabek',
     description: 'Dikirim langsung ke lokasi proyek.',
     icon: 'truck',
   },
@@ -41,8 +41,7 @@ export const company = {
   shopee: 'https://shopee.co.id/syrosterminimalis',
   foundedYear: null as number | null, // TODO: tahun berdiri
   hours: [] as { day: string; time: string }[], // TODO: jam kerja asli, mis. { day: 'Senin – Sabtu', time: '08.00 – 17.00 WIB' }
-  // Dari unggahan Threads: kirim ke seluruh Jabodetabek, gratis ongkir. TODO: verifikasi syarat gratis ongkir
-  serviceAreas: ['Jabodetabek (gratis ongkir)', 'Luar Jabodetabek: tanyakan ongkir'],
+  serviceAreas: ['Seluruh Jabodetabek', 'Luar Jabodetabek: tanyakan via WhatsApp'],
   threads: 'https://www.threads.com/@sy_roster.industrie',
   tiktok: 'https://www.tiktok.com/@sy.roster.ind',
 };

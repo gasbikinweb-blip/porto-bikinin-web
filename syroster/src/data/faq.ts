@@ -30,7 +30,7 @@ export const faqs: FaqItem[] = [
   {
     question: 'Area pengiriman ke mana saja?',
     answer:
-      'Kami mengirim ke seluruh Jabodetabek dengan gratis ongkir. Untuk luar Jabodetabek, tanyakan ongkos kirimnya lewat WhatsApp.', // dari unggahan Threads; TODO: verifikasi syarat
+      'Kami melayani pengiriman ke seluruh Jabodetabek. Ongkos kirim dan pengiriman ke luar Jabodetabek bisa ditanyakan lewat WhatsApp.'
   },
   {
     question: 'Apakah bisa bayar di tempat (COD)?',
