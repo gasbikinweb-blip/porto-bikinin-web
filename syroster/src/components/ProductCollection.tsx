@@ -56,7 +56,7 @@ export function ProductCollection({ products, labels }: Props) {
         data-stagger
       >
         {visible.map((p) => (
-          <li key={p.slug} className="reveal">
+          <li key={p.slug} className="reveal flex">
             <ProductCard product={p} category={labels[p.type]} onOpen={() => setSelected(p)} />
           </li>
         ))}

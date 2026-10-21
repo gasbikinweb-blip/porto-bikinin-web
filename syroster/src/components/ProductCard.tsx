@@ -10,7 +10,7 @@ export function ProductCard({ product, category, onOpen }: Props) {
   const cover = product.images[0]!;
   const label = product.badge ?? (product.sizes.length === 1 ? product.sizes[0] : null);
   return (
-    <article className="group">
+    <article className="group flex h-full flex-col">
       <div className="relative aspect-square overflow-hidden rounded-2xl bg-surface">
         <button
           type="button"
@@ -46,26 +46,25 @@ export function ProductCard({ product, category, onOpen }: Props) {
           {product.name}
         </button>
       </h3>
-      <p className="mt-1 line-clamp-2 text-sm text-muted">{product.summary}</p>
-      <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
-        <button
-          type="button"
-          onClick={onOpen}
-          className="inline-flex min-h-8 items-center gap-1.5 text-sm font-semibold text-brand hover:underline"
-        >
-          Lihat detail <ArrowIcon />
-          <span className="sr-only">{product.name}</span>
-        </button>
-        <a
-          href={product.shopeeUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex min-h-8 items-center gap-1.5 text-sm font-semibold text-shopee-ink hover:underline"
-        >
-          <ShopeeIcon className="size-4" /> Shopee
-          <span className="sr-only">: {product.name} (tab baru)</span>
-        </a>
-      </div>
+      <p className="mt-1 mb-3 line-clamp-2 text-sm text-muted">{product.summary}</p>
+      <button
+        type="button"
+        onClick={onOpen}
+        className="mt-2 mb-3 inline-flex min-h-8 items-center gap-1.5 self-start text-sm font-semibold text-brand hover:underline"
+      >
+        Lihat detail <ArrowIcon />
+        <span className="sr-only">{product.name}</span>
+      </button>
+      {/* Tombol ke listing Shopee resmi (link dari info.txt unduhan toko) */}
+      <a
+        href={product.shopeeUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-auto inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-shopee-ink px-4 text-sm font-semibold text-white transition-colors hover:bg-[#8f2b16]"
+      >
+        <ShopeeIcon className="size-[18px]" /> Beli di Shopee
+        <span className="sr-only">: {product.name} (tab baru)</span>
+      </a>
     </article>
   );
 }
