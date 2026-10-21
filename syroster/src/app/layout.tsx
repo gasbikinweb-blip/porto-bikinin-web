@@ -65,6 +65,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             address: {
               '@type': 'PostalAddress',
               ...(company.address && { streetAddress: company.address }),
+              addressLocality: company.city,
               addressCountry: 'ID',
             },
             areaServed: 'Jabodetabek',

@@ -1,11 +1,11 @@
-import type { ProductType } from './projects';
+import type { MotifType } from './projects';
 
 export type Guide = {
   id: string;
   title: string;
   need: string;
   recommendation: string;
-  types: ProductType[];
+  types: MotifType[];
 };
 
 // TODO: verifikasi rekomendasi dengan pengalaman lapangan Syroster Industrie

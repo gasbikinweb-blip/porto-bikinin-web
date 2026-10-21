@@ -4,11 +4,9 @@
 // pengembalian fokus ke pemicu sudah ditangani browser. Animasi buka/tutup lewat CSS (dialog.product-dialog).
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import type { Product } from '@/data/products';
-import type { ProductType } from '@/data/projects';
+import type { Product, ProductType } from '@/data/products';
 import { buildWhatsAppLink, productMessage } from '@/lib/whatsapp';
-import { WhatsAppIcon } from './icons';
-import { IlustrasiBadge } from './SectionHeading';
+import { ShopeeIcon, WhatsAppIcon } from './icons';
 
 type Props = {
   product: Product | null;
@@ -37,14 +35,15 @@ export function ProductDialog({ product: selected, labels, onClose }: Props) {
     if (!selected && dialog.open) dialog.close();
   }, [selected]);
 
-  const images = product ? [product.image, ...(product.extraImages ?? [])] : [];
+  const images = product ? product.images : [];
   const image = images[active] ?? images[0];
   const specs = product
     ? [
-        ['Bahan', product.material ?? 'Dikonfirmasi saat penawaran'],
-        ['Ukuran', product.size ?? 'Tersedia 20 × 20 cm dan 15 × 30 cm (konfirmasi per motif)'],
-        ['Warna', product.colors.join(', ')],
-        ['Cocok untuk', product.suitableFor.join(', ')],
+        ['Bahan', product.material ?? 'Dikonfirmasi saat pemesanan'],
+        [product.sizes.length > 1 ? 'Pilihan ukuran' : 'Ukuran', product.sizes.join(' · ')],
+        ['Warna', product.colors.join(' · ')],
+        ...(product.minOrder ? [['Minimal order', product.minOrder]] : []),
+        ...(product.piecesPerM2 ? [['Isi per m²', `± ${product.piecesPerM2} pcs`]] : []),
       ]
     : [];
 
@@ -69,7 +68,6 @@ export function ProductDialog({ product: selected, labels, onClose }: Props) {
                 sizes="(min-width: 768px) 480px, 92vw"
                 className="dialog-photo object-cover"
               />
-              {image.kind === 'ilustrasi' && <IlustrasiBadge />}
             </div>
             {images.length > 1 && (
               <ul className="mt-3 flex gap-2.5" aria-label="Pilih foto">
@@ -79,7 +77,7 @@ export function ProductDialog({ product: selected, labels, onClose }: Props) {
                       type="button"
                       onClick={() => setActive(i)}
                       aria-current={i === active ? 'true' : undefined}
-                      aria-label={`Foto ${i + 1}: ${img.caption}`}
+                      aria-label={`Foto ${i + 1} dari ${images.length}`}
                       className="relative block size-16 overflow-hidden rounded-xl bg-white ring-2 ring-transparent transition sm:size-20 aria-[current=true]:ring-brand"
                     >
                       <Image src={img.thumb} alt="" fill sizes="80px" className="object-cover" />
@@ -137,7 +135,7 @@ export function ProductDialog({ product: selected, labels, onClose }: Props) {
             </dl>
 
             <div
-              className="dialog-in mt-7 grid gap-3"
+              className="dialog-in mt-7 grid gap-3 sm:grid-cols-2"
               style={{ '--d': '360ms' } as React.CSSProperties}
             >
               <a
@@ -148,13 +146,21 @@ export function ProductDialog({ product: selected, labels, onClose }: Props) {
               >
                 <WhatsAppIcon /> Tanya via WhatsApp <span className="sr-only">(tab baru)</span>
               </a>
+              <a
+                href={product.shopeeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border-2 border-shopee px-5 font-semibold text-shopee-ink transition-colors hover:bg-shopee-ink hover:text-white"
+              >
+                <ShopeeIcon /> Lihat di Shopee <span className="sr-only">(tab baru)</span>
+              </a>
             </div>
             <p
               className="dialog-in mt-4 text-xs leading-relaxed text-muted"
               style={{ '--d': '420ms' } as React.CSSProperties}
             >
-              Harga, stok, dan ongkos kirim dikonfirmasi lewat WhatsApp. Pemesanan dan pembayaran
-              dilakukan setelah konsultasi.
+              Harga dan stok terbaru bisa dilihat di Shopee atau ditanyakan lewat WhatsApp.
+              Disarankan chat admin terlebih dahulu sebelum order.
             </p>
           </div>
 

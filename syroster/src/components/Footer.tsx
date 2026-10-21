@@ -60,6 +60,7 @@ export function Footer() {
               </li>
             )}
             {company.address && <li>{company.address}</li>}
+            <li>{company.city}</li>
           </ul>
           <div className="mt-5">
             <SocialLinks tone="dark" />

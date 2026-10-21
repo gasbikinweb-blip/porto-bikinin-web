@@ -2,8 +2,12 @@
 
 import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { typeLabels } from '@/data/products';
-import { categoryLabels, type GalleryCategory, type GalleryItem } from '@/data/projects';
+import {
+  categoryLabels,
+  motifLabels,
+  type GalleryCategory,
+  type GalleryItem,
+} from '@/data/projects';
 import { siteConfig } from '@/lib/config';
 import { buildWhatsAppLink } from '@/lib/whatsapp';
 import { ArrowIcon, ChevronIcon, WhatsAppIcon } from './icons';
@@ -142,7 +146,7 @@ function Lightbox({
 
   const facts: [string, string][] = [
     [categoryLabels[item.category], 'Kategori'],
-    [typeLabels[item.productType], 'Jenis motif'],
+    [motifLabels[item.productType], 'Jenis motif'],
     [item.area ?? 'Jabodetabek', item.area ? 'Lokasi' : 'Area pengiriman'],
     [statusOf(item), 'Status foto'],
   ];
@@ -208,7 +212,7 @@ function Lightbox({
             <p className="lightbox-in flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-bold tracking-[0.18em] text-gold-ink uppercase">
               <span>{categoryLabels[item.category]}</span>
               <span aria-hidden="true" className="size-1 rounded-full bg-gold" />
-              <span>{typeLabels[item.productType]}</span>
+              <span>{motifLabels[item.productType]}</span>
             </p>
             <h2
               id="lightbox-judul"

@@ -18,8 +18,8 @@ export const perks: Perk[] = [
   },
 ];
 
-// Ukuran yang disebut di unggahan Instagram. TODO: lengkapi ukuran per motif
-export const sizes = ['20 × 20 cm', '15 × 30 cm', 'Nako 25 × 15 cm'];
+// Ukuran roster sesuai listing Shopee resmi
+export const sizes = ['20 × 20 cm', '20 × 10 cm', '15 × 25 cm', '15 × 30 cm'];
 export type Feature = { title: string; description: string };
 export type Step = { title: string; description: string };
 export type Service = { title: string; description: string; duration: string };
@@ -34,14 +34,14 @@ export const company = {
   email: null as string | null, // TODO: email asli
   waDisplay: '0821-2472-3648', // dari bio Instagram
   address: null as string | null, // TODO: alamat workshop/pabrik
-  city: 'Kota', // TODO: kota
+  city: 'Kota Tangerang Selatan', // lokasi toko di Shopee
   mapsUrl: null as string | null, // TODO: link Google Maps lokasi asli
   instagram: 'https://www.instagram.com/sy_roster.industrie/',
   instagramHandle: '@sy_roster.industrie',
   shopee: 'https://shopee.co.id/syrosterminimalis',
   foundedYear: null as number | null, // TODO: tahun berdiri
   hours: [] as { day: string; time: string }[], // TODO: jam kerja asli, mis. { day: 'Senin – Sabtu', time: '08.00 – 17.00 WIB' }
-  serviceAreas: ['Seluruh Jabodetabek', 'Luar Jabodetabek: tanyakan via WhatsApp'],
+  serviceAreas: ['Seluruh Jabodetabek (setiap hari)', 'Jawa & Bali: tanyakan via WhatsApp'],
   threads: 'https://www.threads.com/@sy_roster.industrie',
   tiktok: 'https://www.tiktok.com/@sy.roster.ind',
 };
@@ -151,12 +151,3 @@ export const navLinks = [
   { href: '/#faq', label: 'FAQ' },
   { href: '/#kontak', label: 'Kontak' },
 ] as const;
-
-// Produk lain yang disebut di bio Instagram & Threads. Belum ada fotonya, jadi tampil sebagai daftar teks.
-// TODO: tambahkan foto & detail bila tersedia
-export const otherProducts: Feature[] = [
-  { title: 'Wall panel beton', description: 'Panel beton untuk dinding fasad dan interior.' },
-  { title: 'Lisplang beton', description: 'Lisplang beton untuk tepi atap yang awet.' },
-  { title: 'Roster terakota', description: 'Roster tanah liat bakar berwarna merah bata alami.' },
-  { title: 'Paving block', description: 'Untuk carport, halaman, dan jalur pejalan kaki.' },
-];

@@ -1,14 +1,14 @@
 import Image from 'next/image';
 import type { Product } from '@/data/products';
 import { buildWhatsAppLink, productMessage } from '@/lib/whatsapp';
-import { ArrowIcon, WhatsAppIcon } from './icons';
-import { IlustrasiBadge } from './SectionHeading';
+import { ArrowIcon, ShopeeIcon, WhatsAppIcon } from './icons';
 
-// Kartu produk ala katalog: foto di bidang abu muda, label kecil, nama, lalu ajakan tanya harga (tanpa harga karangan)
+// Kartu produk ala katalog: foto di bidang abu muda, label kecil, nama, lalu tautan detail & Shopee
 type Props = { product: Product; category: string; onOpen: () => void };
 
 export function ProductCard({ product, category, onOpen }: Props) {
-  const link = buildWhatsAppLink(productMessage(product.name));
+  const cover = product.images[0]!;
+  const label = product.badge ?? (product.sizes.length === 1 ? product.sizes[0] : null);
   return (
     <article className="group">
       <div className="relative aspect-square overflow-hidden rounded-2xl bg-surface">
@@ -19,20 +19,19 @@ export function ProductCard({ product, category, onOpen }: Props) {
           className="absolute inset-0 z-0 cursor-zoom-in"
         />
         <Image
-          src={product.image.thumb}
-          alt={product.image.alt}
+          src={cover.thumb}
+          alt={cover.alt}
           fill
           sizes="(min-width: 1024px) 270px, 50vw"
           className="pointer-events-none object-cover mix-blend-multiply transition-transform duration-500 group-hover:scale-[1.04]"
         />
-        {product.image.kind === 'ilustrasi' && <IlustrasiBadge />}
-        {(product.badge ?? product.size) && (
+        {label && (
           <span className="pointer-events-none absolute top-3 left-3 rounded-full bg-brand px-3 py-1 text-xs font-semibold text-white">
-            {product.badge ?? product.size}
+            {label}
           </span>
         )}
         <a
-          href={link}
+          href={buildWhatsAppLink(productMessage(product.name))}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Tanya harga ${product.name} via WhatsApp (tab baru)`}
@@ -48,18 +47,25 @@ export function ProductCard({ product, category, onOpen }: Props) {
         </button>
       </h3>
       <p className="mt-1 line-clamp-2 text-sm text-muted">{product.summary}</p>
-      <p className="mt-2 text-sm text-muted">
-        <span className="sr-only">Warna: </span>
-        {product.colors.join(' · ')}
-      </p>
-      <button
-        type="button"
-        onClick={onOpen}
-        className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:underline"
-      >
-        Lihat detail <ArrowIcon />
-        <span className="sr-only">{product.name}</span>
-      </button>
+      <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
+        <button
+          type="button"
+          onClick={onOpen}
+          className="inline-flex min-h-8 items-center gap-1.5 text-sm font-semibold text-brand hover:underline"
+        >
+          Lihat detail <ArrowIcon />
+          <span className="sr-only">{product.name}</span>
+        </button>
+        <a
+          href={product.shopeeUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex min-h-8 items-center gap-1.5 text-sm font-semibold text-shopee-ink hover:underline"
+        >
+          <ShopeeIcon className="size-4" /> Shopee
+          <span className="sr-only">: {product.name} (tab baru)</span>
+        </a>
+      </div>
     </article>
   );
 }

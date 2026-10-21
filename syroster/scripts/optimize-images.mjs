@@ -43,6 +43,30 @@ for (const file of await readdir(SRC_GALLERY)) {
   console.log(`✓ ${file} (${meta.width}x${meta.height}) -> ${slug}.webp + thumb`);
 }
 
+// ---------- Foto produk (assets-src/products/<slug>/NN.jpg -> public/images/produk/<slug>/) ----------
+const SRC_PRODUCTS = 'assets-src/products';
+const OUT_PRODUCTS = 'public/images/produk';
+for (const slug of await readdir(SRC_PRODUCTS).catch(() => [])) {
+  const dir = path.join(SRC_PRODUCTS, slug);
+  await mkdir(path.join(OUT_PRODUCTS, slug), { recursive: true });
+  for (const file of await readdir(dir)) {
+    if (!EXT.has(path.extname(file).toLowerCase())) continue;
+    const src = path.join(dir, file);
+    const name = slugify(file);
+    await sharp(src)
+      .rotate()
+      .resize({ width: 1200, withoutEnlargement: true })
+      .webp({ quality: 78 })
+      .toFile(path.join(OUT_PRODUCTS, slug, `${name}.webp`));
+    await sharp(src)
+      .rotate()
+      .resize({ width: 560, withoutEnlargement: true })
+      .webp({ quality: 74 })
+      .toFile(path.join(OUT_PRODUCTS, slug, `${name}-thumb.webp`));
+  }
+  console.log(`✓ produk/${slug}`);
+}
+
 // ---------- Logo ----------
 // Latar putih dibuat transparan (piksel hampir putih -> alpha 0, tepi dihaluskan).
 // Desain logo tidak diubah: warna dan bentuk asli dipertahankan.

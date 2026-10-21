@@ -16,7 +16,7 @@ import { faqs } from '@/data/faq';
 import { guides } from '@/data/guides';
 import { products, typeLabels } from '@/data/products';
 import { gallery, videos, type GalleryItem } from '@/data/projects';
-import { company, otherProducts, perks, sizes } from '@/data/site';
+import { company, perks, sizes } from '@/data/site';
 import { siteConfig } from '@/lib/config';
 import { pageMetadata } from '@/lib/seo';
 import { buildWhatsAppLink, defaultQuoteMessage } from '@/lib/whatsapp';
@@ -46,11 +46,15 @@ const heroCards: HeroCard[] = [
   return { id: g.id, src: g.thumb, alt: g.alt, title: title!, note: note! };
 });
 
-const rosterCount = products.filter((p) => p.type !== 'bata').length;
-const bataCount = products.filter((p) => p.type === 'bata').length;
+// Angka & daftar dihitung dari data produk Shopee, bukan diketik manual
+const rosterCount = products.filter((p) => p.type === 'roster' || p.type === 'nako').length;
 const motifNames = products
-  .filter((p) => p.type !== 'bata')
+  .filter((p) => p.type === 'roster')
   .map((p) => p.name.replace('Roster ', ''));
+const bataNames = products.filter((p) => p.type === 'bata').map((p) => p.name);
+const otherNames = products
+  .filter((p) => p.type === 'panel' || p.type === 'lantai')
+  .map((p) => p.name);
 const thumbs = [
   'roster-segitiga-tiga-warna',
   'roster-lingkaran-putih',
@@ -174,13 +178,13 @@ export default function HomePage() {
           >
             <div className="relative z-10 max-w-[12rem]">
               <p className="inline-block rounded-full bg-white px-3 py-1 text-sm font-medium text-ink">
-                <span className="font-bold text-gold-ink">{bataCount}</span> jenis
+                <span className="font-bold text-gold-ink">{bataNames.length}</span> jenis
               </p>
               <h2 className="mt-4 font-display text-3xl font-bold text-ink">Bata Tempel</h2>
               <ul className="mt-3 space-y-1.5 text-sm text-muted">
-                <li>Bata tempel bevel</li>
-                <li>Bata tempel terakota</li>
-                <li>Stok siap kirim</li>
+                {bataNames.map((n) => (
+                  <li key={n}>{n}</li>
+                ))}
               </ul>
             </div>
             <div className="absolute inset-y-0 right-0 w-1/2">
@@ -196,20 +200,19 @@ export default function HomePage() {
 
           <div className="reveal reveal-right rounded-3xl bg-night p-7 text-white sm:p-9">
             <p className="inline-block rounded-full bg-white/10 px-3 py-1 text-sm font-medium">
-              Produk lainnya
+              Panel, lisplang & lantai
             </p>
-            <ul className="mt-5 grid gap-x-6 gap-y-4 sm:grid-cols-2">
-              {otherProducts.map((o) => (
-                <li key={o.title}>
-                  <h3 className="font-display text-lg font-bold">{o.title}</h3>
-                  <p className="text-sm text-white/70">{o.description}</p>
+            <ul className="mt-5 grid gap-x-6 gap-y-2 sm:grid-cols-2">
+              {otherNames.map((n) => (
+                <li key={n} className="font-display font-bold">
+                  {n}
                 </li>
               ))}
             </ul>
             <WaButton
               variant="light"
               className="mt-6 min-h-11 py-2 text-sm"
-              message={`Halo ${siteConfig.name}, saya ingin menanyakan wall panel / lisplang beton / produk lainnya.`}
+              message={`Halo ${siteConfig.name}, saya ingin menanyakan wall panel / lisplang / paving / produk lainnya.`}
             >
               Tanya produk lain
             </WaButton>
@@ -425,6 +428,10 @@ export default function HomePage() {
                 </dd>
               </div>
             )}
+            <div>
+              <dt className="font-display font-bold text-ink">Lokasi pabrik</dt>
+              <dd className="text-muted">{company.city}</dd>
+            </div>
             <div>
               <dt className="font-display font-bold text-ink">Area pengiriman</dt>
               <dd className="text-muted">{company.serviceAreas.join(' · ')}</dd>

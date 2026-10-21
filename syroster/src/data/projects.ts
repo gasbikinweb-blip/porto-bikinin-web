@@ -2,7 +2,14 @@
 // kind: 'proyek' = foto nyata, 'ilustrasi' = render/CGI/hasil edit (UI otomatis menampilkan label "Ilustrasi").
 
 export type GalleryCategory = 'roster' | 'bata-tempel' | 'pemasangan';
-export type ProductType = 'geometris' | 'lingkaran' | 'sirip' | 'bata';
+export type MotifType = 'geometris' | 'lingkaran' | 'sirip' | 'bata';
+
+export const motifLabels: Record<MotifType, string> = {
+  geometris: 'Motif geometris',
+  lingkaran: 'Motif lingkaran',
+  sirip: 'Sirip & nako',
+  bata: 'Bata tempel',
+};
 
 export type GalleryItem = {
   id: string;
@@ -11,7 +18,7 @@ export type GalleryItem = {
   alt: string;
   caption: string;
   category: GalleryCategory;
-  productType: ProductType;
+  productType: MotifType;
   area?: string;
   kind: 'proyek' | 'ilustrasi';
   width: number;
