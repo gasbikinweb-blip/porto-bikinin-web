@@ -1,6 +1,7 @@
 import { Container, PageHeader } from '@/components/ui';
 import { WhatsAppButton } from '@/components/WhatsApp';
 import { faqs } from '@/data/faq';
+import { getProject } from '@/data/projects';
 import { pageMeta } from '@/lib/seo';
 
 export const metadata = pageMeta({
@@ -15,13 +16,14 @@ export default function FaqPage() {
     <>
       <PageHeader
         eyebrow="FAQ"
+        image={getProject('orange-country-apartment')?.cover}
         title={
           <>
             Pertanyaan <em>yang sering diajukan</em>
           </>
         }
       />
-      <Container className="max-w-4xl">
+      <Container className="max-w-4xl py-16 md:py-24">
         <div className="divide-y divide-line border-y border-line">
           {faqs.map((f) => (
             <details key={f.q} className="group py-6">

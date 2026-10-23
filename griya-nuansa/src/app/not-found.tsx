@@ -1,4 +1,4 @@
-import { Container, PageHeader, PillLink } from '@/components/ui';
+import { Container, PageHeader, ButtonLink } from '@/components/ui';
 
 export default function NotFound() {
   return (
@@ -12,9 +12,9 @@ export default function NotFound() {
         }
         intro="Halaman yang Anda cari tidak ditemukan."
       />
-      <Container className="flex flex-wrap gap-3 pt-12">
-        <PillLink href="/">Ke beranda</PillLink>
-        <PillLink href="/proyek/">Lihat proyek</PillLink>
+      <Container className="flex flex-wrap gap-3 py-12">
+        <ButtonLink href="/">Ke beranda</ButtonLink>
+        <ButtonLink href="/proyek/">Lihat proyek</ButtonLink>
       </Container>
     </>
   );

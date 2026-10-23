@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { AboutStrip } from '@/components/AboutStrip';
 import { ArrowUpRight } from '@/components/icons';
 import { Container, PageHeader } from '@/components/ui';
 import { WhatsAppButton } from '@/components/WhatsApp';
@@ -61,9 +62,15 @@ export default function AboutPage() {
       />
 
       {/* Foto + akordeon "Mengapa Griya Nuansa" */}
-      <Container className="mt-4 grid gap-4 md:mt-6 md:grid-cols-2">
+      <section className="py-20 md:py-28">
+        <Container>
+          <AboutStrip image={getProject('aa-house')?.cover} />
+        </Container>
+      </section>
+
+      <Container className="grid gap-4 md:grid-cols-2">
         {side && (
-          <div className="relative min-h-[420px] overflow-hidden rounded-[1.75rem] bg-surface">
+          <div className="relative min-h-[420px] overflow-hidden rounded-md bg-surface">
             <Image
               src={side.src}
               alt={side.alt}
@@ -76,10 +83,8 @@ export default function AboutPage() {
             </p>
           </div>
         )}
-        <div className="rounded-[1.75rem] bg-surface p-6 md:p-10">
-          <h2 className="text-4xl font-light tracking-tight uppercase md:text-5xl">
-            Mengapa {site.name}
-          </h2>
+        <div className="rounded-md bg-surface p-6 md:p-10">
+          <h2 className="font-serif text-4xl leading-[1.1] md:text-5xl">Mengapa {site.name}</h2>
           {/* TODO: ganti dengan cerita studio yang asli (tahun berdiri, pendiri, perjalanan) */}
           <p className="mt-4 text-xs leading-relaxed tracking-wider text-muted uppercase">
             {site.name} adalah studio arsitektur, desain interior, dan property management di{' '}
@@ -112,12 +117,12 @@ export default function AboutPage() {
           {principles.map((p, i) => (
             <li
               key={p.title}
-              className={`flex min-h-[240px] flex-col justify-between rounded-[1.75rem] p-6 md:p-8 ${
+              className={`flex min-h-[240px] flex-col justify-between rounded-md p-6 md:p-8 ${
                 i === 0 ? 'bg-ink text-white' : 'bg-surface'
               }`}
             >
               <div>
-                <h3 className="text-3xl font-light tracking-tight uppercase">{p.title}</h3>
+                <h3 className="font-serif text-3xl">{p.title}</h3>
                 <p
                   className={`mt-4 text-xs leading-relaxed tracking-wider uppercase ${i === 0 ? 'text-white/70' : 'text-muted'}`}
                 >
@@ -138,7 +143,7 @@ export default function AboutPage() {
       {/* Banner lebar dengan judul besar */}
       {banner && (
         <Container className="mt-4">
-          <div className="relative overflow-hidden rounded-[1.75rem] bg-surface">
+          <div className="relative overflow-hidden rounded-md bg-surface">
             <Image
               src={banner.src}
               alt={banner.alt}
@@ -149,7 +154,7 @@ export default function AboutPage() {
             <div className="absolute inset-0 bg-gradient-to-r from-bg/95 via-bg/70 to-bg/10" />
             <div className="relative flex min-h-[420px] flex-col justify-between gap-10 p-6 md:flex-row md:items-center md:p-12">
               <div>
-                <p className="text-4xl leading-[1.05] font-light tracking-tight uppercase md:text-6xl">
+                <p className="font-serif text-4xl leading-[1.1] md:text-6xl">
                   Merancang
                   <span className="mx-3 inline-block h-[0.7em] w-[2.2em] rounded-full border border-current align-middle md:w-[3em]" />
                   <br />

@@ -1,6 +1,7 @@
 'use client';
 
 import { useId, useState } from 'react';
+import { Select } from './Select';
 import { WhatsAppIcon } from './WhatsApp';
 import { buildWhatsAppLink } from '@/lib/config';
 
@@ -84,7 +85,7 @@ export function WaMessageBuilder({
   const labelCls = 'block text-xs tracking-[0.15em] text-muted uppercase';
 
   return (
-    <div className="rounded-[1.75rem] bg-bg p-6 shadow-sm ring-1 ring-line md:p-12">
+    <div className="rounded-md bg-bg p-6 ring-1 ring-line md:p-12">
       {title && (
         <>
           <h2 className="font-serif text-3xl font-light md:text-4xl">{title}</h2>
@@ -95,36 +96,30 @@ export function WaMessageBuilder({
       )}
       <div className="grid gap-6 md:grid-cols-2">
         <div>
-          <label htmlFor={`${id}-s`} className={labelCls}>
+          <label id={`${id}-s-l`} htmlFor={`${id}-s`} className={labelCls}>
             Jenis layanan *
           </label>
-          <select
+          <Select
             id={`${id}-s`}
-            className={field}
+            labelId={`${id}-s-l`}
             value={service}
-            onChange={(e) => setService(pick(SERVICES, e.target.value))}
-          >
-            <option value="">Pilih layanan</option>
-            {SERVICES.map((o) => (
-              <option key={o}>{o}</option>
-            ))}
-          </select>
+            onChange={(v) => setService(pick(SERVICES, v))}
+            options={SERVICES}
+            placeholder="Pilih layanan"
+          />
         </div>
         <div>
-          <label htmlFor={`${id}-p`} className={labelCls}>
+          <label id={`${id}-p-l`} htmlFor={`${id}-p`} className={labelCls}>
             Tipe properti *
           </label>
-          <select
+          <Select
             id={`${id}-p`}
-            className={field}
+            labelId={`${id}-p-l`}
             value={property}
-            onChange={(e) => setProperty(pick(PROPERTIES, e.target.value))}
-          >
-            <option value="">Pilih tipe properti</option>
-            {PROPERTIES.map((o) => (
-              <option key={o}>{o}</option>
-            ))}
-          </select>
+            onChange={(v) => setProperty(pick(PROPERTIES, v))}
+            options={PROPERTIES}
+            placeholder="Pilih tipe properti"
+          />
         </div>
         <div>
           <label htmlFor={`${id}-a`} className={labelCls}>
@@ -162,20 +157,17 @@ export function WaMessageBuilder({
           />
         </div>
         <div className="md:col-span-2">
-          <label htmlFor={`${id}-b`} className={labelCls}>
+          <label id={`${id}-b-l`} htmlFor={`${id}-b`} className={labelCls}>
             Kisaran budget (opsional)
           </label>
-          <select
+          <Select
             id={`${id}-b`}
-            className={field}
+            labelId={`${id}-b-l`}
             value={budget}
-            onChange={(e) => setBudget(pick(BUDGETS, e.target.value))}
-          >
-            <option value="">Belum tahu / tidak disebutkan</option>
-            {BUDGETS.map((o) => (
-              <option key={o}>{o}</option>
-            ))}
-          </select>
+            onChange={(v) => setBudget(pick(BUDGETS, v))}
+            options={BUDGETS}
+            placeholder="Belum tahu / tidak disebutkan"
+          />
         </div>
       </div>
 
@@ -195,7 +187,7 @@ export function WaMessageBuilder({
             href={buildWhatsAppLink(message)}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-fg px-6 py-3 text-xs tracking-[0.2em] uppercase hover:bg-fg hover:text-bg"
+            className="inline-flex items-center justify-center gap-2 rounded-sm bg-fg px-6 py-3.5 text-[11px] font-medium tracking-[0.18em] text-bg uppercase hover:opacity-85"
           >
             <WhatsAppIcon />
             Kirim lewat WhatsApp
@@ -204,7 +196,7 @@ export function WaMessageBuilder({
         ) : (
           <span
             aria-disabled="true"
-            className="inline-flex cursor-not-allowed items-center justify-center gap-2 rounded-full border border-line px-6 py-3 text-xs tracking-[0.2em] text-muted uppercase"
+            className="inline-flex cursor-not-allowed items-center justify-center gap-2 rounded-sm border border-line px-6 py-3.5 text-[11px] font-medium tracking-[0.18em] text-muted uppercase"
           >
             <WhatsAppIcon />
             Kirim lewat WhatsApp

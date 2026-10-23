@@ -136,10 +136,6 @@ details > summary::-webkit-details-marker {
 .hover-tint:hover {
   background: color-mix(in srgb, currentColor 12%, transparent);
 }
-/* Beranda memakai hero terang: header berganti ke warna teks gelap */
-body:has(.hero-light) .site-header {
-  color: var(--fg);
-}
 
 :root[data-theme='dark'] {
   color-scheme: dark;
@@ -158,21 +154,6 @@ body:has(.hero-light) .site-header {
 }
 .fade-in {
   animation: fade-in 0.6s ease-out both;
-}
-
-/* Header setelah di-scroll: teks mengikuti tema */
-.site-header[data-scrolled] {
-  color: var(--fg);
-}
-/* Menu aktif: pill terisi, warnanya kontras dengan warna teks header */
-.site-header .nav-active {
-  background: #fff;
-  color: #171310;
-}
-body:has(.hero-light) .site-header .nav-active,
-.site-header[data-scrolled] .nav-active {
-  background: var(--fg);
-  color: var(--bg);
 }
 
 /* Tombol WhatsApp mengambang: berdenyut redup-nyala (mati otomatis bila reduced-motion) */

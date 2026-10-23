@@ -18,6 +18,21 @@ export function ArrowUpRight({ className = 'h-3.5 w-3.5' }: IconProps) {
   );
 }
 
+export function ArrowRight({ className = 'h-4 w-4' }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 16 16"
+      className={className}
+      aria-hidden="true"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.4"
+    >
+      <path d="M2.5 8h11M9.5 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export function InstagramIcon({ className = 'h-4 w-4' }: IconProps) {
   return (
     <svg

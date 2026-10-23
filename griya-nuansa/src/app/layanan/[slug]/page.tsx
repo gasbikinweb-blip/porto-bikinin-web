@@ -44,7 +44,7 @@ export default async function ServiceDetailPage({ params }: Props) {
         image={related[0]?.cover}
         breadcrumb={
           <nav aria-label="Breadcrumb">
-            <Link href="/layanan/" className="hover:text-white">
+            <Link href="/layanan/" className="hover:text-fg">
               Layanan
             </Link>{' '}
             / <span aria-current="page">{s.title}</span>

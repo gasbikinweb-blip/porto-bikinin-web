@@ -1,6 +1,6 @@
 import { ProjectFilter } from '@/components/ProjectFilter';
 import { Container, PageHeader } from '@/components/ui';
-import { projects } from '@/data/projects';
+import { getProject, projects } from '@/data/projects';
 import { pageMeta } from '@/lib/seo';
 
 export const metadata = pageMeta({
@@ -16,6 +16,7 @@ export default function ProjectsPage() {
     <>
       <PageHeader
         eyebrow="Portofolio"
+        image={getProject('altuera-tower-southgate')?.cover}
         title={
           <>
             Project <em>Showcase</em>
@@ -23,7 +24,7 @@ export default function ProjectsPage() {
         }
         intro={`${projects.length} proyek arsitektur dan interior yang kami rancang dan kerjakan di Jabodetabek.`}
       />
-      <Container>
+      <Container className="py-16 md:py-24">
         <ProjectFilter projects={projects} />
       </Container>
     </>

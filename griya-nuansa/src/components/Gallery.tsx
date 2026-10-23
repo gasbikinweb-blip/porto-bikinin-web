@@ -6,16 +6,17 @@ import { KindBadge } from './KindBadge';
 import type { ProjectImage } from '@/data/types';
 
 /**
- * Galeri foto + lightbox aksesibel buatan sendiri.
+ * Galeri ringkas: satu foto utama + deretan thumbnail untuk menggantinya.
+ * Klik foto utama membuka lightbox aksesibel buatan sendiri.
  * Esc menutup, panah kiri/kanan berpindah, fokus terkunci di dalam dialog,
  * dan fokus kembali ke foto pemicu saat ditutup.
  */
 export function Gallery({ images, title }: { images: ProjectImage[]; title: string }) {
   const [index, setIndex] = useState<number | null>(null);
-  const triggers = useRef<(HTMLButtonElement | null)[]>([]);
+  const [active, setActive] = useState(0);
+  const mainRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
-  const lastIndex = useRef(0);
   const wasOpen = useRef(false);
 
   const close = useCallback(() => setIndex(null), []);
@@ -28,8 +29,8 @@ export function Gallery({ images, title }: { images: ProjectImage[]; title: stri
 
   useEffect(() => {
     if (!isOpen) {
-      // Kembalikan fokus ke pemicu (hanya setelah lightbox pernah dibuka)
-      if (wasOpen.current) triggers.current[lastIndex.current]?.focus();
+      // Kembalikan fokus ke foto utama (hanya setelah lightbox pernah dibuka)
+      if (wasOpen.current) mainRef.current?.focus();
       wasOpen.current = false;
       return;
     }
@@ -64,37 +65,82 @@ export function Gallery({ images, title }: { images: ProjectImage[]; title: stri
   }, [isOpen, close, step]);
 
   const current = index !== null ? images[index] : undefined;
+  const shown = images[active];
 
   return (
     <>
-      <ul className="columns-1 gap-4 sm:columns-2 lg:columns-3 [&>li]:mb-4">
-        {images.map((img, i) => (
-          <li key={img.src} className="break-inside-avoid">
+      {shown && (
+        <div>
+          <div className="relative">
             <button
+              ref={mainRef}
               type="button"
-              ref={(el) => {
-                triggers.current[i] = el;
-              }}
-              onClick={() => {
-                lastIndex.current = i;
-                setIndex(i);
-              }}
-              className="group relative block w-full cursor-zoom-in overflow-hidden bg-surface"
+              onClick={() => setIndex(active)}
+              className="group relative block aspect-[4/3] w-full cursor-zoom-in overflow-hidden rounded-md bg-surface"
             >
               <Image
-                src={img.thumb}
-                alt={img.alt}
-                width={img.width}
-                height={img.height}
-                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                className="h-auto w-full transition-transform duration-700 group-hover:scale-[1.02]"
+                key={shown.src}
+                src={shown.src}
+                alt={shown.alt}
+                fill
+                priority={active === 0}
+                sizes="(min-width: 1024px) 55vw, 100vw"
+                className="fade-in object-cover transition-transform duration-700 group-hover:scale-[1.02]"
               />
-              <KindBadge kind={img.kind} />
-              <span className="sr-only">Perbesar gambar {i + 1}</span>
+              <KindBadge kind={shown.kind} />
+              <span className="absolute right-3 bottom-3 rounded-sm bg-black/55 px-2.5 py-1 text-[11px] tracking-wider text-white">
+                {active + 1} / {images.length}
+              </span>
+              <span className="sr-only">Perbesar gambar {active + 1}</span>
             </button>
-          </li>
-        ))}
-      </ul>
+            {images.length > 1 &&
+              [
+                { d: -1, label: 'Foto sebelumnya', side: 'left-3', path: 'M10 3L5 8l5 5' },
+                { d: 1, label: 'Foto berikutnya', side: 'right-3', path: 'M6 3l5 5-5 5' },
+              ].map((b) => (
+                <button
+                  key={b.d}
+                  type="button"
+                  onClick={() => setActive((i) => (i + b.d + images.length) % images.length)}
+                  className={`absolute top-1/2 ${b.side} flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-bg/85 shadow ring-1 ring-line backdrop-blur hover:bg-bg`}
+                >
+                  <span className="sr-only">{b.label}</span>
+                  <svg
+                    viewBox="0 0 16 16"
+                    className="h-4 w-4"
+                    aria-hidden="true"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  >
+                    <path d={b.path} strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              ))}
+          </div>
+          {images.length > 1 && (
+            <ul aria-label="Pilih foto" className="mt-3 flex gap-2 overflow-x-auto p-1">
+              {images.map((img, i) => (
+                <li key={img.src} className="shrink-0">
+                  <button
+                    type="button"
+                    aria-pressed={i === active}
+                    onClick={() => setActive(i)}
+                    className={`relative block h-16 w-20 overflow-hidden rounded-sm transition md:h-20 md:w-24 ${
+                      i === active
+                        ? 'ring-2 ring-fg ring-offset-2 ring-offset-bg'
+                        : 'opacity-60 hover:opacity-100'
+                    }`}
+                  >
+                    <Image src={img.thumb} alt="" fill sizes="96px" className="object-cover" />
+                    <span className="sr-only">Tampilkan foto {i + 1}</span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
 
       {current && index !== null && (
         <div

@@ -5,13 +5,13 @@ type Variant = 'solid' | 'outline' | 'light' | 'ghost';
 
 const styles: Record<Variant, string> = {
   solid: 'bg-fg text-bg hover:opacity-85',
-  outline: 'border border-fg/40 text-fg hover:border-fg hover:bg-fg hover:text-bg',
+  outline: 'border border-fg/30 text-fg hover:border-fg',
   light: 'bg-white/95 text-neutral-900 hover:bg-white',
   ghost: 'border border-white/40 text-white hover:border-white hover:bg-white/10',
 };
 
 export const btnBase =
-  'inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm tracking-wide transition-colors duration-300';
+  'inline-flex items-center justify-center gap-2.5 rounded-sm px-6 py-3.5 text-[11px] font-medium tracking-[0.18em] uppercase transition-colors duration-300';
 
 export function WhatsAppIcon({ className = 'h-4 w-4' }: { className?: string }) {
   return (

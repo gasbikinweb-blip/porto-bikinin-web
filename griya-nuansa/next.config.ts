@@ -11,6 +11,8 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   // Hanya untuk `npm run dev` (akses dari HP lewat IP lokal). Tidak berpengaruh ke hasil build.
   allowedDevOrigins: ['192.168.*.*', '*.ngrok-free.app'],
+  // Sembunyikan indikator bulat "N" Next.js yang muncul di pojok saat `npm run dev`
+  devIndicators: false,
   // Catatan: headers() TIDAK berfungsi di static export.
   // Security headers diatur di hosting: public/_headers (Netlify/Cloudflare Pages) atau vercel.json.
 };
