@@ -156,7 +156,6 @@ export default function AboutPage() {
               <div>
                 <p className="font-serif text-4xl leading-[1.1] md:text-6xl">
                   Merancang
-                  <span className="mx-3 inline-block h-[0.7em] w-[2.2em] rounded-full border border-current align-middle md:w-[3em]" />
                   <br />
                   ruang yang
                   <br />
