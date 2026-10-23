@@ -1,0 +1,5 @@
+# TODO: ganti kontak dengan email keamanan yang aktif, perbarui Expires setiap tahun
+Contact: mailto:security@griyanuansa.id
+Expires: 2027-10-22T00:00:00.000Z
+Preferred-Languages: id, en
+Canonical: https://griyanuansa.id/.well-known/security.txt

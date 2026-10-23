@@ -1,0 +1,196 @@
+@import 'tailwindcss';
+
+/* Varian dark: mengikuti atribut data-theme dari tombol tema */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/* Palet: krem hangat, cokelat-charcoal, aksen amber & sage. Mode gelap mengikuti preferensi sistem. */
+:root {
+  --bg: #f8f5f0;
+  --surface: #f1eadf;
+  --fg: #1c1916;
+  --muted: #5f574e; /* kontras ≥ 4.5:1 di atas --bg */
+  --line: #e2d9cc;
+  --sage: #5f6f5b;
+  --taupe: #8a7765;
+  --amber: #8f5c22; /* teks kecil aman di atas --bg */
+  --ink: #171310; /* kartu gelap (hero, footer), sama di kedua mode */
+  --accent-fg: #f8f5f0;
+}
+
+/* Mode gelap: dipilih lewat tombol (data-theme) atau mengikuti sistem bila belum dipilih */
+:root[data-theme='dark'] {
+  --bg: #12100e;
+  --surface: #1d1a17;
+  --fg: #efe8dd;
+  --muted: #b5ab9f;
+  --line: #2f2a25;
+  --sage: #a3b19d;
+  --taupe: #c2ae99;
+  --amber: #d9a35f;
+  --ink: #241f1a;
+  --accent-fg: #12100e;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #12100e;
+    --surface: #1d1a17;
+    --fg: #efe8dd;
+    --muted: #b5ab9f;
+    --line: #2f2a25;
+    --sage: #a3b19d;
+    --taupe: #c2ae99;
+    --amber: #d9a35f;
+    --ink: #241f1a;
+    --accent-fg: #12100e;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-sage: var(--sage);
+  --color-taupe: var(--taupe);
+  --color-accent-fg: var(--accent-fg);
+  --color-amber: var(--amber);
+  --color-ink: var(--ink);
+  --font-serif: var(--font-cormorant), 'Times New Roman', serif;
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+}
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 3px;
+}
+
+/* Animasi masuk ringan (CSS murni, tanpa JavaScript) */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.fade-up {
+  animation: fade-up 0.9s ease-out both;
+}
+
+/* Animasi berbasis scroll hanya jika browser mendukung */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: fade-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+
+/* Pita teks berjalan (dimatikan otomatis oleh prefers-reduced-motion di bawah) */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee {
+  animation: marquee 40s linear infinite;
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Garis & hover yang mengikuti warna teks (header bisa terang atau gelap) */
+.hairline {
+  border-color: color-mix(in srgb, currentColor 28%, transparent);
+}
+.hover-tint:hover {
+  background: color-mix(in srgb, currentColor 12%, transparent);
+}
+/* Beranda memakai hero terang: header berganti ke warna teks gelap */
+body:has(.hero-light) .site-header {
+  color: var(--fg);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+}
+/* Ikon tombol tema */
+:root[data-theme='dark'] .ic-moon,
+:root:not([data-theme='dark']) .ic-sun {
+  display: none;
+}
+
+/* Pergantian foto halus (hero & slider kategori) */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+.fade-in {
+  animation: fade-in 0.6s ease-out both;
+}
+
+/* Header setelah di-scroll: teks mengikuti tema */
+.site-header[data-scrolled] {
+  color: var(--fg);
+}
+/* Menu aktif: pill terisi, warnanya kontras dengan warna teks header */
+.site-header .nav-active {
+  background: #fff;
+  color: #171310;
+}
+body:has(.hero-light) .site-header .nav-active,
+.site-header[data-scrolled] .nav-active {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+/* Tombol WhatsApp mengambang: berdenyut redup-nyala (mati otomatis bila reduced-motion) */
+@keyframes wa-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+}
+.wa-pulse {
+  animation: wa-pulse 2s ease-in-out infinite;
+}
+.wa-pulse:hover {
+  animation-play-state: paused;
+  opacity: 1;
+}

@@ -1,0 +1,1605 @@
+{
+  "aa-house": {
+    "folder": "AA House",
+    "images": [
+      {
+        "file": "cover",
+        "source": "COVER.jpg",
+        "width": 1333,
+        "height": 2000
+      },
+      {
+        "file": "01",
+        "source": "CP 2.jpg",
+        "width": 828,
+        "height": 1104
+      },
+      {
+        "file": "02",
+        "source": "CP 3.jpg",
+        "width": 906,
+        "height": 1359
+      },
+      {
+        "file": "03",
+        "source": "CP 4.jpg",
+        "width": 936,
+        "height": 1404
+      },
+      {
+        "file": "04",
+        "source": "CP 5.jpg",
+        "width": 912,
+        "height": 1370
+      },
+      {
+        "file": "05",
+        "source": "CP 6.jpg",
+        "width": 941,
+        "height": 1411
+      },
+      {
+        "file": "06",
+        "source": "CP 7.jpg",
+        "width": 899,
+        "height": 1348
+      },
+      {
+        "file": "07",
+        "source": "DSC03995.jpg",
+        "width": 1333,
+        "height": 2000
+      },
+      {
+        "file": "08",
+        "source": "DSC04024.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "09",
+        "source": "DSC04038.jpg",
+        "width": 1334,
+        "height": 2000
+      },
+      {
+        "file": "10",
+        "source": "DSC04041.jpg",
+        "width": 1333,
+        "height": 2000
+      },
+      {
+        "file": "11",
+        "source": "DSC04061.jpg",
+        "width": 1333,
+        "height": 2000
+      },
+      {
+        "file": "12",
+        "source": "DSC04270.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "13",
+        "source": "DSC04271.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "14",
+        "source": "IMG_1906.jpg",
+        "width": 1333,
+        "height": 2000
+      },
+      {
+        "file": "15",
+        "source": "IMG_6684.JPG",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "16",
+        "source": "IMG_6688.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "17",
+        "source": "IMG_6722.JPG",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "18",
+        "source": "IMG_6766.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "19",
+        "source": "IMG_6773 2.JPG",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "20",
+        "source": "IMG_8169.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "21",
+        "source": "IMG_8177.jpg",
+        "width": 1500,
+        "height": 2000
+      }
+    ]
+  },
+  "al-house": {
+    "folder": "AL House",
+    "images": [
+      {
+        "file": "cover",
+        "source": "COVER.jpg",
+        "width": 1427,
+        "height": 2000
+      },
+      {
+        "file": "01",
+        "source": "IMG_3885.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "02",
+        "source": "IMG_3890.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "03",
+        "source": "IMG_3891.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "04",
+        "source": "IMG_3893.JPG",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "05",
+        "source": "IMG_3897.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "06",
+        "source": "IMG_3899.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "07",
+        "source": "IMG_3907.JPG",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "08",
+        "source": "IMG_3980.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "09",
+        "source": "IMG_3992.JPG",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "10",
+        "source": "IMG_4026.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "11",
+        "source": "IMG_4046.jpg",
+        "width": 1500,
+        "height": 2000
+      }
+    ]
+  },
+  "altuera-tower-southgate": {
+    "folder": "Altuera Tower at Southgate",
+    "images": [
+      {
+        "file": "cover",
+        "source": "COVER.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "01",
+        "source": "IMG_2419.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "02",
+        "source": "IMG_2423.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "03",
+        "source": "IMG_2474.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "04",
+        "source": "IMG_2475.jpg",
+        "width": 1499,
+        "height": 2000
+      },
+      {
+        "file": "05",
+        "source": "IMG_2478.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "06",
+        "source": "IMG_2490.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "07",
+        "source": "IMG_2498.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "08",
+        "source": "IMG_2507.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "09",
+        "source": "IMG_2512.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "10",
+        "source": "IMG_2555.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "11",
+        "source": "IMG_2567.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "12",
+        "source": "IMG_2634.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "13",
+        "source": "IMG_2695 2.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "14",
+        "source": "IMG_2803.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "15",
+        "source": "IMG_2903.jpg",
+        "width": 1500,
+        "height": 2000
+      }
+    ]
+  },
+  "ap-house": {
+    "folder": "AP House",
+    "images": [
+      {
+        "file": "cover",
+        "source": "COVER.jpg",
+        "width": 1174,
+        "height": 1565
+      },
+      {
+        "file": "01",
+        "source": "IMG_0094 2.heic",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "02",
+        "source": "IMG_0096.heic",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "03",
+        "source": "IMG_0098.heic",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "04",
+        "source": "IMG_0111.JPG",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "05",
+        "source": "IMG_0113.heic",
+        "width": 1124,
+        "height": 2000
+      },
+      {
+        "file": "06",
+        "source": "IMG_0137.JPG",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "07",
+        "source": "IMG_0144 2.heic",
+        "width": 1124,
+        "height": 2000
+      },
+      {
+        "file": "08",
+        "source": "IMG_0184.JPG",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "09",
+        "source": "IMG_0205.heic",
+        "width": 1125,
+        "height": 2000
+      }
+    ]
+  },
+  "gr-kost": {
+    "folder": "GR Kost",
+    "images": [
+      {
+        "file": "cover",
+        "source": "COVER.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "01",
+        "source": "IMG_3442.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "02",
+        "source": "IMG_3464.JPG",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "03",
+        "source": "IMG_3470.JPG",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "04",
+        "source": "IMG_3484.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "05",
+        "source": "IMG_3486.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "06",
+        "source": "IMG_3500.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "07",
+        "source": "IMG_3516.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "08",
+        "source": "IMG_3517.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "09",
+        "source": "IMG_3525.JPG",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "10",
+        "source": "IMG_3534.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "11",
+        "source": "IMG_3560.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "12",
+        "source": "IMG_3564.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "13",
+        "source": "IMG_3586.jpg",
+        "width": 1500,
+        "height": 2000
+      }
+    ]
+  },
+  "im-house": {
+    "folder": "IM House",
+    "images": [
+      {
+        "file": "cover",
+        "source": "COVER.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "01",
+        "source": "IMG_2683.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "02",
+        "source": "IMG_2685.JPG",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "03",
+        "source": "IMG_2689.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "04",
+        "source": "IMG_2691.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "05",
+        "source": "IMG_2693.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "06",
+        "source": "IMG_2694.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "07",
+        "source": "IMG_2695.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "08",
+        "source": "IMG_2716.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "09",
+        "source": "IMG_2723.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "10",
+        "source": "IMG_2725.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "11",
+        "source": "IMG_2740.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "12",
+        "source": "IMG_2749.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "13",
+        "source": "IMG_2751.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "14",
+        "source": "IMG_2763.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "15",
+        "source": "IMG_2768.jpg",
+        "width": 1600,
+        "height": 901
+      },
+      {
+        "file": "16",
+        "source": "IMG_2774.JPG",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "17",
+        "source": "IMG_2792.JPG",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "18",
+        "source": "IMG_2793.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "19",
+        "source": "IMG_2796.JPG",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "20",
+        "source": "IMG_2947.jpg",
+        "width": 1125,
+        "height": 2000
+      }
+    ]
+  },
+  "j-house": {
+    "folder": "J House",
+    "images": [
+      {
+        "file": "cover",
+        "source": "COVER.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "01",
+        "source": "IMG_1586.JPG",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "02",
+        "source": "IMG_1596.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "03",
+        "source": "IMG_1597.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "04",
+        "source": "IMG_1599.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "05",
+        "source": "IMG_1612.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "06",
+        "source": "IMG_1657.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "07",
+        "source": "IMG_4296.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "08",
+        "source": "IMG_4314.jpg",
+        "width": 1500,
+        "height": 2000
+      }
+    ]
+  },
+  "kj-house": {
+    "folder": "KJ House",
+    "images": [
+      {
+        "file": "cover",
+        "source": "COVER.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "01",
+        "source": "IMG_4460 2.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "02",
+        "source": "IMG_4478 2.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "03",
+        "source": "IMG_4480 2.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "04",
+        "source": "IMG_4492 2.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "05",
+        "source": "IMG_4510 2.jpg",
+        "width": 1499,
+        "height": 2000
+      },
+      {
+        "file": "06",
+        "source": "IMG_4516 2.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "07",
+        "source": "IMG_4529 2.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "08",
+        "source": "IMG_4554 2.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "09",
+        "source": "IMG_4557 2.jpg",
+        "width": 1500,
+        "height": 2000
+      }
+    ]
+  },
+  "marigold-tower": {
+    "folder": "Marigold Tower",
+    "images": [
+      {
+        "file": "cover",
+        "source": "COVER.jpg",
+        "width": 2000,
+        "height": 1500
+      },
+      {
+        "file": "01",
+        "source": "IMG_4183.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "02",
+        "source": "IMG_4186.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "03",
+        "source": "IMG_4191.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "04",
+        "source": "IMG_4213.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "05",
+        "source": "IMG_4215.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "06",
+        "source": "IMG_4226.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "07",
+        "source": "IMG_4229.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "08",
+        "source": "IMG_4230.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "09",
+        "source": "IMG_4254.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "10",
+        "source": "IMG_4265.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "11",
+        "source": "IMG_4269.jpg",
+        "width": 1500,
+        "height": 2000
+      }
+    ]
+  },
+  "menteng-park-apartment": {
+    "folder": "Menteng Park Apartment",
+    "images": [
+      {
+        "file": "cover",
+        "source": "COVER.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "01",
+        "source": "IMG_1881.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "02",
+        "source": "IMG_1918.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "03",
+        "source": "IMG_1979.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "04",
+        "source": "IMG_2012.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "05",
+        "source": "IMG_2077.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "06",
+        "source": "IMG_2080.jpg",
+        "width": 1500,
+        "height": 2000
+      }
+    ]
+  },
+  "mitra-inti-pranata-office": {
+    "folder": "Mitra Inti Pranata Office",
+    "images": [
+      {
+        "file": "cover",
+        "source": "1. COVER",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "01",
+        "source": "110884.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "02",
+        "source": "110889.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "03",
+        "source": "110895.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "04",
+        "source": "110897.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "05",
+        "source": "110905.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "06",
+        "source": "110908.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "07",
+        "source": "110925.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "08",
+        "source": "110928.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "09",
+        "source": "110929.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "10",
+        "source": "110933.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "11",
+        "source": "110934.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "12",
+        "source": "110935.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "13",
+        "source": "110945.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "14",
+        "source": "356560.jpg",
+        "width": 1125,
+        "height": 2000
+      }
+    ]
+  },
+  "monts-bakehouse": {
+    "folder": "Mont_s Bakehouse",
+    "images": [
+      {
+        "file": "cover",
+        "source": "COVER.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "01",
+        "source": "IMG_1070.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "02",
+        "source": "IMG_1074.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "03",
+        "source": "IMG_1075.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "04",
+        "source": "IMG_1089.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "05",
+        "source": "IMG_1137.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "06",
+        "source": "IMG_1161.jpg",
+        "width": 1500,
+        "height": 2000
+      }
+    ]
+  },
+  "orange-country-apartment": {
+    "folder": "Orange Country Apartment",
+    "images": [
+      {
+        "file": "01",
+        "source": "1.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "02",
+        "source": "2.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "03",
+        "source": "IMG_0359.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "04",
+        "source": "IMG_0362.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "05",
+        "source": "IMG_3201.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "06",
+        "source": "IMG_3202.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "07",
+        "source": "IMG_3249.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "08",
+        "source": "IMG_3275.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "09",
+        "source": "IMG_3284.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "10",
+        "source": "IMG_3295.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "11",
+        "source": "IMG_3386.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "12",
+        "source": "IMG_3426.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "13",
+        "source": "IMG_3449.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "14",
+        "source": "IMG_3451.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "15",
+        "source": "IMG_3454.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "16",
+        "source": "IMG_3528.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "17",
+        "source": "IMG_3541.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "18",
+        "source": "IMG_3567.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "19",
+        "source": "IMG_3572.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "20",
+        "source": "IMG_3605.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "21",
+        "source": "IMG_3630.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "22",
+        "source": "IMG_3637.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "23",
+        "source": "IMG_3658.jpg",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "paradigm-fitness": {
+    "folder": "Paradigm Fitness",
+    "images": [
+      {
+        "file": "cover",
+        "source": "1. COVER",
+        "width": 2000,
+        "height": 1500
+      },
+      {
+        "file": "01",
+        "source": "20190206_140425.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "02",
+        "source": "20190206_140805.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "03",
+        "source": "20190206_140821.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "04",
+        "source": "20190218_150745.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "05",
+        "source": "20190218_154857.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "06",
+        "source": "20190218_160732.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "07",
+        "source": "20190218_161101.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "08",
+        "source": "20190218_161200.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "09",
+        "source": "20190218_162702.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "10",
+        "source": "20190218_162759.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "11",
+        "source": "20190227_143055.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "12",
+        "source": "20190227_143124.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "13",
+        "source": "20190328_191123.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "14",
+        "source": "20190328_191135.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "15",
+        "source": "20190328_191435.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "16",
+        "source": "20190328_192408.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "17",
+        "source": "20190328_193159.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "18",
+        "source": "20190328_193210.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "19",
+        "source": "20190328_193515.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "20",
+        "source": "20190328_193534.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "21",
+        "source": "20190328_193611.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "22",
+        "source": "20190328_193640.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "23",
+        "source": "20190328_193657.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "24",
+        "source": "20190328_193753.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "25",
+        "source": "20190328_195102.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "26",
+        "source": "20190328_195622.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "27",
+        "source": "20190402_110449.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "28",
+        "source": "20190402_112411.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "29",
+        "source": "20190402_112742.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "30",
+        "source": "20190402_113135.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "31",
+        "source": "20190402_113837.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "32",
+        "source": "20190402_114253.jpg",
+        "width": 1500,
+        "height": 2000
+      },
+      {
+        "file": "33",
+        "source": "20190402_114731.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "34",
+        "source": "20190416_214846.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "35",
+        "source": "20190416_223817.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "36",
+        "source": "20190416_224026.jpg",
+        "width": 1600,
+        "height": 1200
+      },
+      {
+        "file": "37",
+        "source": "20191104_142616.jpg",
+        "width": 1600,
+        "height": 1200
+      }
+    ]
+  },
+  "physical-best-physiotherapy-jakarta": {
+    "folder": "Physical Best Physiotherapy Jakarta",
+    "images": [
+      {
+        "file": "cover",
+        "source": "COVER.jpg",
+        "width": 2000,
+        "height": 1126
+      },
+      {
+        "file": "01",
+        "source": "PB 1.jpg",
+        "width": 1600,
+        "height": 899
+      },
+      {
+        "file": "02",
+        "source": "PB 2.jpg",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "file": "03",
+        "source": "PB 3.JPG",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "file": "04",
+        "source": "PB 4.jpg",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "file": "05",
+        "source": "PB 5.jpg",
+        "width": 1600,
+        "height": 901
+      },
+      {
+        "file": "06",
+        "source": "PB 6.jpg",
+        "width": 1600,
+        "height": 898
+      },
+      {
+        "file": "07",
+        "source": "PB 7.jpg",
+        "width": 1600,
+        "height": 901
+      },
+      {
+        "file": "08",
+        "source": "PB 8.jpg",
+        "width": 1600,
+        "height": 901
+      },
+      {
+        "file": "09",
+        "source": "PB 9.JPG",
+        "width": 1600,
+        "height": 905
+      },
+      {
+        "file": "10",
+        "source": "PB 10.jpg",
+        "width": 1600,
+        "height": 899
+      }
+    ]
+  },
+  "pt-suryaraya-rubberindo-industries": {
+    "folder": "PT Suryaraya Rubberindo Industries",
+    "images": [
+      {
+        "file": "cover",
+        "source": "COVER.png",
+        "width": 2000,
+        "height": 1200
+      },
+      {
+        "file": "01",
+        "source": "Enscape_2025-11-05-19-55-42_FIX 2.png",
+        "width": 1600,
+        "height": 960
+      },
+      {
+        "file": "02",
+        "source": "Enscape_2025-11-05-19-55-42_FIX 3.png",
+        "width": 1600,
+        "height": 960
+      },
+      {
+        "file": "03",
+        "source": "Enscape_2026-01-29-14-29-45.png",
+        "width": 1600,
+        "height": 1000
+      },
+      {
+        "file": "04",
+        "source": "Enscape_2026-01-29-14-30-44.png",
+        "width": 1600,
+        "height": 1000
+      },
+      {
+        "file": "05",
+        "source": "Enscape_2026-01-29-14-31-02.png",
+        "width": 1600,
+        "height": 1000
+      },
+      {
+        "file": "06",
+        "source": "Enscape_2026-01-29-14-31-39.png",
+        "width": 1600,
+        "height": 1000
+      },
+      {
+        "file": "07",
+        "source": "Enscape_2026-01-29-14-32-05.png",
+        "width": 1600,
+        "height": 1000
+      },
+      {
+        "file": "08",
+        "source": "Enscape_2026-01-29-14-32-36.png",
+        "width": 1600,
+        "height": 1000
+      },
+      {
+        "file": "09",
+        "source": "Enscape_2026-01-29-14-35-10.png",
+        "width": 1600,
+        "height": 1000
+      },
+      {
+        "file": "10",
+        "source": "Enscape_2026-01-29-14-37-39.png",
+        "width": 1600,
+        "height": 1000
+      },
+      {
+        "file": "11",
+        "source": "Enscape_2026-01-29-14-38-23.png",
+        "width": 1600,
+        "height": 1000
+      },
+      {
+        "file": "12",
+        "source": "Enscape_2026-01-29-14-38-44.png",
+        "width": 1600,
+        "height": 1000
+      },
+      {
+        "file": "13",
+        "source": "Enscape_2026-01-29-14-38-59.png",
+        "width": 1600,
+        "height": 1000
+      },
+      {
+        "file": "14",
+        "source": "Enscape_2026-01-29-14-39-16.png",
+        "width": 1600,
+        "height": 1000
+      }
+    ]
+  },
+  "yk-house": {
+    "folder": "YK House",
+    "images": [
+      {
+        "file": "cover",
+        "source": "COVER.jpg",
+        "width": 1600,
+        "height": 2000
+      },
+      {
+        "file": "01",
+        "source": "DSC04586.jpg",
+        "width": 1600,
+        "height": 2000
+      },
+      {
+        "file": "02",
+        "source": "DSC04874.jpg",
+        "width": 1600,
+        "height": 2000
+      },
+      {
+        "file": "03",
+        "source": "DSC04879.jpg",
+        "width": 1600,
+        "height": 2000
+      },
+      {
+        "file": "04",
+        "source": "DSC04899.jpg",
+        "width": 1600,
+        "height": 2000
+      },
+      {
+        "file": "05",
+        "source": "DSC04901-HDR.jpg",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "06",
+        "source": "IMG_0127.JPG",
+        "width": 941,
+        "height": 1672
+      },
+      {
+        "file": "07",
+        "source": "IMG_0563 2.jpg",
+        "width": 1124,
+        "height": 2000
+      },
+      {
+        "file": "08",
+        "source": "IMG_8515.jpg",
+        "width": 1600,
+        "height": 2000
+      },
+      {
+        "file": "09",
+        "source": "IMG_8531.heic",
+        "width": 1125,
+        "height": 2000
+      },
+      {
+        "file": "10",
+        "source": "IMG_8596.jpg",
+        "width": 1124,
+        "height": 2000
+      }
+    ]
+  }
+}

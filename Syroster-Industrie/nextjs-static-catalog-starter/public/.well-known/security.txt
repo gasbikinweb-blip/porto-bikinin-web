@@ -1,0 +1,5 @@
+# TODO: ganti dengan email/kanal pelaporan keamanan yang asli, lalu perbarui tanggal Expires
+Contact: mailto:keamanan@example.com
+Expires: 2027-10-19T00:00:00.000Z
+Preferred-Languages: id, en
+Canonical: https://syroster-industrie.example.com/.well-known/security.txt

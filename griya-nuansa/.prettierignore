@@ -1,0 +1,8 @@
+node_modules
+.next
+out
+package-lock.json
+assets
+public/images
+nextjs-static-catalog-starter
+src/data/images.generated.json

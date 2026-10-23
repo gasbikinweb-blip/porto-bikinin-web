@@ -1,0 +1,277 @@
+@import 'tailwindcss';
+
+/*
+ * Palet diambil dari logo Syroster Industrie:
+ *   - Indigo logo  ≈ #3d45a5 (teks "SY ROSTER.IND")
+ *   - Emas/oker    ≈ #c0954a (simbol atap)
+ * Kontras teks sudah dicek ≥ 4.5:1 terhadap latar terang (gold hanya untuk dekorasi;
+ * teks emas memakai --color-gold-ink).
+ */
+@theme {
+  --color-page: #ffffff;
+  --color-surface: #f3f3f0;
+  --color-sand: #e8e0d2;
+  --color-line: #e4e3de;
+  --color-ink: #1c2033;
+  --color-muted: #535a6c;
+  --color-brand: #3d45a5;
+  --color-brand-dark: #2b3282;
+  --color-night: #1c2150;
+  --color-gold: #c0954a;
+  --color-gold-ink: #85601f;
+  --color-gold-soft: #f3e8d4;
+  --color-wa: #1a7f45;
+  --color-wa-dark: #136536;
+
+  --font-sans: var(--font-body);
+  --font-display: var(--font-heading);
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-page);
+  color: var(--color-ink);
+}
+
+::selection {
+  background: var(--color-brand);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-brand);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Pola garis atap halus (diambil dari karakter simbol logo) untuk latar section */
+.bg-roof {
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgb(192 149 74 / 0.08) 0 2px,
+    transparent 2px 18px
+  );
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+  animation-delay: var(--delay, 0ms);
+}
+
+/* Akordeon FAQ: ikon plus berputar saat terbuka */
+details[open] > summary .faq-icon {
+  transform: rotate(45deg);
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+
+html {
+  scroll-padding-top: 5rem;
+}
+body {
+  overflow-x: clip;
+}
+
+/* ---------- Animasi saat scroll (dipicu RevealObserver) ---------- */
+/* Varian: .reveal (naik), .reveal-left / .reveal-right (geser), .reveal-zoom (membesar), .reveal-mask (tirai foto) */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}
+@keyframes reveal-left {
+  from {
+    opacity: 0;
+    transform: translateX(-48px);
+  }
+}
+@keyframes reveal-right {
+  from {
+    opacity: 0;
+    transform: translateX(48px);
+  }
+}
+@keyframes reveal-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+}
+@keyframes reveal-mask {
+  from {
+    clip-path: inset(100% 0 0 0 round 1.5rem);
+  }
+  to {
+    clip-path: inset(0 0 0 0 round 1.5rem);
+  }
+}
+@keyframes img-settle {
+  from {
+    transform: scale(1.15);
+  }
+}
+.reveal-ready .reveal:not(.is-visible) {
+  opacity: 0;
+}
+.reveal.is-visible {
+  animation: reveal-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms) backwards;
+}
+.reveal.reveal-left.is-visible {
+  animation-name: reveal-left;
+}
+.reveal.reveal-right.is-visible {
+  animation-name: reveal-right;
+}
+.reveal.reveal-zoom.is-visible {
+  animation-name: reveal-zoom;
+}
+.reveal.reveal-mask.is-visible {
+  animation: reveal-mask 1.2s cubic-bezier(0.7, 0, 0.2, 1) var(--reveal-delay, 0ms) both;
+}
+/* Foto di dalam elemen yang muncul: zoom-out pelan ("mengendap") */
+.reveal.is-visible .settle img {
+  animation: img-settle 1.6s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms) both;
+}
+
+/* Parallax lembut pada foto (browser yang mendukung scroll-driven animation) */
+@supports (animation-timeline: view()) {
+  @keyframes parallax-y {
+    from {
+      transform: translateY(-6%) scale(1.12);
+    }
+    to {
+      transform: translateY(6%) scale(1.12);
+    }
+  }
+  .parallax img {
+    animation: parallax-y linear both;
+    animation-timeline: view();
+  }
+}
+
+/* ---------- Pop-up detail produk (<dialog>) ---------- */
+dialog.product-dialog {
+  width: min(1040px, calc(100vw - 1.5rem));
+  max-width: none;
+  max-height: 92dvh;
+  margin: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 1.75rem;
+  background: var(--color-page);
+  box-shadow: 0 40px 120px -30px rgb(12 14 40 / 0.6);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(24px) scale(0.96);
+  transition:
+    opacity 0.35s ease,
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    overlay 0.35s allow-discrete,
+    display 0.35s allow-discrete;
+}
+dialog.product-dialog[open] {
+  opacity: 1;
+  transform: none;
+}
+dialog.product-dialog::backdrop {
+  background: rgb(14 17 45 / 0);
+  backdrop-filter: blur(0);
+  transition:
+    background-color 0.35s ease,
+    backdrop-filter 0.35s ease,
+    overlay 0.35s allow-discrete,
+    display 0.35s allow-discrete;
+}
+dialog.product-dialog[open]::backdrop {
+  background: rgb(14 17 45 / 0.6);
+  backdrop-filter: blur(5px);
+}
+@starting-style {
+  dialog.product-dialog[open] {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+  dialog.product-dialog[open]::backdrop {
+    background: rgb(14 17 45 / 0);
+    backdrop-filter: blur(0);
+  }
+}
+/* Isi pop-up muncul bergiliran; foto berganti dengan fade */
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+dialog[open] .dialog-in {
+  animation: dialog-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) calc(120ms + var(--d, 0ms)) both;
+}
+@keyframes photo-in {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+}
+.dialog-photo {
+  animation: photo-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+/* Halaman di belakang tidak ikut ter-scroll saat pop-up terbuka */
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
+/* Hormati pengguna yang meminta gerakan minimal */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal,
+  .reveal img,
+  .parallax img {
+    animation: none !important;
+    opacity: 1 !important;
+    clip-path: none !important;
+  }
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Lightbox galeri ---------- */
+@keyframes lightbox-fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes lightbox-rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+  }
+}
+.lightbox-backdrop {
+  animation: lightbox-fade 0.35s ease both;
+}
+.lightbox-panel {
+  animation: lightbox-rise 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+/* Teks berganti tiap foto (elemen di-remount lewat key) */
+.lightbox-in {
+  animation: dialog-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) calc(80ms + var(--d, 0ms)) both;
+}

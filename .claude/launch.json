@@ -26,6 +26,20 @@
         "4173"
       ],
       "port": 4173
+    },
+    {
+      "name": "syroster-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "--prefix",
+        "syroster",
+        "run",
+        "dev",
+        "--",
+        "-p",
+        "3100"
+      ],
+      "port": 3100
     }
   ]
 }
