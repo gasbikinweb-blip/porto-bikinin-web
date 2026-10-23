@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-# TODO: sesuaikan domain jika NEXT_PUBLIC_SITE_URL diubah saat deploy produksi
-Sitemap: https://homegordenbatam.com/sitemap.xml
