@@ -1,20 +1,19 @@
-// Monogram sementara "Na" dalam lingkaran. TODO: ganti dengan file logo asli Griya Nuansa.
+// Logo "Na" Griya Nuansa. Dipakai sebagai mask supaya warnanya ikut currentColor (terang/gelap/footer).
 export function Logo({ className = 'h-10 w-10' }: { className?: string }) {
   return (
-    <svg viewBox="0 0 48 48" className={className} aria-hidden="true" focusable="false">
-      <circle cx="24" cy="24" r="22.5" fill="none" stroke="currentColor" strokeWidth="1" />
-      <text
-        x="24"
-        y="30"
-        textAnchor="middle"
-        fontFamily="Georgia, 'Times New Roman', serif"
-        fontSize="18"
-        fontWeight="300"
-        fill="currentColor"
-        letterSpacing="0.5"
-      >
-        Na
-      </text>
-    </svg>
+    <span
+      aria-hidden="true"
+      className={`inline-block shrink-0 bg-current ${className}`}
+      style={{
+        maskImage: 'url(/brand/logo-black.png)',
+        WebkitMaskImage: 'url(/brand/logo-black.png)',
+        maskSize: 'contain',
+        WebkitMaskSize: 'contain',
+        maskRepeat: 'no-repeat',
+        WebkitMaskRepeat: 'no-repeat',
+        maskPosition: 'center',
+        WebkitMaskPosition: 'center',
+      }}
+    />
   );
 }
