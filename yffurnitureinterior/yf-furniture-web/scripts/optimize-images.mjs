@@ -47,4 +47,29 @@ for (const work of manifest) {
 }
 
 await writeFile('src/data/images.generated.json', `${JSON.stringify(sizes, null, 2)}\n`);
+
+// Logo: lencana bulat (sudut hitam dibuat transparan) + favicon dari simbol tengah logo
+const LOGO = path.join(SRC, 'Logo.jpg');
+const brandDir = 'public/brand';
+await mkdir(brandDir, { recursive: true });
+const { width: lw = 1080 } = await sharp(LOGO).metadata();
+const circle = Buffer.from(
+  `<svg width="${lw}" height="${lw}"><circle cx="${lw / 2}" cy="${lw / 2}" r="${lw * 0.465}"/></svg>`,
+);
+const badge = await sharp(LOGO)
+  .composite([{ input: circle, blend: 'dest-in' }])
+  .png()
+  .toBuffer();
+await sharp(badge).resize(256).webp({ quality: 85 }).toFile(path.join(brandDir, 'logo.webp'));
+await sharp(badge).resize(512).png().toFile(path.join(brandDir, 'logo-512.png'));
+// Simbol (kotak merah + kaki hitam) dipotong dari tengah logo, sudah berlatar krem
+const mark = {
+  left: Math.round(lw * 0.345),
+  top: Math.round(lw * 0.105),
+  width: Math.round(lw * 0.31),
+  height: Math.round(lw * 0.31),
+};
+await sharp(LOGO).extract(mark).resize(256).png().toFile('src/app/icon.png');
+await sharp(LOGO).extract(mark).resize(180).png().toFile('src/app/apple-icon.png');
+console.log('✓ Logo.jpg -> public/brand/, src/app/icon.png, src/app/apple-icon.png');
 console.log(`Selesai: ${count} file baru diproses.`);

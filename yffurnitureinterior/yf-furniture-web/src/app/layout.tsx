@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Plus_Jakarta_Sans } from 'next/font/google';
+import { Cormorant_Garamond, Geist } from 'next/font/google';
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
@@ -9,7 +9,13 @@ import { config } from '@/lib/config';
 import './globals.css';
 
 // Font di-host sendiri saat build (tidak memanggil Google saat runtime)
-const jakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta' });
+const geist = Geist({ subsets: ['latin'], variable: '--font-geist' });
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  style: ['normal', 'italic'],
+  variable: '--font-cormorant',
+});
 
 const ogImage = `/images/katalog/${getWork('backdrop-tv-led-full-plafon').slug}/og.jpg`;
 
@@ -34,17 +40,26 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#fbf8f3',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f8f5ef' },
+    { media: '(prefers-color-scheme: dark)', color: '#141210' },
+  ],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="id" className={jakarta.variable}>
+    // suppressHydrationWarning: atribut data-theme dipasang theme-init.js sebelum React aktif
+    <html lang="id" className={`${geist.variable} ${cormorant.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Sengaja sinkron agar tema terpasang sebelum halaman digambar; file kecil & lokal */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script src="/theme-init.js" />
+      </head>
       <body className="flex min-h-dvh flex-col font-sans antialiased">
         {/* Link lewati navigasi untuk pengguna keyboard / pembaca layar */}
         <a
           href="#konten"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:bg-wood focus:px-4 focus:py-2 focus:text-white"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:bg-foreground focus:px-4 focus:py-2 focus:text-background"
         >
           Lewati ke konten utama
         </a>

@@ -1,6 +1,7 @@
 # YF Furniture & Interior — Website Katalog & Portofolio
 
-Website etalase statis untuk workshop furnitur & interior custom di Boyolali. Dibangun dengan
+Website etalase statis satu halaman (one-page) untuk workshop furnitur & interior custom di Boyolali.
+Desain mengikuti referensi https://porto-busrmebel-furniture.vercel.app/ (struktur & nuansa, konten berbeda). Dibangun dengan
 Next.js 16 (App Router, `output: 'export'`), TypeScript strict, dan Tailwind CSS 4. Tanpa backend,
 login, pembayaran, atau form yang mengirim data: semua pemesanan lewat WhatsApp.
 
@@ -34,8 +35,8 @@ src/data/faq.ts                FAQ
 src/data/images.generated.json ukuran gambar (dibuat otomatis oleh script)
 src/lib/config.ts              env NEXT_PUBLIC_* + pembersih nomor WA
 src/lib/whatsapp.ts            buildWhatsAppLink() — dipakai semua tombol WA
-src/components/                Lightbox, WorkGrid, WhatsAppBuilder, MobileNav (client); sisanya server
-src/app/                       halaman: /, /katalog, /katalog/[kategori], /tentang, /faq, /kontak
+src/components/                HeroSlider, FeaturedWorks, CatalogTabs, WorkModal, WhatsAppBuilder, MobileNav (client)
+src/app/page.tsx               website satu halaman: hero, kategori, karya, katalog, tentang, cara pesan, FAQ, kontak
 ```
 
 ## Mengganti nomor WhatsApp
@@ -109,7 +110,7 @@ Hasil build adalah folder statis `out/`, bisa di-hosting di mana saja.
 ## Daftar TODO sebelum rilis
 
 - [ ] Domain asli → `NEXT_PUBLIC_SITE_URL` dan `security.txt` (Canonical, Contact, Expires)
-- [ ] File logo asli (merah & emas) → ganti `src/components/Logo.tsx` dan `src/app/icon.svg`
+- [x] Logo asli (`assets/Logo.jpg`) sudah dipakai: header, footer, favicon, apple-icon
 - [ ] Jam kerja asli (`src/data/site.ts`)
 - [ ] Email (bila ada), tahun berdiri, nama pemilik, cerita asli di `/tentang`
 - [ ] Konfirmasi area layanan, area kirim, dan apakah ada jasa pasang

@@ -305,5 +305,4 @@ export function getWork(slug: string): Work {
   return work;
 }
 
-export const getWorksByCategory = (slug: CategorySlug) => works.filter((w) => w.category === slug);
 export const featuredWorks = works.filter((w) => w.featured && w.status === 'selesai');

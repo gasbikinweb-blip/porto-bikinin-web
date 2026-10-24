@@ -1,22 +1,50 @@
 @import 'tailwindcss';
 
 /*
- * Palet: krem dasar, cokelat kayu sebagai aksen, charcoal untuk teks.
- * Merah & emas dari logo dipakai tipis sebagai aksen kecil.
- * Kontras teks utama & muted terhadap latar sudah ≥ 4.5:1.
+ * Palet editorial: krem hangat, charcoal untuk teks & tombol, cokelat kayu sebagai aksen.
+ * Merah, emas, dan hijau tua dari logo dipakai tipis. Kontras teks utama & muted ≥ 4.5:1.
  */
 :root {
   color-scheme: light;
-  --background: #fbf8f3;
-  --surface: #f3ece1;
-  --surface-2: #e9dfcf;
-  --foreground: #2b2724;
-  --muted: #625a52;
+  --background: #f8f5ef;
+  --surface: #efe9df;
+  --surface-2: #e4dccf;
+  --foreground: #1d1b18;
+  --muted: #5f574e;
   --wood: #8a5a2b;
   --wood-strong: #6f4620;
-  --brand-red: #a8352a;
+  --brand-red: #b3261e;
   --brand-gold: #c69a3c;
-  --line: rgb(43 39 36 / 0.12);
+  --brand-green: #0f4a3e;
+  --line: rgb(29 27 24 / 0.12);
+  /* Selalu gelap (hero, section gelap, teks di atas latar putih/emas) di kedua mode */
+  --ink: #1d1b18;
+}
+
+/* Mode gelap: mengikuti sistem, kecuali pengguna memilih lewat tombol (data-theme) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --background: #141210;
+    --surface: #1e1b18;
+    --surface-2: #2a2621;
+    --foreground: #f1ece4;
+    --muted: #b5ab9e;
+    --wood: #d09a62;
+    --wood-strong: #e6b27c;
+    --line: rgb(241 236 228 / 0.13);
+  }
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --background: #141210;
+  --surface: #1e1b18;
+  --surface-2: #2a2621;
+  --foreground: #f1ece4;
+  --muted: #b5ab9e;
+  --wood: #d09a62;
+  --wood-strong: #e6b27c;
+  --line: rgb(241 236 228 / 0.13);
 }
 
 @theme inline {
@@ -29,17 +57,25 @@
   --color-wood-strong: var(--wood-strong);
   --color-brand-red: var(--brand-red);
   --color-brand-gold: var(--brand-gold);
+  --color-brand-green: var(--brand-green);
   --color-line: var(--line);
-  --font-sans: var(--font-jakarta);
+  --color-ink: var(--ink);
+  --font-sans: var(--font-geist);
+  --font-serif: var(--font-cormorant);
 }
 
 html {
   scroll-behavior: smooth;
+  /* Ruang untuk header sticky saat melompat ke #anchor */
+  scroll-padding-top: 5rem;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 ::selection {
@@ -48,17 +84,33 @@ body {
 }
 
 :focus-visible {
-  outline: 3px solid var(--wood);
+  outline: 2px solid var(--wood);
   outline-offset: 3px;
-  border-radius: 4px;
 }
 
-/* Akordeon FAQ: sembunyikan marker bawaan */
+/* Label kecil huruf kapital (eyebrow) */
+.eyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
 summary::-webkit-details-marker {
   display: none;
 }
 
-/* Hormati pengguna yang meminta gerakan minimal */
+/* Foto hero berganti dengan fade lembut */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+.animate-fade {
+  animation: fade-in 0.9s ease both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

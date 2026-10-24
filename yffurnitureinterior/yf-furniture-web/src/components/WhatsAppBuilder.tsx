@@ -74,15 +74,14 @@ export function WhatsAppBuilder() {
     .filter(Boolean)
     .join('');
 
-  const field =
-    'mt-1.5 block min-h-12 w-full rounded-xl border border-line bg-white px-3 text-base';
+  const field = 'mt-1.5 block min-h-12 w-full border border-line bg-background px-3 text-base';
   const invalid = (raw: string) => raw !== '' && cleanCm(raw) === null;
 
   return (
-    <div className="rounded-3xl border border-line bg-white p-5 shadow-sm sm:p-8">
+    <div className="bg-background p-5 sm:p-8">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor={`${id}-jenis`} className="text-sm font-semibold">
+          <label htmlFor={`${id}-jenis`} className="text-sm font-medium">
             Jenis furnitur
           </label>
           <select
@@ -97,7 +96,7 @@ export function WhatsAppBuilder() {
           </select>
         </div>
         <div>
-          <label htmlFor={`${id}-warna`} className="text-sm font-semibold">
+          <label htmlFor={`${id}-warna`} className="text-sm font-medium">
             Warna / finishing <span className="font-normal text-muted">(opsional)</span>
           </label>
           <select
@@ -113,7 +112,7 @@ export function WhatsAppBuilder() {
         </div>
 
         <fieldset className="sm:col-span-2">
-          <legend className="text-sm font-semibold">
+          <legend className="text-sm font-medium">
             Perkiraan ukuran dalam cm <span className="font-normal text-muted">(opsional)</span>
           </legend>
           <div className="mt-1.5 grid grid-cols-3 gap-3">
@@ -149,7 +148,7 @@ export function WhatsAppBuilder() {
         </fieldset>
 
         <div className="sm:col-span-2">
-          <label htmlFor={`${id}-kota`} className="text-sm font-semibold">
+          <label htmlFor={`${id}-kota`} className="text-sm font-medium">
             Kota tujuan <span className="font-normal text-muted">(opsional)</span>
           </label>
           <input
@@ -165,7 +164,7 @@ export function WhatsAppBuilder() {
         </div>
       </div>
 
-      <div className="mt-6 rounded-xl bg-surface p-4">
+      <div className="mt-6 bg-surface p-4">
         <p className="text-xs font-semibold tracking-wide text-muted uppercase">Pratinjau pesan</p>
         <p className="mt-1 text-sm leading-relaxed" aria-live="polite">
           {message}
@@ -176,7 +175,7 @@ export function WhatsAppBuilder() {
         href={buildWhatsAppLink(message)}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-5 flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-wood px-6 font-semibold text-white hover:bg-wood-strong"
+        className="mt-5 flex min-h-12 w-full items-center justify-center gap-2 bg-foreground px-6 text-xs font-semibold tracking-[0.18em] text-background uppercase hover:bg-wood-strong"
       >
         <WhatsAppIcon className="size-5" />
         Kirim lewat WhatsApp

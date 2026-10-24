@@ -10,14 +10,14 @@ const external = { target: '_blank', rel: 'noopener noreferrer' } as const;
 export function Footer() {
   return (
     <footer className="mt-auto border-t border-line bg-surface">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
         <div>
-          <Logo />
+          <Logo size={56} />
           <p className="mt-4 text-sm leading-relaxed text-muted">{site.tagline}.</p>
         </div>
 
         <div>
-          <h2 className="font-bold">Menu</h2>
+          <h2 className="eyebrow">Menu</h2>
           <ul className="mt-3 space-y-2 text-sm text-muted">
             {navLinks.map((l) => (
               <li key={l.href}>
@@ -30,11 +30,11 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="font-bold">Kategori</h2>
+          <h2 className="eyebrow">Kategori</h2>
           <ul className="mt-3 space-y-2 text-sm text-muted">
             {activeCategories.map((c) => (
               <li key={c.slug}>
-                <Link href={`/katalog/${c.slug}`} className="hover:text-wood">
+                <Link href={`/#katalog-${c.slug}`} className="hover:text-wood">
                   {c.name}
                 </Link>
               </li>
@@ -43,7 +43,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="font-bold">Workshop</h2>
+          <h2 className="eyebrow">Workshop</h2>
           <address className="mt-3 space-y-2 text-sm text-muted not-italic">
             <p>{fullAddress}</p>
             <p>
@@ -63,7 +63,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-line">
-        <p className="mx-auto max-w-6xl px-4 py-5 text-xs text-muted sm:px-6">
+        <p className="mx-auto max-w-7xl px-4 py-5 text-xs text-muted sm:px-6">
           © {new Date().getFullYear()} {site.name}. Konsultasi & pemesanan melalui WhatsApp.
         </p>
       </div>
