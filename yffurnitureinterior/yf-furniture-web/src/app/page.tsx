@@ -160,7 +160,7 @@ function Heading({
   return (
     <div>
       <p className={`eyebrow ${light ? 'text-white/70!' : ''}`}>{eyebrow}</p>
-      <h2 id={id} className="mt-4 font-serif text-4xl leading-[1.05] sm:text-5xl lg:text-6xl">
+      <h2 id={id} className="mt-4 font-serif text-display-2">
         {title}
         {accent && (
           <>
@@ -288,10 +288,7 @@ export default function HomePage() {
           <span className="size-1.5 rounded-full bg-brand-red" aria-hidden="true" /> Kenapa YF
         </p>
         <div className="mt-3 grid gap-6 lg:grid-cols-[1.6fr_1fr] lg:items-end">
-          <h2
-            id="mengapa"
-            className="max-w-2xl text-3xl leading-tight font-semibold tracking-tight sm:text-4xl"
-          >
+          <h2 id="mengapa" className="max-w-2xl font-serif text-title">
             Mengapa memilih YF Furniture? Tiga hal yang kami pegang di setiap pesanan
           </h2>
           <p className="text-sm leading-relaxed text-muted">
@@ -396,7 +393,7 @@ export default function HomePage() {
           </p>
           <a
             href="#katalog-interior-ruangan"
-            className="mt-8 inline-flex w-fit items-center gap-2 border-b border-foreground pb-1 text-xs font-semibold tracking-[0.18em] uppercase hover:border-wood hover:text-wood"
+            className="mt-8 inline-flex min-h-8 w-fit items-center gap-2 border-b border-foreground pb-1 text-xs font-semibold tracking-[0.18em] uppercase hover:border-wood hover:text-wood"
           >
             Lihat interior ruangan →
           </a>
@@ -411,7 +408,7 @@ export default function HomePage() {
       >
         <div className="mx-auto max-w-xl text-center">
           <p className="eyebrow text-wood!">Katalog</p>
-          <h2 id="judul-katalog" className="mt-4 font-serif text-4xl sm:text-5xl">
+          <h2 id="judul-katalog" className="mt-4 font-serif text-display-2">
             Jelajahi per Kategori
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-muted">
@@ -482,7 +479,7 @@ export default function HomePage() {
                   sizes="(min-width: 640px) 25vw, 50vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3 pt-10 text-[10px] font-semibold tracking-[0.2em] text-white uppercase">
+                <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3 pt-10 text-[11px] font-semibold tracking-[0.2em] text-white uppercase">
                   Lihat di Instagram
                 </span>
                 <span className="sr-only"> (membuka tab baru)</span>
@@ -515,7 +512,7 @@ export default function HomePage() {
             {steps.map((s, i) => (
               <li key={s.title} className="bg-surface p-6 sm:p-8">
                 <span className="font-serif text-4xl text-wood">{pad(i + 1)}</span>
-                <h3 className="mt-4 font-serif text-2xl">{s.title}</h3>
+                <h3 className="mt-4 font-serif text-display-3">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{s.text}</p>
               </li>
             ))}
@@ -531,7 +528,7 @@ export default function HomePage() {
       >
         <div>
           <p className="eyebrow">FAQ</p>
-          <h2 id="judul-faq" className="mt-4 font-serif text-4xl leading-tight sm:text-5xl">
+          <h2 id="judul-faq" className="mt-4 font-serif text-display-2">
             Pertanyaan yang sering diajukan
           </h2>
         </div>
@@ -595,7 +592,7 @@ export default function HomePage() {
                   <a
                     href={site.mapsUrl}
                     {...external}
-                    className="mt-2 inline-block border-b border-white/40 pb-0.5 text-xs font-semibold tracking-[0.18em] uppercase hover:border-brand-gold hover:text-brand-gold"
+                    className="mt-2 inline-block border-b border-white/40 pt-1.5 pb-1 text-xs font-semibold tracking-[0.18em] uppercase hover:border-brand-gold hover:text-brand-gold"
                   >
                     Buka di Google Maps ↗<span className="sr-only"> (tab baru)</span>
                   </a>

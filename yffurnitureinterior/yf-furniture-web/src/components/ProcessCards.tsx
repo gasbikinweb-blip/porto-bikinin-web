@@ -70,10 +70,7 @@ export function ProcessCards({ steps, categoryNames }: Props) {
         </p>
         <div className="mt-12 lg:mt-auto">
           <p className="text-xs text-muted">[Proses]</p>
-          <h2
-            id="proses"
-            className="mt-2 text-4xl leading-[1.1] font-semibold tracking-tight sm:text-5xl"
-          >
+          <h2 id="proses" className="mt-2 font-serif text-display-2">
             Dari Ukuran hingga Sampai di Tempat
           </h2>
           <a
@@ -112,7 +109,7 @@ export function ProcessCards({ steps, categoryNames }: Props) {
               />
               <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/10 to-black/80" />
               <div className="relative">
-                <h3 className="text-2xl font-semibold sm:text-3xl">{s.title}</h3>
+                <h3 className="font-serif text-display-3">{s.title}</h3>
                 <p className="mt-1 text-xs leading-tight text-white/75">{s.label}</p>
               </div>
               <div className="relative mt-auto">

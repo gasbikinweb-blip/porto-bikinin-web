@@ -8,7 +8,7 @@ export default function NotFound() {
   return (
     <section className="mx-auto flex w-full max-w-3xl flex-1 flex-col items-center justify-center gap-4 px-4 pt-32 pb-24 text-center">
       <p className="font-serif text-8xl text-wood">404</p>
-      <h1 className="font-serif text-4xl sm:text-5xl">Halaman tidak ditemukan</h1>
+      <h1 className="font-serif text-display-2">Halaman tidak ditemukan</h1>
       <p className="text-muted">Maaf, halaman yang Anda cari tidak ada atau sudah dipindahkan.</p>
       <div className="mt-4 flex flex-wrap justify-center gap-3">
         <Link

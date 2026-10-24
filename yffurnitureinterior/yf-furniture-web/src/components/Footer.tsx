@@ -18,10 +18,10 @@ export function Footer() {
 
         <div>
           <h2 className="eyebrow">Menu</h2>
-          <ul className="mt-3 space-y-2 text-sm text-muted">
+          <ul className="mt-3 space-y-0.5 text-sm text-muted">
             {navLinks.map((l) => (
               <li key={l.href}>
-                <Link href={l.href} className="hover:text-wood">
+                <Link href={l.href} className="inline-block py-1 hover:text-wood">
                   {l.label}
                 </Link>
               </li>
@@ -31,10 +31,10 @@ export function Footer() {
 
         <div>
           <h2 className="eyebrow">Kategori</h2>
-          <ul className="mt-3 space-y-2 text-sm text-muted">
+          <ul className="mt-3 space-y-0.5 text-sm text-muted">
             {activeCategories.map((c) => (
               <li key={c.slug}>
-                <Link href={`/#katalog-${c.slug}`} className="hover:text-wood">
+                <Link href={`/#katalog-${c.slug}`} className="inline-block py-1 hover:text-wood">
                   {c.name}
                 </Link>
               </li>
@@ -44,18 +44,22 @@ export function Footer() {
 
         <div>
           <h2 className="eyebrow">Workshop</h2>
-          <address className="mt-3 space-y-2 text-sm text-muted not-italic">
+          <address className="mt-3 space-y-0.5 text-sm text-muted not-italic">
             <p>{fullAddress}</p>
             <p>
-              <a href={buildWhatsAppLink(generalMessage)} {...external} className="hover:text-wood">
+              <a
+                href={buildWhatsAppLink(generalMessage)}
+                {...external}
+                className="inline-block py-1 hover:text-wood"
+              >
                 WhatsApp {site.waDisplay}
               </a>
             </p>
             <p className="flex gap-4">
-              <a href={site.instagram} {...external} className="hover:text-wood">
+              <a href={site.instagram} {...external} className="inline-block py-1 hover:text-wood">
                 Instagram
               </a>
-              <a href={site.threads} {...external} className="hover:text-wood">
+              <a href={site.threads} {...external} className="inline-block py-1 hover:text-wood">
                 Threads
               </a>
             </p>

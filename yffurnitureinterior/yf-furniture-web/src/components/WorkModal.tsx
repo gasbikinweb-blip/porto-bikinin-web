@@ -152,11 +152,11 @@ export function WorkModal({ work, categoryName, onClose }: Props) {
           </button>
 
           <p className="eyebrow pr-12">{categoryName}</p>
-          <h2 id="modal-judul" className="mt-3 pr-8 font-serif text-3xl leading-tight sm:text-4xl">
+          <h2 id="modal-judul" className="mt-3 pr-8 font-serif text-title">
             {work.title}
           </h2>
           <p
-            className={`mt-4 w-fit px-2.5 py-1 text-[10px] font-semibold tracking-[0.15em] uppercase ${work.status === 'proses' ? 'bg-brand-gold text-ink' : 'bg-surface text-foreground'}`}
+            className={`mt-4 w-fit px-2.5 py-1 text-[11px] font-semibold tracking-[0.15em] uppercase ${work.status === 'proses' ? 'bg-brand-gold text-ink' : 'bg-surface text-foreground'}`}
           >
             {work.status === 'proses' ? 'Proses Produksi' : 'Bisa Custom'}
           </p>

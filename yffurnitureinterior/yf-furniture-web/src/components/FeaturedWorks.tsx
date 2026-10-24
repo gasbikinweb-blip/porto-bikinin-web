@@ -57,19 +57,15 @@ function GroupCard({
           <span className="font-semibold text-brand-red">{group.works.length}</span>{' '}
           <span className="text-muted">Karya</span>
         </p>
-        <h3
-          className={`mt-1 font-semibold tracking-tight ${big ? 'text-4xl sm:text-5xl' : 'text-3xl sm:text-4xl'}`}
-        >
-          {group.name}
-        </h3>
+        <h3 className={`mt-1 font-serif ${big ? 'text-display-2' : 'text-title'}`}>{group.name}</h3>
         {big && <p className="mt-3 text-sm leading-relaxed text-muted">{group.description}</p>}
-        <ul className="mt-4 space-y-1.5 text-sm">
+        <ul className="mt-3 space-y-0.5 text-sm">
           {group.works.map((w) => (
             <li key={w.slug}>
               <button
                 type="button"
                 onClick={() => onOpen(w)}
-                className="text-left text-foreground/75 underline-offset-4 hover:text-wood hover:underline"
+                className="py-1 text-left text-foreground/75 underline-offset-4 hover:text-wood hover:underline"
               >
                 {w.title}
               </button>
@@ -78,7 +74,7 @@ function GroupCard({
         </ul>
         <a
           href={`#katalog-${group.slug}`}
-          className="mt-5 inline-block text-xs font-semibold tracking-[0.15em] uppercase hover:text-wood"
+          className="mt-4 inline-block py-1.5 text-xs font-semibold tracking-[0.15em] uppercase hover:text-wood"
         >
           Lihat semua →
         </a>

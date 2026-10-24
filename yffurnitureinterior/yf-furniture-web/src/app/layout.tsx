@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Cormorant_Garamond, Geist } from 'next/font/google';
+import { Fraunces, Instrument_Sans } from 'next/font/google';
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
@@ -9,12 +9,13 @@ import { config } from '@/lib/config';
 import './globals.css';
 
 // Font di-host sendiri saat build (tidak memanggil Google saat runtime)
-const geist = Geist({ subsets: ['latin'], variable: '--font-geist' });
-const cormorant = Cormorant_Garamond({
+// Judul: Fraunces (serif lembut & hangat). Teks: Instrument Sans (bersih, mudah dibaca).
+const sans = Instrument_Sans({ subsets: ['latin'], variable: '--font-sans-body' });
+const serif = Fraunces({
   subsets: ['latin'],
-  weight: ['400', '500', '600'],
   style: ['normal', 'italic'],
-  variable: '--font-cormorant',
+  axes: ['opsz', 'SOFT'],
+  variable: '--font-display',
 });
 
 const ogImage = `/images/katalog/${getWork('backdrop-tv-led-full-plafon').slug}/og.jpg`;
@@ -49,7 +50,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     // suppressHydrationWarning: atribut data-theme dipasang theme-init.js sebelum React aktif
-    <html lang="id" className={`${geist.variable} ${cormorant.variable}`} suppressHydrationWarning>
+    <html lang="id" className={`${sans.variable} ${serif.variable}`} suppressHydrationWarning>
       <head>
         {/* Sengaja sinkron agar tema terpasang sebelum halaman digambar; file kecil & lokal */}
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}

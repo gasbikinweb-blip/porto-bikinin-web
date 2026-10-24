@@ -52,7 +52,7 @@ export function CatalogTabs({ works, tabs, categoryNames }: Props) {
             className="shrink-0 rounded-full border border-line px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors hover:border-wood aria-pressed:border-wood aria-pressed:bg-wood aria-pressed:text-white"
           >
             {t.name}
-            <sup className="ml-0.5 text-[10px] opacity-75">{t.count}</sup>
+            <sup className="ml-0.5 text-[11px] opacity-75">{t.count}</sup>
           </button>
         ))}
       </div>
@@ -74,12 +74,12 @@ export function CatalogTabs({ works, tabs, categoryNames }: Props) {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 {work.status === 'proses' && (
-                  <span className="absolute top-3 left-3 rounded-full bg-brand-gold px-2.5 py-1 text-[10px] font-semibold tracking-[0.1em] text-ink uppercase">
+                  <span className="absolute top-3 left-3 rounded-full bg-brand-gold px-2.5 py-1 text-[11px] font-semibold tracking-[0.1em] text-ink uppercase">
                     Proses Produksi
                   </span>
                 )}
               </span>
-              <span className="mt-4 block text-[10px] font-medium tracking-[0.2em] text-muted uppercase">
+              <span className="mt-4 block text-[11px] font-medium tracking-[0.2em] text-muted uppercase">
                 {categoryNames[work.category]}
               </span>
               <span className="mt-1 block font-serif text-xl leading-snug group-hover:text-wood">
@@ -90,7 +90,7 @@ export function CatalogTabs({ works, tabs, categoryNames }: Props) {
               href={buildWhatsAppLink(workMessage(work.title))}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-1 inline-block text-xs text-wood-strong underline-offset-4 hover:underline"
+              className="mt-0.5 inline-block py-1.5 text-xs text-wood-strong underline-offset-4 hover:underline"
             >
               Tanya via WhatsApp<span className="sr-only"> tentang {work.title} (tab baru)</span>
             </a>

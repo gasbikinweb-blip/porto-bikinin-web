@@ -89,12 +89,9 @@ export function HeroShowcase({ works, categoryNames }: Props) {
             <p className="max-w-xs text-sm leading-relaxed text-white/80">
               Furnitur & interior custom, dikerjakan langsung oleh workshop di Boyolali
             </p>
-            <h1
-              id="judul"
-              className="mt-6 text-4xl leading-[1.15] font-light tracking-tight sm:text-5xl xl:text-[3.5rem]"
-            >
+            <h1 id="judul" className="mt-6 font-serif text-display-1 font-light">
               Furnitur Custom yang Pas dengan Ukuran dan Selera Anda,{' '}
-              <strong className="font-semibold">Langsung dari Workshop</strong>.
+              <strong className="font-medium italic">Langsung dari Workshop</strong>.
             </h1>
             <a
               href="#katalog"
@@ -145,7 +142,7 @@ export function HeroShowcase({ works, categoryNames }: Props) {
                       <span className="sr-only">Lihat detail {w.title}</span>
                     </button>
                     <div className="flex min-w-0 flex-col py-1">
-                      <p className="text-[10px] tracking-[0.2em] text-white/70 uppercase">
+                      <p className="text-[11px] tracking-[0.2em] text-white/70 uppercase">
                         {categoryNames[w.category]}
                       </p>
                       <p className="mt-1 text-lg leading-snug font-semibold">{w.title}</p>
