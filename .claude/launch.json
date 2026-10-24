@@ -2,6 +2,20 @@
   "version": "0.0.1",
   "configurations": [
     {
+      "name": "griya-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "--prefix",
+        "griya-nuansa",
+        "run",
+        "dev",
+        "--",
+        "-p",
+        "3200"
+      ],
+      "port": 3200
+    },
+    {
       "name": "seams-out",
       "runtimeExecutable": "npx",
       "runtimeArgs": [
@@ -40,6 +54,19 @@
         "3100"
       ],
       "port": 3100
+    },
+    {
+      "name": "yf-out",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "--prefix",
+        "yffurnitureinterior/yf-furniture-web",
+        "serve",
+        "yffurnitureinterior/yf-furniture-web/out",
+        "-l",
+        "4400"
+      ],
+      "port": 4400
     }
   ]
 }

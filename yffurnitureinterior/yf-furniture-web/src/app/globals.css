@@ -1,0 +1,73 @@
+@import 'tailwindcss';
+
+/*
+ * Palet: krem dasar, cokelat kayu sebagai aksen, charcoal untuk teks.
+ * Merah & emas dari logo dipakai tipis sebagai aksen kecil.
+ * Kontras teks utama & muted terhadap latar sudah ≥ 4.5:1.
+ */
+:root {
+  color-scheme: light;
+  --background: #fbf8f3;
+  --surface: #f3ece1;
+  --surface-2: #e9dfcf;
+  --foreground: #2b2724;
+  --muted: #625a52;
+  --wood: #8a5a2b;
+  --wood-strong: #6f4620;
+  --brand-red: #a8352a;
+  --brand-gold: #c69a3c;
+  --line: rgb(43 39 36 / 0.12);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-wood: var(--wood);
+  --color-wood-strong: var(--wood-strong);
+  --color-brand-red: var(--brand-red);
+  --color-brand-gold: var(--brand-gold);
+  --color-line: var(--line);
+  --font-sans: var(--font-jakarta);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+::selection {
+  background: var(--wood);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 3px solid var(--wood);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Akordeon FAQ: sembunyikan marker bawaan */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Hormati pengguna yang meminta gerakan minimal */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

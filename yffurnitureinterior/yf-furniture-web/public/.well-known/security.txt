@@ -1,0 +1,5 @@
+# TODO: ganti kontak & tanggal kedaluwarsa sebelum rilis (RFC 9116)
+Contact: https://wa.me/628988747150
+Expires: 2027-10-24T00:00:00.000Z
+Preferred-Languages: id, en
+Canonical: https://yffurnitureinterior.vercel.app/.well-known/security.txt
