@@ -1,0 +1,191 @@
+@import 'tailwindcss';
+
+/*
+ * Palet butik dari logo & foto: ivory, mocha, nude, dusty pink, sage.
+ * Kontras: mocha & muted di atas ivory ≥ 4.5:1; putih di atas shopee (#c2401f) ≥ 4.5:1.
+ */
+:root {
+  color-scheme: light;
+  --background: #fbf7f2;
+  --surface: #f3ebe2;
+  --surface-2: #ead8cf;
+  --mocha: #4a3229;
+  --mocha-strong: #36231c;
+  --muted: #6b574d;
+  --rose: #c99595;
+  --rose-soft: #f2dfdc;
+  --sage: #8c9a84;
+  --sage-soft: #e3e8de;
+  --shopee: #c2401f;
+  --shopee-strong: #a5341a;
+  --shopee-text: #c2401f;
+  --line: rgb(74 50 41 / 0.14);
+  /* Blok gelap (strip, footer, banner reseller) tetap gelap di kedua mode */
+  --panel: #4a3229;
+  --panel-strong: #36231c;
+  --on-panel: #fbf7f2;
+}
+
+/* Mode gelap: mengikuti sistem, kecuali pengunjung memilih lewat tombol (data-theme) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --background: #17120f;
+    --surface: #221a16;
+    --surface-2: #2e2420;
+    --mocha: #f1e6da;
+    --mocha-strong: #fbf5ee;
+    --muted: #c5b5a8;
+    --rose: #e3adad;
+    --rose-soft: #3b2828;
+    --shopee-text: #ff9472;
+    --sage: #a9b7a1;
+    --sage-soft: #24302a;
+    --line: rgb(241 230 218 / 0.14);
+    --panel: #2b1f19;
+    --panel-strong: #120d0b;
+  }
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --background: #17120f;
+  --surface: #221a16;
+  --surface-2: #2e2420;
+  --mocha: #f1e6da;
+  --mocha-strong: #fbf5ee;
+  --muted: #c5b5a8;
+  --rose: #e3adad;
+  --rose-soft: #3b2828;
+  --shopee-text: #ff9472;
+  --sage: #a9b7a1;
+  --sage-soft: #24302a;
+  --line: rgb(241 230 218 / 0.14);
+  --panel: #2b1f19;
+  --panel-strong: #120d0b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-mocha: var(--mocha);
+  --color-mocha-strong: var(--mocha-strong);
+  --color-muted: var(--muted);
+  --color-rose: var(--rose);
+  --color-rose-soft: var(--rose-soft);
+  --color-sage: var(--sage);
+  --color-sage-soft: var(--sage-soft);
+  --color-shopee: var(--shopee);
+  --color-shopee-strong: var(--shopee-strong);
+  --color-shopee-text: var(--shopee-text);
+  --color-line: var(--line);
+  --color-panel: var(--panel);
+  --color-panel-strong: var(--panel-strong);
+  --color-on-panel: var(--on-panel);
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-heading);
+
+  /* Skala judul fluid: HP → laptop → desktop */
+  --text-hero: clamp(2.5rem, 1.6rem + 4vw, 5rem);
+  --text-hero--line-height: 1.02;
+  --text-section: clamp(1.875rem, 1.3rem + 2.3vw, 3.25rem);
+  --text-section--line-height: 1.08;
+  --text-title: clamp(1.5rem, 1.2rem + 1.3vw, 2.25rem);
+  --text-title--line-height: 1.15;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  font-size: clamp(1rem, 0.96rem + 0.15vw, 1.0625rem);
+  background: var(--background);
+  color: var(--mocha);
+}
+
+::selection {
+  background: var(--rose-soft);
+  color: var(--mocha-strong);
+}
+
+:focus-visible {
+  outline: 2px solid var(--mocha);
+  outline-offset: 3px;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+@keyframes laci {
+  from {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+/* Pop-up sapaan muncul lembut */
+@keyframes sapaan {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/*
+ * Animasi muncul saat scroll (dipicu RevealOnScroll). Kelas .reveal-ready baru dipasang oleh JavaScript,
+ * jadi tanpa JS / dengan gerakan minimal semua konten tetap terlihat.
+ */
+[data-reveal] {
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal-ready [data-reveal]:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

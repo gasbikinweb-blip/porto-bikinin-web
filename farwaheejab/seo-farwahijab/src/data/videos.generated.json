@@ -1,0 +1,62 @@
+[
+  {
+    "name": "tutorial-khiban-voal",
+    "title": "Tutorial khiban voal",
+    "src": "/videos/tutorial-khiban-voal.mp4",
+    "poster": "/videos/tutorial-khiban-voal.webp",
+    "width": 540,
+    "height": 960,
+    "duration": 28,
+    "sizeKb": 1331
+  },
+  {
+    "name": "ootd-khiban",
+    "title": "Khiban sat-set anti ribet",
+    "src": "/videos/ootd-khiban.mp4",
+    "poster": "/videos/ootd-khiban.webp",
+    "width": 540,
+    "height": 960,
+    "duration": 14,
+    "sizeKb": 650
+  },
+  {
+    "name": "naima-syari",
+    "title": "Naima plain syar’i 140×140",
+    "src": "/videos/naima-syari.mp4",
+    "poster": "/videos/naima-syari.webp",
+    "width": 540,
+    "height": 960,
+    "duration": 18,
+    "sizeKb": 1039
+  },
+  {
+    "name": "tutorial-aisha",
+    "title": "Tutorial bergo Aisha",
+    "src": "/videos/tutorial-aisha.mp4",
+    "poster": "/videos/tutorial-aisha.webp",
+    "width": 540,
+    "height": 960,
+    "duration": 28,
+    "sizeKb": 1906
+  },
+  {
+    "name": "sembilan-shades",
+    "title": "9 shades untuk harimu",
+    "src": "/videos/sembilan-shades.mp4",
+    "poster": "/videos/sembilan-shades.webp",
+    "width": 540,
+    "height": 960,
+    "duration": 24,
+    "sizeKb": 2540
+  },
+  {
+    "name": "tutorial-khiban-syari",
+    "title": "Cara pakai khiban syar’i",
+    "src": "/videos/tutorial-khiban-syari.mp4",
+    "poster": "/videos/tutorial-khiban-syari.webp",
+    "width": 540,
+    "height": 960,
+    "duration": 25,
+    "sizeKb": 1125
+  }
+]
