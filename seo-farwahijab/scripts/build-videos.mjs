@@ -9,7 +9,7 @@ import path from 'node:path';
 import sharp from 'sharp';
 import { videos } from './videos.manifest.mjs';
 
-const ROOT = process.env.SOURCE_DIR ?? '../assets';
+const ROOT = process.env.SOURCE_DIR ?? '../farwaheejab/assets';
 const OUT = 'public/videos';
 const WIDTH = 540;
 

@@ -14,7 +14,7 @@ semua pertanyaan dan pemesanan lewat WhatsApp. Baca README.md untuk struktur len
 - Semua link WhatsApp lewat `buildWhatsAppLink()` di `src/lib/whatsapp.ts`; link Shopee dari data produk / `config.shopeeUrl`.
 - Env di `src/lib/config.ts` (`NEXT_PUBLIC_*`, publik); profil brand di `src/data/site.ts`.
 - Data produk di `src/data/*.ts` (sumber utama Shopee). Jangan mengarang harga/bahan/stok/rating/ulasan/syarat reseller; placeholder `// TODO`.
-- Gambar: sumber `../assets/`, pilih di `scripts/products.manifest.mjs`, jalankan `npm run optimize-images` (rasio 4:5); pakai `next/image` dengan `fill` + `sizes`
+- Gambar: sumber `../farwaheejab/assets/`, pilih di `scripts/products.manifest.mjs`, jalankan `npm run optimize-images` (rasio 4:5); pakai `next/image` dengan `fill` + `sizes`
   atau width/height, `alt` deskriptif, `priority` hanya di atas layar, rasio konsisten (anti-CLS).
 - Warna lewat token CSS di `globals.css` (ivory, mocha, rose, sage, shopee); kontras teks ≥ 4.5:1.
 - Satu halaman: menu berupa anchor; detail produk lewat modal. Animasi scroll: atribut `data-reveal` / `data-reveal-group`; animasi JS lewat `safeAnimate()`; semua menghormati `prefers-reduced-motion`.

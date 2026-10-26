@@ -1,8 +1,8 @@
-// Logo: ../assets/logo/Logo.jpg (mocha di atas krem) → mask PNG transparan.
+// Logo: ../farwaheejab/assets/logo/Logo.jpg (mocha di atas krem) → mask PNG transparan.
 // Warna logo diatur lewat CSS (bg-current + mask), jadi satu file cocok untuk mode terang & gelap.
 import sharp from 'sharp';
 
-const SRC = '../assets/logo/Logo.jpg';
+const SRC = '../farwaheejab/assets/logo/Logo.jpg';
 const BG = 241; // perkiraan luminans latar krem
 const INK = 135; // perkiraan luminans tinta mocha
 

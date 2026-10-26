@@ -7,7 +7,7 @@ import path from 'node:path';
 import sharp from 'sharp';
 import { manifest } from './products.manifest.mjs';
 
-const SRC = process.env.ASSETS_DIR ?? '../assets';
+const SRC = process.env.ASSETS_DIR ?? '../farwaheejab/assets';
 const OUT = 'public/images/produk';
 const FULL_W = 1080;
 const THUMB_W = 480;

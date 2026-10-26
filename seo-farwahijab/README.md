@@ -5,7 +5,7 @@ TypeScript strict, Tailwind CSS 4. Tanpa backend, keranjang, checkout, login, at
 data. Eceran dibeli di **Shopee**, grosir/reseller lewat **WhatsApp**.
 
 > Versi multi-halaman (katalog, detail produk per URL, reseller, tentang, FAQ terpisah) ada di
-> `../farwa-hijab-porto/`. Data, foto, dan aturan keamanan kedua versi sama.
+> `../farwaheejab/Multiple/farwa-hijab-porto/`. Data, foto, dan aturan keamanan kedua versi sama.
 
 ## Isi halaman (`/`, menu berupa anchor)
 
@@ -25,7 +25,7 @@ Pengunjung pertama kali melihat **pop-up sapaan** (sekali saja).
 keranjang (ubah jumlah, hapus, nama opsional, total perkiraan). Isinya dikirim sebagai satu pesan WhatsApp,
 satu paragraf per produk dipisah garis. Disimpan di localStorage `farwa-keranjang`; tanpa checkout/pembayaran.
 
-**Logo:** `npm run build-logo` mengubah `../assets/logo/Logo.jpg` jadi mask transparan di `public/brand/`
+**Logo:** `npm run build-logo` mengubah `../farwaheejab/assets/logo/Logo.jpg` jadi mask transparan di `public/brand/`
 plus favicon `src/app/icon.png`. Warnanya mengikuti tema (mocha / krem).
 
 **Mode gelap/terang:** mengikuti setelan perangkat, bisa diganti lewat tombol bulan/matahari di header
@@ -47,7 +47,7 @@ Warna gelap diatur di `globals.css`; panel cokelat tua (reseller, footer, kalkul
 | ------------------------------------------------- | --------------------------------------------------------------------------- |
 | `npm run dev` / `build` / `start`                 | Pengembangan, build statis ke `out/`, sajikan `out/`                        |
 | `npm run lint` / `typecheck` / `format` / `audit` | Kualitas & keamanan kode                                                    |
-| `npm run optimize-images`                         | Foto `../assets/` → WebP 4:5 di `public/images/produk/`                     |
+| `npm run optimize-images`                         | Foto `../farwaheejab/assets/` → WebP 4:5 di `public/images/produk/`                     |
 | `npm run build-videos`                            | Video → H.264 540px tanpa audio + poster di `public/videos/` (butuh ffmpeg) |
 
 ## Cara umum
