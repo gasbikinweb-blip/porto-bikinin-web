@@ -1,0 +1,6 @@
+# Laporkan celah keamanan website ini ke kontak berikut.
+Contact: mailto:studioagofficial@gmail.com
+Expires: 2027-10-28T00:00:00.000Z
+Preferred-Languages: id, en
+# TODO: ganti dengan domain asli
+Canonical: https://studioag.example.com/.well-known/security.txt
