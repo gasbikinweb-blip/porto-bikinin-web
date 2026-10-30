@@ -7,7 +7,7 @@ import path from 'node:path';
 import sharp from 'sharp';
 import { manifest } from './image-manifest.mjs';
 
-const ROOT = path.resolve('..'); // folder "Studio AG/"
+const ROOT = path.resolve('../Studio AG'); // folder sumber aset (assets/, _pdf-extract/)
 const OUT = 'public/images';
 const HERO_MAX = 2000;
 const GALLERY_MAX = 1600;

@@ -37,7 +37,7 @@ Node ≥ 20.9 (lihat `.nvmrc`).
 
 ## Menambah proyek
 
-1. Taruh foto di `../assets/<folder>/` (atau folder lain di dalam `Studio AG/`).
+1. Taruh foto di `../Studio AG/assets/<folder>/` (folder sumber aset, tidak ikut di-commit).
 2. Tambah entri di `scripts/image-manifest.mjs` dengan slug baru dan `kind` tiap foto
    (`foto`, `render`, `before`, `after`). Gambar pertama menjadi sampul.
 3. `npm run optimize-images`.
@@ -51,7 +51,7 @@ Ubah `NEXT_PUBLIC_WA_NUMBER` di `.env.local` / pengaturan hosting, lalu build ul
 
 ## Deploy
 
-- **Vercel:** import repo, root directory `Studio AG/studio-ag-web`. `vercel.json` sudah mengatur output & header.
+- **Vercel:** import repo, root directory `studio-ag-web`. `vercel.json` sudah mengatur output & header.
 - **Netlify / Cloudflare Pages:** build `npm run build`, publish `out`. Header dibaca dari `public/_headers`.
 
 ## Keamanan

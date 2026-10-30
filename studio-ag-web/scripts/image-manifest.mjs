@@ -1,5 +1,5 @@
 // Daftar gambar sumber per proyek untuk `npm run optimize-images`.
-// Path relatif terhadap folder "Studio AG/" (assets/ = folder Instagram, _pdf-extract/ = hasil ekstrak PDF).
+// Path relatif terhadap folder "../Studio AG/" (sumber aset di luar repo situs) (assets/ = folder Instagram, _pdf-extract/ = hasil ekstrak PDF).
 // kind: 'foto' | 'render' | 'before' | 'after' | 'workshop'
 // crop (opsional): { top, height } dalam piksel gambar asli, untuk memotong kolase sebelum/sesudah.
 // Kolase berlatar putih sengaja tidak dipakai (lihat laporan Step 0).
