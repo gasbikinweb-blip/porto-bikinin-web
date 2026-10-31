@@ -13,7 +13,7 @@ data. Eceran dibeli di **Shopee**, grosir/reseller lewat **WhatsApp**.
 2. **Yang lagi banyak dicari**: panel foto besar + grid 6 produk.
 3. **Banner quotes**: foto & kutipan berganti otomatis tiap 6 detik (berhenti saat disorot).
 4. **Koleksi** (`#koleksi`): filter kategori & warna.
-5. **Video** (`#video`): 6 video, klik untuk putar, tanpa suara.
+5. **Video** (`#video`): 6 video, klik untuk putar; bersuara bila video sumbernya bersuara.
 6. **Dua cara belanja**, **Reseller** (`#reseller`) + **kalkulator cuan** (`#hitung-cuan`) + tabel grosir.
 7. **FAQ** (`#faq`) dan **Tentang & kontak** (`#kontak`).
 
@@ -43,12 +43,12 @@ Warna gelap diatur di `globals.css`; panel cokelat tua (reseller, footer, kalkul
 
 ## Perintah
 
-| Perintah                                          | Fungsi                                                                      |
-| ------------------------------------------------- | --------------------------------------------------------------------------- |
-| `npm run dev` / `build` / `start`                 | Pengembangan, build statis ke `out/`, sajikan `out/`                        |
-| `npm run lint` / `typecheck` / `format` / `audit` | Kualitas & keamanan kode                                                    |
-| `npm run optimize-images`                         | Foto `../farwaheejab/assets/` → WebP 4:5 di `public/images/produk/`                     |
-| `npm run build-videos`                            | Video → H.264 540px tanpa audio + poster di `public/videos/` (butuh ffmpeg) |
+| Perintah                                          | Fungsi                                                                                       |
+| ------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `npm run dev` / `build` / `start`                 | Pengembangan, build statis ke `out/`, sajikan `out/`                                         |
+| `npm run lint` / `typecheck` / `format` / `audit` | Kualitas & keamanan kode                                                                     |
+| `npm run optimize-images`                         | Foto `../farwaheejab/assets/` → WebP 4:5 di `public/images/produk/`                          |
+| `npm run build-videos`                            | Video → H.264 540px (+ AAC bila sumber bersuara) + poster di `public/videos/` (butuh ffmpeg) |
 
 ## Cara umum
 
@@ -56,7 +56,7 @@ Warna gelap diatur di `globals.css`; panel cokelat tua (reseller, footer, kalkul
   `src/data/*.ts`, `scripts/products.manifest.mjs`, dan `.env.example`). Semua `NEXT_PUBLIC_*` **publik**.
 - **Quotes banner:** edit array `quoteSlides` di `src/app/page.tsx` (TODO: setujui teksnya).
 - **Video:** tambah/ubah di `scripts/videos.manifest.mjs` (potong layar hitam dengan `start`/`duration`),
-  lalu `npm run build-videos`. Audio selalu dibuang (musik Reels berlisensi untuk Instagram).
+  lalu `npm run build-videos`. Audio ikut bila video sumber bersuara; video tanpa audio tetap bisu. Catatan: musik Reels umumnya berlisensi khusus Instagram.
   Video tidak diunduh sampai diklik (`preload="none"`); total saat ini ±8,6 MB.
 
 ## Deploy & keamanan

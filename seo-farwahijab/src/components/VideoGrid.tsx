@@ -1,7 +1,8 @@
 'use client';
 
 // Kartu video "klik untuk putar": sebelum diklik hanya poster (gambar kecil) yang dimuat,
-// file video baru diunduh saat diputar. Video tanpa audio dan tidak autoplay sendiri.
+// file video baru diunduh saat diputar. Suara mengikuti video sumber (bisu hanya bila memang tanpa audio).
+// Diputar setelah diklik, jadi browser mengizinkan langsung bersuara.
 import Image from 'next/image';
 import { useState } from 'react';
 import type { Video } from '@/data/videos';
@@ -25,7 +26,7 @@ export function VideoGrid({ videos }: { videos: readonly Video[] }) {
                   height={v.height}
                   controls
                   autoPlay
-                  muted
+                  muted={!v.hasAudio}
                   playsInline
                   preload="none"
                   aria-label={v.title}
@@ -59,7 +60,8 @@ export function VideoGrid({ videos }: { videos: readonly Video[] }) {
                     {formatDuration(v.duration)}
                   </span>
                   <span className="sr-only">
-                    Putar video: {v.title} ({Math.round(v.sizeKb / 100) / 10} MB, tanpa suara)
+                    Putar video: {v.title} ({Math.round(v.sizeKb / 100) / 10} MB
+                    {v.hasAudio ? '' : ', tanpa suara'})
                   </span>
                 </button>
               )}

@@ -1,5 +1,5 @@
 // Video yang ditampilkan. `src` relatif terhadap folder assets/. `start`/`duration` (detik) memotong
-// layar hitam di akhir video. Audio selalu dibuang (musik Reels berlisensi khusus Instagram).
+// layar hitam di akhir video. Audio ikut otomatis bila video sumber bersuara (dicek dengan ffprobe).
 // Video Aisha di Shopee identik dengan versi IG 2026-09-16 → dipakai versi IG (720p).
 export const videos = [
   {

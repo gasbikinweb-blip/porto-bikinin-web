@@ -1,4 +1,5 @@
-// Kompres video terpilih (videos.manifest.mjs) ke public/videos/: H.264 lebar 540px, tanpa audio,
+// Kompres video terpilih (videos.manifest.mjs) ke public/videos/: H.264 lebar 540px, audio AAC
+// hanya bila video sumber memang bersuara (kalau tidak, tetap tanpa audio),
 // tanpa metadata, +faststart (bisa mulai diputar sebelum selesai diunduh). Juga membuat poster WebP.
 // Daftar & ukuran ditulis ke src/data/videos.generated.json. Video asli tidak diubah.
 // Butuh ffmpeg. Install di Windows: `winget install Gyan.FFmpeg`. Jalankan: npm run build-videos
@@ -21,6 +22,22 @@ try {
 }
 
 mkdirSync(OUT, { recursive: true });
+// Cek apakah video sumber punya track audio (ffprobe ikut terpasang bersama ffmpeg)
+const hasAudioTrack = (file) =>
+  execFileSync('ffprobe', [
+    '-v',
+    'error',
+    '-select_streams',
+    'a',
+    '-show_entries',
+    'stream=index',
+    '-of',
+    'csv=p=0',
+    file,
+  ])
+    .toString()
+    .trim() !== '';
+
 const tmp = mkdtempSync(path.join(tmpdir(), 'farwa-'));
 const list = [];
 
@@ -28,6 +45,7 @@ for (const v of videos) {
   const source = path.join(ROOT, v.src);
   const mp4 = path.join(OUT, `${v.name}.mp4`);
   const poster = path.join(OUT, `${v.name}.webp`);
+  const hasAudio = hasAudioTrack(source);
   const fresh = existsSync(mp4) && statSync(mp4).mtimeMs >= statSync(source).mtimeMs;
 
   if (!fresh) {
@@ -41,7 +59,7 @@ for (const v of videos) {
       String(v.duration),
       '-i',
       source,
-      '-an',
+      ...(hasAudio ? ['-c:a', 'aac', '-b:a', '96k', '-ac', '2'] : ['-an']),
       '-map_metadata',
       '-1',
       '-vf',
@@ -85,9 +103,12 @@ for (const v of videos) {
     width,
     height,
     duration: v.duration,
+    hasAudio,
     sizeKb: Math.round(statSync(mp4).size / 1024),
   });
-  console.log(`✓ ${v.src} -> ${mp4} (${list.at(-1).sizeKb} KB)`);
+  console.log(
+    `✓ ${v.src} -> ${mp4} (${list.at(-1).sizeKb} KB, ${hasAudio ? 'bersuara' : 'tanpa suara'})`,
+  );
 }
 
 rmSync(tmp, { recursive: true, force: true });

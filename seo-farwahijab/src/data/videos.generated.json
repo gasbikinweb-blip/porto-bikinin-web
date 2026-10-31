@@ -7,7 +7,8 @@
     "width": 540,
     "height": 960,
     "duration": 28,
-    "sizeKb": 1331
+    "hasAudio": true,
+    "sizeKb": 1680
   },
   {
     "name": "ootd-khiban",
@@ -17,7 +18,8 @@
     "width": 540,
     "height": 960,
     "duration": 14,
-    "sizeKb": 650
+    "hasAudio": true,
+    "sizeKb": 825
   },
   {
     "name": "naima-syari",
@@ -27,7 +29,8 @@
     "width": 540,
     "height": 960,
     "duration": 18,
-    "sizeKb": 1039
+    "hasAudio": true,
+    "sizeKb": 1263
   },
   {
     "name": "tutorial-aisha",
@@ -37,7 +40,8 @@
     "width": 540,
     "height": 960,
     "duration": 28,
-    "sizeKb": 1906
+    "hasAudio": true,
+    "sizeKb": 2257
   },
   {
     "name": "sembilan-shades",
@@ -47,7 +51,8 @@
     "width": 540,
     "height": 960,
     "duration": 24,
-    "sizeKb": 2540
+    "hasAudio": true,
+    "sizeKb": 2842
   },
   {
     "name": "tutorial-khiban-syari",
@@ -57,6 +62,7 @@
     "width": 540,
     "height": 960,
     "duration": 25,
-    "sizeKb": 1125
+    "hasAudio": true,
+    "sizeKb": 1436
   }
 ]

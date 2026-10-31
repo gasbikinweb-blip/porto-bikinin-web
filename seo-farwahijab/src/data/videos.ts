@@ -10,6 +10,8 @@ export type Video = {
   /** Detik */
   duration: number;
   sizeKb: number;
+  /** true bila video sumber bersuara (audio ikut disertakan) */
+  hasAudio: boolean;
 };
 
 // Dibuat oleh `npm run build-videos` dari scripts/videos.manifest.mjs

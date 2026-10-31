@@ -178,7 +178,7 @@ export default function HomePage() {
               Lihat langsung <em className="text-rose">jatuhnya kain</em>
             </>
           }
-          text="Tutorial pakai dan detail bahan. Klik untuk putar, tanpa suara."
+          text="Cara pakai yang praktis dan detail bahan dari dekat. Ketuk videonya untuk mulai menonton."
         />
         <div data-reveal className="mt-8">
           <VideoGrid videos={videos} />
