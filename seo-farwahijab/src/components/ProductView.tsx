@@ -330,11 +330,11 @@ export function ProductView({
             aria-disabled={!qtyOk}
             target="_blank"
             rel="noopener noreferrer"
-            className={`inline-flex min-h-13 items-center justify-center gap-2 rounded-full border-2 px-6 font-bold transition-colors ${qtyOk ? 'border-mocha hover:bg-mocha hover:text-background' : 'pointer-events-none border-line text-muted'}`}
+            className={`inline-flex min-h-13 items-center justify-center gap-2 rounded-full border-2 px-6 font-bold whitespace-nowrap transition-colors ${qtyOk ? 'border-mocha hover:bg-mocha hover:text-background' : 'pointer-events-none border-line text-muted'}`}
           >
             <WhatsAppIcon />
-            Pesan via WhatsApp
-            <span className="sr-only"> (tab baru)</span>
+            Order WhatsApp
+            <span className="sr-only"> (pesan lewat WhatsApp, tab baru)</span>
           </a>
         </div>
         {/* Keranjang tanya-pesan: kumpulkan beberapa produk, kirim sekaligus via WA */}
