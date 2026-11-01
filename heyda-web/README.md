@@ -5,14 +5,14 @@ Hanya frontend: tidak ada keranjang, checkout, login, atau form yang mengirim da
 
 ## Perintah
 
-| Perintah                                | Fungsi                                                                                                 |
-| --------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `npm run dev`                           | Server pengembangan                                                                                    |
-| `npm run build`                         | Build statis ke folder `out/`                                                                          |
-| `npm start`                             | Sajikan `out/` secara lokal (`serve`)                                                                  |
-| `npm run lint` / `typecheck` / `format` | ESLint, TypeScript, Prettier                                                                           |
-| `npm run audit`                         | Cek kerentanan dependency                                                                              |
-| `npm run optimize-images`               | `../assets/*` → WebP di `public/images/` (maks 1200px + thumb 400px, tanpa EXIF/GPS) + `public/og.jpg` |
+| Perintah                                | Fungsi                                                                                                                      |
+| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `npm run dev`                           | Server pengembangan                                                                                                         |
+| `npm run build`                         | Build statis ke folder `out/`                                                                                               |
+| `npm start`                             | Sajikan `out/` secara lokal (`serve`)                                                                                       |
+| `npm run lint` / `typecheck` / `format` | ESLint, TypeScript, Prettier                                                                                                |
+| `npm run audit`                         | Cek kerentanan dependency                                                                                                   |
+| `npm run optimize-images`               | `../sarikacangijobyheyda/assets/*` → WebP di `public/images/` (maks 1200px + thumb 400px, tanpa EXIF/GPS) + `public/og.jpg` |
 
 Node ≥ 20.9 (lihat `.nvmrc`). Versi dependency dikunci exact.
 
@@ -29,7 +29,7 @@ Node ≥ 20.9 (lihat `.nvmrc`). Versi dependency dikunci exact.
 Saat ini **belum ada foto produk asli**; semua gambar di `assets/` adalah poster desain/AI, jadi kartu varian memakai
 ilustrasi botol SVG bertuliskan "Foto produk segera hadir".
 
-1. Taruh foto asli di `../assets/foto-produk/` (mis. `ori.jpg`), lalu `npm run optimize-images`.
+1. Taruh foto asli di `../sarikacangijobyheyda/assets/foto-produk/` (mis. `ori.jpg`), lalu `npm run optimize-images`.
 2. Di `variants.ts` isi `image: { src: '/images/foto-produk-ori.webp', alt: '...', width, height, kind: 'foto' }`.
 3. Gambar non-foto wajib `kind: 'ilustrasi'` (otomatis diberi label "Ilustrasi").
 
@@ -44,7 +44,7 @@ Di Vercel/Netlify, isi di pengaturan Environment Variables. Build gagal bila nom
 
 ## Deploy
 
-- **Vercel:** import folder ini sebagai project (root directory `sarikacangijobyheyda/heyda-web`). `vercel.json` sudah mengatur build & header.
+- **Vercel:** import folder ini sebagai project (root directory `heyda-web`). `vercel.json` sudah mengatur build & header.
 - **Netlify / Cloudflare Pages:** build `npm run build`, publish `out`. Header diambil dari `public/_headers`.
 - Setelah dapat domain, set `NEXT_PUBLIC_SITE_URL` agar canonical, sitemap, robots, dan OG memakai domain asli.
 

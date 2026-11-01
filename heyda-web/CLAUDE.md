@@ -12,7 +12,7 @@ semua pertanyaan dan pemesanan lewat WhatsApp. Baca README.md untuk struktur len
 - Semua link WhatsApp lewat `buildWhatsAppLink()` di `src/lib/whatsapp.ts`.
 - Konfigurasi toko hanya di `src/lib/config.ts` (nilai dari `NEXT_PUBLIC_*`, yang bersifat publik).
 - Data produk di `src/data/*.ts` dengan tipe ketat. Data karangan ditandai `// TODO: ganti dengan data asli`.
-- Gambar: sumber di `../assets/`, jalankan `npm run optimize-images`; pakai `next/image` dengan `fill` + `sizes`
+- Gambar: sumber di `../sarikacangijobyheyda/assets/` (atau env `ASSETS_DIR`), jalankan `npm run optimize-images`; pakai `next/image` dengan `fill` + `sizes`
   atau width/height, `alt` deskriptif, `priority` hanya di atas layar, rasio konsisten (anti-CLS).
 - Warna lewat token CSS di `globals.css` (tema krem terang di `:root`); kontras teks ≥ 4.5:1.
 

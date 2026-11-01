@@ -1,4 +1,4 @@
-// Mengubah gambar di ../assets/ menjadi WebP di public/images/ (maks 1200px + thumbnail 400px).
+// Mengubah gambar di ../sarikacangijobyheyda/assets/ menjadi WebP di public/images/ (maks 1200px + thumbnail 400px).
 // Metadata EXIF/GPS dibuang (sharp tidak menyalin metadata kecuali diminta).
 // Folder referensi UI dilewati: gambar referensi TIDAK boleh dipakai di situs.
 // Jalankan: npm run optimize-images
@@ -6,7 +6,8 @@ import { mkdir, readdir, stat } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 
-const SRC = path.resolve('..', 'assets');
+// Folder sumber (di luar project). Bisa diganti: ASSETS_DIR=path/ke/assets npm run optimize-images
+const SRC = path.resolve(process.env.ASSETS_DIR ?? '../sarikacangijobyheyda/assets');
 const OUT = path.resolve('public', 'images');
 const SKIP = 'referensi website untuk UI dan UX nya';
 const EXT = new Set(['.jpg', '.jpeg', '.png', '.webp']);
