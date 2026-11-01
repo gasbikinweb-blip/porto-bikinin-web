@@ -1,0 +1,7 @@
+# Aktif bila folder ini dijadikan repo sendiri; di repo porto, pindahkan ke .github di root
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly

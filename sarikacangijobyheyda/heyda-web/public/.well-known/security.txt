@@ -1,0 +1,4 @@
+# TODO: ganti kontak dengan email pengelola website
+Contact: https://wa.me/6285843766377
+Expires: 2027-11-01T00:00:00.000Z
+Preferred-Languages: id, en
