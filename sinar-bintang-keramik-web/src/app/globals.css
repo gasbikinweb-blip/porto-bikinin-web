@@ -1,0 +1,62 @@
+@import 'tailwindcss';
+
+/*
+ * Palet dari logo SBK: putih, merah SBK sebagai aksen (tombol, badge, harga), abu-abu terang untuk latar
+ * section, teks hampir hitam. Kontras dicek:
+ * - ink #1a1a1a di atas putih ≈ 17:1, muted #555 ≈ 7.4:1
+ * - putih di atas red #c4161c ≈ 5.9:1, red di atas putih ≈ 5.9:1, red-strong #9e1116 ≈ 8.2:1
+ */
+:root {
+  --background: #ffffff;
+  --surface: #f4f4f5;
+  --surface-2: #e9e9eb;
+  --ink: #1a1a1a;
+  --muted: #555555;
+  --red: #c4161c;
+  --red-strong: #9e1116;
+  --red-soft: #fdecec;
+  --line: #e2e2e5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-red: var(--red);
+  --color-red-strong: var(--red-strong);
+  --color-red-soft: var(--red-soft);
+  --color-line: var(--line);
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Ruang untuk header sticky saat melompat ke anchor */
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--ink);
+}
+
+/* Fokus keyboard yang jelas */
+:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
