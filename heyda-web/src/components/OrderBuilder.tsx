@@ -112,7 +112,11 @@ export function OrderBuilder() {
     <div className="grid gap-6 lg:grid-cols-2">
       <div className="flex flex-col gap-6">
         <fieldset className="rounded-3xl border border-line bg-background p-5 sm:p-6">
-          <legend className="px-2 font-serif text-xl">1. Pilih varian & jumlah</legend>
+          {/* legend bawaan menempel di garis border; judul tampil lewat <p> di dalam kotak */}
+          <legend className="sr-only">1. Pilih varian & jumlah</legend>
+          <p aria-hidden="true" className="font-serif text-xl">
+            1. Pilih varian & jumlah
+          </p>
           <ul className="mt-2 divide-y divide-line">
             {variants.map((v) => {
               const n = qty[v.slug] ?? 0;
