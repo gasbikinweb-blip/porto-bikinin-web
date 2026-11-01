@@ -1,0 +1,156 @@
+@import 'tailwindcss';
+
+/*
+ * Palet dari logo SBK: putih tulang, merah SBK sebagai aksen (tombol, badge, harga), abu-abu hangat untuk
+ * latar section. --ink selalu gelap (section gelap, badge) di kedua mode; teks biasa pakai --foreground.
+ * Kontras dicek ≥ 4.5:1 untuk teks utama, muted, dan putih di atas merah.
+ */
+:root {
+  color-scheme: light;
+  --background: #fbfaf8;
+  --surface: #f2f0ec;
+  --surface-2: #e7e4de;
+  --card: #ffffff;
+  --foreground: #1a1a1a;
+  --muted: #57534e;
+  --red: #c4161c;
+  --red-strong: #9e1116;
+  --red-soft: #fdecec;
+  --line: #e2dfd9;
+  --ink: #161514;
+}
+
+/* Mode gelap: ikut sistem, kecuali pengunjung memilih lewat tombol (data-theme) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --background: #121110;
+    --surface: #1b1a18;
+    --surface-2: #262421;
+    --card: #1e1d1b;
+    --foreground: #f2efe9;
+    --muted: #b3ada4;
+    --red: #e0383e;
+    --red-strong: #f0565b;
+    --red-soft: #3a1416;
+    --line: #34312d;
+    --ink: #0a0a09;
+  }
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --background: #121110;
+  --surface: #1b1a18;
+  --surface-2: #262421;
+  --card: #1e1d1b;
+  --foreground: #f2efe9;
+  --muted: #b3ada4;
+  --red: #e0383e;
+  --red-strong: #f0565b;
+  --red-soft: #3a1416;
+  --line: #34312d;
+  --ink: #0a0a09;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-red: var(--red);
+  --color-red-strong: var(--red-strong);
+  --color-red-soft: var(--red-soft);
+  --color-line: var(--line);
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-heading), var(--font-body), ui-sans-serif, sans-serif;
+
+  /* Judul fluid: HP → desktop */
+  --text-display: clamp(2.25rem, 1.4rem + 3.8vw, 4.25rem);
+  --text-display--line-height: 1.02;
+  --text-heading: clamp(1.75rem, 1.3rem + 1.9vw, 2.75rem);
+  --text-heading--line-height: 1.08;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Ruang untuk header sticky saat melompat ke anchor */
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.font-display {
+  letter-spacing: -0.025em;
+}
+
+::selection {
+  background: var(--red);
+  color: #fff;
+}
+
+/* Fokus keyboard yang jelas */
+:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Motif nat keramik tipis di latar hero */
+.tile-grid {
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Muncul saat digulir: hanya bila JS aktif (kelas .js dari theme-init.js) */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--delay, 0ms);
+}
+.js .reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+.animate-fade {
+  animation: fade-in 0.4s ease both;
+}
+
+dialog[open] {
+  animation: fade-in 0.25s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

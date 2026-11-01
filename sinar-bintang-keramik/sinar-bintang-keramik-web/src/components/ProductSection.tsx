@@ -3,9 +3,10 @@
 // Produk pilihan: filter kategori & ukuran, awalnya produk unggulan, lalu "Tampilkan lebih banyak" 12 per klik
 import { useEffect, useState } from 'react';
 import { categories, type CategorySlug } from '@/data/categories';
-import { products } from '@/data/products';
+import { products, type Product } from '@/data/products';
 import { CATEGORY_EVENT } from '@/lib/category-event';
 import { ProductCard } from './ProductCard';
+import { ProductModal } from './ProductModal';
 
 const STEP = 12;
 const featuredCount = products.filter((p) => p.featured).length;
@@ -17,6 +18,7 @@ export function ProductSection() {
   const [category, setCategory] = useState<CategorySlug | 'semua'>('semua');
   const [size, setSize] = useState('semua');
   const [shown, setShown] = useState(featuredCount);
+  const [detail, setDetail] = useState<Product | null>(null);
 
   // Dipicu kartu kategori
   useEffect(() => {
@@ -47,7 +49,7 @@ export function ProductSection() {
     `min-h-11 shrink-0 rounded-full border px-4 text-sm font-semibold transition-colors ${
       active
         ? 'border-red bg-red text-white'
-        : 'border-line bg-white hover:border-red hover:text-red'
+        : 'border-line bg-card hover:border-red hover:text-red'
     }`;
 
   return (
@@ -88,7 +90,7 @@ export function ProductSection() {
                 setSize(e.target.value);
                 setShown(STEP);
               }}
-              className="min-h-11 rounded-lg border border-line bg-white px-3"
+              className="min-h-11 rounded-full border border-line bg-card px-4"
             >
               <option value="semua">Semua ukuran</option>
               {sizes.map((s) => (
@@ -107,9 +109,14 @@ export function ProductSection() {
       </div>
 
       <ul className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-        {visible.map((p) => (
-          <li key={p.id}>
-            <ProductCard product={p} />
+        {visible.map((p, i) => (
+          <li
+            key={p.id}
+            className="reveal"
+            // Kartu dalam satu baris muncul bergantian
+            style={{ '--delay': `${(i % 4) * 70}ms` } as React.CSSProperties}
+          >
+            <ProductCard product={p} onOpen={() => setDetail(p)} />
           </li>
         ))}
       </ul>
@@ -119,12 +126,14 @@ export function ProductSection() {
           <button
             type="button"
             onClick={() => setShown((n) => n + STEP)}
-            className="min-h-12 rounded-lg border-2 border-ink px-6 font-bold hover:bg-ink hover:text-white"
+            className="min-h-12 rounded-full border-2 border-foreground px-6 font-bold transition-colors hover:bg-foreground hover:text-background"
           >
             Tampilkan lebih banyak ({filtered.length - visible.length} lagi)
           </button>
         </div>
       )}
+
+      {detail && <ProductModal product={detail} onClose={() => setDetail(null)} />}
     </div>
   );
 }

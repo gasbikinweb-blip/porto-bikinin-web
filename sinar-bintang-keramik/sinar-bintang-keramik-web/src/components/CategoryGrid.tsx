@@ -18,7 +18,7 @@ export function CategoryGrid() {
             <button
               type="button"
               onClick={() => selectCategory(c.slug)}
-              className="group flex h-full w-full flex-col overflow-hidden rounded-xl border border-line bg-white text-left transition-shadow hover:border-red hover:shadow-md"
+              className="group flex h-full w-full flex-col overflow-hidden rounded-2xl border border-line bg-card text-left transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-red hover:shadow-md"
             >
               {cover && (
                 <span className="relative block aspect-[4/3] w-full bg-surface">

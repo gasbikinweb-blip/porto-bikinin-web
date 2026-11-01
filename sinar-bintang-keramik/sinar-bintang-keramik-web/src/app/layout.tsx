@@ -1,15 +1,18 @@
 import type { Metadata, Viewport } from 'next';
-import { Plus_Jakarta_Sans } from 'next/font/google';
+import { Bricolage_Grotesque, Plus_Jakarta_Sans } from 'next/font/google';
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
+import { RevealOnScroll } from '@/components/RevealOnScroll';
 import { products } from '@/data/products';
 import { site } from '@/data/site';
 import { config } from '@/lib/config';
 import './globals.css';
 
 // Font di-host sendiri saat build (tidak memanggil Google saat runtime)
+// Teks: Plus Jakarta Sans. Judul: Bricolage Grotesque (karakter tegas, tidak generik).
 const body = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-body' });
+const heading = Bricolage_Grotesque({ subsets: ['latin'], variable: '--font-heading' });
 
 const title = `${site.name} | Toko Keramik Murah Jakarta Timur`;
 const ogImage = products.find((p) => p.id === 'keramik-40x40-fremont')?.image.src;
@@ -39,11 +42,22 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image', title, description: site.description },
 };
 
-export const viewport: Viewport = { themeColor: '#c4161c' };
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#fbfaf8' },
+    { media: '(prefers-color-scheme: dark)', color: '#121110' },
+  ],
+};
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="id" className={body.variable}>
+    // suppressHydrationWarning: data-theme & kelas .js dipasang theme-init.js sebelum React aktif
+    <html lang="id" className={`${body.variable} ${heading.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Sengaja sinkron agar tema terpasang sebelum halaman digambar; file kecil & lokal */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script src="/theme-init.js" />
+      </head>
       <body className="flex min-h-dvh flex-col font-sans antialiased">
         <a
           href="#konten"
@@ -57,6 +71,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </main>
         <Footer />
         <FloatingWhatsApp />
+        <RevealOnScroll />
       </body>
     </html>
   );

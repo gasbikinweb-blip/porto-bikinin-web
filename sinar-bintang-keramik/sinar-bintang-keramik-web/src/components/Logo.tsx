@@ -25,7 +25,9 @@ export function Logo({ light = false }: { light?: boolean }) {
     <span className="flex items-center gap-2.5">
       <LogoMark />
       <span className="leading-tight">
-        <span className={`block text-base font-extrabold ${light ? 'text-white' : 'text-ink'}`}>
+        <span
+          className={`block text-base font-extrabold ${light ? 'text-white' : 'text-foreground'}`}
+        >
           Sinar Bintang Keramik
         </span>
         <span className={`block text-xs font-semibold ${light ? 'text-white/75' : 'text-red'}`}>

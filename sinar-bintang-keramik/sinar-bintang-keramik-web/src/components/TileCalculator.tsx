@@ -60,11 +60,11 @@ export function TileCalculator() {
         .join('\n')
     : '';
 
-  const field = 'mt-1.5 min-h-12 w-full rounded-lg border border-line bg-white px-3 text-base';
+  const field = 'mt-1.5 min-h-12 w-full rounded-lg border border-line bg-card px-3 text-base';
   const invalid = (raw: string, ok: number | null) => raw.trim() !== '' && ok === null;
 
   return (
-    <div className="grid gap-6 rounded-2xl border border-line bg-white p-5 sm:p-7 lg:grid-cols-[1.1fr_0.9fr]">
+    <div className="grid gap-6 rounded-3xl border border-line bg-card p-5 sm:p-8 lg:grid-cols-[1.1fr_0.9fr]">
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor={`${id}-p`} className="text-sm font-semibold">
