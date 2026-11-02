@@ -1,4 +1,4 @@
-// Foto utama tiap produk dari ../assets/Shopee Assets/[folder] (atau ../Instagram/... untuk produk dari IG).
+// Foto utama tiap produk dari ../sinar-bintang-keramik-sumber/assets/Shopee Assets/[folder] (atau ../Instagram/... untuk produk dari IG).
 // Jalankan `npm run optimize-images` setelah mengubah file ini.
 export const productImages = [
   {

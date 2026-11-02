@@ -1,4 +1,4 @@
-// Foto utama produk dari ../assets/Shopee Assets/ → WebP 1:1 di public/images/produk/.
+// Foto utama produk dari ../sinar-bintang-keramik-sumber/assets/Shopee Assets/ → WebP 1:1 di public/images/produk/.
 // Hasil: [slug].webp (800px) + [slug]-thumb.webp (400px). File asli TIDAK ditimpa, EXIF/GPS dibuang.
 // Jalankan: npm run optimize-images
 import { mkdir, stat } from 'node:fs/promises';
@@ -6,7 +6,7 @@ import path from 'node:path';
 import sharp from 'sharp';
 import { productImages } from './products.manifest.mjs';
 
-const SRC = process.env.ASSETS_DIR ?? '../assets/Shopee Assets';
+const SRC = process.env.ASSETS_DIR ?? '../sinar-bintang-keramik-sumber/assets/Shopee Assets';
 const OUT = 'public/images/produk';
 const SIZES = [
   { suffix: '', width: 800 },

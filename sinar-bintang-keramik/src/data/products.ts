@@ -1,4 +1,4 @@
-// Data produk dari listing Shopee Sinar Bintang Keramik (folder ../assets/Shopee Assets).
+// Data produk dari listing Shopee Sinar Bintang Keramik (folder ../sinar-bintang-keramik-sumber/assets/Shopee Assets).
 // Harga = harga Shopee saat data diambil. `priceFrom: true` berarti listing punya beberapa varian (harga mulai).
 // pcsPerBox / m2PerBox hanya diisi bila tertulis di deskripsi Shopee; jangan menebak.
 // TODO: konfirmasi satuan harga (keramik per dus, plint per pcs, sanitary & pintu per buah, semen per sak).

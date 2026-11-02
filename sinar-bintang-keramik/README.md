@@ -19,7 +19,7 @@ keramik · `#merek` · `#ulasan` · `#toko` · `#faq` · footer · tombol WA men
 | `npm run build`                                   | Build statis ke `out/`                                           |
 | `npm start`                                       | Menyajikan `out/` secara lokal                                   |
 | `npm run lint` / `typecheck` / `format` / `audit` | Kualitas & keamanan kode                                         |
-| `npm run optimize-images`                         | Foto `../assets/Shopee Assets/` → WebP 1:1 (800px + thumb 400px) |
+| `npm run optimize-images`                         | Foto `../sinar-bintang-keramik-sumber/assets/Shopee Assets/` → WebP 1:1 (800px + thumb 400px) |
 
 Node ≥ 20.9 (`.nvmrc` 22.20.0), Next.js 16.4.3, versi dependency exact.
 
@@ -39,7 +39,7 @@ scripts/products.manifest.mjs  foto utama tiap produk (folder Shopee + nama file
 
 ## Cara umum
 
-- **Tambah produk:** salin folder listing Shopee ke `../assets/Shopee Assets/`, tambahkan entri
+- **Tambah produk:** salin folder listing Shopee ke `../sinar-bintang-keramik-sumber/assets/Shopee Assets/`, tambahkan entri
   `{ slug, folder, image }` di `scripts/products.manifest.mjs`, jalankan `npm run optimize-images`, lalu
   tambahkan objek di `inputs` pada `src/data/products.ts` dengan `id` = slug yang sama.
 - **Hapus produk:** hapus objeknya di `products.ts` (dan entri manifest + file WebP bila mau).
@@ -56,7 +56,7 @@ scripts/products.manifest.mjs  foto utama tiap produk (folder Shopee + nama file
 
 ## Deploy
 
-Folder statis `out/`. Vercel: root `sinar-bintang-keramik/sinar-bintang-keramik-web` (`vercel.json` sudah
+Folder statis `out/`. Vercel: root `sinar-bintang-keramik` (`vercel.json` sudah
 berisi header). Netlify/Cloudflare Pages: build `npm run build`, publish `out` (header dari
 `public/_headers`). Set `NEXT_PUBLIC_SITE_URL` ke domain asli.
 
@@ -77,7 +77,7 @@ rel="noopener noreferrer"`.
 
 ## Hak cipta & privasi
 
-Hanya foto dari `../assets/` (listing Shopee milik toko). Merek pihak lain ditampilkan sebagai teks, bukan
+Hanya foto dari `../sinar-bintang-keramik-sumber/assets/` (listing Shopee milik toko). Merek pihak lain ditampilkan sebagai teks, bukan
 logo. Script membuang EXIF/GPS. Jumlah terjual dan rating Shopee tidak disalin.
 
 ## TODO sebelum rilis
