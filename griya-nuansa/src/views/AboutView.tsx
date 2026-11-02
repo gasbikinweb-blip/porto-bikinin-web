@@ -2,12 +2,22 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { AboutStrip } from '@/components/AboutStrip';
 import { ArrowUpRight } from '@/components/icons';
-import { Container, PageHeader } from '@/components/ui';
+import { Container, Eyebrow, PageHeader } from '@/components/ui';
 import { WhatsAppButton } from '@/components/WhatsApp';
 import { getProject, getProjects } from '@/data/projects';
 import { site } from '@/data/site';
 import { type Lang, lp } from '@/i18n';
 import { ui } from '@/i18n/ui';
+
+// Foto tim hasil optimasi dari assets_baru (zip "GRIYA NUANSA WEBSITE"), lihat public/images/tim/
+const TEAM = {
+  story: { src: '/images/tim/tim-duduk.webp' },
+  grid: [
+    '/images/tim/tim-berdiri-thumb.webp',
+    '/images/tim/tim-formasi-thumb.webp',
+    '/images/tim/tim-kolaborasi-thumb.webp',
+  ],
+};
 
 // TODO: tinjau ulang isi (ID & EN) bersama tim Griya Nuansa.
 export const aboutCopy = {
@@ -56,13 +66,22 @@ export const aboutCopy = {
     banner: ['Merancang', 'ruang yang', 'bernuansa'],
     bannerText: 'Hunian dan ruang usaha di Jabodetabek, dari konsep hingga serah terima.',
     seeProjects: 'Lihat proyek kami',
-    teamTitle: (
-      <>
-        Arsitek, desainer interior, <em>dan tim lapangan</em>
-      </>
-    ),
-    teamText:
-      'Profil tim akan segera ditampilkan. Sementara itu, kenali kami lebih dekat lewat WhatsApp.',
+    storyEyebrow: 'Tentang Griya Nuansa',
+    storyTitle: 'Cerita Kami',
+    // Sumber: Brief Web Griya Nuansa (bagian ABOUT)
+    story: [
+      'Sejak 2014, Griya Nuansa hadir untuk mendampingi mewujudkan ruang yang benar-benar terasa personal. Kami percaya bahwa setiap ruang memiliki cerita, kebutuhan, serta karakter yang berbeda. Karena itu, kami menghadirkan layanan terpadu dalam satu atap, mulai dari desain dan pembangunan arsitektur maupun interior, renovasi, hingga maintenance dan manajemen properti.',
+      'Bagi kami, setiap proyek adalah sebuah kolaborasi. Kami meluangkan waktu untuk memahami kebutuhan, kebiasaan, dan harapan setiap klien, lalu menerjemahkannya menjadi ruang yang personal, fungsional, dan nyaman untuk dijalani.',
+      'Dari gagasan pertama hingga bangunan berdiri dengan sempurna, kami mendampingi setiap proses dengan komunikasi yang terbuka, perhatian pada setiap detail, serta komitmen terhadap kualitas. Karena kami percaya, ruang yang dirancang dengan baik bukan hanya indah dipandang, tetapi juga mampu meningkatkan kualitas hidup orang-orang yang menggunakannya setiap hari.',
+    ],
+    storyAlt: 'Tim Griya Nuansa duduk bersama di studio berlatar putih',
+    teamEyebrow: 'Tim Kami',
+    teamTitle: 'Profesional di Balik Griya Nuansa',
+    teamAlts: [
+      'Tim Griya Nuansa berdiri berjajar di studio',
+      'Tim Griya Nuansa berfoto bersama dengan formasi berdiri',
+      'Tim Griya Nuansa menyatukan tangan sebagai simbol kolaborasi',
+    ],
     teamCta: 'Ngobrol dengan tim',
   },
   en: {
@@ -113,12 +132,21 @@ export const aboutCopy = {
     banner: ['Designing', 'spaces with', 'nuance'],
     bannerText: 'Homes and business spaces across Greater Jakarta, from concept to handover.',
     seeProjects: 'See our projects',
-    teamTitle: (
-      <>
-        Architects, interior designers, <em>and site team</em>
-      </>
-    ),
-    teamText: 'Team profiles are coming soon. In the meantime, get to know us via WhatsApp.',
+    storyEyebrow: 'About Griya Nuansa',
+    storyTitle: 'Our Background Story',
+    story: [
+      'Since 2014, Griya Nuansa has been helping people create spaces that feel truly personal. We believe every space has its own story, needs, and character. That is why we offer integrated services under one roof, from architectural and interior design and construction to renovation, maintenance, and property management.',
+      'For us, every project is a collaboration. We take the time to understand the needs, habits, and expectations of each client, then translate them into spaces that are personal, functional, and comfortable to live in.',
+      'From the first idea to the finished building, we accompany every step with open communication, attention to detail, and a commitment to quality. Because we believe a well-designed space is not only beautiful to look at, but also improves the quality of life of the people who use it every day.',
+    ],
+    storyAlt: 'The Griya Nuansa team sitting together in a white studio',
+    teamEyebrow: 'Our Team',
+    teamTitle: 'Professionals Behind Griya Nuansa',
+    teamAlts: [
+      'The Griya Nuansa team standing in a row in the studio',
+      'The Griya Nuansa team posing together in a standing formation',
+      'The Griya Nuansa team joining hands as a symbol of collaboration',
+    ],
     teamCta: 'Talk to the team',
   },
 };
@@ -135,6 +163,30 @@ export function AboutView({ lang }: { lang: Lang }) {
   return (
     <>
       <PageHeader eyebrow={c.eyebrow} image={img} title={c.title} />
+
+      {/* Cerita kami: foto tim duduk | teks latar belakang dari brief */}
+      <section className="bg-surface py-20 md:py-28">
+        <Container>
+          <Eyebrow>{c.storyEyebrow}</Eyebrow>
+          <h2 className="mt-3 font-serif text-4xl leading-[1.1] md:text-5xl">{c.storyTitle}</h2>
+          <div className="mt-10 grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+            <div className="relative aspect-[5/4] overflow-hidden rounded-md bg-bg">
+              <Image
+                src={TEAM.story.src}
+                alt={c.storyAlt}
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="space-y-5 text-sm leading-relaxed text-muted md:text-base">
+              {c.story.map((para) => (
+                <p key={para}>{para}</p>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
 
       {/* Foto + akordeon "Mengapa Griya Nuansa" */}
       <section className="py-20 md:py-28">
@@ -250,12 +302,25 @@ export function AboutView({ lang }: { lang: Lang }) {
         </Container>
       )}
 
-      {/* Tim */}
-      <Container className="mt-24 text-center">
-        <h2 className="font-serif text-4xl font-light md:text-5xl">{c.teamTitle}</h2>
-        {/* TODO: tambahkan profil tim (nama & peran). Foto tim tersedia di assets_baru (zip). */}
-        <p className="mx-auto mt-4 max-w-2xl text-muted">{c.teamText}</p>
-        <div className="mt-8">
+      {/* Tim: tiga foto tim (sumber: assets_baru, foto asli dari zip) */}
+      <Container className="mt-24">
+        <Eyebrow>{c.teamEyebrow}</Eyebrow>
+        <h2 className="mt-3 font-serif text-4xl leading-[1.1] md:text-5xl">{c.teamTitle}</h2>
+        {/* TODO: tambahkan profil per anggota (nama & peran) bila datanya tersedia */}
+        <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {TEAM.grid.map((src, i) => (
+            <li key={src} className="relative aspect-[4/3] overflow-hidden rounded-md bg-surface">
+              <Image
+                src={src}
+                alt={c.teamAlts[i] ?? ''}
+                fill
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                className="object-cover transition-transform duration-700 hover:scale-[1.03]"
+              />
+            </li>
+          ))}
+        </ul>
+        <div className="mt-10">
           <WhatsAppButton lang={lang} message={ui[lang].defaultWa}>
             {c.teamCta}
           </WhatsAppButton>
