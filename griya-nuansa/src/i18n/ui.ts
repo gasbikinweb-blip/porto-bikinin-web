@@ -29,9 +29,11 @@ const id = {
   next: 'Berikutnya',
   kind: { render: 'Render Desain', before: 'Sebelum', after: 'Sesudah' },
   footer: {
-    ctaEyebrow: 'Mari wujudkan ruang yang indah',
-    ctaTitle: 'Siap mewujudkan ruang impian Anda?',
-    ctaText: 'Ceritakan rencana Anda, kami bantu memetakan langkah terbaik untuk mewujudkannya.',
+    // Sumber: Brief Web Griya Nuansa (CTA Konsultasi)
+    ctaEyebrow: 'Konsultasi',
+    ctaTitle: 'Siap wujudkan rumah impian Anda?',
+    ctaText:
+      'Setiap rumah memiliki cerita yang berbeda. Konsultasikan kebutuhan Anda bersama Griya Nuansa, dan biarkan kami menghadirkan solusi desain yang menyatukan estetika, fungsi, serta kenyamanan dalam setiap detail.',
     startConsult: 'Mulai Konsultasi',
     requestQuote: 'Minta Penawaran',
     about: (city: string) =>
@@ -56,6 +58,14 @@ const id = {
     label: 'Filter kategori proyek',
     all: 'Semua Karya',
     showing: (n: number) => `Menampilkan ${n} proyek`,
+    search: 'Cari nama proyek',
+    searchPh: 'mis. AA House',
+    location: 'Lokasi',
+    allLocations: 'Semua lokasi',
+    year: 'Tahun',
+    allYears: 'Semua tahun',
+    empty: 'Belum ada proyek yang cocok dengan filter ini.',
+    reset: 'Atur ulang filter',
   },
   gallery: {
     enlarge: (n: number) => `Perbesar gambar ${n}`,
@@ -162,9 +172,10 @@ const en: Ui = {
   next: 'Next',
   kind: { render: 'Design Render', before: 'Before', after: 'After' },
   footer: {
-    ctaEyebrow: "Let's create a beautiful space",
-    ctaTitle: 'Ready to bring your dream space to life?',
-    ctaText: "Tell us your plans, and we'll help map out the best way to make them happen.",
+    ctaEyebrow: 'Consultation',
+    ctaTitle: 'Ready to build your dream home?',
+    ctaText:
+      'Every home has its own story. Consult your needs with Griya Nuansa, and let us bring design solutions that unite aesthetics, function, and comfort in every detail.',
     startConsult: 'Start a Consultation',
     requestQuote: 'Request a Quote',
     about: (city: string) =>
@@ -189,6 +200,14 @@ const en: Ui = {
     label: 'Filter projects by category',
     all: 'All Works',
     showing: (n: number) => `Showing ${n} projects`,
+    search: 'Search project name',
+    searchPh: 'e.g. AA House',
+    location: 'Location',
+    allLocations: 'All locations',
+    year: 'Year',
+    allYears: 'All years',
+    empty: 'No projects match these filters yet.',
+    reset: 'Reset filters',
   },
   gallery: {
     enlarge: (n: number) => `Enlarge image ${n}`,

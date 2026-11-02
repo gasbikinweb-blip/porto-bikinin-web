@@ -36,6 +36,7 @@ export const site = {
     threads: 'https://www.threads.com/@griyanuansa.id',
     youtube: 'https://www.youtube.com/@griyanuansaid',
     tiktok: 'https://www.tiktok.com/@griyanuansa.id',
+    pinterest: 'https://id.pinterest.com/griyanuansaid/',
   },
   hashtags: ['#KaryaNuansa', '#arsitekturjabodetabek'],
   // TODO: taruh file PDF asli di public/files/ dengan nama yang sama
@@ -44,6 +45,20 @@ export const site = {
     pricelist: '/files/pricelist-griya-nuansa.pdf',
   },
 } as const;
+
+/** Statistik dari brief klien & griyanuansa.id */
+export const stats: L<[string, string][]> = {
+  id: [
+    ['200+', 'Proyek'],
+    ['12+', 'Tahun Pengalaman'],
+    ['98%+', 'Kepuasan Klien'],
+  ],
+  en: [
+    ['200+', 'Projects'],
+    ['12+', 'Years of Experience'],
+    ['98%+', 'Client Satisfaction'],
+  ],
+};
 
 export const defaultWaMessage =
   'Halo Griya Nuansa, saya ingin konsultasi mengenai desain/pengerjaan properti saya.';

@@ -83,10 +83,46 @@ export function YoutubeIcon({ className = 'h-4 w-4' }: IconProps) {
   );
 }
 
+export function TiktokIcon({ className = 'h-4 w-4' }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      aria-hidden="true"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3c.5 2.6 2.3 4.3 5 4.5" />
+    </svg>
+  );
+}
+
+export function PinterestIcon({ className = 'h-4 w-4' }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      aria-hidden="true"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+    >
+      <circle cx="12" cy="12" r="9" />
+      <path d="M11 9.5c.6-1.5 3.8-1.6 4.2.7.4 2.4-1.6 4.6-3.3 3.6M11.6 10.5 9.8 19" />
+    </svg>
+  );
+}
+
 const socials = [
   { href: site.social.instagram, label: 'Instagram', Icon: InstagramIcon },
   { href: site.social.threads, label: 'Threads', Icon: ThreadsIcon },
   { href: site.social.youtube, label: 'YouTube', Icon: YoutubeIcon },
+  { href: site.social.tiktok, label: 'TikTok', Icon: TiktokIcon },
+  { href: site.social.pinterest, label: 'Pinterest', Icon: PinterestIcon },
 ];
 
 /** Deretan ikon media sosial bulat (dipakai di hero dan footer) */

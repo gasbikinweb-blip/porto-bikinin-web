@@ -19,6 +19,7 @@ export const socialLinks = [
   { href: site.social.threads, label: 'Threads' },
   { href: site.social.youtube, label: 'YouTube' },
   { href: site.social.tiktok, label: 'TikTok' },
+  { href: site.social.pinterest, label: 'Pinterest' },
 ];
 
 const colTitle = 'text-xs tracking-[0.2em] text-white/50 uppercase';

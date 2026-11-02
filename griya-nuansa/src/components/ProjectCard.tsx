@@ -20,7 +20,8 @@ export function ProjectCard({
   headingLevel?: 'h2' | 'h3';
 }) {
   const H = headingLevel;
-  const caption = [project.location, getCategory(project.category).label[lang]]
+  // Keterangan kecil: tahun · lokasi (tanpa data lokasi, tampilkan kategori)
+  const caption = [project.year, project.location ?? getCategory(project.category).label[lang]]
     .filter(Boolean)
     .join(' · ');
   return (

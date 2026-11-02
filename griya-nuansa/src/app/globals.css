@@ -3,46 +3,50 @@
 /* Varian dark: mengikuti atribut data-theme dari tombol tema */
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
-/* Palet: krem hangat, cokelat-charcoal, aksen amber & sage. Mode gelap mengikuti preferensi sistem. */
+/*
+ * Palet sesuai Brief Web Griya Nuansa: Putih #FFFFFF, Abu #E5E1DA, Cokelat #6A5F52, Hitam #1A1A1A.
+ * Kontras sudah dicek: cokelat di atas putih 6,3:1; muted di atas abu 5,4:1 (≥ 4.5:1).
+ * Mode gelap memakai turunan warna yang sama.
+ */
 :root {
-  --bg: #f8f5f0;
-  --surface: #f1eadf;
-  --fg: #1c1916;
-  --muted: #5f574e; /* kontras ≥ 4.5:1 di atas --bg */
-  --line: #e2d9cc;
+  --bg: #ffffff;
+  --surface: #e5e1da;
+  --fg: #1a1a1a;
+  --muted: #5f574e; /* kontras ≥ 4.5:1 di atas --bg dan --surface */
+  --line: #e5e1da;
   --sage: #5f6f5b;
-  --taupe: #8a7765;
-  --amber: #8f5c22; /* teks kecil aman di atas --bg */
-  --ink: #171310; /* kartu gelap (hero, footer), sama di kedua mode */
-  --accent-fg: #f8f5f0;
+  --taupe: #8a7d6e;
+  --amber: #6a5f52; /* aksen cokelat brief; aman untuk teks kecil */
+  --ink: #1a1a1a; /* kartu gelap & footer */
+  --accent-fg: #ffffff;
 }
 
 /* Mode gelap: dipilih lewat tombol (data-theme) atau mengikuti sistem bila belum dipilih */
 :root[data-theme='dark'] {
-  --bg: #12100e;
-  --surface: #1d1a17;
-  --fg: #efe8dd;
-  --muted: #b5ab9f;
-  --line: #2f2a25;
+  --bg: #1a1a1a;
+  --surface: #242322;
+  --fg: #f2f0ec;
+  --muted: #b5aca2;
+  --line: #33312e;
   --sage: #a3b19d;
-  --taupe: #c2ae99;
-  --amber: #d9a35f;
-  --ink: #241f1a;
-  --accent-fg: #12100e;
+  --taupe: #c2b5a6;
+  --amber: #c9bcab; /* cokelat brief versi terang agar terbaca di latar gelap */
+  --ink: #242322;
+  --accent-fg: #1a1a1a;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --bg: #12100e;
-    --surface: #1d1a17;
-    --fg: #efe8dd;
-    --muted: #b5ab9f;
-    --line: #2f2a25;
+    --bg: #1a1a1a;
+    --surface: #242322;
+    --fg: #f2f0ec;
+    --muted: #b5aca2;
+    --line: #33312e;
     --sage: #a3b19d;
-    --taupe: #c2ae99;
-    --amber: #d9a35f;
-    --ink: #241f1a;
-    --accent-fg: #12100e;
+    --taupe: #c2b5a6;
+    --amber: #c9bcab; /* cokelat brief versi terang agar terbaca di latar gelap */
+    --ink: #242322;
+    --accent-fg: #1a1a1a;
   }
 }
 

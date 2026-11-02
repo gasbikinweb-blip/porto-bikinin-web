@@ -4,6 +4,7 @@ import { AboutStrip } from '@/components/AboutStrip';
 import { ArrowUpRight } from '@/components/icons';
 import { Container, Eyebrow, PageHeader } from '@/components/ui';
 import { WhatsAppButton } from '@/components/WhatsApp';
+import { workflow } from '@/data/process';
 import { getProject, getProjects } from '@/data/projects';
 import { site } from '@/data/site';
 import { type Lang, lp } from '@/i18n';
@@ -83,6 +84,23 @@ export const aboutCopy = {
       'Tim Griya Nuansa menyatukan tangan sebagai simbol kolaborasi',
     ],
     teamCta: 'Ngobrol dengan tim',
+    visionTitle: 'Visi',
+    vision: [
+      'Menjadi perusahaan kontraktor yang menyediakan service design terpercaya dan inovatif.',
+      'Menjadi perusahaan konstruksi yang beradaptasi dengan perkembangan teknologi, material, maupun perkembangan dunia.',
+      'Menjadi perusahaan konstruksi yang mengutamakan kualitas, kenyamanan penghuni dengan harga yang sepadan.',
+    ],
+    missionTitle: 'Misi',
+    mission: [
+      'Memberikan jasa konstruksi dan design dengan kualitas dan sesuai dengan kebutuhan klien.',
+      'Menjaga kepuasan customer melalui layanan yang profesional dan tepercaya.',
+      'Memberikan peluang dan lapangan pekerjaan dengan sistem kerja yang nyaman dan profesional.',
+      'Berkembang bersama sumber daya manusia pilihan untuk terus melakukan inovasi dan meningkatkan kualitas layanan.',
+    ],
+    workflowEyebrow: 'Proses Kerja Kami',
+    workflowTitle: 'Dari gagasan hingga serah terima',
+    closing:
+      'Karena sejauh apa pun perjalanan hidup membawa kita, rumah akan selalu menjadi tempat pulang. Tempat di mana keluarga menunggu dengan pelukan penuh kehangatan.',
   },
   en: {
     metaTitle: 'About Us',
@@ -148,6 +166,23 @@ export const aboutCopy = {
       'The Griya Nuansa team joining hands as a symbol of collaboration',
     ],
     teamCta: 'Talk to the team',
+    visionTitle: 'Vision',
+    vision: [
+      'To be a trusted and innovative design-service contractor.',
+      'To be a construction company that adapts to technology, material, and global developments.',
+      'To be a construction company that prioritises quality and resident comfort at a reasonable price.',
+    ],
+    missionTitle: 'Mission',
+    mission: [
+      'Provide quality construction and design services in accordance with client needs.',
+      'Maintain customer satisfaction through professional and trusted services.',
+      'Provide job opportunities with comfortable and professional working systems.',
+      'Grow together with selected human resources to continue to innovate and improve service quality.',
+    ],
+    workflowEyebrow: 'Our Workflow',
+    workflowTitle: 'From the first idea to handover',
+    closing:
+      'Because no matter how far life takes us, home will always be the place we return to. The place where family awaits with a warm embrace.',
   },
 };
 
@@ -185,6 +220,30 @@ export function AboutView({ lang }: { lang: Lang }) {
               ))}
             </div>
           </div>
+        </Container>
+      </section>
+
+      {/* Visi & Misi (sumber: brief) */}
+      <section className="bg-surface pb-20 md:pb-28">
+        <Container className="grid gap-5 md:grid-cols-2">
+          {(
+            [
+              [c.visionTitle, c.vision],
+              [c.missionTitle, c.mission],
+            ] as const
+          ).map(([title, items]) => (
+            <div key={title} className="rounded-md bg-bg p-6 ring-1 ring-line md:p-10">
+              <h2 className="font-serif text-3xl">{title}</h2>
+              <ol className="mt-6 space-y-4">
+                {items.map((item, i) => (
+                  <li key={item} className="flex gap-4 text-sm leading-relaxed text-muted">
+                    <span className="font-serif text-base text-amber">{i + 1}</span>
+                    <span className="font-light">{item}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          ))}
         </Container>
       </section>
 
@@ -302,6 +361,21 @@ export function AboutView({ lang }: { lang: Lang }) {
         </Container>
       )}
 
+      {/* Proses kerja 6 langkah (sumber: brief) */}
+      <Container className="mt-24">
+        <Eyebrow>{c.workflowEyebrow}</Eyebrow>
+        <h2 className="mt-3 font-serif text-4xl leading-[1.1] md:text-5xl">{c.workflowTitle}</h2>
+        <ol className="mt-10 grid gap-x-6 gap-y-8 border-t border-line pt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+          {workflow[lang].map((step, i) => (
+            <li key={step.title}>
+              <span className="font-serif text-3xl text-amber">0{i + 1}</span>
+              <h3 className="mt-3 font-serif text-xl">{step.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted">{step.text}</p>
+            </li>
+          ))}
+        </ol>
+      </Container>
+
       {/* Tim: tiga foto tim (sumber: assets_baru, foto asli dari zip) */}
       <Container className="mt-24">
         <Eyebrow>{c.teamEyebrow}</Eyebrow>
@@ -325,6 +399,14 @@ export function AboutView({ lang }: { lang: Lang }) {
             {c.teamCta}
           </WhatsAppButton>
         </div>
+      </Container>
+
+      {/* Penutup (sumber: brief) */}
+      <Container className="mt-24 text-center">
+        <span aria-hidden="true" className="mx-auto block h-px w-16 bg-amber" />
+        <p className="mx-auto mt-8 max-w-3xl font-serif text-3xl leading-snug italic md:text-4xl">
+          {c.closing}
+        </p>
       </Container>
     </>
   );

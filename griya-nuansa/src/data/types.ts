@@ -1,5 +1,6 @@
 // Tipe data bersama untuk seluruh website
 import type { L } from '@/i18n';
+import type { Region } from './project-facts';
 
 export type CategorySlug =
   'rumah' | 'apartemen' | 'komersial' | 'kantor' | 'kesehatan-kebugaran' | 'industri' | 'kost';
@@ -32,9 +33,13 @@ export interface Project {
   title: string;
   category: CategorySlug;
   location?: string;
+  /** Kelompok wilayah untuk filter lokasi */
+  region?: Region;
   scope: string[];
   services: ServiceSlug[];
   year?: number;
+  buildingArea?: string;
+  landArea?: string;
   summary?: string;
   cover: ProjectImage;
   images: ProjectImage[];

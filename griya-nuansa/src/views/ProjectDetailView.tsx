@@ -22,6 +22,8 @@ const copy = {
     scope: 'Lingkup',
     location: 'Lokasi',
     year: 'Tahun',
+    building: 'Luas bangunan',
+    land: 'Luas lahan',
     services: 'Layanan',
     consult: 'Konsultasi Proyek Serupa',
     consultWa: (title: string, cat: string) =>
@@ -44,6 +46,8 @@ const copy = {
     scope: 'Scope',
     location: 'Location',
     year: 'Year',
+    building: 'Building area',
+    land: 'Land area',
     services: 'Services',
     consult: 'Consult a Similar Project',
     consultWa: (title: string, cat: string) =>
@@ -91,6 +95,8 @@ export function ProjectDetailView({ slug, lang }: { slug: string; lang: Lang }) 
     [c.location, p.location ?? '—'],
   ];
   if (p.year) details.push([c.year, String(p.year)]);
+  if (p.buildingArea) details.push([c.building, p.buildingArea]);
+  if (p.landArea) details.push([c.land, p.landArea]);
 
   return (
     <article>
@@ -111,7 +117,7 @@ export function ProjectDetailView({ slug, lang }: { slug: string; lang: Lang }) 
 
         <div className="mt-8 grid gap-10 lg:grid-cols-12 lg:gap-14">
           {/* Foto utama + thumbnail */}
-          <div className="lg:col-span-7">
+          <div className="min-w-0 lg:col-span-7">
             <h2 className="sr-only">{c.gallery}</h2>
             <Gallery images={p.images} title={p.title} />
           </div>

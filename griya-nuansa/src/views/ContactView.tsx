@@ -1,6 +1,6 @@
 import { SocialIcons } from '@/components/icons';
 import { Container, PageHeader } from '@/components/ui';
-import { WaMessageBuilder } from '@/components/WaMessageBuilder';
+import { ContactForm } from '@/components/ContactForm';
 import { ExternalLink, WhatsAppButton } from '@/components/WhatsApp';
 import { getProject, getProjects } from '@/data/projects';
 import { site } from '@/data/site';
@@ -19,7 +19,6 @@ export const contactCopy = {
       </>
     ),
     intro: 'Semua konsultasi dan permintaan penawaran dilayani lewat WhatsApp.',
-    form: 'Formulir konsultasi',
     address: 'Alamat',
     maps: 'Buka di Google Maps',
     mapTitle: 'Peta lokasi Griya Nuansa di Google Maps',
@@ -40,7 +39,6 @@ export const contactCopy = {
       </>
     ),
     intro: 'All consultations and quotation requests are handled via WhatsApp.',
-    form: 'Consultation form',
     address: 'Address',
     maps: 'Open in Google Maps',
     mapTitle: 'Map of Griya Nuansa location on Google Maps',
@@ -67,7 +65,8 @@ export function ContactView({ lang }: { lang: Lang }) {
       {/* Pembuat pesan + info kontak */}
       <Container className="grid gap-12 py-16 md:grid-cols-12 md:py-24">
         <div className="md:col-span-7">
-          <WaMessageBuilder title={c.form} />
+          {/* Form kontak sesuai brief: nama, telepon, email, pesan → WhatsApp */}
+          <ContactForm />
         </div>
 
         <div className="md:col-span-4 md:col-start-9">

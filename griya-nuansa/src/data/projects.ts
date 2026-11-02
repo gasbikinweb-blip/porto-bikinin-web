@@ -1,6 +1,7 @@
 import type { L, Lang } from '@/i18n';
 import manifest from './images.generated.json';
 import { getCategory } from './categories';
+import { locationEn, projectFacts } from './project-facts';
 import type { CategorySlug, ImageKind, Project, ProjectImage, ServiceSlug } from './types';
 
 /*
@@ -188,8 +189,12 @@ function titleFromFolder(folder: string) {
   return folder.replace(/_s\b/g, "'s").trim();
 }
 
+// Pemisah ribuan: "1.400 m²" (ID) → "1,400 m²" (EN)
+const area = (lang: Lang, v: string) => (lang === 'en' ? v.replace(/(\d)\.(\d{3})/g, '$1,$2') : v);
+
 function buildProject(slug: string, entry: Manifest[string], lang: Lang): Project | null {
   const m = meta[slug] ?? DEFAULT_META;
+  const facts = projectFacts[slug];
   const title = m.title ?? titleFromFolder(entry.folder);
   const label = getCategory(m.category).label[lang];
   const subject = tr(lang, m.subject);
@@ -220,10 +225,18 @@ function buildProject(slug: string, entry: Manifest[string], lang: Lang): Projec
     slug,
     title,
     category: m.category,
-    location: m.location && tr(lang, m.location),
+    // Lokasi & tahun utamakan data xlsx klien (project-facts.ts)
+    location: facts
+      ? lang === 'en'
+        ? locationEn(facts.location)
+        : facts.location
+      : m.location && tr(lang, m.location),
+    region: facts?.region,
     scope: m.scope.map((x) => tr(lang, x)),
     services: m.services,
-    year: m.year,
+    year: facts?.year ?? m.year,
+    buildingArea: facts?.buildingArea && area(lang, facts.buildingArea),
+    landArea: facts?.landArea && area(lang, facts.landArea),
     summary: m.summary,
     cover,
     images,
@@ -236,8 +249,8 @@ function buildAll(lang: Lang): Project[] {
     Object.entries(manifest as Manifest)
       .map(([slug, entry]) => buildProject(slug, entry, lang))
       .filter((p): p is Project => p !== null)
-      // Proyek unggulan tampil lebih dulu
-      .sort((a, b) => Number(b.featured) - Number(a.featured))
+      // Proyek unggulan tampil lebih dulu, lalu yang terbaru
+      .sort((a, b) => Number(b.featured) - Number(a.featured) || (b.year ?? 0) - (a.year ?? 0))
   );
 }
 
