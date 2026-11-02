@@ -42,10 +42,10 @@ export function TileCalculator() {
   const cost =
     boxes && product?.price && product.priceUnit === 'dus' ? boxes * product.price : null;
 
-  const message = boxes
+  // Tiap rincian di paragraf sendiri supaya pesan lega dibaca admin
+  const parts = boxes
     ? [
         'Halo Sinar Bintang Keramik, saya mau pesan keramik dengan rincian:',
-        '',
         `*${product?.name ?? 'Keramik (belum pilih produk)'}*`,
         `Ukuran ruangan: ${fmt(l!)} m x ${fmt(w!)} m = ${fmt(room!)} m²`,
         `Cadangan potongan: ${spare}%`,
@@ -53,12 +53,10 @@ export function TileCalculator() {
         `Kebutuhan: ${boxes} dus`,
         cost &&
           `Estimasi biaya: ${formatRupiah(cost)}${product?.priceFrom ? ' (harga mulai)' : ''}`,
-        '',
         'Mohon dicek stok dan total ongkirnya ya. Terima kasih.',
-      ]
-        .filter((line) => typeof line === 'string')
-        .join('\n')
-    : '';
+      ].filter((line): line is string => typeof line === 'string')
+    : [];
+  const message = parts.join('\n\n');
 
   const field = 'mt-1.5 min-h-12 w-full rounded-lg border border-line bg-card px-3 text-base';
   const invalid = (raw: string, ok: number | null) => raw.trim() !== '' && ok === null;
@@ -194,12 +192,40 @@ export function TileCalculator() {
           Dibulatkan ke atas. Estimasi belum termasuk ongkir; harga dan stok terbaru konfirmasi via
           WA.
         </p>
+
+        {/* Pratinjau pesan WA sebelum dikirim */}
+        <div className="mt-4 overflow-hidden rounded-xl border border-line">
+          <p className="flex items-center gap-2 bg-[#075e54] px-3 py-2 text-sm font-bold text-white">
+            <WhatsAppIcon className="size-4" /> Pratinjau pesan WhatsApp
+          </p>
+          <div className="bg-[#ece5dd] p-3">
+            {boxes ? (
+              <div className="ml-auto max-w-[95%] space-y-2 rounded-xl rounded-tr-sm bg-[#dcf8c6] px-3 py-2.5 text-sm text-[#111b21] shadow-sm">
+                {parts.map((line) =>
+                  // *teks* di WhatsApp tampil tebal
+                  /^\*.+\*$/.test(line) ? (
+                    <p key={line} className="font-bold">
+                      {line.slice(1, -1)}
+                    </p>
+                  ) : (
+                    <p key={line}>{line}</p>
+                  ),
+                )}
+              </div>
+            ) : (
+              <p className="text-center text-sm text-[#54656f]">
+                Isi ukuran ruangan dan luas per dus, pesan akan muncul di sini.
+              </p>
+            )}
+          </div>
+        </div>
+
         <a
           href={boxes ? buildWhatsAppLink(message) : undefined}
           aria-disabled={!boxes}
           target="_blank"
           rel="noopener noreferrer"
-          className={`mt-auto inline-flex min-h-12 items-center justify-center gap-2 rounded-lg px-5 pt-0 font-bold ${boxes ? 'bg-red text-white hover:bg-red-strong' : 'pointer-events-none bg-surface-2 text-muted'}`}
+          className={`inline-flex min-h-12 items-center justify-center gap-2 mt-4 rounded-lg px-5 pt-0 font-bold ${boxes ? 'bg-red text-white hover:bg-red-strong' : 'pointer-events-none bg-surface-2 text-muted'}`}
         >
           <WhatsAppIcon className="size-5" />
           Pesan dengan Rincian Ini<span className="sr-only"> (tab baru)</span>
