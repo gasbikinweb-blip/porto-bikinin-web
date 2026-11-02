@@ -22,6 +22,8 @@ export const contactCopy = {
     form: 'Formulir konsultasi',
     address: 'Alamat',
     maps: 'Buka di Google Maps',
+    mapTitle: 'Peta lokasi Griya Nuansa di Google Maps',
+    mapHeading: 'Lokasi Kami',
     email: 'Email',
     hours: 'Jam operasional',
     area: 'Area layanan',
@@ -41,6 +43,8 @@ export const contactCopy = {
     form: 'Consultation form',
     address: 'Address',
     maps: 'Open in Google Maps',
+    mapTitle: 'Map of Griya Nuansa location on Google Maps',
+    mapHeading: 'Our Location',
     email: 'Email',
     hours: 'Opening hours',
     area: 'Service area',
@@ -130,6 +134,22 @@ export function ContactView({ lang }: { lang: Lang }) {
             </div>
           </dl>
           <SocialIcons lang={lang} tone="dark" className="mt-8" />
+        </div>
+      </Container>
+
+      {/* Peta lokasi: dimuat malas (lazy) agar tidak memperlambat halaman */}
+      <Container className="pb-8">
+        <h2 className="font-serif text-3xl md:text-4xl">{c.mapHeading}</h2>
+        <p className="mt-2 text-sm text-muted">{site.address}</p>
+        <div className="mt-6 aspect-[4/3] overflow-hidden rounded-md bg-surface ring-1 ring-line md:aspect-[21/9]">
+          <iframe
+            src={site.mapsEmbedUrl}
+            title={c.mapTitle}
+            loading="lazy"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+            className="h-full w-full border-0"
+          />
         </div>
       </Container>
     </>

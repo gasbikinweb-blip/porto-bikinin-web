@@ -18,6 +18,9 @@ export const site = {
   address:
     'Ruko Victoria Square, Jl. Buaran Raya No. 8, Buaran, Kec. Serpong, Kota Tangerang Selatan, Banten 15310',
   mapsUrl: 'https://maps.app.goo.gl/Yjwyk5oia8XtGAyL6',
+  // Peta tersemat (iframe) di halaman Kontak. Domain www.google.com sudah diizinkan di CSP frame-src.
+  mapsEmbedUrl:
+    'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7930.804198730527!2d106.685946!3d-6.3419384!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1b2303c345d%3A0x78c04fc375d6daab!2sGriya%20Nuansa!5e0!3m2!1sid!2sid!4v1793661050352!5m2!1sid!2sid',
   email: 'halo@griyanuansa.id', // TODO: ganti dengan email resmi
   // Sumber: informasi.txt (08:30–17:30). TODO: konfirmasi hari kerja
   hours: { id: '08.30–17.30 WIB', en: '8:30 AM – 5:30 PM (WIB)' } satisfies L,

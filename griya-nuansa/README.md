@@ -11,16 +11,16 @@ Website ini hanya etalase: **tanpa backend, login, pembayaran, atau form yang me
 
 ## Script
 
-| Perintah                  | Fungsi                                                         |
-| ------------------------- | -------------------------------------------------------------- |
-| `npm run dev`             | Dev server                                                     |
-| `npm run build`           | Build static export ke `/out`                                  |
-| `npm start`               | Menyajikan `/out` secara lokal (`serve`)                       |
-| `npm run lint`            | ESLint (`eslint .`, termasuk `react/no-danger`)                |
-| `npm run typecheck`       | `tsc --noEmit`                                                 |
-| `npm run format`          | Prettier                                                       |
-| `npm run audit`           | `npm audit`                                                    |
-| `npm run optimize-images` | Konversi foto `assets/` → WebP di `public/images/proyek/`      |
+| Perintah                  | Fungsi                                                    |
+| ------------------------- | --------------------------------------------------------- |
+| `npm run dev`             | Dev server                                                |
+| `npm run build`           | Build static export ke `/out`                             |
+| `npm start`               | Menyajikan `/out` secara lokal (`serve`)                  |
+| `npm run lint`            | ESLint (`eslint .`, termasuk `react/no-danger`)           |
+| `npm run typecheck`       | `tsc --noEmit`                                            |
+| `npm run format`          | Prettier                                                  |
+| `npm run audit`           | `npm audit`                                               |
+| `npm run optimize-images` | Konversi foto `assets/` → WebP di `public/images/proyek/` |
 
 ## Konfigurasi (`.env.local`)
 
@@ -69,7 +69,7 @@ Hasil `npm run build` adalah folder `/out` berisi file statis.
 - `headers()` di `next.config.ts` **tidak berfungsi** pada `output: 'export'`. Header harus diatur di level hosting (`public/_headers` atau `vercel.json`).
 - Header yang dipasang: CSP, `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY` (+ `frame-ancestors 'none'`), `Referrer-Policy`, `Permissions-Policy` (kamera, mikrofon, geolokasi mati), HSTS, `Cross-Origin-Opener-Policy`, `Cross-Origin-Resource-Policy`.
 - **Trade-off CSP:** Next.js menyisipkan inline `<script>` (payload RSC/hydration) di setiap halaman, sehingga `script-src` memerlukan `'unsafe-inline'`. Nonce tidak bisa dipakai pada static export karena nonce butuh server per request. Alternatif yang lebih ketat: setelah build, hitung hash SHA-256 setiap inline script di `/out` dan ganti `'unsafe-inline'` dengan daftar `'sha256-…'` (bisa diotomasi dengan script post-build), konsekuensinya CSP harus diperbarui setiap build. Risiko tetap rendah karena situs tidak memiliki input pengguna yang dirender ulang, tanpa script pihak ketiga, dan `dangerouslySetInnerHTML` dilarang lewat ESLint. `style-src 'unsafe-inline'` diperlukan untuk atribut `style` (next/image, slider before-after).
-- Tidak ada iframe (Google Maps, Instagram, YouTube), tracking, atau script pihak ketiga. Semua link eksternal memakai `target="_blank" rel="noopener noreferrer"`.
+- Satu-satunya iframe: peta Google Maps di halaman Kontak (`frame-src https://www.google.com`, dimuat lazy). Saat peta dimuat, Google dapat menyimpan cookie di browser pengunjung. Tidak ada embed Instagram/YouTube, tracking, atau script pihak ketiga lain. Semua link eksternal memakai `target="_blank" rel="noopener noreferrer"`.
 - Pembuat pesan WhatsApp tidak memakai `<form>`, tidak menyimpan, dan tidak mengirim data. Input divalidasi (whitelist pilihan, batas panjang, angka positif) dan di-encode dengan `encodeURIComponent`.
 - **JSON-LD sengaja dilewati:** menyisipkan `<script type="application/ld+json">` di React memerlukan `dangerouslySetInnerHTML` (melanggar `react/no-danger`), dan merender JSON sebagai children berisiko di-escape. Jika nanti diperlukan, opsi aman: matikan rule hanya pada satu komponen dengan data statis yang di-`JSON.stringify` dan karakter `<` di-escape menjadi `\u003c`.
 - Jalankan `npm run audit` secara berkala dan aktifkan **Dependabot** (GitHub) atau **Renovate** untuk pembaruan dependency otomatis.
