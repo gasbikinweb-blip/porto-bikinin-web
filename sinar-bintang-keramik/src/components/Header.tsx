@@ -48,7 +48,7 @@ export function Header() {
         <a href="#beranda" aria-label="Sinar Bintang Keramik, ke atas halaman">
           <Logo />
         </a>
-        <nav aria-label="Navigasi utama" className="hidden lg:block">
+        <nav aria-label="Navigasi utama" className="hidden xl:block">
           <ul className="flex items-center gap-1 rounded-full border border-line bg-card/80 p-1">
             {navLinks.map((l) => {
               const id = l.href.slice(1);
@@ -73,7 +73,7 @@ export function Header() {
             href={buildWhatsAppLink(generalMessage)}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden min-h-11 items-center gap-2 rounded-full bg-red px-5 text-sm font-bold text-white transition-colors hover:bg-red-strong sm:inline-flex"
+            className="hidden min-h-11 items-center gap-2 rounded-full bg-red px-5 text-sm font-bold whitespace-nowrap text-white transition-colors hover:bg-red-strong sm:inline-flex"
           >
             <WhatsAppIcon className="size-4" />
             Chat WhatsApp

@@ -9,3 +9,6 @@ npm-debug.log*
 .DS_Store
 .vercel
 .claude/
+
+# Video mentah dari Instagram (hasil kompres ada di public/videos)
+/video ig/

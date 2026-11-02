@@ -8,7 +8,7 @@ import { navLinks } from './nav-links';
 export function MobileNav({ active }: { active?: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="lg:hidden">
+    <div className="xl:hidden">
       <button
         type="button"
         aria-expanded={open}

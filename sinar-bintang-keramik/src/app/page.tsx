@@ -3,11 +3,13 @@ import { CategoryGrid } from '@/components/CategoryGrid';
 import { BagIcon, CheckIcon, WhatsAppIcon } from '@/components/icons';
 import { ProductSection } from '@/components/ProductSection';
 import { TileCalculator } from '@/components/TileCalculator';
+import { VideoGallery } from '@/components/VideoGallery';
 import { brands } from '@/data/brands';
 import { faqs } from '@/data/faq';
 import { products } from '@/data/products';
 import { reviews } from '@/data/reviews';
 import { site } from '@/data/site';
+import { storeVideos } from '@/data/videos';
 import { config } from '@/lib/config';
 import { buildWhatsAppLink, generalMessage } from '@/lib/whatsapp';
 
@@ -239,6 +241,22 @@ export default function Home() {
         </a>
       </section>
 
+      {/* Video toko (dari Instagram toko) */}
+      <section id="video" className="bg-surface py-16 lg:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <SectionTitle
+            no="05"
+            eyebrow="Video"
+            title="Lihat langsung toko kami"
+            intro="Bukan foto katalog saja: ini suasana toko dan produk aslinya, langsung dari Instagram kami."
+          />
+          <VideoGallery videos={storeVideos} />
+          <a href={site.instagram} {...external} className={`${btnOutline} mt-4`}>
+            Video lainnya di Instagram<span className="sr-only"> (tab baru)</span>
+          </a>
+        </div>
+      </section>
+
       {/* Toko */}
       <section id="toko" className="bg-ink py-16 text-white lg:py-24">
         <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 md:grid-cols-2">
@@ -296,7 +314,7 @@ export default function Home() {
 
       {/* FAQ */}
       <section id="faq" className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:py-24">
-        <SectionTitle no="05" eyebrow="FAQ" title="Pertanyaan yang sering ditanyakan" />
+        <SectionTitle no="06" eyebrow="FAQ" title="Pertanyaan yang sering ditanyakan" />
         <div className="reveal mt-8 divide-y divide-line border-y border-line">
           {faqs.map((f) => (
             <details key={f.q} className="group py-1">
