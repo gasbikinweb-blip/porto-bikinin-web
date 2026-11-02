@@ -73,7 +73,7 @@ export function Gallery({ images, title }: { images: ProjectImage[]; title: stri
   return (
     <>
       {shown && (
-        <div>
+        <div data-reveal-block>
           <div className="relative">
             <button
               ref={mainRef}

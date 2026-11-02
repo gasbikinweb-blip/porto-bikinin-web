@@ -15,7 +15,7 @@ export function FeaturedCarousel({ children, label }: { children: ReactNode; lab
   };
 
   return (
-    <div>
+    <div data-reveal-block>
       <div className="mb-5 flex justify-end gap-2">
         {[
           { d: -1, text: t.prev, path: 'M10 3L5 8l5 5' },

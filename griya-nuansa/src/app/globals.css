@@ -74,6 +74,20 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/*
+ * Ketebalan font mengikuti griyanuansa.id: paragraf Montserrat Light (300),
+ * judul section Times New Roman Bold. Di @layer base agar kelas Tailwind
+ * (mis. font-medium, font-light) tetap bisa menimpanya.
+ */
+@layer base {
+  p {
+    font-weight: 300;
+  }
+  h2.font-serif {
+    font-weight: 700;
+  }
+}
+
 :focus-visible {
   outline: 2px solid var(--sage);
   outline-offset: 3px;
@@ -101,6 +115,21 @@ body {
     animation-timeline: view();
     animation-range: entry 0% entry 35%;
   }
+}
+
+/*
+ * Muncul saat di-scroll (diatur ScrollReveal.tsx). Kelas rv-ready hanya dipasang bila JavaScript
+ * berjalan dan pengunjung tidak memilih "kurangi animasi", jadi konten tidak pernah tersembunyi permanen.
+ */
+.rv {
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--rv-delay, 0ms);
+}
+.rv-ready .rv:not(.rv-in) {
+  opacity: 0;
+  transform: translateY(28px);
 }
 
 /* Pita teks berjalan (dimatikan otomatis oleh prefers-reduced-motion di bawah) */

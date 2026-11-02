@@ -3,6 +3,7 @@ import { Montserrat } from 'next/font/google';
 import { FloatingWhatsApp } from '@/components/FloatingWhatsApp';
 import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
+import { ScrollReveal } from '@/components/ScrollReveal';
 import { SkipLink } from '@/components/SkipLink';
 import { site } from '@/data/site';
 import './globals.css';
@@ -53,6 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <Footer />
         <FloatingWhatsApp />
+        <ScrollReveal />
       </body>
     </html>
   );
