@@ -19,9 +19,9 @@ const MAX_CITY = 40;
 const SERVICE_SLUGS: ServiceSlug[] = [
   'arsitektur',
   'desain-interior',
-  'kitchen-set-furnitur',
-  'renovasi',
   'property-management',
+  'kontraktor',
+  'konsultan',
 ];
 
 /** Hanya terima nilai yang ada di daftar (whitelist) */

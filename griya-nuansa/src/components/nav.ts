@@ -6,6 +6,7 @@ const items = [
   { href: '/proyek/', key: 'projects' },
   { href: '/layanan/', key: 'services' },
   { href: '/tentang/', key: 'about' },
+  { href: '/media-sosial/', key: 'social' },
   { href: '/faq/', key: 'faq' },
   { href: '/kontak/', key: 'contact' },
 ] as const;

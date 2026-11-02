@@ -1,26 +1,17 @@
 import type { L } from '@/i18n';
 import type { Category, CategoryGroup, CategorySlug } from './types';
 
+// Kategori sesuai Brief Web Griya Nuansa: Residential, Retail & Commercial, Office, Interior.
+// Pembagian proyek mengikuti kolom "Kategori" di Data Website Griya Nuansa.xlsx.
 export const categories: Category[] = [
-  { slug: 'rumah', label: { id: 'Rumah', en: 'House' }, group: 'residensial' },
-  { slug: 'apartemen', label: { id: 'Apartemen', en: 'Apartment' }, group: 'residensial' },
-  {
-    slug: 'kost',
-    label: { id: 'Kost & Properti Sewa', en: 'Boarding & Rental' },
-    group: 'residensial',
-  },
+  { slug: 'residensial', label: { id: 'Residensial', en: 'Residential' }, group: 'residensial' },
   {
     slug: 'komersial',
-    label: { id: 'Komersial & F&B', en: 'Commercial & F&B' },
-    group: 'komersial',
-  },
-  {
-    slug: 'kesehatan-kebugaran',
-    label: { id: 'Kesehatan & Kebugaran', en: 'Health & Fitness' },
+    label: { id: 'Retail & Komersial', en: 'Retail & Commercial' },
     group: 'komersial',
   },
   { slug: 'kantor', label: { id: 'Kantor', en: 'Office' }, group: 'kantor' },
-  { slug: 'industri', label: { id: 'Industri', en: 'Industrial' }, group: 'industri' },
+  { slug: 'interior', label: { id: 'Interior', en: 'Interior' }, group: 'interior' },
 ];
 
 export const categoryGroups: { slug: CategoryGroup; label: L; description: L }[] = [
@@ -28,32 +19,32 @@ export const categoryGroups: { slug: CategoryGroup; label: L; description: L }[]
     slug: 'residensial',
     label: { id: 'Residensial', en: 'Residential' },
     description: {
-      id: 'Rumah tinggal, apartemen, dan kost.',
-      en: 'Homes, apartments, and boarding houses.',
+      id: 'Rumah tinggal dan apartemen, dari desain hingga pembangunan.',
+      en: 'Homes and apartments, from design to construction.',
     },
   },
   {
     slug: 'komersial',
-    label: { id: 'Komersial', en: 'Commercial' },
+    label: { id: 'Retail & Komersial', en: 'Retail & Commercial' },
     description: {
-      id: 'Kafe, bakery, gym, dan klinik.',
-      en: 'Cafés, bakeries, gyms, and clinics.',
+      id: 'Kafe, bakery, gym, klinik, dan properti sewa.',
+      en: 'Cafés, bakeries, gyms, clinics, and rental properties.',
     },
   },
   {
     slug: 'kantor',
     label: { id: 'Kantor', en: 'Office' },
     description: {
-      id: 'Ruang kerja yang fungsional dan berkarakter.',
-      en: 'Functional workspaces with character.',
+      id: 'Ruang kerja dan bangunan perusahaan yang fungsional dan berkarakter.',
+      en: 'Functional workspaces and company buildings with character.',
     },
   },
   {
-    slug: 'industri',
-    label: { id: 'Industri', en: 'Industrial' },
+    slug: 'interior',
+    label: { id: 'Interior', en: 'Interior' },
     description: {
-      id: 'Fasilitas dan bangunan industri.',
-      en: 'Industrial facilities and buildings.',
+      id: 'Desain interior hunian yang personal dan nyaman.',
+      en: 'Personal, comfortable residential interior design.',
     },
   },
 ];

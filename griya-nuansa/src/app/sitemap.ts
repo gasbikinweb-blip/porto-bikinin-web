@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/layanan/',
     '/tentang/',
     '/kontak/',
+    '/media-sosial/',
     '/faq/',
     ...services.map((s) => `/layanan/${s.slug}/`),
     ...projects.map((p) => `/proyek/${p.slug}/`),

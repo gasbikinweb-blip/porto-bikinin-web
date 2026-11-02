@@ -8,7 +8,7 @@ import type { CategorySlug, ImageKind, Project, ProjectImage, ServiceSlug } from
  * Data proyek.
  * - Foto & ukuran diambil otomatis dari `images.generated.json` (hasil `npm run optimize-images`).
  * - Metadata (judul, kategori, lingkup, dll.) diatur di `meta` di bawah.
- * - Folder baru di assets/ tanpa entri `meta` tetap tampil dengan nilai default (kategori "rumah").
+ * - Folder baru di assets/ tanpa entri `meta` tetap tampil dengan nilai default (kategori "residensial").
  * JANGAN mengarang tahun, luas, atau nama klien. Isi hanya jika sudah dikonfirmasi.
  */
 
@@ -34,76 +34,76 @@ interface ProjectMeta {
 // TODO: verifikasi lingkup pekerjaan & lokasi tiap proyek. Lokasi hanya tingkat kota.
 const meta: Record<string, ProjectMeta> = {
   'aa-house': {
-    category: 'rumah',
+    category: 'residensial',
     scope: ['Desain Interior', 'Build'],
-    services: ['desain-interior', 'kitchen-set-furnitur'],
+    services: ['desain-interior', 'kontraktor'],
     featured: true,
     subject: 'interior rumah tinggal',
   },
   'al-house': {
-    category: 'rumah',
+    category: 'interior',
     scope: ['Desain Interior', 'Build'],
-    services: ['desain-interior', 'kitchen-set-furnitur'],
+    services: ['desain-interior', 'kontraktor'],
     subject: 'interior rumah tinggal',
   },
   'altuera-tower-southgate': {
     title: 'Altuera Tower at Southgate',
-    category: 'apartemen',
+    category: 'residensial',
     location: 'Jakarta Selatan', // TODO: verifikasi
     scope: ['Desain Interior', 'Build'],
-    services: ['desain-interior', 'kitchen-set-furnitur'],
+    services: ['desain-interior', 'kontraktor'],
     featured: true,
     subject: 'interior unit apartemen',
   },
   'ap-house': {
-    category: 'rumah',
+    category: 'residensial',
     scope: ['Desain Interior'],
     services: ['desain-interior'],
     subject: 'interior rumah tinggal',
   },
   'gr-kost': {
-    category: 'kost',
+    category: 'komersial',
     scope: ['Desain Interior', 'Build', 'Property Management'], // TODO: verifikasi
-    services: ['desain-interior', 'property-management'],
+    services: ['desain-interior', 'property-management', 'kontraktor'],
     featured: true,
     subject: 'interior kamar kost',
   },
   'im-house': {
-    category: 'rumah',
+    category: 'residensial',
     scope: ['Desain Interior', 'Build'],
-    services: ['desain-interior', 'kitchen-set-furnitur'],
+    services: ['desain-interior', 'kontraktor'],
     featured: true,
     subject: 'interior rumah tinggal',
   },
   'j-house': {
-    category: 'rumah',
+    category: 'residensial',
     scope: ['Desain Interior', 'Build'],
-    services: ['desain-interior', 'renovasi'],
+    services: ['desain-interior', 'kontraktor'],
     subject: 'interior rumah tinggal',
   },
   'kj-house': {
-    category: 'rumah',
+    category: 'residensial',
     scope: ['Desain Interior', 'Build'],
-    services: ['desain-interior', 'kitchen-set-furnitur'],
+    services: ['desain-interior', 'kontraktor'],
     subject: 'interior rumah tinggal',
   },
   'marigold-tower': {
-    category: 'apartemen',
+    category: 'residensial',
     scope: ['Desain Interior', 'Build'],
-    services: ['desain-interior', 'kitchen-set-furnitur'],
+    services: ['desain-interior', 'kontraktor'],
     subject: 'interior unit apartemen',
   },
   'menteng-park-apartment': {
-    category: 'apartemen',
+    category: 'interior',
     location: 'Jakarta', // TODO: verifikasi
     scope: ['Desain Interior', 'Build'],
-    services: ['desain-interior'],
+    services: ['desain-interior', 'kontraktor'],
     subject: 'interior unit apartemen',
   },
   'mitra-inti-pranata-office': {
     category: 'kantor',
     scope: ['Desain Interior', 'Build'],
-    services: ['desain-interior'],
+    services: ['desain-interior', 'kontraktor'],
     featured: true,
     subject: 'interior ruang kantor',
   },
@@ -111,25 +111,25 @@ const meta: Record<string, ProjectMeta> = {
     title: "Mont's Bakehouse",
     category: 'komersial',
     scope: ['Desain Interior', 'Build'],
-    services: ['desain-interior', 'kitchen-set-furnitur'],
+    services: ['desain-interior', 'kontraktor'],
     featured: true,
     subject: 'interior bakery',
   },
   'orange-country-apartment': {
-    category: 'apartemen',
+    category: 'residensial',
     scope: ['Desain Interior', 'Build'],
-    services: ['desain-interior', 'kitchen-set-furnitur'],
+    services: ['desain-interior', 'kontraktor'],
     subject: 'interior unit apartemen',
   },
   'paradigm-fitness': {
-    category: 'kesehatan-kebugaran',
+    category: 'komersial',
     scope: ['Desain Interior', 'Build'],
-    services: ['desain-interior'],
+    services: ['desain-interior', 'kontraktor'],
     featured: true,
     subject: 'interior pusat kebugaran',
   },
   'physical-best-physiotherapy-jakarta': {
-    category: 'kesehatan-kebugaran',
+    category: 'komersial',
     location: 'Jakarta',
     scope: ['Desain Interior'],
     services: ['desain-interior'],
@@ -138,16 +138,16 @@ const meta: Record<string, ProjectMeta> = {
   },
   'pt-suryaraya-rubberindo-industries': {
     title: 'PT Suryaraya Rubberindo Industries',
-    category: 'industri',
+    category: 'kantor',
     scope: ['Desain Arsitektur'], // TODO: verifikasi
     services: ['arsitektur'],
     kind: 'render', // file bernama Enscape_* = render 3D
     subject: 'desain bangunan industri',
   },
   'yk-house': {
-    category: 'rumah',
+    category: 'residensial',
     scope: ['Desain Interior', 'Build'],
-    services: ['desain-interior', 'kitchen-set-furnitur'],
+    services: ['desain-interior', 'kontraktor'],
     subject: 'interior rumah tinggal',
   },
 };
@@ -179,7 +179,7 @@ type Manifest = Record<
 >;
 
 const DEFAULT_META: ProjectMeta = {
-  category: 'rumah',
+  category: 'residensial',
   scope: ['Desain Interior'],
   services: ['desain-interior'],
   subject: 'proyek',

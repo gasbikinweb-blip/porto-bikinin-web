@@ -12,9 +12,18 @@
           "key": "Content-Security-Policy",
           "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; frame-src https://www.google.com; worker-src 'self'; manifest-src 'self'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests"
         },
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
         {
           "key": "Permissions-Policy",
           "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
@@ -23,13 +32,66 @@
           "key": "Strict-Transport-Security",
           "value": "max-age=63072000; includeSubDomains; preload"
         },
-        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
-        { "key": "Cross-Origin-Resource-Policy", "value": "same-origin" }
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Cross-Origin-Resource-Policy",
+          "value": "same-origin"
+        }
       ]
     },
     {
       "source": "/_next/static/(.*)",
-      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/layanan/kitchen-set-furnitur",
+      "destination": "/layanan/desain-interior/",
+      "permanent": true
+    },
+    {
+      "source": "/layanan/kitchen-set-furnitur/",
+      "destination": "/layanan/desain-interior/",
+      "permanent": true
+    },
+    {
+      "source": "/layanan/renovasi",
+      "destination": "/layanan/kontraktor/",
+      "permanent": true
+    },
+    {
+      "source": "/layanan/renovasi/",
+      "destination": "/layanan/kontraktor/",
+      "permanent": true
+    },
+    {
+      "source": "/en/layanan/kitchen-set-furnitur",
+      "destination": "/en/layanan/desain-interior/",
+      "permanent": true
+    },
+    {
+      "source": "/en/layanan/kitchen-set-furnitur/",
+      "destination": "/en/layanan/desain-interior/",
+      "permanent": true
+    },
+    {
+      "source": "/en/layanan/renovasi",
+      "destination": "/en/layanan/kontraktor/",
+      "permanent": true
+    },
+    {
+      "source": "/en/layanan/renovasi/",
+      "destination": "/en/layanan/kontraktor/",
+      "permanent": true
     }
   ]
 }

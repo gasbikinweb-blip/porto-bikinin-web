@@ -2,11 +2,11 @@
 import type { L } from '@/i18n';
 import type { Region } from './project-facts';
 
-export type CategorySlug =
-  'rumah' | 'apartemen' | 'komersial' | 'kantor' | 'kesehatan-kebugaran' | 'industri' | 'kost';
+// Kategori sesuai Brief Web Griya Nuansa: Residential, Retail & Commercial, Office, Interior
+export type CategorySlug = 'residensial' | 'komersial' | 'kantor' | 'interior';
 
 /** Kelompok besar untuk beranda */
-export type CategoryGroup = 'residensial' | 'komersial' | 'kantor' | 'industri';
+export type CategoryGroup = CategorySlug;
 
 export interface Category {
   slug: CategorySlug;
@@ -25,8 +25,9 @@ export interface ProjectImage {
   kind: ImageKind;
 }
 
+// Layanan sesuai brief: Arsitektur, Interior, Manajemen Properti, Kontraktor, Konsultan
 export type ServiceSlug =
-  'arsitektur' | 'desain-interior' | 'kitchen-set-furnitur' | 'renovasi' | 'property-management';
+  'arsitektur' | 'desain-interior' | 'property-management' | 'kontraktor' | 'konsultan';
 
 export interface Project {
   slug: string;

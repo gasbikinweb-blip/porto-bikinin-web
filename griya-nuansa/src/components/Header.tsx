@@ -42,8 +42,8 @@ export function Header() {
           <Logo className="h-9 w-9" />
           <span className="font-serif text-2xl leading-none">{site.name}</span>
         </Link>
-        <nav aria-label={t.mainMenu} className="hidden lg:block">
-          <ul className="flex items-center gap-8 text-[11px] font-medium tracking-[0.18em] uppercase">
+        <nav aria-label={t.mainMenu} className="hidden xl:block">
+          <ul className="flex items-center gap-7 text-[11px] font-medium tracking-[0.18em] uppercase">
             {navItems(lang).map((item) => {
               const active = isActive(pathname, item.base);
               return (

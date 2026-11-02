@@ -4,13 +4,13 @@ import { BeforeAfter } from '@/components/BeforeAfter';
 import { FeaturedCarousel } from '@/components/FeaturedCarousel';
 import { ProjectCard } from '@/components/ProjectCard';
 import { ServiceCard } from '@/components/ServiceCard';
-import { InstagramIcon, PinterestIcon, TiktokIcon, YoutubeIcon } from '@/components/icons';
+import { SocialCards } from '@/components/SocialCards';
 import { ButtonLink, Container, Eyebrow, SectionHeading } from '@/components/ui';
-import { ExternalLink, WhatsAppButton } from '@/components/WhatsApp';
+import { WhatsAppButton } from '@/components/WhatsApp';
 import { getBeforeAfterPairs, getFeaturedProjects, getProject, getProjects } from '@/data/projects';
 import { services } from '@/data/services';
 import { workflow } from '@/data/process';
-import { site, stats } from '@/data/site';
+import { stats } from '@/data/site';
 import { type Lang, lp } from '@/i18n';
 import { ui } from '@/i18n/ui';
 
@@ -60,12 +60,6 @@ const copy = {
       </>
     ),
     socialMore: 'Lihat Selengkapnya',
-    social: {
-      youtube: 'Video perjalanan proyek, dari konsep hingga serah terima.',
-      instagram: 'Foto proyek terbaru dan inspirasi ruang.',
-      tiktok: 'Cuplikan singkat proses dan hasil pengerjaan.',
-      pinterest: 'Kumpulan inspirasi desain arsitektur dan interior.',
-    },
   },
   en: {
     heroLabel: ['Architecture', 'Interior', 'Property Management', 'Contractor', 'Consultant'],
@@ -107,12 +101,6 @@ const copy = {
       </>
     ),
     socialMore: 'See More',
-    social: {
-      youtube: 'Project journey videos, from concept to handover.',
-      instagram: 'Latest project photos and space inspiration.',
-      tiktok: 'Short clips of our process and finished work.',
-      pinterest: 'A collection of architecture and interior design inspiration.',
-    },
   },
 };
 
@@ -288,48 +276,12 @@ export function HomeView({ lang }: { lang: Lang }) {
       <section className="pt-20 md:pt-28">
         <Container>
           <SectionHeading center eyebrow={c.socialEyebrow} title={c.socialTitle} />
-          <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {(
-              [
-                ['YouTube', site.social.youtube, YoutubeIcon, c.social.youtube, '@griyanuansaid'],
-                [
-                  'Instagram',
-                  site.social.instagram,
-                  InstagramIcon,
-                  c.social.instagram,
-                  '@griyanuansa.id',
-                ],
-                ['TikTok', site.social.tiktok, TiktokIcon, c.social.tiktok, '@griyanuansa.id'],
-                [
-                  'Pinterest',
-                  site.social.pinterest,
-                  PinterestIcon,
-                  c.social.pinterest,
-                  'griyanuansaid',
-                ],
-              ] as const
-            ).map(([name, href, Icon, text, handle]) => (
-              <li key={name}>
-                <ExternalLink
-                  lang={lang}
-                  href={href}
-                  className="group flex h-full flex-col rounded-md bg-surface p-6 transition-shadow hover:shadow-lg"
-                >
-                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-bg ring-1 ring-line">
-                    <Icon className="h-5 w-5" />
-                  </span>
-                  <span className="mt-5 font-serif text-2xl">{name}</span>
-                  <span className="mt-1 text-xs tracking-wider text-muted">{handle}</span>
-                  <span className="mt-3 flex-1 text-sm leading-relaxed font-light text-muted">
-                    {text}
-                  </span>
-                  <span className="mt-6 text-[11px] font-medium tracking-[0.18em] uppercase group-hover:underline group-hover:underline-offset-4">
-                    {c.socialMore} ↗
-                  </span>
-                </ExternalLink>
-              </li>
-            ))}
-          </ul>
+          <div className="mt-12">
+            <SocialCards lang={lang} />
+          </div>
+          <div className="mt-10 text-center">
+            <ButtonLink href={lp(lang, '/media-sosial/')}>{c.socialMore}</ButtonLink>
+          </div>
         </Container>
       </section>
     </>

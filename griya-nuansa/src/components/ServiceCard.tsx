@@ -10,9 +10,9 @@ import { ui } from '@/i18n/ui';
 const iconPaths: Record<ServiceSlug, string> = {
   arsitektur: 'M3 20h18M5 20V10l7-6 7 6v10M9 20v-6h6v6',
   'desain-interior': 'M4 13v-3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3M3 13h18v4H3zM5 17v2M19 17v2',
-  'kitchen-set-furnitur': 'M4 4h16v16H4zM4 10h16M10 10v10M7 7h1M16 7h1M13 14h4',
-  renovasi: 'M14 6l4 4M4 20l3-1 11-11-2-2L5 17zM15 3l6 6',
   'property-management': 'M4 21V9l8-6 8 6v12zM9 21v-5h6v5M12 11.5v.01',
+  kontraktor: 'M3 20h18M5 20v-6l7-5 7 5v6M12 9V4M9 6h6M8 20v-3h8v3',
+  konsultan: 'M4 5h16v11H9l-5 4zM8 9h8M8 12h5',
 };
 
 export function ServiceCard({

@@ -1,10 +1,12 @@
 import type { Service } from './types';
 
-// Deskripsi umum layanan. TODO: tinjau ulang copywriting (ID & EN) bersama tim Griya Nuansa.
+// Layanan sesuai Brief Web Griya Nuansa: Arsitektur, Interior, Manajemen Properti, Kontraktor, Konsultan.
+// Isi layanan lama (kitchen set & renovasi) digabung ke Interior dan Kontraktor.
+// TODO: tinjau ulang copywriting (ID & EN) bersama tim Griya Nuansa.
 export const services: Service[] = [
   {
     slug: 'arsitektur',
-    title: { id: 'Desain Arsitektur', en: 'Architectural Design' },
+    title: { id: 'Arsitektur', en: 'Architecture' },
     short: {
       id: 'Perancangan rumah tinggal dan bangunan komersial dari konsep hingga gambar kerja.',
       en: 'Design of homes and commercial buildings, from concept to construction drawings.',
@@ -24,37 +26,35 @@ export const services: Service[] = [
         'Konsultasi kebutuhan dan program ruang',
         'Konsep desain dan denah',
         'Visualisasi 3D eksterior',
-        'Gambar kerja arsitektur',
-        'Pendampingan saat pembangunan', // TODO: konfirmasi apakah termasuk
+        'Gambar kerja arsitektur (DED)',
       ],
       en: [
         'Needs consultation and space programming',
         'Design concept and floor plans',
         '3D exterior visualisation',
-        'Architectural construction drawings',
-        'Support during construction',
+        'Architectural construction drawings (DED)',
       ],
     },
     audience: {
-      id: ['Pemilik rumah', 'Developer', 'Pemilik usaha', 'Industri'],
-      en: ['Homeowners', 'Developers', 'Business owners', 'Industry'],
+      id: ['Pemilik rumah', 'Developer', 'Pemilik usaha', 'Perusahaan'],
+      en: ['Homeowners', 'Developers', 'Business owners', 'Companies'],
     },
   },
   {
     slug: 'desain-interior',
-    title: { id: 'Desain Interior', en: 'Interior Design' },
+    title: { id: 'Interior', en: 'Interior' },
     short: {
-      id: 'Interior rumah, apartemen, dan ruang usaha yang fungsional dan bernuansa.',
-      en: 'Functional, atmospheric interiors for homes, apartments, and business spaces.',
+      id: 'Desain interior dan furnitur custom untuk rumah, apartemen, dan ruang usaha.',
+      en: 'Interior design and custom furniture for homes, apartments, and business spaces.',
     },
     description: {
       id: [
         'Desain interior yang berangkat dari cara Anda menggunakan ruang sehari-hari. Material, warna, dan pencahayaan dipilih agar ruang terasa hangat dan mudah dirawat.',
-        'Kami menangani desain interior di Tangerang Selatan dan sekitarnya untuk rumah, apartemen, kafe, gym, klinik, hingga kantor.',
+        'Termasuk kitchen set, wardrobe, backdrop TV, hingga meja kasir yang dibuat presisi sesuai ukuran ruang, untuk rumah, apartemen, kafe, gym, klinik, dan kantor di Jabodetabek.',
       ],
       en: [
         'Interior design that starts from how you use your space every day. Materials, colours, and lighting are chosen so the space feels warm and is easy to maintain.',
-        'We handle interior design in South Tangerang and the surrounding area for homes, apartments, cafés, gyms, clinics, and offices.',
+        'Including kitchen sets, wardrobes, TV backdrops, and cashier counters made precisely to fit, for homes, apartments, cafés, gyms, clinics, and offices across Greater Jakarta.',
       ],
     },
     scope: {
@@ -62,15 +62,15 @@ export const services: Service[] = [
         'Konsep interior dan moodboard',
         'Layout dan zonasi ruang',
         'Visualisasi 3D interior',
+        'Kitchen set & furnitur custom',
         'Gambar kerja interior dan detail furnitur',
-        'Pengerjaan (build) interior',
       ],
       en: [
         'Interior concept and moodboard',
         'Layout and space zoning',
         '3D interior visualisation',
+        'Kitchen sets & custom furniture',
         'Interior drawings and furniture details',
-        'Interior build',
       ],
     },
     audience: {
@@ -79,108 +79,111 @@ export const services: Service[] = [
     },
   },
   {
-    slug: 'kitchen-set-furnitur',
-    title: { id: 'Kitchen Set & Furnitur Custom', en: 'Kitchen Set & Custom Furniture' },
+    slug: 'property-management',
+    title: { id: 'Manajemen Properti', en: 'Property Management' },
     short: {
-      id: 'Kitchen set, lemari, dan furnitur built-in yang dibuat sesuai ukuran ruang.',
-      en: 'Kitchen sets, wardrobes, and built-in furniture made to fit your space.',
+      id: 'Pengelolaan, perawatan, dan maintenance properti agar tetap terawat dan bernilai.',
+      en: 'Management, upkeep, and maintenance so properties stay well-kept and valuable.',
     },
     description: {
       id: [
-        'Furnitur custom membuat setiap sentimeter ruang bekerja. Kami merancang kitchen set, wardrobe, backdrop TV, hingga meja kasir yang presisi dengan ruang Anda.',
-        'Melayani jasa kitchen set di BSD, Serpong, dan area Jabodetabek lainnya.',
+        'Untuk pemilik rumah, kost, dan properti sewa, kami membantu dari sisi desain hingga pengelolaan agar properti tetap nyaman, menarik, dan bernilai jangka panjang.',
+        'TODO: lengkapi rincian layanan manajemen properti sesuai praktik Griya Nuansa.',
       ],
       en: [
-        'Custom furniture makes every centimetre of a room work. We design kitchen sets, wardrobes, TV backdrops, and cashier counters that fit your space precisely.',
-        'Kitchen set services in BSD, Serpong, and across Greater Jakarta.',
+        'For homeowners, boarding houses, and rental properties, we help with everything from design to management so the property stays comfortable, attractive, and valuable in the long run.',
       ],
     },
     scope: {
       id: [
-        'Survei dan pengukuran',
-        'Desain dan pemilihan material',
-        'Produksi furnitur',
-        'Pemasangan di lokasi',
+        'Perawatan dan perbaikan berkala (maintenance)', // TODO: verifikasi ruang lingkup
+        'Penataan dan pembaruan unit sewa', // TODO
+        'Pendampingan operasional properti', // TODO
       ],
       en: [
-        'Site survey and measuring',
-        'Design and material selection',
-        'Furniture production',
-        'On-site installation',
+        'Routine maintenance and repairs',
+        'Styling and refreshing rental units',
+        'Property operations support',
       ],
     },
     audience: {
-      id: ['Pemilik rumah & apartemen', 'Pemilik usaha', 'Pemilik kost'],
-      en: ['Home & apartment owners', 'Business owners', 'Boarding house owners'],
+      id: ['Pemilik rumah', 'Pemilik kost & properti sewa', 'Developer'],
+      en: ['Homeowners', 'Boarding & rental property owners', 'Developers'],
     },
   },
   {
-    slug: 'renovasi',
-    title: { id: 'Renovasi', en: 'Renovation' },
+    slug: 'kontraktor',
+    title: { id: 'Kontraktor', en: 'Contractor' },
     short: {
-      id: 'Memperbarui rumah dan ruang usaha tanpa harus membangun dari nol.',
-      en: 'Refreshing homes and business spaces without building from scratch.',
+      id: 'Pembangunan dan renovasi, dari pekerjaan sipil hingga interior, sesuai gambar kerja.',
+      en: 'Construction and renovation, from civil works to interiors, built to the drawings.',
     },
     description: {
       id: [
-        'Renovasi yang terencana dimulai dari desain yang jelas. Kami membantu menata ulang ruang, memperbarui tampilan, dan memperbaiki fungsi bangunan.',
-        'Melayani renovasi rumah di Tangerang dan sekitarnya, dari skala parsial hingga menyeluruh.',
+        'Tim kontraktor kami mewujudkan desain menjadi bangunan: pembangunan baru, renovasi parsial maupun menyeluruh, hingga pengerjaan interior dan furnitur custom.',
+        'Setiap pekerjaan diawasi dengan kontrol kualitas harian dan laporan progres rutin, sehingga hasil akhir sesuai dengan gambar dan anggaran yang disepakati.',
       ],
       en: [
-        'A well-planned renovation starts with a clear design. We help rearrange spaces, refresh their look, and improve how the building works.',
-        'Home renovations in Tangerang and the surrounding area, from partial to full-scale.',
+        'Our contractor team turns designs into buildings: new construction, partial or full renovation, and interior and custom furniture works.',
+        'Every job is supervised with daily quality control and regular progress reports, so the result matches the agreed drawings and budget.',
       ],
     },
     scope: {
       id: [
         'Survei kondisi eksisting',
-        'Desain renovasi',
-        'Rencana anggaran biaya', // TODO: konfirmasi istilah/format penawaran
-        'Pelaksanaan pekerjaan dan serah terima',
+        'Rencana anggaran biaya (RAB)',
+        'Pembangunan & renovasi',
+        'Pengerjaan interior dan furnitur',
+        'Pengawasan konstruksi dan serah terima',
       ],
       en: [
         'Survey of existing conditions',
-        'Renovation design',
-        'Cost estimate',
-        'Construction and handover',
+        'Cost estimate (RAB)',
+        'Construction & renovation',
+        'Interior and furniture works',
+        'Construction supervision and handover',
       ],
     },
     audience: {
-      id: ['Pemilik rumah', 'Pemilik usaha', 'Pemilik kost'],
-      en: ['Homeowners', 'Business owners', 'Boarding house owners'],
+      id: ['Pemilik rumah', 'Pemilik usaha', 'Perusahaan'],
+      en: ['Homeowners', 'Business owners', 'Companies'],
     },
   },
   {
-    slug: 'property-management',
-    title: { id: 'Property Management', en: 'Property Management' },
+    slug: 'konsultan',
+    title: { id: 'Konsultan', en: 'Consultant' },
     short: {
-      id: 'Pengelolaan properti sewa agar tetap terawat, terisi, dan bernilai.',
-      en: 'Managing rental properties so they stay well-kept, occupied, and valuable.',
+      id: 'Pendampingan ahli untuk perencanaan, anggaran, dan keputusan teknis proyek Anda.',
+      en: 'Expert guidance on planning, budgeting, and technical decisions for your project.',
     },
     description: {
       id: [
-        'Untuk pemilik kost dan properti sewa, kami membantu dari sisi desain hingga pengelolaan agar properti tetap menarik bagi penyewa.',
-        'TODO: lengkapi rincian layanan property management sesuai praktik Griya Nuansa.',
+        'Belum yakin harus mulai dari mana? Kami membantu memetakan kebutuhan, memperkirakan anggaran, dan menilai kelayakan rencana sebelum Anda memulai pembangunan atau renovasi.',
+        'Layanan konsultasi juga cocok bagi Anda yang sudah memiliki desain atau kontraktor sendiri dan membutuhkan pendapat profesional yang independen.',
       ],
       en: [
-        'For boarding house and rental property owners, we help with everything from design to management so the property stays attractive to tenants.',
+        'Not sure where to start? We help map your needs, estimate the budget, and assess the feasibility of your plans before you begin construction or renovation.',
+        'Consulting also suits clients who already have their own design or contractor and want an independent professional opinion.',
       ],
     },
     scope: {
+      // TODO: verifikasi ruang lingkup layanan konsultan bersama Griya Nuansa
       id: [
-        'Desain dan penataan unit sewa', // TODO: verifikasi ruang lingkup
-        'Perawatan dan perbaikan berkala', // TODO
-        'Pendampingan operasional properti', // TODO
+        'Konsultasi kebutuhan dan konsep',
+        'Estimasi anggaran',
+        'Kajian desain dan teknis',
+        'Pendampingan perizinan bangunan (PBG)',
       ],
       en: [
-        'Rental unit design and styling',
-        'Routine maintenance and repairs',
-        'Property operations support',
+        'Needs and concept consultation',
+        'Budget estimation',
+        'Design and technical review',
+        'Building permit (PBG) assistance',
       ],
     },
     audience: {
-      id: ['Pemilik kost', 'Pemilik properti sewa', 'Developer'],
-      en: ['Boarding house owners', 'Rental property owners', 'Developers'],
+      id: ['Pemilik rumah', 'Pemilik usaha', 'Developer'],
+      en: ['Homeowners', 'Business owners', 'Developers'],
     },
   },
 ];
