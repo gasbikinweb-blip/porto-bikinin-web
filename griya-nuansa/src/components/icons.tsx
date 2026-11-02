@@ -1,5 +1,6 @@
 import { ExternalLink } from './WhatsApp';
 import { site } from '@/data/site';
+import type { Lang } from '@/i18n';
 
 type IconProps = { className?: string };
 
@@ -92,9 +93,11 @@ const socials = [
 export function SocialIcons({
   className = '',
   tone = 'light',
+  lang = 'id',
 }: {
   className?: string;
   tone?: 'light' | 'dark';
+  lang?: Lang;
 }) {
   const style =
     tone === 'light'
@@ -105,6 +108,7 @@ export function SocialIcons({
       {socials.map(({ href, label, Icon }) => (
         <li key={label}>
           <ExternalLink
+            lang={lang}
             href={href}
             className={`flex h-10 w-10 items-center justify-center rounded-full transition-colors ${style}`}
           >

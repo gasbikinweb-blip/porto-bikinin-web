@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { ArrowRight } from './icons';
 import { getProjectsByService } from '@/data/projects';
 import type { Service, ServiceSlug } from '@/data/types';
+import { type Lang, lp } from '@/i18n';
+import { ui } from '@/i18n/ui';
 
 // Ikon garis sederhana per layanan
 const iconPaths: Record<ServiceSlug, string> = {
@@ -13,11 +15,19 @@ const iconPaths: Record<ServiceSlug, string> = {
   'property-management': 'M4 21V9l8-6 8 6v12zM9 21v-5h6v5M12 11.5v.01',
 };
 
-export function ServiceCard({ service, index }: { service: Service; index?: number }) {
-  const img = getProjectsByService(service.slug)[0]?.cover;
+export function ServiceCard({
+  service,
+  index,
+  lang = 'id',
+}: {
+  service: Service;
+  index?: number;
+  lang?: Lang;
+}) {
+  const img = getProjectsByService(service.slug, lang)[0]?.cover;
   return (
     <Link
-      href={`/layanan/${service.slug}/`}
+      href={lp(lang, `/layanan/${service.slug}/`)}
       className="group flex h-full flex-col overflow-hidden rounded-md bg-bg ring-1 ring-line transition-shadow hover:shadow-lg"
     >
       <div className="relative aspect-[16/10] overflow-hidden bg-surface">
@@ -48,11 +58,11 @@ export function ServiceCard({ service, index }: { service: Service; index?: numb
         </span>
         <h3 className="mt-5 font-serif text-2xl">
           {index !== undefined && <span className="mr-2 text-base text-muted">0{index + 1}</span>}
-          {service.title}
+          {service.title[lang]}
         </h3>
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{service.short}</p>
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{service.short[lang]}</p>
         <span className="mt-6 flex items-center justify-between text-[11px] font-medium tracking-[0.18em] uppercase">
-          Selengkapnya
+          {ui[lang].more}
           <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
         </span>
       </div>

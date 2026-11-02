@@ -2,7 +2,10 @@
 
 // Tombol ganti mode terang/gelap. Pilihan disimpan di localStorage (hanya di browser pengunjung).
 // Tema awal diterapkan oleh public/theme-init.js sebelum halaman tergambar.
+import { useLang } from '@/i18n/client';
+
 export function ThemeToggle({ className = '' }: { className?: string }) {
+  const { t } = useLang();
   function toggle() {
     const root = document.documentElement;
     const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
@@ -16,7 +19,7 @@ export function ThemeToggle({ className = '' }: { className?: string }) {
 
   return (
     <button type="button" onClick={toggle} className={className}>
-      <span className="sr-only">Ganti mode terang/gelap</span>
+      <span className="sr-only">{t.themeToggle}</span>
       {/* Bulan saat terang, matahari saat gelap (diatur lewat CSS di globals.css) */}
       <svg
         viewBox="0 0 24 24"

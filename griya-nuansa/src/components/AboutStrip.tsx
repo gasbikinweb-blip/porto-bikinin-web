@@ -5,6 +5,8 @@ import { categories } from '@/data/categories';
 import { projects } from '@/data/projects';
 import { site } from '@/data/site';
 import type { ProjectImage } from '@/data/types';
+import type { Lang } from '@/i18n';
+import { ui } from '@/i18n/ui';
 
 /**
  * Section "Siapa Kami": foto | teks | kolom angka.
@@ -14,20 +16,23 @@ export function AboutStrip({
   image,
   action,
   headingLevel = 'h2',
+  lang = 'id',
 }: {
+  lang?: Lang;
   image?: ProjectImage;
   action?: ReactNode;
   headingLevel?: 'h1' | 'h2';
 }) {
   const H = headingLevel;
+  const t = ui[lang].about;
   const stats: [string, string][] = [
-    [String(projects.length), 'Proyek dalam portofolio'],
+    [String(projects.length), t.statProjects],
     [
       String(categories.filter((c) => projects.some((p) => p.category === c.slug)).length),
-      'Kategori ruang',
+      t.statCategories,
     ],
     // TODO: verifikasi angka pengikut saat rilis; tambahkan "tahun pengalaman" setelah tahun berdiri dikonfirmasi
-    [site.instagramFollowers, 'Pengikut Instagram'],
+    [site.instagramFollowers, t.statFollowers],
   ];
 
   return (
@@ -44,21 +49,15 @@ export function AboutStrip({
         </div>
       )}
       <div className="lg:col-span-4">
-        <Eyebrow>Siapa Kami</Eyebrow>
+        <Eyebrow>{t.eyebrow}</Eyebrow>
         <H className="mt-4 font-serif text-4xl leading-[1.1] md:text-[2.75rem]">
-          Dirancang dengan tujuan.
+          {t.title1}
           <br />
-          Dibangun untuk Anda.
+          {t.title2}
         </H>
         <div className="mt-6 space-y-3 text-sm leading-relaxed text-muted">
-          <p>
-            Di {site.name}, kami percaya desain yang baik lebih dari sekadar indah: ia harus bekerja
-            untuk keseharian penghuninya.
-          </p>
-          <p>
-            Kami merancang dan mengerjakan ruang yang mencerminkan gaya hidup Anda, dari rumah
-            tinggal hingga ruang usaha di Jabodetabek.
-          </p>
+          <p>{t.p1(site.name)}</p>
+          <p>{t.p2}</p>
         </div>
         {action && <div className="mt-8">{action}</div>}
       </div>

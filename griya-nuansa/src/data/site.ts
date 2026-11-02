@@ -1,3 +1,4 @@
+import type { L } from '@/i18n';
 import { config } from '@/lib/config';
 
 // Data identitas studio. Data yang belum tersedia ditandai TODO.
@@ -7,10 +8,19 @@ export const site = {
   tagline: 'Architecture · Interior Design · Property Management',
   description:
     'Griya Nuansa adalah studio arsitektur, desain interior, dan property management di Serpong, Tangerang Selatan, yang melayani area Jabodetabek.',
+  descriptionL: {
+    id: 'Griya Nuansa adalah studio arsitektur, desain interior, dan property management di Serpong, Tangerang Selatan, yang melayani area Jabodetabek.',
+    en: 'Griya Nuansa is an architecture, interior design, and property management studio in Serpong, South Tangerang, serving Greater Jakarta.',
+  } satisfies L,
   city: 'Serpong, Tangerang Selatan',
-  address: 'Serpong, Tangerang Selatan, Banten', // TODO: alamat lengkap
+  cityL: { id: 'Serpong, Tangerang Selatan', en: 'Serpong, South Tangerang' } satisfies L,
+  // Sumber: assets_baru/informasi.txt
+  address:
+    'Ruko Victoria Square, Jl. Buaran Raya No. 8, Buaran, Kec. Serpong, Kota Tangerang Selatan, Banten 15310',
+  mapsUrl: 'https://maps.app.goo.gl/Yjwyk5oia8XtGAyL6',
   email: 'halo@griyanuansa.id', // TODO: ganti dengan email resmi
-  hours: 'Senin–Sabtu, 09.00–17.00 WIB', // TODO: jam kerja resmi
+  // Sumber: informasi.txt (08:30–17:30). TODO: konfirmasi hari kerja
+  hours: { id: '08.30–17.30 WIB', en: '8:30 AM – 5:30 PM (WIB)' } satisfies L,
   foundedYear: undefined as number | undefined, // TODO: tahun berdiri
   serviceArea: ['Jakarta', 'Bogor', 'Depok', 'Tangerang', 'Tangerang Selatan', 'Bekasi'],
   whatsapp: [

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { ProjectCard } from './ProjectCard';
 import { categories } from '@/data/categories';
 import type { CategorySlug, Project } from '@/data/types';
+import { useLang } from '@/i18n/client';
 
 // Grid proyek dengan tab kategori
 export function ProjectFilter({
@@ -13,18 +14,22 @@ export function ProjectFilter({
   projects: Project[];
   headingLevel?: 'h2' | 'h3';
 }) {
+  const { lang, t } = useLang();
   const [active, setActive] = useState<CategorySlug | 'semua'>('semua');
   // Hanya tampilkan kategori yang punya proyek
   const available = categories.filter((c) => projects.some((p) => p.category === c.slug));
   const shown = active === 'semua' ? projects : projects.filter((p) => p.category === active);
 
-  const options = [{ slug: 'semua' as const, label: 'Semua Karya' }, ...available];
+  const options = [
+    { slug: 'semua' as const, label: t.filter.all },
+    ...available.map((c) => ({ slug: c.slug, label: c.label[lang] })),
+  ];
 
   return (
     <div>
       <div
         role="group"
-        aria-label="Filter kategori proyek"
+        aria-label={t.filter.label}
         className="flex flex-wrap justify-center gap-x-6 gap-y-2"
       >
         {options.map((o) => (
@@ -44,12 +49,12 @@ export function ProjectFilter({
         ))}
       </div>
       <p className="sr-only" aria-live="polite">
-        Menampilkan {shown.length} proyek
+        {t.filter.showing(shown.length)}
       </p>
       <ul className="mt-12 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
         {shown.map((p) => (
           <li key={p.slug}>
-            <ProjectCard project={p} headingLevel={headingLevel} />
+            <ProjectCard lang={lang} project={p} headingLevel={headingLevel} />
           </li>
         ))}
       </ul>

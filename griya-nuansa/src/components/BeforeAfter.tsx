@@ -3,10 +3,12 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import type { ProjectImage } from '@/data/types';
+import { useLang } from '@/i18n/client';
 
 /** Slider before-after. Memakai input range bawaan sehingga otomatis bisa dioperasikan keyboard. */
 export function BeforeAfter({ before, after }: { before: ProjectImage; after: ProjectImage }) {
   const [pos, setPos] = useState(50);
+  const { t } = useLang();
   return (
     <div className="relative aspect-[4/5] overflow-hidden bg-surface select-none md:aspect-[3/2]">
       <Image
@@ -30,13 +32,13 @@ export function BeforeAfter({ before, after }: { before: ProjectImage; after: Pr
         style={{ left: `${pos}%` }}
       />
       <span className="absolute top-3 left-3 bg-black/65 px-2.5 py-1 text-[11px] tracking-wider text-white uppercase">
-        Sebelum
+        {t.kind.before}
       </span>
       <span className="absolute top-3 right-3 bg-black/65 px-2.5 py-1 text-[11px] tracking-wider text-white uppercase">
-        Sesudah
+        {t.kind.after}
       </span>
       <label className="sr-only" htmlFor={`ba-${after.src}`}>
-        Geser untuk membandingkan sebelum dan sesudah
+        {t.beforeAfter.slide}
       </label>
       <input
         id={`ba-${after.src}`}

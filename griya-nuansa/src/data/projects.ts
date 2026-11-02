@@ -1,3 +1,4 @@
+import type { L, Lang } from '@/i18n';
 import manifest from './images.generated.json';
 import { getCategory } from './categories';
 import type { CategorySlug, ImageKind, Project, ProjectImage, ServiceSlug } from './types';
@@ -25,7 +26,7 @@ interface ProjectMeta {
   /** Alt teks per gambar, key = nama file hasil optimasi ('cover', '01', ...) */
   alts?: Record<string, string>;
   /** Deskripsi singkat ruang yang tampil pada alt default */
-  subject: string;
+  subject: string | L;
   summary?: string;
 }
 
@@ -150,6 +151,27 @@ const meta: Record<string, ProjectMeta> = {
   },
 };
 
+// Terjemahan otomatis untuk nilai yang berulang (subject, lingkup, lokasi)
+const EN: Record<string, string> = {
+  'interior rumah tinggal': 'house interior',
+  'interior unit apartemen': 'apartment unit interior',
+  'interior kamar kost': 'boarding room interior',
+  'interior ruang kantor': 'office interior',
+  'interior bakery': 'bakery interior',
+  'interior pusat kebugaran': 'fitness centre interior',
+  'interior klinik fisioterapi': 'physiotherapy clinic interior',
+  'desain bangunan industri': 'industrial building design',
+  proyek: 'project',
+  'Desain Interior': 'Interior Design',
+  'Desain Arsitektur': 'Architectural Design',
+  Build: 'Build',
+  'Property Management': 'Property Management',
+  Jakarta: 'Jakarta',
+  'Jakarta Selatan': 'South Jakarta',
+};
+const tr = (lang: Lang, v: string | L): string =>
+  typeof v === 'string' ? (lang === 'en' ? (EN[v] ?? v) : v) : v[lang];
+
 type Manifest = Record<
   string,
   { folder: string; images: { file: string; width: number; height: number }[] }
@@ -166,14 +188,18 @@ function titleFromFolder(folder: string) {
   return folder.replace(/_s\b/g, "'s").trim();
 }
 
-function buildProject(slug: string, entry: Manifest[string]): Project | null {
+function buildProject(slug: string, entry: Manifest[string], lang: Lang): Project | null {
   const m = meta[slug] ?? DEFAULT_META;
   const title = m.title ?? titleFromFolder(entry.folder);
-  const label = getCategory(m.category).label;
+  const label = getCategory(m.category).label[lang];
+  const subject = tr(lang, m.subject);
 
   const images: ProjectImage[] = entry.images.map((img, i) => {
     const kind = m.kinds?.[img.file] ?? m.kind ?? 'foto';
     const base = `/images/proyek/${slug}/${img.file}`;
+    const prefix =
+      kind === 'render' ? (lang === 'en' ? 'Design render of ' : 'Render desain ') : '';
+    const nth = lang === 'en' ? `image ${i + 1}` : `gambar ${i + 1}`;
     return {
       src: `${base}.webp`,
       thumb: `${base}-thumb.webp`,
@@ -182,8 +208,8 @@ function buildProject(slug: string, entry: Manifest[string]): Project | null {
       kind,
       // TODO: ganti alt default dengan deskripsi spesifik tiap foto lewat `alts`
       alt:
-        m.alts?.[img.file] ??
-        `${kind === 'render' ? 'Render desain ' : ''}${m.subject} ${title} (${label}), gambar ${i + 1}`,
+        (lang === 'id' ? m.alts?.[img.file] : undefined) ??
+        `${prefix}${subject} ${title} (${label}), ${nth}`,
     };
   });
 
@@ -194,8 +220,8 @@ function buildProject(slug: string, entry: Manifest[string]): Project | null {
     slug,
     title,
     category: m.category,
-    location: m.location,
-    scope: m.scope,
+    location: m.location && tr(lang, m.location),
+    scope: m.scope.map((x) => tr(lang, x)),
     services: m.services,
     year: m.year,
     summary: m.summary,
@@ -205,25 +231,40 @@ function buildProject(slug: string, entry: Manifest[string]): Project | null {
   };
 }
 
-export const projects: Project[] = Object.entries(manifest as Manifest)
-  .map(([slug, entry]) => buildProject(slug, entry))
-  .filter((p): p is Project => p !== null)
-  // Proyek unggulan tampil lebih dulu
-  .sort((a, b) => Number(b.featured) - Number(a.featured));
-
-export const featuredProjects = projects.filter((p) => p.featured);
-
-export function getProject(slug: string): Project | undefined {
-  return projects.find((p) => p.slug === slug);
+function buildAll(lang: Lang): Project[] {
+  return (
+    Object.entries(manifest as Manifest)
+      .map(([slug, entry]) => buildProject(slug, entry, lang))
+      .filter((p): p is Project => p !== null)
+      // Proyek unggulan tampil lebih dulu
+      .sort((a, b) => Number(b.featured) - Number(a.featured))
+  );
 }
 
-export function getProjectsByService(service: ServiceSlug): Project[] {
-  return projects.filter((p) => p.services.includes(service));
+const byLang: L<Project[]> = { id: buildAll('id'), en: buildAll('en') };
+
+export function getProjects(lang: Lang = 'id'): Project[] {
+  return byLang[lang];
+}
+
+/** Daftar proyek versi Indonesia (slug, kategori, jumlah sama di kedua bahasa) */
+export const projects: Project[] = byLang.id;
+
+export function getFeaturedProjects(lang: Lang = 'id'): Project[] {
+  return byLang[lang].filter((p) => p.featured);
+}
+
+export function getProject(slug: string, lang: Lang = 'id'): Project | undefined {
+  return byLang[lang].find((p) => p.slug === slug);
+}
+
+export function getProjectsByService(service: ServiceSlug, lang: Lang = 'id'): Project[] {
+  return byLang[lang].filter((p) => p.services.includes(service));
 }
 
 /** Pasangan before/after dari seluruh proyek (berdasarkan field `kinds`). */
-export function getBeforeAfterPairs() {
-  return projects.flatMap((p) => {
+export function getBeforeAfterPairs(lang: Lang = 'id') {
+  return byLang[lang].flatMap((p) => {
     const before = p.images.filter((i) => i.kind === 'before');
     const after = p.images.filter((i) => i.kind === 'after');
     return before

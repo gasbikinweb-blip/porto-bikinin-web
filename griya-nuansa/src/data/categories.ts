@@ -1,20 +1,61 @@
+import type { L } from '@/i18n';
 import type { Category, CategoryGroup, CategorySlug } from './types';
 
 export const categories: Category[] = [
-  { slug: 'rumah', label: 'Rumah', group: 'residensial' },
-  { slug: 'apartemen', label: 'Apartemen', group: 'residensial' },
-  { slug: 'kost', label: 'Kost & Properti Sewa', group: 'residensial' },
-  { slug: 'komersial', label: 'Komersial & F&B', group: 'komersial' },
-  { slug: 'kesehatan-kebugaran', label: 'Kesehatan & Kebugaran', group: 'komersial' },
-  { slug: 'kantor', label: 'Kantor', group: 'kantor' },
-  { slug: 'industri', label: 'Industri', group: 'industri' },
+  { slug: 'rumah', label: { id: 'Rumah', en: 'House' }, group: 'residensial' },
+  { slug: 'apartemen', label: { id: 'Apartemen', en: 'Apartment' }, group: 'residensial' },
+  {
+    slug: 'kost',
+    label: { id: 'Kost & Properti Sewa', en: 'Boarding & Rental' },
+    group: 'residensial',
+  },
+  {
+    slug: 'komersial',
+    label: { id: 'Komersial & F&B', en: 'Commercial & F&B' },
+    group: 'komersial',
+  },
+  {
+    slug: 'kesehatan-kebugaran',
+    label: { id: 'Kesehatan & Kebugaran', en: 'Health & Fitness' },
+    group: 'komersial',
+  },
+  { slug: 'kantor', label: { id: 'Kantor', en: 'Office' }, group: 'kantor' },
+  { slug: 'industri', label: { id: 'Industri', en: 'Industrial' }, group: 'industri' },
 ];
 
-export const categoryGroups: { slug: CategoryGroup; label: string; description: string }[] = [
-  { slug: 'residensial', label: 'Residensial', description: 'Rumah tinggal, apartemen, dan kost.' },
-  { slug: 'komersial', label: 'Komersial', description: 'Kafe, bakery, gym, dan klinik.' },
-  { slug: 'kantor', label: 'Kantor', description: 'Ruang kerja yang fungsional dan berkarakter.' },
-  { slug: 'industri', label: 'Industri', description: 'Fasilitas dan bangunan industri.' },
+export const categoryGroups: { slug: CategoryGroup; label: L; description: L }[] = [
+  {
+    slug: 'residensial',
+    label: { id: 'Residensial', en: 'Residential' },
+    description: {
+      id: 'Rumah tinggal, apartemen, dan kost.',
+      en: 'Homes, apartments, and boarding houses.',
+    },
+  },
+  {
+    slug: 'komersial',
+    label: { id: 'Komersial', en: 'Commercial' },
+    description: {
+      id: 'Kafe, bakery, gym, dan klinik.',
+      en: 'Cafés, bakeries, gyms, and clinics.',
+    },
+  },
+  {
+    slug: 'kantor',
+    label: { id: 'Kantor', en: 'Office' },
+    description: {
+      id: 'Ruang kerja yang fungsional dan berkarakter.',
+      en: 'Functional workspaces with character.',
+    },
+  },
+  {
+    slug: 'industri',
+    label: { id: 'Industri', en: 'Industrial' },
+    description: {
+      id: 'Fasilitas dan bangunan industri.',
+      en: 'Industrial facilities and buildings.',
+    },
+  },
 ];
 
 export function getCategory(slug: CategorySlug): Category {

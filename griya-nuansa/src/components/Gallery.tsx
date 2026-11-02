@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { KindBadge } from './KindBadge';
 import type { ProjectImage } from '@/data/types';
+import { useLang } from '@/i18n/client';
 
 /**
  * Galeri ringkas: satu foto utama + deretan thumbnail untuk menggantinya.
@@ -12,6 +13,8 @@ import type { ProjectImage } from '@/data/types';
  * dan fokus kembali ke foto pemicu saat ditutup.
  */
 export function Gallery({ images, title }: { images: ProjectImage[]; title: string }) {
+  const { lang, t } = useLang();
+  const g = t.gallery;
   const [index, setIndex] = useState<number | null>(null);
   const [active, setActive] = useState(0);
   const mainRef = useRef<HTMLButtonElement>(null);
@@ -87,16 +90,16 @@ export function Gallery({ images, title }: { images: ProjectImage[]; title: stri
                 sizes="(min-width: 1024px) 55vw, 100vw"
                 className="fade-in object-cover transition-transform duration-700 group-hover:scale-[1.02]"
               />
-              <KindBadge kind={shown.kind} />
+              <KindBadge lang={lang} kind={shown.kind} />
               <span className="absolute right-3 bottom-3 rounded-sm bg-black/55 px-2.5 py-1 text-[11px] tracking-wider text-white">
                 {active + 1} / {images.length}
               </span>
-              <span className="sr-only">Perbesar gambar {active + 1}</span>
+              <span className="sr-only">{g.enlarge(active + 1)}</span>
             </button>
             {images.length > 1 &&
               [
-                { d: -1, label: 'Foto sebelumnya', side: 'left-3', path: 'M10 3L5 8l5 5' },
-                { d: 1, label: 'Foto berikutnya', side: 'right-3', path: 'M6 3l5 5-5 5' },
+                { d: -1, label: g.prevPhoto, side: 'left-3', path: 'M10 3L5 8l5 5' },
+                { d: 1, label: g.nextPhoto, side: 'right-3', path: 'M6 3l5 5-5 5' },
               ].map((b) => (
                 <button
                   key={b.d}
@@ -119,7 +122,7 @@ export function Gallery({ images, title }: { images: ProjectImage[]; title: stri
               ))}
           </div>
           {images.length > 1 && (
-            <ul aria-label="Pilih foto" className="mt-3 flex gap-2 overflow-x-auto p-1">
+            <ul aria-label={g.choose} className="mt-3 flex gap-2 overflow-x-auto p-1">
               {images.map((img, i) => (
                 <li key={img.src} className="shrink-0">
                   <button
@@ -133,7 +136,7 @@ export function Gallery({ images, title }: { images: ProjectImage[]; title: stri
                     }`}
                   >
                     <Image src={img.thumb} alt="" fill sizes="96px" className="object-cover" />
-                    <span className="sr-only">Tampilkan foto {i + 1}</span>
+                    <span className="sr-only">{g.show(i + 1)}</span>
                   </button>
                 </li>
               ))}
@@ -147,7 +150,7 @@ export function Gallery({ images, title }: { images: ProjectImage[]; title: stri
           ref={dialogRef}
           role="dialog"
           aria-modal="true"
-          aria-label={`Galeri ${title}, gambar ${index + 1} dari ${images.length}`}
+          aria-label={g.dialog(title, index + 1, images.length)}
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 text-white"
           onClick={(e) => e.target === e.currentTarget && close()}
         >
@@ -161,7 +164,7 @@ export function Gallery({ images, title }: { images: ProjectImage[]; title: stri
                 sizes="100vw"
                 className="object-contain"
               />
-              <KindBadge kind={current.kind} />
+              <KindBadge lang={lang} kind={current.kind} />
             </div>
             <figcaption className="absolute bottom-4 left-0 w-full px-6 text-center text-xs text-white/75">
               {index + 1} / {images.length} · {current.alt}
@@ -174,7 +177,7 @@ export function Gallery({ images, title }: { images: ProjectImage[]; title: stri
             className="absolute top-3 right-3 flex h-12 w-12 items-center justify-center text-3xl"
           >
             <span aria-hidden="true">×</span>
-            <span className="sr-only">Tutup galeri</span>
+            <span className="sr-only">{g.close}</span>
           </button>
           {images.length > 1 && (
             <>
@@ -184,7 +187,7 @@ export function Gallery({ images, title }: { images: ProjectImage[]; title: stri
                 className="absolute top-1/2 left-1 flex h-14 w-12 -translate-y-1/2 items-center justify-center text-3xl md:left-4"
               >
                 <span aria-hidden="true">‹</span>
-                <span className="sr-only">Gambar sebelumnya</span>
+                <span className="sr-only">{g.prevImage}</span>
               </button>
               <button
                 type="button"
@@ -192,7 +195,7 @@ export function Gallery({ images, title }: { images: ProjectImage[]; title: stri
                 className="absolute top-1/2 right-1 flex h-14 w-12 -translate-y-1/2 items-center justify-center text-3xl md:right-4"
               >
                 <span aria-hidden="true">›</span>
-                <span className="sr-only">Gambar berikutnya</span>
+                <span className="sr-only">{g.nextImage}</span>
               </button>
             </>
           )}

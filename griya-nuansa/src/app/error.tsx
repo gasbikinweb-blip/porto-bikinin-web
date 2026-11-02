@@ -1,6 +1,7 @@
 'use client';
 
 import { Container, PageHeader } from '@/components/ui';
+import { useLang } from '@/i18n/client';
 
 // Error boundary: tampilkan pesan netral tanpa membocorkan detail error ke pengunjung
 export default function Error({
@@ -9,20 +10,17 @@ export default function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  const { t } = useLang();
   return (
     <>
-      <PageHeader
-        eyebrow="Kesalahan"
-        title="Terjadi kendala"
-        intro="Maaf, halaman gagal dimuat. Silakan coba lagi."
-      />
+      <PageHeader eyebrow={t.error.eyebrow} title={t.error.title} intro={t.error.intro} />
       <Container className="pt-12">
         <button
           type="button"
           onClick={reset}
           className="rounded-full border border-fg px-6 py-3 text-sm hover:bg-fg hover:text-bg"
         >
-          Muat ulang
+          {t.error.retry}
         </button>
       </Container>
     </>

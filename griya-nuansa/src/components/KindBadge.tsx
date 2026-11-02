@@ -1,14 +1,18 @@
 import type { ImageKind } from '@/data/types';
-
-const labels: Partial<Record<ImageKind, string>> = {
-  render: 'Render Desain',
-  before: 'Sebelum',
-  after: 'Sesudah',
-};
+import type { Lang } from '@/i18n';
+import { ui } from '@/i18n/ui';
 
 /** Label kecil di pojok gambar untuk render/before/after. Foto biasa tidak diberi label. */
-export function KindBadge({ kind, className = '' }: { kind: ImageKind; className?: string }) {
-  const label = labels[kind];
+export function KindBadge({
+  kind,
+  className = '',
+  lang = 'id',
+}: {
+  kind: ImageKind;
+  className?: string;
+  lang?: Lang;
+}) {
+  const label = kind === 'foto' ? undefined : ui[lang].kind[kind];
   if (!label) return null;
   return (
     <span

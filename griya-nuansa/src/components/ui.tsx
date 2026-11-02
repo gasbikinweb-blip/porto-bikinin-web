@@ -29,6 +29,8 @@ export function Eyebrow({
 const buttonStyles = {
   solid: 'bg-fg text-bg hover:opacity-85',
   outline: 'border border-fg/30 text-fg hover:border-fg',
+  // Untuk di atas foto gelap (hero)
+  light: 'bg-white text-neutral-900 hover:bg-white/90',
 };
 
 /** Tombol-link kotak dengan panah, gaya utama tombol di seluruh website */

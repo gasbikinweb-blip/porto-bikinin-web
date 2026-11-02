@@ -1,4 +1,5 @@
 // Tipe data bersama untuk seluruh website
+import type { L } from '@/i18n';
 
 export type CategorySlug =
   'rumah' | 'apartemen' | 'komersial' | 'kantor' | 'kesehatan-kebugaran' | 'industri' | 'kost';
@@ -8,7 +9,7 @@ export type CategoryGroup = 'residensial' | 'komersial' | 'kantor' | 'industri';
 
 export interface Category {
   slug: CategorySlug;
-  label: string;
+  label: L;
   group: CategoryGroup;
 }
 
@@ -42,11 +43,11 @@ export interface Project {
 
 export interface Service {
   slug: ServiceSlug;
-  title: string;
-  short: string;
-  description: string[];
-  scope: string[];
-  audience: string[];
+  title: L;
+  short: L;
+  description: L<string[]>;
+  scope: L<string[]>;
+  audience: L<string[]>;
 }
 
 export interface Faq {

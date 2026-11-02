@@ -1,4 +1,6 @@
 import type { ReactNode } from 'react';
+import type { Lang } from '@/i18n';
+import { ui } from '@/i18n/ui';
 import { buildWhatsAppLink } from '@/lib/config';
 
 type Variant = 'solid' | 'outline' | 'light' | 'ghost';
@@ -28,12 +30,14 @@ export function WhatsAppButton({
   children,
   variant = 'solid',
   className = '',
+  lang = 'id',
 }: {
   message: string;
   number?: string;
   children: ReactNode;
   variant?: Variant;
   className?: string;
+  lang?: Lang;
 }) {
   return (
     <a
@@ -44,7 +48,7 @@ export function WhatsAppButton({
     >
       <WhatsAppIcon />
       {children}
-      <span className="sr-only"> (membuka WhatsApp di tab baru)</span>
+      <span className="sr-only">{ui[lang].waNewTab}</span>
     </a>
   );
 }
@@ -53,15 +57,17 @@ export function ExternalLink({
   href,
   children,
   className,
+  lang = 'id',
 }: {
   href: string;
   children: ReactNode;
   className?: string;
+  lang?: Lang;
 }) {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
       {children}
-      <span className="sr-only"> (tab baru)</span>
+      <span className="sr-only">{ui[lang].newTab}</span>
     </a>
   );
 }

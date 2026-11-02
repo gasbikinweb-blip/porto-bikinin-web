@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { SocialIcons } from './icons';
@@ -7,7 +9,9 @@ import { Container, Eyebrow } from './ui';
 import { ExternalLink, WhatsAppButton } from './WhatsApp';
 import { getProject } from '@/data/projects';
 import { services } from '@/data/services';
-import { defaultWaMessage, site } from '@/data/site';
+import { site } from '@/data/site';
+import { lp } from '@/i18n';
+import { useLang } from '@/i18n/client';
 import { buildWhatsAppLink } from '@/lib/config';
 
 export const socialLinks = [
@@ -21,7 +25,8 @@ const colTitle = 'text-xs tracking-[0.2em] text-white/50 uppercase';
 const colLink = 'text-white/80 hover:text-white';
 
 export function Footer() {
-  const ctaImage = getProject('yk-house')?.cover; // TODO: pilih foto untuk ajakan konsultasi
+  const { lang, t } = useLang();
+  const ctaImage = getProject('yk-house', lang)?.cover; // TODO: pilih foto untuk ajakan konsultasi
   return (
     <footer className="mt-24 md:mt-32">
       {/* Ajakan konsultasi: foto | teks (tampil di semua halaman) */}
@@ -39,21 +44,18 @@ export function Footer() {
             </div>
           )}
           <div className="flex flex-col justify-center p-8 md:p-14">
-            <Eyebrow>Mari wujudkan ruang yang indah</Eyebrow>
+            <Eyebrow>{t.footer.ctaEyebrow}</Eyebrow>
             <h2 className="mt-4 font-serif text-4xl leading-[1.1] md:text-5xl">
-              Siap mewujudkan ruang impian Anda?
+              {t.footer.ctaTitle}
             </h2>
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
-              Ceritakan rencana Anda, kami bantu memetakan langkah terbaik untuk mewujudkannya.
-            </p>
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">{t.footer.ctaText}</p>
             {/* TODO: konfirmasi apakah konsultasi memang gratis */}
             <div className="mt-8 flex flex-wrap gap-3">
-              <WhatsAppButton message={defaultWaMessage}>Mulai Konsultasi</WhatsAppButton>
-              <WhatsAppButton
-                variant="outline"
-                message="Halo Griya Nuansa, saya ingin minta penawaran untuk proyek saya."
-              >
-                Minta Penawaran
+              <WhatsAppButton lang={lang} message={t.defaultWa}>
+                {t.footer.startConsult}
+              </WhatsAppButton>
+              <WhatsAppButton lang={lang} variant="outline" message={t.quoteWa}>
+                {t.footer.requestQuote}
               </WhatsAppButton>
             </div>
           </div>
@@ -78,19 +80,18 @@ export function Footer() {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3">
               <Logo className="h-12 w-12" />
-              <span className="font-serif text-lg tracking-[0.18em] uppercase">{site.name}</span>
+              <span className="font-serif text-2xl leading-none">{site.name}</span>
             </div>
             <p className="mt-5 max-w-sm leading-relaxed text-white/70">
-              Studio arsitektur, desain interior, dan property management di {site.city}. Melayani
-              area Jabodetabek.
+              {t.footer.about(site.cityL[lang])}
             </p>
             <p className="mt-4 text-white/50">{site.hashtags.join(' ')}</p>
-            <SocialIcons className="mt-6" />
+            <SocialIcons lang={lang} className="mt-6" />
           </div>
           <div>
-            <h2 className={colTitle}>Menu</h2>
+            <h2 className={colTitle}>{t.footer.menu}</h2>
             <ul className="mt-4 space-y-2">
-              {navItems.map((n) => (
+              {navItems(lang).map((n) => (
                 <li key={n.href}>
                   <Link href={n.href} className={colLink}>
                     {n.label}
@@ -100,30 +101,34 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h2 className={colTitle}>Layanan</h2>
+            <h2 className={colTitle}>{t.footer.services}</h2>
             <ul className="mt-4 space-y-2">
               {services.map((s) => (
                 <li key={s.slug}>
-                  <Link href={`/layanan/${s.slug}/`} className={colLink}>
-                    {s.title}
+                  <Link href={lp(lang, `/layanan/${s.slug}/`)} className={colLink}>
+                    {s.title[lang]}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <h2 className={colTitle}>Hubungi</h2>
+            <h2 className={colTitle}>{t.footer.contact}</h2>
             <ul className="mt-4 space-y-2">
               {site.whatsapp.map((w) => (
                 <li key={w.number}>
-                  <ExternalLink href={buildWhatsAppLink('', w.number)} className={colLink}>
+                  <ExternalLink
+                    lang={lang}
+                    href={buildWhatsAppLink('', w.number)}
+                    className={colLink}
+                  >
                     WA {w.label}
                   </ExternalLink>
                 </li>
               ))}
               {socialLinks.map((s) => (
                 <li key={s.href}>
-                  <ExternalLink href={s.href} className={colLink}>
+                  <ExternalLink lang={lang} href={s.href} className={colLink}>
                     {s.label}
                   </ExternalLink>
                 </li>
@@ -133,8 +138,7 @@ export function Footer() {
         </div>
 
         <p className="mx-auto max-w-screen-xl border-t border-white/10 px-5 py-6 text-xs text-white/50 md:px-10">
-          © {new Date().getFullYear()} {site.name}. Seluruh foto adalah karya dan dokumentasi proyek{' '}
-          {site.name}.
+          © {new Date().getFullYear()} {site.name}. {t.footer.rights(site.name)}
         </p>
       </div>
     </footer>

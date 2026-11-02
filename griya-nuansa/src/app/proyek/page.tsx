@@ -1,32 +1,15 @@
-import { ProjectFilter } from '@/components/ProjectFilter';
-import { Container, PageHeader } from '@/components/ui';
-import { getProject, projects } from '@/data/projects';
+import { getProjects } from '@/data/projects';
 import { pageMeta } from '@/lib/seo';
+import { projectsCopy, ProjectsView } from '@/views/ProjectsView';
 
 export const metadata = pageMeta({
-  title: 'Portofolio Proyek',
-  description:
-    'Portofolio Griya Nuansa: desain interior dan arsitektur rumah, apartemen, kafe, gym, klinik, kantor, kost, dan industri di Jabodetabek.',
+  lang: 'id',
+  title: projectsCopy.id.metaTitle,
+  description: projectsCopy.id.metaDesc,
   path: '/proyek/',
-  image: projects[0]?.cover.src,
+  image: getProjects().at(0)?.cover.src,
 });
 
 export default function ProjectsPage() {
-  return (
-    <>
-      <PageHeader
-        eyebrow="Portofolio"
-        image={getProject('altuera-tower-southgate')?.cover}
-        title={
-          <>
-            Project <em>Showcase</em>
-          </>
-        }
-        intro={`${projects.length} proyek arsitektur dan interior yang kami rancang dan kerjakan di Jabodetabek.`}
-      />
-      <Container className="py-16 md:py-24">
-        <ProjectFilter projects={projects} />
-      </Container>
-    </>
-  );
+  return <ProjectsView lang={'id'} />;
 }

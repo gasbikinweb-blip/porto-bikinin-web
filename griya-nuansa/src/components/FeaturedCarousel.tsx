@@ -1,10 +1,12 @@
 'use client';
 
 import { useRef, type ReactNode } from 'react';
+import { useLang } from '@/i18n/client';
 
 /** Baris kartu yang bisa digeser (scroll-snap) dengan tombol panah kiri/kanan */
 export function FeaturedCarousel({ children, label }: { children: ReactNode; label: string }) {
   const ref = useRef<HTMLUListElement>(null);
+  const { t } = useLang();
   const go = (dir: number) => {
     const el = ref.current;
     if (!el) return;
@@ -16,8 +18,8 @@ export function FeaturedCarousel({ children, label }: { children: ReactNode; lab
     <div>
       <div className="mb-5 flex justify-end gap-2">
         {[
-          { d: -1, text: 'Sebelumnya', path: 'M10 3L5 8l5 5' },
-          { d: 1, text: 'Berikutnya', path: 'M6 3l5 5-5 5' },
+          { d: -1, text: t.prev, path: 'M10 3L5 8l5 5' },
+          { d: 1, text: t.next, path: 'M6 3l5 5-5 5' },
         ].map((b) => (
           <button
             key={b.d}
