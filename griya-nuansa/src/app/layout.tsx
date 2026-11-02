@@ -40,7 +40,14 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     // suppressHydrationWarning: atribut data-theme dipasang theme-init.js sebelum React berjalan
-    <html lang="id" className={montserrat.variable} suppressHydrationWarning>
+    // data-scroll-behavior: memberi tahu Next.js bahwa scroll-behavior: smooth disengaja,
+    // sehingga saat pindah halaman scroll langsung ke atas (tanpa animasi) dan peringatan hilang
+    <html
+      lang="id"
+      className={montserrat.variable}
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
       <head>
         {/* Skrip kecil sinkron agar tema tidak berkedip; file lokal, aman untuk CSP 'self' */}
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}
