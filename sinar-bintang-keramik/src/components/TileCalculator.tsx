@@ -3,7 +3,7 @@
 // Kalkulator kebutuhan keramik: murni dihitung di browser, tanpa <form> dan tanpa penyimpanan.
 // Luas per dus HANYA dari data produk atau isian pengguna; tidak pernah ditebak.
 import { useId, useState } from 'react';
-import { formatRupiah, products } from '@/data/products';
+import { products } from '@/data/products';
 import { buildWhatsAppLink } from '@/lib/whatsapp';
 import { WhatsAppIcon } from './icons';
 
@@ -30,6 +30,7 @@ export function TileCalculator() {
   const [productId, setProductId] = useState(MANUAL);
   const [manualM2, setManualM2] = useState('');
   const [spare, setSpare] = useState(10);
+  const [name, setName] = useState('');
 
   const product = tiles.find((p) => p.id === productId);
   const l = parsePositive(length, MAX_SIDE);
@@ -39,21 +40,25 @@ export function TileCalculator() {
 
   const room = l && w ? l * w : null;
   const boxes = room && m2PerBox ? Math.ceil((room * (1 + spare / 100)) / m2PerBox) : null;
-  const cost =
-    boxes && product?.price && product.priceUnit === 'dus' ? boxes * product.price : null;
+  // Nama: buang karakter kontrol & spasi berlebih, maksimal 50 karakter
+  const cleanName = name
+    .replace(/[\u0000-\u001f\u007f]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const ready = Boolean(boxes && cleanName);
 
-  // Tiap rincian di paragraf sendiri supaya pesan lega dibaca admin
+  // Tiap rincian di paragraf sendiri supaya pesan lega dibaca admin.
+  // Sengaja tanpa estimasi biaya: harga final dikonfirmasi admin.
   const parts = boxes
     ? [
         'Halo Sinar Bintang Keramik, saya mau pesan keramik dengan rincian:',
+        `Atas nama: ${cleanName || '-'}`,
         `*${product?.name ?? 'Keramik (belum pilih produk)'}*`,
         `Ukuran ruangan: ${fmt(l!)} m x ${fmt(w!)} m = ${fmt(room!)} m²`,
         `Cadangan potongan: ${spare}%`,
         `Luas per dus: ${fmt(m2PerBox!)} m²`,
         `Kebutuhan: ${boxes} dus`,
-        cost &&
-          `Estimasi biaya: ${formatRupiah(cost)}${product?.priceFrom ? ' (harga mulai)' : ''}`,
-        'Mohon dicek stok dan total ongkirnya ya. Terima kasih.',
+        'Mohon info harga, stok, dan total ongkirnya ya. Terima kasih.',
       ].filter((line): line is string => typeof line === 'string')
     : [];
   const message = parts.join('\n\n');
@@ -63,7 +68,21 @@ export function TileCalculator() {
 
   return (
     <div className="grid gap-6 rounded-3xl border border-line bg-card p-5 sm:p-8 lg:grid-cols-[1.1fr_0.9fr]">
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="grid content-start gap-4 sm:grid-cols-2">
+        <div className="sm:col-span-2">
+          <label htmlFor={`${id}-n`} className="text-sm font-semibold">
+            Atas nama <span className="font-normal text-muted">(wajib)</span>
+          </label>
+          <input
+            id={`${id}-n`}
+            autoComplete="name"
+            maxLength={50}
+            placeholder="Nama pemesan"
+            value={name}
+            onChange={(e) => setName(e.target.value.slice(0, 50))}
+            className={field}
+          />
+        </div>
         <div>
           <label htmlFor={`${id}-p`} className="text-sm font-semibold">
             Panjang ruangan (m)
@@ -179,18 +198,9 @@ export function TileCalculator() {
             <dt>Jumlah dus</dt>
             <dd className="text-2xl font-extrabold text-red">{boxes ? `${boxes} dus` : '–'}</dd>
           </div>
-          {product && (
-            <div className="flex justify-between py-2.5">
-              <dt>Estimasi biaya</dt>
-              <dd className="font-bold">
-                {cost ? formatRupiah(cost) : product.price === undefined ? 'Tanya harga' : '–'}
-              </dd>
-            </div>
-          )}
         </dl>
         <p className="mt-2 text-xs text-muted">
-          Dibulatkan ke atas. Estimasi belum termasuk ongkir; harga dan stok terbaru konfirmasi via
-          WA.
+          Dibulatkan ke atas. Harga, stok, dan ongkir dikonfirmasi admin via WA.
         </p>
 
         {/* Pratinjau pesan WA sebelum dikirim */}
@@ -221,15 +231,20 @@ export function TileCalculator() {
         </div>
 
         <a
-          href={boxes ? buildWhatsAppLink(message) : undefined}
-          aria-disabled={!boxes}
+          href={ready ? buildWhatsAppLink(message) : undefined}
+          aria-disabled={!ready}
           target="_blank"
           rel="noopener noreferrer"
-          className={`inline-flex min-h-12 items-center justify-center gap-2 mt-4 rounded-lg px-5 pt-0 font-bold ${boxes ? 'bg-red text-white hover:bg-red-strong' : 'pointer-events-none bg-surface-2 text-muted'}`}
+          className={`mt-4 inline-flex min-h-12 items-center justify-center gap-2 rounded-lg px-5 pt-0 font-bold ${ready ? 'bg-red text-white hover:bg-red-strong' : 'pointer-events-none bg-surface-2 text-muted'}`}
         >
           <WhatsAppIcon className="size-5" />
           Pesan dengan Rincian Ini<span className="sr-only"> (tab baru)</span>
         </a>
+        {boxes && !cleanName && (
+          <p className="mt-2 text-center text-xs font-semibold text-red">
+            Isi nama pemesan dulu ya, Kak.
+          </p>
+        )}
       </div>
     </div>
   );
