@@ -115,15 +115,28 @@ body {
 /* Muncul saat digulir: hanya bila JS aktif (kelas .js dari theme-init.js) */
 .js .reveal {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(56px) scale(0.96);
   transition:
-    opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
-    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+    opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
   transition-delay: var(--delay, 0ms);
 }
 .js .reveal.is-in {
   opacity: 1;
   transform: none;
+}
+/* Gambar di dalam elemen reveal: zoom-out pelan + dari buram ke tajam, supaya terasa "muncul" */
+.js .reveal img {
+  transform: scale(1.15);
+  filter: blur(6px);
+  transition:
+    transform 1.3s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 0.9s ease;
+  transition-delay: calc(var(--delay, 0ms) + 120ms);
+}
+.js .reveal.is-in img {
+  transform: none;
+  filter: none;
 }
 
 @keyframes fade-in {
@@ -143,9 +156,11 @@ dialog[open] {
   html {
     scroll-behavior: auto;
   }
-  .js .reveal {
+  .js .reveal,
+  .js .reveal img {
     opacity: 1;
     transform: none;
+    filter: none;
   }
   *,
   *::before,

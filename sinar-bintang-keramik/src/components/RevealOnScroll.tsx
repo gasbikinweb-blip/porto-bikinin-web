@@ -17,7 +17,14 @@ export function RevealOnScroll() {
       { rootMargin: '0px 0px -8% 0px', threshold: 0.08 },
     );
     const watch = () => {
-      document.querySelectorAll('.reveal:not(.is-in)').forEach((el) => io.observe(el));
+      document.querySelectorAll<HTMLElement>('.reveal:not(.is-in)').forEach((el) => {
+        // Jeda bergiliran untuk elemen bersebelahan (mis. kartu dalam grid) bila belum diatur manual
+        if (!el.style.getPropertyValue('--delay') && el.parentElement) {
+          const i = [...el.parentElement.children].indexOf(el) % 4;
+          el.style.setProperty('--delay', `${i * 120}ms`);
+        }
+        io.observe(el);
+      });
     };
     watch();
     // Kartu produk baru ("Tampilkan lebih banyak", ganti filter)
