@@ -1,0 +1,91 @@
+@import 'tailwindcss';
+
+/* Palet hangat dari foto produk: off-white, cokelat kayu, tinta gelap. Kontras teks sudah ≥ 4.5:1. */
+:root {
+  color-scheme: light;
+  --background: #faf8f5;
+  --surface: #f0ebe3;
+  --foreground: #1d1b18;
+  --muted: #625c53;
+  --accent: #8a5a2b;
+  --ink: #211c17;
+  --line: #e2dbd0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-ink: var(--ink);
+  --color-line: var(--line);
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-heading);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Muncul saat di-scroll (dipicu RevealObserver) */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+}
+.reveal-ready .reveal:not(.is-visible) {
+  opacity: 0;
+}
+.reveal.is-visible {
+  animation: reveal-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms) backwards;
+}
+
+/* Modal produk */
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+dialog[open] {
+  animation: modal-in 0.3s ease-out;
+}
+dialog::backdrop {
+  background: rgb(20 16 12 / 0.65);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}

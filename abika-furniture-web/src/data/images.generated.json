@@ -1,0 +1,736 @@
+{
+  "products": {
+    "sofa-l-natural": [
+      {
+        "src": "/images/produk/sofa-l-natural/01.webp",
+        "thumb": "/images/produk/sofa-l-natural/01-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/sofa-l-natural/02.webp",
+        "thumb": "/images/produk/sofa-l-natural/02-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/sofa-l-natural/03.webp",
+        "thumb": "/images/produk/sofa-l-natural/03-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/sofa-l-natural/04.webp",
+        "thumb": "/images/produk/sofa-l-natural/04-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/sofa-l-natural/05.webp",
+        "thumb": "/images/produk/sofa-l-natural/05-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ],
+    "sofa-l-walnut": [
+      {
+        "src": "/images/produk/sofa-l-walnut/01.webp",
+        "thumb": "/images/produk/sofa-l-walnut/01-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/sofa-l-walnut/02.webp",
+        "thumb": "/images/produk/sofa-l-walnut/02-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/sofa-l-walnut/03.webp",
+        "thumb": "/images/produk/sofa-l-walnut/03-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/sofa-l-walnut/04.webp",
+        "thumb": "/images/produk/sofa-l-walnut/04-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/sofa-l-walnut/05.webp",
+        "thumb": "/images/produk/sofa-l-walnut/05-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ],
+    "sofa-modular-walnut": [
+      {
+        "src": "/images/produk/sofa-modular-walnut/01.webp",
+        "thumb": "/images/produk/sofa-modular-walnut/01-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/sofa-modular-walnut/02.webp",
+        "thumb": "/images/produk/sofa-modular-walnut/02-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/sofa-modular-walnut/03.webp",
+        "thumb": "/images/produk/sofa-modular-walnut/03-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ],
+    "sofa-l-abu": [
+      {
+        "src": "/images/produk/sofa-l-abu/01.webp",
+        "thumb": "/images/produk/sofa-l-abu/01-thumb.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/images/produk/sofa-l-abu/02.webp",
+        "thumb": "/images/produk/sofa-l-abu/02-thumb.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/images/produk/sofa-l-abu/03.webp",
+        "thumb": "/images/produk/sofa-l-abu/03-thumb.webp",
+        "width": 960,
+        "height": 960
+      }
+    ],
+    "sofa-phai-rattan": [
+      {
+        "src": "/images/produk/sofa-phai-rattan/01.webp",
+        "thumb": "/images/produk/sofa-phai-rattan/01-thumb.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/images/produk/sofa-phai-rattan/02.webp",
+        "thumb": "/images/produk/sofa-phai-rattan/02-thumb.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/images/produk/sofa-phai-rattan/03.webp",
+        "thumb": "/images/produk/sofa-phai-rattan/03-thumb.webp",
+        "width": 960,
+        "height": 960
+      }
+    ],
+    "sofa-bed-single": [
+      {
+        "src": "/images/produk/sofa-bed-single/01.webp",
+        "thumb": "/images/produk/sofa-bed-single/01-thumb.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/images/produk/sofa-bed-single/02.webp",
+        "thumb": "/images/produk/sofa-bed-single/02-thumb.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/images/produk/sofa-bed-single/03.webp",
+        "thumb": "/images/produk/sofa-bed-single/03-thumb.webp",
+        "width": 960,
+        "height": 960
+      }
+    ],
+    "kursi-makan-jati-busa": [
+      {
+        "src": "/images/produk/kursi-makan-jati-busa/01.webp",
+        "thumb": "/images/produk/kursi-makan-jati-busa/01-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/kursi-makan-jati-busa/02.webp",
+        "thumb": "/images/produk/kursi-makan-jati-busa/02-thumb.webp",
+        "width": 1050,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/kursi-makan-jati-busa/03.webp",
+        "thumb": "/images/produk/kursi-makan-jati-busa/03-thumb.webp",
+        "width": 1050,
+        "height": 1400
+      }
+    ],
+    "kursi-uvi": [
+      {
+        "src": "/images/produk/kursi-uvi/01.webp",
+        "thumb": "/images/produk/kursi-uvi/01-thumb.webp",
+        "width": 768,
+        "height": 768
+      },
+      {
+        "src": "/images/produk/kursi-uvi/02.webp",
+        "thumb": "/images/produk/kursi-uvi/02-thumb.webp",
+        "width": 768,
+        "height": 768
+      },
+      {
+        "src": "/images/produk/kursi-uvi/03.webp",
+        "thumb": "/images/produk/kursi-uvi/03-thumb.webp",
+        "width": 768,
+        "height": 768
+      },
+      {
+        "src": "/images/produk/kursi-uvi/04.webp",
+        "thumb": "/images/produk/kursi-uvi/04-thumb.webp",
+        "width": 768,
+        "height": 768
+      }
+    ],
+    "kursi-wei": [
+      {
+        "src": "/images/produk/kursi-wei/01.webp",
+        "thumb": "/images/produk/kursi-wei/01-thumb.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/images/produk/kursi-wei/02.webp",
+        "thumb": "/images/produk/kursi-wei/02-thumb.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/images/produk/kursi-wei/03.webp",
+        "thumb": "/images/produk/kursi-wei/03-thumb.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/images/produk/kursi-wei/04.webp",
+        "thumb": "/images/produk/kursi-wei/04-thumb.webp",
+        "width": 960,
+        "height": 960
+      }
+    ],
+    "kursi-ulai": [
+      {
+        "src": "/images/produk/kursi-ulai/01.webp",
+        "thumb": "/images/produk/kursi-ulai/01-thumb.webp",
+        "width": 960,
+        "height": 1200
+      },
+      {
+        "src": "/images/produk/kursi-ulai/02.webp",
+        "thumb": "/images/produk/kursi-ulai/02-thumb.webp",
+        "width": 960,
+        "height": 1200
+      },
+      {
+        "src": "/images/produk/kursi-ulai/03.webp",
+        "thumb": "/images/produk/kursi-ulai/03-thumb.webp",
+        "width": 960,
+        "height": 1200
+      }
+    ],
+    "kursi-ulfa-rattan": [
+      {
+        "src": "/images/produk/kursi-ulfa-rattan/01.webp",
+        "thumb": "/images/produk/kursi-ulfa-rattan/01-thumb.webp",
+        "width": 960,
+        "height": 1200
+      },
+      {
+        "src": "/images/produk/kursi-ulfa-rattan/02.webp",
+        "thumb": "/images/produk/kursi-ulfa-rattan/02-thumb.webp",
+        "width": 960,
+        "height": 1200
+      },
+      {
+        "src": "/images/produk/kursi-ulfa-rattan/03.webp",
+        "thumb": "/images/produk/kursi-ulfa-rattan/03-thumb.webp",
+        "width": 960,
+        "height": 1200
+      },
+      {
+        "src": "/images/produk/kursi-ulfa-rattan/04.webp",
+        "thumb": "/images/produk/kursi-ulfa-rattan/04-thumb.webp",
+        "width": 960,
+        "height": 1200
+      }
+    ],
+    "kursi-santai-rattan": [
+      {
+        "src": "/images/produk/kursi-santai-rattan/01.webp",
+        "thumb": "/images/produk/kursi-santai-rattan/01-thumb.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/images/produk/kursi-santai-rattan/02.webp",
+        "thumb": "/images/produk/kursi-santai-rattan/02-thumb.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/images/produk/kursi-santai-rattan/03.webp",
+        "thumb": "/images/produk/kursi-santai-rattan/03-thumb.webp",
+        "width": 960,
+        "height": 960
+      }
+    ],
+    "kursi-two": [
+      {
+        "src": "/images/produk/kursi-two/01.webp",
+        "thumb": "/images/produk/kursi-two/01-thumb.webp",
+        "width": 960,
+        "height": 1200
+      },
+      {
+        "src": "/images/produk/kursi-two/02.webp",
+        "thumb": "/images/produk/kursi-two/02-thumb.webp",
+        "width": 960,
+        "height": 1200
+      },
+      {
+        "src": "/images/produk/kursi-two/03.webp",
+        "thumb": "/images/produk/kursi-two/03-thumb.webp",
+        "width": 960,
+        "height": 1200
+      }
+    ],
+    "wings-chair": [
+      {
+        "src": "/images/produk/wings-chair/01.webp",
+        "thumb": "/images/produk/wings-chair/01-thumb.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/images/produk/wings-chair/02.webp",
+        "thumb": "/images/produk/wings-chair/02-thumb.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/images/produk/wings-chair/03.webp",
+        "thumb": "/images/produk/wings-chair/03-thumb.webp",
+        "width": 960,
+        "height": 960
+      }
+    ],
+    "chair-yui": [
+      {
+        "src": "/images/produk/chair-yui/01.webp",
+        "thumb": "/images/produk/chair-yui/01-thumb.webp",
+        "width": 960,
+        "height": 1200
+      },
+      {
+        "src": "/images/produk/chair-yui/02.webp",
+        "thumb": "/images/produk/chair-yui/02-thumb.webp",
+        "width": 960,
+        "height": 1200
+      },
+      {
+        "src": "/images/produk/chair-yui/03.webp",
+        "thumb": "/images/produk/chair-yui/03-thumb.webp",
+        "width": 960,
+        "height": 1200
+      }
+    ],
+    "bangku-wood": [
+      {
+        "src": "/images/produk/bangku-wood/01.webp",
+        "thumb": "/images/produk/bangku-wood/01-thumb.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/images/produk/bangku-wood/02.webp",
+        "thumb": "/images/produk/bangku-wood/02-thumb.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/images/produk/bangku-wood/03.webp",
+        "thumb": "/images/produk/bangku-wood/03-thumb.webp",
+        "width": 960,
+        "height": 960
+      }
+    ],
+    "meja-makan-marble": [
+      {
+        "src": "/images/produk/meja-makan-marble/01.webp",
+        "thumb": "/images/produk/meja-makan-marble/01-thumb.webp",
+        "width": 768,
+        "height": 768
+      },
+      {
+        "src": "/images/produk/meja-makan-marble/02.webp",
+        "thumb": "/images/produk/meja-makan-marble/02-thumb.webp",
+        "width": 768,
+        "height": 768
+      },
+      {
+        "src": "/images/produk/meja-makan-marble/03.webp",
+        "thumb": "/images/produk/meja-makan-marble/03-thumb.webp",
+        "width": 768,
+        "height": 768
+      },
+      {
+        "src": "/images/produk/meja-makan-marble/04.webp",
+        "thumb": "/images/produk/meja-makan-marble/04-thumb.webp",
+        "width": 768,
+        "height": 768
+      }
+    ],
+    "set-meja-makan-marble-k4": [
+      {
+        "src": "/images/produk/set-meja-makan-marble-k4/01.webp",
+        "thumb": "/images/produk/set-meja-makan-marble-k4/01-thumb.webp",
+        "width": 794,
+        "height": 794
+      },
+      {
+        "src": "/images/produk/set-meja-makan-marble-k4/02.webp",
+        "thumb": "/images/produk/set-meja-makan-marble-k4/02-thumb.webp",
+        "width": 744,
+        "height": 744
+      },
+      {
+        "src": "/images/produk/set-meja-makan-marble-k4/03.webp",
+        "thumb": "/images/produk/set-meja-makan-marble-k4/03-thumb.webp",
+        "width": 799,
+        "height": 799
+      },
+      {
+        "src": "/images/produk/set-meja-makan-marble-k4/04.webp",
+        "thumb": "/images/produk/set-meja-makan-marble-k4/04-thumb.webp",
+        "width": 819,
+        "height": 819
+      }
+    ],
+    "meja-makan-bulat-natural": [
+      {
+        "src": "/images/produk/meja-makan-bulat-natural/01.webp",
+        "thumb": "/images/produk/meja-makan-bulat-natural/01-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/meja-makan-bulat-natural/02.webp",
+        "thumb": "/images/produk/meja-makan-bulat-natural/02-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/meja-makan-bulat-natural/03.webp",
+        "thumb": "/images/produk/meja-makan-bulat-natural/03-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ],
+    "set-meja-bulat-gold": [
+      {
+        "src": "/images/produk/set-meja-bulat-gold/01.webp",
+        "thumb": "/images/produk/set-meja-bulat-gold/01-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/set-meja-bulat-gold/02.webp",
+        "thumb": "/images/produk/set-meja-bulat-gold/02-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ],
+    "set-meja-makan-bench": [
+      {
+        "src": "/images/produk/set-meja-makan-bench/01.webp",
+        "thumb": "/images/produk/set-meja-makan-bench/01-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/set-meja-makan-bench/02.webp",
+        "thumb": "/images/produk/set-meja-makan-bench/02-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/set-meja-makan-bench/03.webp",
+        "thumb": "/images/produk/set-meja-makan-bench/03-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/set-meja-makan-bench/04.webp",
+        "thumb": "/images/produk/set-meja-makan-bench/04-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ],
+    "coffee-table-pier": [
+      {
+        "src": "/images/produk/coffee-table-pier/01.webp",
+        "thumb": "/images/produk/coffee-table-pier/01-thumb.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/images/produk/coffee-table-pier/02.webp",
+        "thumb": "/images/produk/coffee-table-pier/02-thumb.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/images/produk/coffee-table-pier/03.webp",
+        "thumb": "/images/produk/coffee-table-pier/03-thumb.webp",
+        "width": 960,
+        "height": 960
+      }
+    ],
+    "coffee-table-marmer": [
+      {
+        "src": "/images/produk/coffee-table-marmer/01.webp",
+        "thumb": "/images/produk/coffee-table-marmer/01-thumb.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/images/produk/coffee-table-marmer/02.webp",
+        "thumb": "/images/produk/coffee-table-marmer/02-thumb.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/images/produk/coffee-table-marmer/03.webp",
+        "thumb": "/images/produk/coffee-table-marmer/03-thumb.webp",
+        "width": 960,
+        "height": 960
+      }
+    ],
+    "buffet-tv-treatment": [
+      {
+        "src": "/images/produk/buffet-tv-treatment/01.webp",
+        "thumb": "/images/produk/buffet-tv-treatment/01-thumb.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/images/produk/buffet-tv-treatment/02.webp",
+        "thumb": "/images/produk/buffet-tv-treatment/02-thumb.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/images/produk/buffet-tv-treatment/03.webp",
+        "thumb": "/images/produk/buffet-tv-treatment/03-thumb.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/images/produk/buffet-tv-treatment/04.webp",
+        "thumb": "/images/produk/buffet-tv-treatment/04-thumb.webp",
+        "width": 960,
+        "height": 960
+      }
+    ],
+    "buffet-tv-natural-teak": [
+      {
+        "src": "/images/produk/buffet-tv-natural-teak/01.webp",
+        "thumb": "/images/produk/buffet-tv-natural-teak/01-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ],
+    "cabinet-laci": [
+      {
+        "src": "/images/produk/cabinet-laci/01.webp",
+        "thumb": "/images/produk/cabinet-laci/01-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/cabinet-laci/02.webp",
+        "thumb": "/images/produk/cabinet-laci/02-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/cabinet-laci/03.webp",
+        "thumb": "/images/produk/cabinet-laci/03-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ],
+    "buffet-rotan-jati-mahogany": [
+      {
+        "src": "/images/produk/buffet-rotan-jati-mahogany/01.webp",
+        "thumb": "/images/produk/buffet-rotan-jati-mahogany/01-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/buffet-rotan-jati-mahogany/02.webp",
+        "thumb": "/images/produk/buffet-rotan-jati-mahogany/02-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/buffet-rotan-jati-mahogany/03.webp",
+        "thumb": "/images/produk/buffet-rotan-jati-mahogany/03-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/buffet-rotan-jati-mahogany/04.webp",
+        "thumb": "/images/produk/buffet-rotan-jati-mahogany/04-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ],
+    "laci-rotan-walnut": [
+      {
+        "src": "/images/produk/laci-rotan-walnut/01.webp",
+        "thumb": "/images/produk/laci-rotan-walnut/01-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ],
+    "box-baby": [
+      {
+        "src": "/images/produk/box-baby/01.webp",
+        "thumb": "/images/produk/box-baby/01-thumb.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/images/produk/box-baby/02.webp",
+        "thumb": "/images/produk/box-baby/02-thumb.webp",
+        "width": 960,
+        "height": 960
+      },
+      {
+        "src": "/images/produk/box-baby/03.webp",
+        "thumb": "/images/produk/box-baby/03-thumb.webp",
+        "width": 960,
+        "height": 960
+      }
+    ],
+    "dipan-rotan-hitam": [
+      {
+        "src": "/images/produk/dipan-rotan-hitam/01.webp",
+        "thumb": "/images/produk/dipan-rotan-hitam/01-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/dipan-rotan-hitam/02.webp",
+        "thumb": "/images/produk/dipan-rotan-hitam/02-thumb.webp",
+        "width": 1050,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/dipan-rotan-hitam/03.webp",
+        "thumb": "/images/produk/dipan-rotan-hitam/03-thumb.webp",
+        "width": 1050,
+        "height": 1400
+      }
+    ],
+    "dipan-rotan-natural": [
+      {
+        "src": "/images/produk/dipan-rotan-natural/01.webp",
+        "thumb": "/images/produk/dipan-rotan-natural/01-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/dipan-rotan-natural/02.webp",
+        "thumb": "/images/produk/dipan-rotan-natural/02-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/dipan-rotan-natural/03.webp",
+        "thumb": "/images/produk/dipan-rotan-natural/03-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      }
+    ],
+    "meja-rias-jati": [
+      {
+        "src": "/images/produk/meja-rias-jati/01.webp",
+        "thumb": "/images/produk/meja-rias-jati/01-thumb.webp",
+        "width": 960,
+        "height": 1200
+      },
+      {
+        "src": "/images/produk/meja-rias-jati/02.webp",
+        "thumb": "/images/produk/meja-rias-jati/02-thumb.webp",
+        "width": 960,
+        "height": 1200
+      },
+      {
+        "src": "/images/produk/meja-rias-jati/03.webp",
+        "thumb": "/images/produk/meja-rias-jati/03-thumb.webp",
+        "width": 960,
+        "height": 1200
+      },
+      {
+        "src": "/images/produk/meja-rias-jati/04.webp",
+        "thumb": "/images/produk/meja-rias-jati/04-thumb.webp",
+        "width": 960,
+        "height": 1200
+      },
+      {
+        "src": "/images/produk/meja-rias-jati/05.webp",
+        "thumb": "/images/produk/meja-rias-jati/05-thumb.webp",
+        "width": 960,
+        "height": 1200
+      }
+    ]
+  },
+  "gallery": [
+    {
+      "src": "/images/galeri/01.webp",
+      "thumb": "/images/galeri/01-thumb.webp",
+      "width": 720,
+      "height": 720
+    },
+    {
+      "src": "/images/galeri/02.webp",
+      "thumb": "/images/galeri/02-thumb.webp",
+      "width": 720,
+      "height": 900
+    },
+    {
+      "src": "/images/galeri/03.webp",
+      "thumb": "/images/galeri/03-thumb.webp",
+      "width": 720,
+      "height": 720
+    },
+    {
+      "src": "/images/galeri/04.webp",
+      "thumb": "/images/galeri/04-thumb.webp",
+      "width": 960,
+      "height": 960
+    },
+    {
+      "src": "/images/galeri/05.webp",
+      "thumb": "/images/galeri/05-thumb.webp",
+      "width": 960,
+      "height": 960
+    },
+    {
+      "src": "/images/galeri/06.webp",
+      "thumb": "/images/galeri/06-thumb.webp",
+      "width": 1080,
+      "height": 810
+    }
+  ]
+}
