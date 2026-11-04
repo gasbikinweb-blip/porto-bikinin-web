@@ -79,9 +79,9 @@ function Detail({ product: p, onClose }: { product: Product; onClose: () => void
         if (e.key === 'ArrowLeft') go(-1);
       }}
     >
-      <div>
+      <div className="p-4 sm:p-6 sm:pr-0">
         <div
-          className="relative aspect-square bg-surface"
+          className="relative aspect-square overflow-hidden bg-surface"
           onTouchStart={(e) => {
             touchX.current = e.touches[0]?.clientX ?? null;
           }}
@@ -125,7 +125,7 @@ function Detail({ product: p, onClose }: { product: Product; onClose: () => void
           )}
         </div>
         {total > 1 && (
-          <ul className="flex gap-2 overflow-x-auto p-3">
+          <ul className="flex gap-2 overflow-x-auto p-1 pt-3">
             {p.images.map((t, i) => (
               <li key={t.src} className="shrink-0">
                 <button

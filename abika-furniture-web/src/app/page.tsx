@@ -69,16 +69,18 @@ export default function HomePage() {
           </div>
         </div>
         <div className="relative aspect-square lg:aspect-auto">
-          {hero && (
-            <Image
-              src={hero.src}
-              alt={hero.alt}
-              fill
-              priority
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover"
-            />
-          )}
+          <div className="absolute inset-4 overflow-hidden sm:inset-6">
+            {hero && (
+              <Image
+                src={hero.src}
+                alt={hero.alt}
+                fill
+                priority
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+              />
+            )}
+          </div>
         </div>
       </section>
 
@@ -118,14 +120,16 @@ export default function HomePage() {
         <h2 className={`reveal ${heading}`}>Proses di workshop kami</h2>
         <ul data-stagger className="mt-10 grid grid-cols-2 gap-3 lg:grid-cols-3">
           {manifest.gallery.map((g, i) => (
-            <li key={g.src} className="reveal relative aspect-square overflow-hidden bg-surface">
-              <Image
-                src={g.src}
-                alt={galleryAlts[i] ?? 'Proses produksi Abika Furniture'}
-                fill
-                sizes="(min-width: 1024px) 33vw, 50vw"
-                className="object-cover"
-              />
+            <li key={g.src} className="reveal bg-surface p-2 sm:p-3">
+              <div className="relative aspect-square overflow-hidden">
+                <Image
+                  src={g.src}
+                  alt={galleryAlts[i] ?? 'Proses produksi Abika Furniture'}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
             </li>
           ))}
         </ul>

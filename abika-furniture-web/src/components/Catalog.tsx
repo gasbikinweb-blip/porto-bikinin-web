@@ -98,20 +98,22 @@ export function Catalog() {
                 <button
                   type="button"
                   onClick={() => pick(c.slug)}
-                  className="group relative block aspect-[4/5] w-full overflow-hidden bg-surface text-left"
+                  className="group block w-full bg-surface p-2 text-left sm:p-3"
                 >
-                  {cover && (
-                    <Image
-                      src={cover.thumb}
-                      alt=""
-                      fill
-                      sizes="(min-width: 1024px) 20vw, 50vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                  )}
-                  <span className="absolute inset-0 bg-gradient-to-t from-black/65 to-transparent" />
-                  <span className="absolute bottom-4 left-4 font-serif text-2xl text-white">
-                    {c.name}
+                  <span className="relative block aspect-[4/5] overflow-hidden">
+                    {cover && (
+                      <Image
+                        src={cover.thumb}
+                        alt=""
+                        fill
+                        sizes="(min-width: 1024px) 20vw, 50vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    )}
+                    <span className="absolute inset-0 bg-gradient-to-t from-black/65 to-transparent" />
+                    <span className="absolute bottom-4 left-4 font-serif text-2xl text-white">
+                      {c.name}
+                    </span>
                   </span>
                 </button>
               </li>
@@ -205,11 +207,11 @@ function ProductCard({
 }) {
   const img = p.images[0];
   return (
-    <article className="group">
+    <article className="group h-full bg-background p-2 sm:p-3">
       <button
         type="button"
         onClick={(e) => onOpen(p, e.currentTarget)}
-        className="relative block aspect-[4/5] w-full overflow-hidden bg-background"
+        className="relative block aspect-[4/5] w-full overflow-hidden bg-surface"
         aria-label={`Lihat foto ${p.name}`}
       >
         {img && (

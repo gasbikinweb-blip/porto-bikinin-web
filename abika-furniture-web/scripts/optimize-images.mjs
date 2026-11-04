@@ -137,28 +137,12 @@ await sharp(first)
   .jpeg({ quality: 80, mozjpeg: true })
   .toFile(path.join(OUT, 'og.jpg'));
 
-// Logo: tulisan putih di latar hitam -> tulisan gelap transparan untuk header terang
+// Logo: potong bagian tulisan, tetap putih di latar hitam seperti aslinya
 const LOGO = path.join(ROOT, 'Logo.jpg');
-const band = await sharp(LOGO)
-  .extract({ left: 150, top: 480, width: 780, height: 100 })
-  .png()
-  .toBuffer();
-const trimmed = await sharp(band)
-  .greyscale()
-  .linear(1.5, -45)
-  .trim({ threshold: 40 })
-  .png()
-  .toBuffer();
-const { data: mask, info } = await sharp(trimmed)
-  .extractChannel(0)
-  .raw()
-  .toBuffer({ resolveWithObject: true });
-const { width, height } = info;
-await sharp({ create: { width, height, channels: 3, background: '#211c17' } })
-  .joinChannel(mask, { raw: { width, height, channels: 1 } })
-  .webp({ quality: 90, alphaQuality: 100 })
+await sharp(LOGO)
+  .extract({ left: 131, top: 470, width: 820, height: 120 })
+  .webp({ quality: 90 })
   .toFile(path.join(OUT, 'logo.webp'));
-console.log(`Logo: ${width}x${height}`);
 // Favicon: huruf A dari logo, tulisan penuh tidak terbaca di ukuran kecil
 await sharp(LOGO)
   .extract({ left: 168, top: 505, width: 52, height: 52 })

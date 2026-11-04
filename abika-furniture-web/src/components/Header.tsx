@@ -25,10 +25,10 @@ export function Header() {
           <Image
             src="/images/logo.webp"
             alt="Abika Furniture"
-            width={730}
-            height={40}
+            width={820}
+            height={120}
             priority
-            className="h-4 w-auto sm:h-5"
+            className="h-9 w-auto sm:h-10"
           />
         </Link>
         <nav aria-label="Menu utama" className="hidden lg:block">
