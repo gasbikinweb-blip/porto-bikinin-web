@@ -64,7 +64,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat WhatsApp (tab baru)"
-          className="fixed right-4 bottom-4 z-20 grid size-14 place-items-center rounded-full bg-[#1f7a46] text-white shadow-lg"
+          className="animate-wa-pulse fixed right-4 bottom-4 z-20 grid size-14 place-items-center rounded-full bg-[#1f7a46] text-white"
         >
           <WhatsAppIcon className="size-7" />
         </a>

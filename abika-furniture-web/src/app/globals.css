@@ -152,6 +152,22 @@ details > summary::-webkit-details-marker {
   display: none;
 }
 
+/* Tombol WhatsApp mengambang: berdenyut agar menarik perhatian */
+@keyframes wa-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgb(37 211 102 / 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgb(37 211 102 / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgb(37 211 102 / 0);
+  }
+}
+.animate-wa-pulse {
+  animation: wa-pulse 2s ease-out infinite;
+}
+
 /* Modal produk */
 @keyframes modal-in {
   from {
@@ -174,6 +190,7 @@ dialog::backdrop {
   ::before,
   ::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
   .reveal {
