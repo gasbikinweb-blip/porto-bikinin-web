@@ -79,3 +79,9 @@ tambahkan domainnya ke CSP di kedua file.
 
 Versi dikunci exact (`.npmrc` `save-exact=true`). ESLint 9 dipakai karena plugin `eslint-config-next` belum
 mendukung ESLint 10. `npm audit` dev-only (`braces`) aman diabaikan; jangan `npm audit fix --force`.
+
+## Mode halaman pembaruan
+
+Saat ini `vercel.json` menyalin `public/pembaruan.html` menjadi `index.html`, sehingga alamat utama menampilkan halaman
+"Tampilan baru sedang kami siapkan". Website lama tetap utuh di kode. Untuk mengaktifkannya lagi, kembalikan
+`buildCommand` ke `npm run build`, lalu deploy ulang.

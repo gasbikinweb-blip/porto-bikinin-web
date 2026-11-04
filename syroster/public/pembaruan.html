@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Syroster Industrie | Tampilan Baru Segera Hadir</title>
+    <meta
+      name="description"
+      content="Website Syroster Industrie sedang diperbarui. Untuk pemesanan, silakan hubungi kami lewat WhatsApp."
+    />
+    <!-- Halaman sementara: jangan sampai menggantikan hasil pencarian Google -->
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#1c2150" />
+    <link rel="icon" href="/icon.png" />
+    <style>
+      :root {
+        --night: #1c2150;
+        --brand: #3d45a5;
+        --gold: #c0954a;
+        --gold-soft: #f3e8d4;
+        --ink: #1c2033;
+        --muted: #535a6c;
+        --line: #e4e3de;
+        --wa: #1a7f45;
+        --wa-dark: #136536;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        display: grid;
+        grid-template-rows: 1fr auto;
+        min-height: 100dvh;
+        padding: 16px;
+        background: #f3f3f0;
+        color: var(--ink);
+        font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+      }
+      main {
+        align-self: center;
+        justify-self: center;
+        width: 100%;
+        max-width: 560px;
+        padding: 40px 28px;
+        border: 1px solid var(--line);
+        border-top: 5px solid var(--gold);
+        border-radius: 16px;
+        background: #fff;
+        text-align: center;
+        animation: masuk 0.7s ease both;
+      }
+      img {
+        display: block;
+        width: 200px;
+        max-width: 70%;
+        height: auto;
+        margin: 0 auto 28px;
+      }
+      .label {
+        display: inline-block;
+        margin: 0;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: var(--gold-soft);
+        color: #85601f;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+      h1 {
+        margin: 16px 0 12px;
+        color: var(--night);
+        font-family: Georgia, 'Times New Roman', serif;
+        font-size: clamp(28px, 6vw, 38px);
+        line-height: 1.2;
+      }
+      p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 17px;
+        line-height: 1.6;
+      }
+      .tombol {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 28px;
+      }
+      a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 22px;
+        border-radius: 999px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .wa {
+        background: var(--wa);
+        color: #fff;
+      }
+      .wa:hover {
+        background: var(--wa-dark);
+      }
+      .ig {
+        border: 2px solid var(--brand);
+        color: var(--brand);
+      }
+      .ig:hover {
+        background: var(--brand);
+        color: #fff;
+      }
+      a:focus-visible {
+        outline: 3px solid var(--gold);
+        outline-offset: 3px;
+      }
+      footer {
+        padding: 20px 0 4px;
+        color: var(--muted);
+        font-size: 13px;
+        text-align: center;
+      }
+      @keyframes masuk {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        main {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <img src="/brand/logo-400.webp" alt="Logo Syroster Industrie" width="400" height="112" />
+      <p class="label">Sedang diperbarui</p>
+      <h1>Tampilan baru sedang kami siapkan</h1>
+      <p>
+        Website Syroster Industrie sedang dalam pembaruan. Untuk pemesanan dan pertanyaan, silakan
+        hubungi kami langsung.
+      </p>
+      <div class="tombol">
+        <a
+          class="wa"
+          href="https://wa.me/6282124723648?text=Halo%20Syroster%20Industrie%2C%20saya%20ingin%20bertanya."
+          target="_blank"
+          rel="noopener noreferrer"
+          >Chat WhatsApp</a
+        >
+        <a
+          class="ig"
+          href="https://www.instagram.com/sy_roster.industrie/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Instagram</a
+        >
+      </div>
+    </main>
+    <footer>Syroster Industrie</footer>
+  </body>
+</html>
