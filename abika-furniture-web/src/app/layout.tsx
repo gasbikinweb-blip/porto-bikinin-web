@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Jost, Newsreader } from 'next/font/google';
 import { WhatsAppIcon } from '@/components/icons';
+import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
 import { RevealObserver } from '@/components/RevealObserver';
 import { site } from '@/data/site';
@@ -57,10 +58,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </a>
         <Header />
         <main id="konten">{children}</main>
-        <footer className="bg-ink px-4 py-8 text-center text-sm text-white/80">
-          © {new Date().getFullYear()} {site.name}, {site.city}. Pemesanan dilayani melalui
-          WhatsApp.
-        </footer>
+        <Footer />
         <a
           href={buildWhatsAppLink(generalMessage)}
           target="_blank"
