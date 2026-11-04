@@ -215,8 +215,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Mosaik asal-usul */}
-      <section aria-label="Dari material hingga terpasang" className="bg-surface">
+      {/* Tentang + mosaik asal-usul */}
+      <section id="tentang" className="bg-surface">
+        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 sm:py-28">
+          <p className={`reveal ${eyebrow}`}>Tentang kami</p>
+          <h2 className="reveal mt-5 max-w-3xl font-serif text-4xl leading-tight sm:text-5xl">
+            Brand furnitur lokal dari <em className="text-accent">{site.city}.</em>
+          </h2>
+          <p className="reveal mt-6 max-w-2xl leading-relaxed text-muted">
+            {site.name} membuat sofa, kursi, meja, lemari, dan tempat tidur. Selain kayu jati, kami
+            mengembangkan kombinasi kayu, besi, aluminium, dan stainless steel untuk memenuhi
+            kebutuhan pelanggan.
+          </p>
+        </div>
         <div className="grid md:grid-cols-3">
           {origin.map((o, i) => (
             <article

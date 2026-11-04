@@ -2,15 +2,17 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { WhatsAppIcon } from './icons';
 import { buildWhatsAppLink, generalMessage } from '@/lib/config';
 
+// Urutan mengikuti urutan section di halaman
 const links = [
-  { href: '/#katalog', label: 'Katalog' },
+  { href: '/#tentang', label: 'Tentang' },
   { href: '/#keunggulan', label: 'Keunggulan' },
-  { href: '/#cara-pesan', label: 'Cara Pesan' },
+  { href: '/#katalog', label: 'Katalog' },
   { href: '/#galeri', label: 'Galeri' },
+  { href: '/#cara-pesan', label: 'Cara Pesan' },
   { href: '/#faq', label: 'FAQ' },
   { href: '/#kontak', label: 'Kontak' },
 ];
@@ -18,6 +20,26 @@ const links = [
 export function Header() {
   const menu = useRef<HTMLDialogElement>(null);
   const close = () => menu.current?.close();
+  const [active, setActive] = useState('');
+
+  // Tandai menu sesuai section yang sedang berada di tengah layar
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) setActive(`/#${entry.target.id}`);
+        }
+      },
+      { rootMargin: '-45% 0px -50% 0px' },
+    );
+    const ids = ['beranda', ...links.map((l) => l.href.slice(2))];
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <header className="sticky top-0 z-30 border-b border-line bg-background/95 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
@@ -35,7 +57,11 @@ export function Header() {
           <ul className="flex gap-7 text-sm">
             {links.map((l) => (
               <li key={l.href}>
-                <a href={l.href} className="py-2 hover:text-accent">
+                <a
+                  href={l.href}
+                  aria-current={active === l.href ? 'true' : undefined}
+                  className="border-b border-transparent py-2 transition-colors hover:text-accent aria-[current]:border-accent aria-[current]:text-accent"
+                >
                   {l.label}
                 </a>
               </li>
@@ -79,7 +105,12 @@ export function Header() {
         <ul className="mt-6 space-y-2">
           {links.map((l) => (
             <li key={l.href}>
-              <a href={l.href} onClick={close} className="block py-2 font-serif text-3xl">
+              <a
+                href={l.href}
+                onClick={close}
+                aria-current={active === l.href ? 'true' : undefined}
+                className="block py-2 font-serif text-3xl aria-[current]:text-accent"
+              >
                 {l.label}
               </a>
             </li>
