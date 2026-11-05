@@ -233,7 +233,7 @@ export function MenuOrder() {
                       <button
                         type="button"
                         onClick={(e) => open(m, e.currentTarget)}
-                        className="mt-2 min-h-11 text-left text-sm font-bold underline underline-offset-4"
+                        className="mt-2 min-h-11 w-full rounded-full bg-accent px-4 text-sm font-bold text-white hover:bg-accent-strong"
                       >
                         Lihat Detail<span className="sr-only"> {m.name}</span>
                       </button>

@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Fraunces, Nunito } from 'next/font/google';
 import { Header } from '@/components/Header';
-import { WhatsAppIcon } from '@/components/icons';
+import { AtIcon, ClockIcon, InstagramIcon, PinIcon, WhatsAppIcon } from '@/components/icons';
 import { RevealObserver } from '@/components/RevealObserver';
 import { site } from '@/data/site';
 import { buildWhatsAppLink, config, generalMessage } from '@/lib/config';
@@ -62,8 +62,20 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             </div>
             <div>
               <p className="font-bold">Alamat</p>
-              <p className="mt-1">{site.address}</p>
-              <p>{site.hours}</p>
+              <a
+                href={site.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 inline-flex min-h-11 items-center gap-2 underline"
+              >
+                <PinIcon className="size-5 shrink-0" />
+                {site.address}
+                <span className="sr-only"> (tab baru)</span>
+              </a>
+              <p className="flex min-h-11 items-center gap-2">
+                <ClockIcon className="size-5 shrink-0" />
+                {site.hours}
+              </p>
             </div>
             <div>
               <p className="font-bold">Hubungi kami</p>
@@ -72,17 +84,19 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                   {
                     href: buildWhatsAppLink(generalMessage),
                     label: `WhatsApp ${site.whatsappDisplay}`,
+                    Icon: WhatsAppIcon,
                   },
-                  { href: site.instagram, label: 'Instagram' },
-                  { href: site.threads, label: 'Threads' },
-                ].map((l) => (
+                  { href: site.instagram, label: 'Instagram', Icon: InstagramIcon },
+                  { href: site.threads, label: 'Threads', Icon: AtIcon },
+                ].map(({ Icon, ...l }) => (
                   <li key={l.href}>
                     <a
                       href={l.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex min-h-11 items-center underline"
+                      className="inline-flex min-h-11 items-center gap-2 underline"
                     >
+                      <Icon className="size-5 shrink-0" />
                       {l.label}
                       <span className="sr-only"> (tab baru)</span>
                     </a>

@@ -41,6 +41,9 @@ export function OrderBuilder({
   const [pemesan, setPemesan] = useState('');
   const [penerima, setPenerima] = useState('');
   const [alamat, setAlamat] = useState('');
+  const [lokasi, setLokasi] = useState('');
+  const [lokasiInfo, setLokasiInfo] = useState('');
+  const [mencari, setMencari] = useState(false);
   const [hp, setHp] = useState('');
   const [bon, setBon] = useState('');
   const [notes, setNotes] = useState('');
@@ -63,6 +66,29 @@ export function OrderBuilder({
       return next;
     });
 
+  // Lokasi hanya diminta saat tombol diklik dan hanya masuk ke pesan WhatsApp
+  const pakaiLokasi = () => {
+    if (!navigator.geolocation) {
+      setLokasiInfo('Browser ini tidak mendukung lokasi. Tulis alamatnya saja ya, Kak.');
+      return;
+    }
+    setMencari(true);
+    setLokasiInfo('');
+    navigator.geolocation.getCurrentPosition(
+      ({ coords }) => {
+        setLokasi(
+          `https://www.google.com/maps?q=${coords.latitude.toFixed(6)},${coords.longitude.toFixed(6)}`,
+        );
+        setMencari(false);
+      },
+      () => {
+        setLokasiInfo('Lokasi tidak bisa diambil. Cek izin lokasi atau tulis alamatnya ya, Kak.');
+        setMencari(false);
+      },
+      { enableHighAccuracy: true, timeout: 15000 },
+    );
+  };
+
   const send = () => {
     const errs: string[] = [];
     if (!slugs.length) errs.push('Pilih minimal satu menu ya, Kak.');
@@ -79,7 +105,7 @@ export function OrderBuilder({
     if (!clean(pemesan)) errs.push('Isi nama pemesan ya, Kak.');
     if (!time) errs.push('Isi jam sampai ya, Kak.');
     if (!clean(penerima)) errs.push('Isi nama penerima ya, Kak.');
-    if (!clean(alamat)) errs.push('Isi alamat tujuan ya, Kak.');
+    if (!clean(alamat)) errs.push('Isi alamat tujuan dan patokannya ya, Kak.');
     if (!/^[0-9+\-\s]{8,20}$/.test(clean(hp)))
       errs.push('Isi nomor HP penerima dengan benar ya, Kak.');
     if (!clean(bon)) errs.push('Isi nama untuk bon/kuitansi ya, Kak.');
@@ -105,6 +131,7 @@ export function OrderBuilder({
       }),
       penerima: clean(penerima),
       alamat: clean(alamat),
+      lokasi,
       hp: clean(hp),
       bon: clean(bon),
       tambahan,
@@ -287,6 +314,40 @@ export function OrderBuilder({
                 onChange={(e) => setAlamat(e.target.value)}
                 className="w-full rounded-xl border border-line bg-white p-4 text-base"
               />
+              <div className="mt-2 flex flex-wrap items-center gap-3">
+                <button
+                  type="button"
+                  onClick={pakaiLokasi}
+                  disabled={mencari}
+                  className="min-h-11 rounded-full border-2 border-accent px-5 text-sm font-bold text-accent disabled:opacity-60"
+                >
+                  {mencari ? 'Mencari lokasi…' : 'Pakai Lokasi Saat Ini'}
+                </button>
+                {lokasi && (
+                  <>
+                    <a
+                      href={lokasi}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex min-h-11 items-center text-sm font-semibold underline"
+                    >
+                      Cek di Google Maps<span className="sr-only"> (tab baru)</span>
+                    </a>
+                    <button
+                      type="button"
+                      onClick={() => setLokasi('')}
+                      className="min-h-11 text-sm font-semibold text-muted underline"
+                    >
+                      Hapus lokasi
+                    </button>
+                  </>
+                )}
+              </div>
+              <p aria-live="polite" className="mt-1 text-sm text-muted">
+                {lokasi
+                  ? 'Titik lokasi ikut terkirim. Pastikan ini lokasi tujuan kirim ya, Kak.'
+                  : lokasiInfo || 'Tetap tulis alamat dan patokannya agar kurir mudah menemukan.'}
+              </p>
             </div>
             <div>
               <label htmlFor="bon" className={label}>

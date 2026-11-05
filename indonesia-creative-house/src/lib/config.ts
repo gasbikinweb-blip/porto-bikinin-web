@@ -33,6 +33,7 @@ export type OrderForm = {
   pesanan: string[];
   penerima?: string;
   alamat?: string;
+  lokasi?: string;
   hp?: string;
   bon?: string;
   tambahan?: string[];
@@ -52,6 +53,7 @@ export const orderFormMessage = (o: OrderForm) =>
     'Tujuan Kirim',
     `Nama: ${o.penerima ?? ''}`,
     `Alamat: ${o.alamat ?? ''}`,
+    ...(o.lokasi ? [`Titik lokasi: ${o.lokasi}`] : []),
     `No hp: ${o.hp ?? ''}`,
     `Bon/Kuitansi atas nama: ${o.bon ?? ''}`,
     ...(o.tambahan?.length ? ['', ...o.tambahan] : []),

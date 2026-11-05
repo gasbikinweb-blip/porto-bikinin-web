@@ -2,6 +2,7 @@
 // TODO: lengkapi harga dari highlight "PL 2026" dan konfirmasi semua data ke pemilik.
 import type { CategorySlug } from './categories';
 import manifest from './images.generated.json';
+import { prices, type PriceOption } from './prices';
 
 export type MenuImage = { src: string; thumb: string; width: number; height: number; alt: string };
 
@@ -23,7 +24,11 @@ type RawItem = {
   altText: string;
 };
 
-export type MenuItem = Omit<RawItem, 'altText'> & { images: MenuImage[] };
+export type MenuItem = Omit<RawItem, 'altText'> & {
+  images: MenuImage[];
+  options?: PriceOption[];
+  note?: string;
+};
 
 const NASI = ['Nasi kuning', 'Nasi liwet', 'Nasi jeruk'];
 const CENIL = [
@@ -400,6 +405,8 @@ const images = manifest as Record<string, Omit<MenuImage, 'alt'>[]>;
 
 export const menu: MenuItem[] = raw.map(({ altText, ...item }) => ({
   ...item,
+  ...prices[item.slug],
+  priceNote: prices[item.slug]?.options?.length ? 'mulai dari' : item.priceNote,
   images: (images[item.slug] ?? []).map((img, i) => ({
     ...img,
     alt: i === 0 ? altText : `${altText}, foto ${i + 1}`,

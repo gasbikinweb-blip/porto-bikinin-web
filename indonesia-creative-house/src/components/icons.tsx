@@ -96,3 +96,31 @@ export function ClockIcon({ className = 'size-5' }: IconProps) {
     </svg>
   );
 }
+
+export function InstagramIcon({ className = 'size-5' }: IconProps) {
+  return (
+    <svg {...line} className={className}>
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <path d="M17.5 6.5h.01" />
+    </svg>
+  );
+}
+
+export function AtIcon({ className = 'size-5' }: IconProps) {
+  return (
+    <svg {...line} className={className}>
+      <circle cx="12" cy="12" r="4" />
+      <path d="M16 8v5a3 3 0 0 0 5 2.2V12a9 9 0 1 0-3.5 7.1" />
+    </svg>
+  );
+}
+
+export function PinIcon({ className = 'size-5' }: IconProps) {
+  return (
+    <svg {...line} className={className}>
+      <path d="M12 21s7-6.1 7-11.5A7 7 0 0 0 5 9.5C5 14.9 12 21 12 21z" />
+      <circle cx="12" cy="9.5" r="2.5" />
+    </svg>
+  );
+}

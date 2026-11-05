@@ -30,6 +30,7 @@ export default function HomePage() {
             addressLocality: 'Cipete, Jakarta Selatan',
             addressCountry: 'ID',
           },
+          geo: { '@type': 'GeoCoordinates', latitude: -6.2768376, longitude: 106.8006342 },
           sameAs: [site.instagram, site.threads],
         }}
       />
@@ -76,24 +77,18 @@ export default function HomePage() {
       <section id="testimoni" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
         <h2 className={heading}>Testimoni</h2>
         <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-          {testimonials.map((t) =>
-            t.isPlaceholder ? (
-              <li
-                key={t.id}
-                className="rounded-2xl border-2 border-dashed border-line p-6 text-muted"
-              >
-                {t.text}
-              </li>
-            ) : (
-              <li key={t.id} className="rounded-2xl bg-white p-6">
-                <blockquote>{t.text}</blockquote>
-                <p className="mt-3 text-sm font-bold">
-                  {t.name}
-                  {t.event && `, ${t.event}`}
-                </p>
-              </li>
-            ),
-          )}
+          {testimonials.map((t) => (
+            <li key={t.id} className="rounded-2xl bg-white p-6">
+              {t.isPlaceholder && (
+                <p className="mb-2 text-xs font-bold tracking-wide text-muted uppercase">Contoh</p>
+              )}
+              <blockquote>{t.text}</blockquote>
+              <p className="mt-3 text-sm font-bold">
+                {t.name}
+                {t.event && `, ${t.event}`}
+              </p>
+            </li>
+          ))}
         </ul>
       </section>
 
@@ -177,6 +172,14 @@ export default function HomePage() {
             </dd>
           </div>
         </dl>
+        <iframe
+          src={site.mapsEmbed}
+          title="Peta lokasi ICH Jakarta di Google Maps"
+          loading="lazy"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+          className="mt-8 h-80 w-full rounded-3xl border-0 sm:h-96"
+        />
       </section>
     </>
   );

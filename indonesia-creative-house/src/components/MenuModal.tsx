@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { WhatsAppIcon } from './icons';
 import { categoryName } from '@/data/categories';
-import { priceLabel, type MenuItem } from '@/data/menu';
+import { formatRupiah, priceLabel, type MenuItem } from '@/data/menu';
 import { buildWhatsAppLink, itemMessage, itemUrl } from '@/lib/config';
 
 export function MenuModal({
@@ -170,6 +170,23 @@ function Detail({
           {m.name}
         </h2>
         <p className="mt-3 text-2xl font-bold text-accent">{priceLabel(m)}</p>
+        {m.options && m.options.length > 1 && (
+          <>
+            <h3 className="mt-4 text-sm font-bold">Daftar harga</h3>
+            <dl className="mt-2 divide-y divide-line rounded-xl border border-line text-sm">
+              {m.options.map((o) => (
+                <div key={o.label} className="flex justify-between gap-3 px-3 py-2">
+                  <dt>{o.label}</dt>
+                  <dd className="font-bold whitespace-nowrap">{formatRupiah(o.price)}</dd>
+                </div>
+              ))}
+            </dl>
+          </>
+        )}
+        {m.options?.length === 1 && (
+          <p className="mt-1 text-sm text-muted">{m.options[0]?.label}</p>
+        )}
+        {m.note && <p className="mt-2 text-sm text-muted">{m.note}</p>}
         {m.customizable && (
           <p className="mt-3 leading-relaxed text-muted">
             Isi bisa disesuaikan, tanyakan ke admin ya, Kak.
