@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import { Fraunces, Nunito } from 'next/font/google';
+import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header';
-import { AtIcon, ClockIcon, InstagramIcon, PinIcon, WhatsAppIcon } from '@/components/icons';
+import { WhatsAppIcon } from '@/components/icons';
 import { RevealObserver } from '@/components/RevealObserver';
 import { site } from '@/data/site';
 import { buildWhatsAppLink, config, generalMessage } from '@/lib/config';
@@ -53,62 +54,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </a>
         <Header />
         <main id="konten">{children}</main>
-        <footer className="bg-accent-strong px-4 pt-10 pb-20 text-sm text-white sm:px-6">
-          <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-3">
-            <div>
-              {/* TODO: ganti dengan file logo asli ICH */}
-              <p className="font-serif text-2xl">ICH</p>
-              <p className="mt-1">Indonesia Creative House, sejak {site.since}</p>
-            </div>
-            <div>
-              <p className="font-bold">Alamat</p>
-              <a
-                href={site.mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-1 inline-flex min-h-11 items-center gap-2 underline"
-              >
-                <PinIcon className="size-5 shrink-0" />
-                {site.address}
-                <span className="sr-only"> (tab baru)</span>
-              </a>
-              <p className="flex min-h-11 items-center gap-2">
-                <ClockIcon className="size-5 shrink-0" />
-                {site.hours}
-              </p>
-            </div>
-            <div>
-              <p className="font-bold">Hubungi kami</p>
-              <ul>
-                {[
-                  {
-                    href: buildWhatsAppLink(generalMessage),
-                    label: `WhatsApp ${site.whatsappDisplay}`,
-                    Icon: WhatsAppIcon,
-                  },
-                  { href: site.instagram, label: 'Instagram', Icon: InstagramIcon },
-                  { href: site.threads, label: 'Threads', Icon: AtIcon },
-                ].map(({ Icon, ...l }) => (
-                  <li key={l.href}>
-                    <a
-                      href={l.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex min-h-11 items-center gap-2 underline"
-                    >
-                      <Icon className="size-5 shrink-0" />
-                      {l.label}
-                      <span className="sr-only"> (tab baru)</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <p className="mx-auto mt-6 max-w-6xl">
-            © {new Date().getFullYear()} {site.name}.
-          </p>
-        </footer>
+        <Footer />
         <a
           href={buildWhatsAppLink(generalMessage)}
           target="_blank"
