@@ -1,9 +1,9 @@
-import Image from 'next/image';
+import { About } from '@/components/About';
+import { Hero } from '@/components/Hero';
 import { WhatsAppIcon } from '@/components/icons';
 import { JsonLd } from '@/components/JsonLd';
 import { MenuOrder } from '@/components/MenuOrder';
 import { faqs } from '@/data/faq';
-import { getItem } from '@/data/menu';
 import { activeSeasonal } from '@/data/seasonal';
 import { orderSteps, site } from '@/data/site';
 import { testimonials } from '@/data/testimonials';
@@ -13,7 +13,6 @@ const external = { target: '_blank', rel: 'noopener noreferrer' } as const;
 const heading = 'reveal font-serif text-4xl text-accent sm:text-5xl';
 
 export default function HomePage() {
-  const hero = getItem('tampah-kue-jajanan-pasar')?.images[1];
   const season = activeSeasonal();
   return (
     <>
@@ -35,58 +34,8 @@ export default function HomePage() {
         }}
       />
 
-      <section id="beranda" className="bg-blush">
-        <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 py-10 sm:px-6 lg:grid-cols-2 lg:py-16">
-          <div>
-            <h1 className="animate-in font-serif text-5xl leading-[1.05] text-accent sm:text-6xl">
-              Jajanan Pasar & Snack Box untuk Setiap Acara
-            </h1>
-            <p
-              className="animate-in mt-5 max-w-lg text-lg leading-relaxed"
-              style={{ animationDelay: '120ms' }}
-            >
-              Tampah, snack besek, nasi tumpeng, dan hantaran cantik dari ICH. Pilih menunya, lalu
-              pesan lewat WhatsApp ya, Kak.
-            </p>
-            <div
-              className="animate-in mt-7 flex flex-col gap-3 sm:flex-row"
-              style={{ animationDelay: '240ms' }}
-            >
-              <a
-                href="#menu"
-                className="inline-flex min-h-12 items-center justify-center rounded-full bg-accent px-7 font-bold text-white hover:bg-accent-strong"
-              >
-                Lihat Menu
-              </a>
-              <a
-                href="#pesan-acara"
-                className="inline-flex min-h-12 items-center justify-center rounded-full border-2 border-accent bg-white px-7 font-bold text-accent"
-              >
-                Pesan untuk Acara
-              </a>
-            </div>
-            <ul className="mt-7 flex flex-wrap gap-2 text-sm font-semibold">
-              {[`Sejak ${site.since}`, 'Cipete, Jakarta Selatan', 'Pesan untuk Acara'].map((b) => (
-                <li key={b} className="rounded-full bg-white px-4 py-2 text-leaf">
-                  {b}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="animate-in relative aspect-square overflow-hidden rounded-[2rem] border-8 border-white shadow-lg">
-            {hero && (
-              <Image
-                src={hero.src}
-                alt={hero.alt}
-                fill
-                priority
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
-              />
-            )}
-          </div>
-        </div>
-      </section>
+      <Hero />
+      <About />
 
       {season && (
         <section id="musiman" className="bg-leaf px-4 py-6 text-white sm:px-6">

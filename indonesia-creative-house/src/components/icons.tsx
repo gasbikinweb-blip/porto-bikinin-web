@@ -53,3 +53,46 @@ export function PlusIcon({ className = 'size-5' }: IconProps) {
     </svg>
   );
 }
+
+const line = {
+  viewBox: '0 0 24 24',
+  fill: 'none',
+  stroke: 'currentColor',
+  strokeWidth: 1.8,
+  strokeLinecap: 'round',
+  strokeLinejoin: 'round',
+  'aria-hidden': true,
+} as const;
+
+export function ArrowUpRightIcon({ className = 'size-5' }: IconProps) {
+  return (
+    <svg {...line} className={className}>
+      <path d="M7 17 17 7M9 7h8v8" />
+    </svg>
+  );
+}
+
+export function BoxIcon({ className = 'size-5' }: IconProps) {
+  return (
+    <svg {...line} className={className}>
+      <path d="m12 3 8 4.5v9L12 21l-8-4.5v-9zM4 7.5l8 4.5 8-4.5M12 12v9" />
+    </svg>
+  );
+}
+
+export function CalendarIcon({ className = 'size-5' }: IconProps) {
+  return (
+    <svg {...line} className={className}>
+      <path d="M8 3v4M16 3v4M4 10h16M6 5h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" />
+    </svg>
+  );
+}
+
+export function ClockIcon({ className = 'size-5' }: IconProps) {
+  return (
+    <svg {...line} className={className}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v5l3 2" />
+    </svg>
+  );
+}

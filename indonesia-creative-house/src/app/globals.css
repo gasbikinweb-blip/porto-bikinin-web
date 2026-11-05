@@ -93,3 +93,33 @@ dialog::backdrop {
     opacity: 1 !important;
   }
 }
+
+/* Lapisan gelap agar teks putih di atas foto hero tetap terbaca */
+.hero-shade {
+  background: linear-gradient(
+    100deg,
+    rgb(40 20 25 / 0.88) 0%,
+    rgb(40 20 25 / 0.6) 45%,
+    rgb(40 20 25 / 0.1) 80%
+  );
+}
+.side-shade {
+  background: linear-gradient(to top, rgb(40 20 25 / 0.8) 0%, rgb(40 20 25 / 0.25) 70%);
+}
+
+/* Kartu Tentang */
+.card-shade {
+  background: linear-gradient(
+    to bottom,
+    rgb(40 20 25 / 0.7) 0%,
+    rgb(40 20 25 / 0.1) 35%,
+    rgb(40 20 25 / 0.88) 70%
+  );
+}
+.outline-num {
+  color: transparent;
+  -webkit-text-stroke: 1px rgb(255 255 255 / 0.7);
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}

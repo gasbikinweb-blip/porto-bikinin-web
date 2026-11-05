@@ -3,6 +3,7 @@
 // Kategori, menu, modal, dan pesanan acara berbagi state filter dan daftar pesanan.
 import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { ArrowIcon } from './icons';
 import { MenuModal } from './MenuModal';
 import { OrderBuilder, type OrderLines } from './OrderBuilder';
 import { categories, categoryName, type CategorySlug } from '@/data/categories';
@@ -89,32 +90,60 @@ export function MenuOrder() {
 
   return (
     <>
-      <section id="kategori" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-        <h2 className="reveal font-serif text-4xl text-accent sm:text-5xl">
-          Pilih sesuai acara, Kak
-        </h2>
-        <ul data-stagger className="mt-8 grid grid-cols-3 gap-3 sm:gap-4 lg:grid-cols-5">
+      <section
+        id="kategori"
+        className="mx-auto grid max-w-6xl gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1fr_2.6fr]"
+      >
+        <div className="reveal lg:sticky lg:top-24 lg:self-start">
+          <p className="text-sm font-bold tracking-widest text-leaf uppercase">Kategori</p>
+          <h2 className="mt-2 font-serif text-4xl leading-tight text-accent">
+            Pilih sesuai acara, Kak
+          </h2>
+          <p className="mt-4 text-sm leading-relaxed text-muted">
+            Dari snack dan tampah sampai aneka nasi dan hantaran. Pilih kategorinya, lalu lihat
+            menunya.
+          </p>
+          <a
+            href="#menu"
+            onClick={() => {
+              setActive('semua');
+              setLimit(PAGE);
+            }}
+            className="mt-6 inline-flex min-h-11 items-center gap-2 rounded-full border-2 border-accent px-6 text-sm font-bold text-accent hover:bg-accent hover:text-white"
+          >
+            Lihat Semua
+            <ArrowIcon />
+          </a>
+        </div>
+        <ul data-stagger className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3">
           {categories.map((c) => {
             const cover = getItem(c.cover)?.images[0];
+            const count = menu.filter((m) => m.category === c.slug).length;
             return (
               <li key={c.slug} className="reveal">
                 <button
                   type="button"
                   onClick={() => pickCategory(c.slug)}
-                  className="group block w-full rounded-2xl bg-white p-1.5 text-center shadow-sm"
+                  className="group block w-full text-left"
                 >
-                  <span className="relative block aspect-square overflow-hidden rounded-xl bg-blush">
+                  <span className="relative block aspect-square overflow-hidden rounded-2xl bg-blush">
                     {cover && (
                       <Image
                         src={cover.thumb}
                         alt=""
                         fill
-                        sizes="(min-width: 1024px) 20vw, 33vw"
+                        sizes="(min-width: 1024px) 260px, (min-width: 640px) 33vw, 50vw"
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     )}
+                    <span className="absolute inset-x-3 bottom-3 hidden items-center justify-center gap-2 rounded-full bg-foreground/90 py-2 text-sm font-bold text-white group-hover:flex group-focus-visible:flex">
+                      Lihat menu
+                      <ArrowIcon />
+                    </span>
                   </span>
-                  <span className="block py-2 text-sm font-bold sm:text-base">{c.name}</span>
+                  <span className="mt-3 block font-bold">{c.name}</span>
+                  <span className="mt-1 block text-sm leading-relaxed text-muted">{c.desc}</span>
+                  <span className="mt-1 block text-sm font-bold text-accent">{count} menu</span>
                 </button>
               </li>
             );
