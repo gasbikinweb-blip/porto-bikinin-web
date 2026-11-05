@@ -1,3 +1,4 @@
+import { VideoReels } from '@/components/VideoReels';
 import { About } from '@/components/About';
 import { Hero } from '@/components/Hero';
 import { WhatsAppIcon } from '@/components/icons';
@@ -37,6 +38,7 @@ export default function HomePage() {
 
       <Hero />
       <About />
+      <VideoReels />
 
       {season && (
         <section id="musiman" className="bg-leaf px-4 py-6 text-white sm:px-6">
