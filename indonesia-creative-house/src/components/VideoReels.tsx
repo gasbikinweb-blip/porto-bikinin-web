@@ -1,55 +1,29 @@
 'use client';
 
-// Video pendek tanpa suara: hanya diputar saat terlihat, bisa dijeda, dan tidak otomatis
-// bila pengguna memilih mengurangi gerakan.
-import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
+// Video asli dari Instagram, bersuara. Baru diunduh saat diputar pengguna (preload="none"),
+// dan memutar satu video menjeda video lain.
+import { useRef } from 'react';
 import { ArrowIcon } from './icons';
 
-// Tiap video berisi beberapa foto dari satu kelompok menu
 const videos = [
-  { file: 'nasi-tumpeng', name: 'Aneka Nasi', href: '#menu' },
-  { file: 'pempek-tampah', name: 'Pempek', href: '#menu' },
-  { file: 'tumpeng-cenil', name: 'Cenil', href: '#menu' },
-  { file: 'snack-besekan', name: 'Snack Besek', href: '#menu-snack-besekan' },
-  {
-    file: 'rantang-jajanan-pasar',
-    name: 'Rantang Jajanan Pasar',
-    href: '#menu-rantang-jajanan-pasar',
-  },
-  { file: 'snack-cup', name: 'Snack Cup', href: '#menu-snack-cup' },
+  { file: 'nasi-tumpeng', name: 'Nasi Tumpeng' },
+  { file: 'snack-box', name: 'Snack Box' },
+  { file: 'hantaran-lamaran', name: 'Hantaran Lamaran' },
+  { file: 'tampah-jajanan-pasar', name: 'Tampah Jajanan Pasar' },
+  { file: 'nampan-bambu', name: 'Nampan Bambu' },
+  { file: 'ayam-kodok', name: 'Ayam Kodok' },
+  { file: 'snack-cup', name: 'Snack Cup' },
+  { file: 'nasi-bakul', name: 'Nasi Bakul' },
 ];
-
-const noSubscribe = () => () => undefined;
 
 export function VideoReels() {
   const list = useRef<HTMLUListElement>(null);
-  const reduced = useSyncExternalStore(
-    noSubscribe,
-    () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
-    () => false,
-  );
-  const [choice, setChoice] = useState<boolean | null>(null);
-  const paused = choice ?? reduced;
 
-  useEffect(() => {
-    const els = Array.from(list.current?.querySelectorAll('video') ?? []);
-    if (paused) {
-      els.forEach((v) => v.pause());
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          const v = e.target as HTMLVideoElement;
-          if (e.isIntersecting) void v.play().catch(() => undefined);
-          else v.pause();
-        }
-      },
-      { threshold: 0.5 },
-    );
-    els.forEach((v) => io.observe(v));
-    return () => io.disconnect();
-  }, [paused]);
+  const pauseOthers = (current: HTMLVideoElement) => {
+    list.current?.querySelectorAll('video').forEach((v) => {
+      if (v !== current) v.pause();
+    });
+  };
 
   const go = (dir: number) => {
     const card = list.current?.firstElementChild as HTMLElement | null | undefined;
@@ -69,13 +43,6 @@ export function VideoReels() {
             </h2>
           </div>
           <div className="flex gap-2">
-            <button
-              type="button"
-              onClick={() => setChoice(!paused)}
-              className="min-h-11 rounded-full border border-line px-5 text-sm font-bold"
-            >
-              {paused ? 'Putar Video' : 'Jeda Video'}
-            </button>
             <button
               type="button"
               onClick={() => go(-1)}
@@ -99,34 +66,26 @@ export function VideoReels() {
           ref={list}
           className="no-scrollbar mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto"
         >
-          {videos.map(({ file, name, href }) => {
-            return (
-              <li
-                key={file}
-                className="relative aspect-[9/16] w-[70%] shrink-0 snap-start overflow-hidden rounded-3xl bg-blush sm:w-[calc(33.333%-0.7rem)] lg:w-[calc(25%-0.75rem)]"
-              >
+          {videos.map(({ file, name }) => (
+            <li
+              key={file}
+              className="w-[70%] shrink-0 snap-start sm:w-[calc(33.333%-0.7rem)] lg:w-[calc(25%-0.75rem)]"
+            >
+              <div className="relative aspect-[9/16] overflow-hidden rounded-3xl bg-blush">
                 <video
                   src={`/videos/${file}.mp4`}
                   poster={`/videos/${file}.webp`}
-                  muted
-                  loop
+                  controls
                   playsInline
                   preload="none"
+                  onPlay={(e) => pauseOthers(e.currentTarget)}
                   aria-label={`Video ${name}`}
                   className="absolute inset-0 size-full object-cover"
                 />
-                <a
-                  href={href}
-                  className="absolute inset-x-3 bottom-3 flex min-h-11 items-center justify-between gap-2 rounded-full bg-white py-1 pr-1 pl-4 text-sm font-bold"
-                >
-                  <span className="truncate">{name}</span>
-                  <span className="grid size-9 shrink-0 place-items-center rounded-full bg-accent text-white">
-                    <ArrowIcon />
-                  </span>
-                </a>
-              </li>
-            );
-          })}
+              </div>
+              <p className="mt-2 text-center font-bold">{name}</p>
+            </li>
+          ))}
         </ul>
       </div>
     </section>

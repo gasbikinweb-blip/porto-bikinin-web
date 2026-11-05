@@ -1,15 +1,18 @@
-// Mengecilkan video Instagram di assets menjadi public/videos/[slug].mp4 + poster .webp, tanpa suara.
+// Mengecilkan video Instagram di assets menjadi public/videos/[slug].mp4 + poster .webp, suara tetap ada.
 // Butuh ffmpeg terpasang. Jalankan: npm run optimize-videos
 import { execFileSync } from 'node:child_process';
 import { mkdirSync, statSync } from 'node:fs';
 
+// Video asli (pemilik memperlihatkan produknya), bukan slideshow foto
 const videos = {
-  'nasi-tumpeng': '2026-10-20_DetEPwdTgT-',
-  'pempek-tampah': '2026-10-20_DetFKvuTG-w',
-  'tumpeng-cenil': '2026-10-20_DetNFL7Tawa',
-  'snack-besekan': '2026-10-20_DetOUy9Tir0',
-  'rantang-jajanan-pasar': '2026-10-20_DetL6wNzMPL',
-  'snack-cup': '2026-10-20_DetOucTzSzi',
+  'nasi-tumpeng': '2026-04-18_DXQZbqXE3BA',
+  'snack-box': '2026-04-28_DXqGv3ek5sE',
+  'hantaran-lamaran': '2026-04-18_DXQNtUIk4y0',
+  'tampah-jajanan-pasar': '2026-03-05_DVfMsXMk0F5',
+  'nampan-bambu': '2026-03-02_DVYLY-nk6Bc',
+  'ayam-kodok': '2026-03-10_DVsPnCLkxen',
+  'snack-cup': '2026-03-10_DVsjwQME_Je',
+  'nasi-bakul': '2026-03-12_DVx9jPVk5N2',
 };
 
 const OUT = 'public/videos';
@@ -18,14 +21,17 @@ mkdirSync(OUT, { recursive: true });
 for (const [slug, folder] of Object.entries(videos)) {
   const src = `assets/${folder}/01.mp4`;
   const mp4 = `${OUT}/${slug}.mp4`;
-  // -map_metadata -1 membuang metadata, -an membuang suara
+  // -map_metadata -1 membuang metadata; suara dikompres ke AAC
   execFileSync('ffmpeg', [
     '-y',
     '-v',
     'error',
     '-i',
     src,
-    '-an',
+    '-c:a',
+    'aac',
+    '-b:a',
+    '64k',
     '-map_metadata',
     '-1',
     '-vf',
@@ -35,7 +41,7 @@ for (const [slug, folder] of Object.entries(videos)) {
     '-preset',
     'slow',
     '-crf',
-    '28',
+    '30',
     '-pix_fmt',
     'yuv420p',
     '-movflags',
