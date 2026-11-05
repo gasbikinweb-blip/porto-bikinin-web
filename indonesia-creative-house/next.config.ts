@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
   // Tidak berpengaruh pada hasil build. Sesuaikan IP dengan komputer kamu.
   allowedDevOrigins: [
     '192.168.100.5',
+    '192.168.0.31',
     '*.ngrok-free.app',
     '*.ngrok-free.dev',
     '*.ngrok.app',

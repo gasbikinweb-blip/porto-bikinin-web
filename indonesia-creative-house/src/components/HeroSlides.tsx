@@ -4,6 +4,7 @@
 // dan tidak berputar otomatis bila pengguna memilih mengurangi gerakan.
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
+import { ArrowIcon } from './icons';
 import { getItem } from '@/data/menu';
 
 const INTERVAL = 5000;
@@ -42,7 +43,8 @@ export function HeroSlides() {
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const id = setInterval(() => {
-      if (dots.current?.closest('[data-hero-card]')?.matches(':hover, :focus-within')) return;
+      if (dots.current?.closest('[data-hero-card]')?.matches(':hover, :has(:focus-visible)'))
+        return;
       setActive((i) => (i + 1) % slides.length);
     }, INTERVAL);
     return () => clearInterval(id);
@@ -98,6 +100,14 @@ export function HeroSlides() {
           ))}
         </div>
       </div>
+      <button
+        type="button"
+        onClick={() => setActive((i) => (i + 1) % slides.length)}
+        aria-label="Slide berikutnya"
+        className="absolute right-5 bottom-5 z-10 grid size-16 place-items-center rounded-full border-4 border-white/40 bg-accent text-white hover:bg-accent-strong sm:right-8 sm:bottom-8"
+      >
+        <ArrowIcon className="size-6" />
+      </button>
     </>
   );
 }

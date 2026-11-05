@@ -133,13 +133,7 @@ export function Hero() {
                 <CalendarIcon className="size-6" />
               </div>
             </div>
-            <a
-              href="#menu"
-              aria-label="Lihat semua menu"
-              className="grid size-16 shrink-0 place-items-center rounded-full border-4 border-white/40 bg-accent text-white hover:bg-accent-strong"
-            >
-              <ArrowIcon className="size-6" />
-            </a>
+            <span aria-hidden="true" className="size-16 shrink-0" />
           </div>
         </div>
 
