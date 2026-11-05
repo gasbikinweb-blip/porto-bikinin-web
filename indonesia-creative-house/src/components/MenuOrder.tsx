@@ -12,6 +12,18 @@ import { getItem, menu, priceLabel, type MenuItem } from '@/data/menu';
 const PAGE = 12;
 const HASH_PREFIX = '#menu-';
 
+// Teks yang bisa dicari: nama, kategori, isi menu, dan catatan harga
+const searchText = (m: MenuItem) =>
+  normalize(
+    [m.name, categoryName(m.category), m.unit, m.priceNote, ...(m.contents ?? [])].join(' '),
+  );
+function normalize(s: string) {
+  return s
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
 const itemFromHash = () => {
   const { hash } = window.location;
   // Whitelist: hanya slug yang ada di data
@@ -27,11 +39,13 @@ export function MenuOrder() {
   const trigger = useRef<HTMLElement | null>(null);
   const pushed = useRef(false);
 
-  const q = query.trim().toLowerCase();
-  const filtered = menu.filter(
-    (m) =>
-      (active === 'semua' || m.category === active) && (!q || m.name.toLowerCase().includes(q)),
-  );
+  // Semua kata harus cocok, urutan bebas: "besek nasi" menemukan "Nasi Besek"
+  const words = normalize(query).split(' ').filter(Boolean);
+  const filtered = menu.filter((m) => {
+    if (active !== 'semua' && m.category !== active) return false;
+    const text = searchText(m);
+    return words.every((w) => text.includes(w));
+  });
   const shown = filtered.slice(0, limit);
 
   // Deep link & tombol Back: URL #menu-slug menentukan modal yang terbuka
@@ -73,6 +87,7 @@ export function MenuOrder() {
   }, []);
 
   const pickCategory = (slug: CategorySlug) => {
+    setQuery('');
     setActive(slug);
     setLimit(PAGE);
     document.getElementById('menu')?.scrollIntoView();
@@ -106,6 +121,7 @@ export function MenuOrder() {
           <a
             href="#menu"
             onClick={() => {
+              setQuery('');
               setActive('semua');
               setLimit(PAGE);
             }}
@@ -162,18 +178,37 @@ export function MenuOrder() {
             <label htmlFor="cari-menu" className="sr-only">
               Cari nama menu
             </label>
-            <input
-              id="cari-menu"
-              type="search"
-              value={query}
-              maxLength={50}
-              onChange={(e) => {
-                setQuery(e.target.value);
-                setLimit(PAGE);
-              }}
-              placeholder="Cari nama menu…"
-              className="min-h-11 w-full rounded-full border border-line bg-blush/40 px-5 text-base lg:max-w-sm"
-            />
+            <div className="relative w-full lg:max-w-md">
+              <input
+                id="cari-menu"
+                type="text"
+                inputMode="search"
+                autoComplete="off"
+                value={query}
+                maxLength={50}
+                onChange={(e) => {
+                  setQuery(e.target.value);
+                  setLimit(PAGE);
+                  // Mencari selalu di semua kategori agar hasil tidak tersembunyi oleh filter
+                  if (e.target.value.trim()) setActive('semua');
+                }}
+                placeholder="Cari menu, mis. nasi kuning, klepon, lamaran…"
+                className="min-h-12 w-full rounded-full border border-line bg-blush/40 pr-14 pl-5 text-base"
+              />
+              {query && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setQuery('');
+                    setLimit(PAGE);
+                  }}
+                  aria-label="Hapus pencarian"
+                  className="absolute top-0.5 right-0.5 grid size-11 place-items-center rounded-full text-xl font-bold text-muted hover:text-foreground"
+                >
+                  ×
+                </button>
+              )}
+            </div>
             <div role="group" aria-label="Filter kategori" className="flex flex-wrap gap-2">
               {chips.map((c) => (
                 <button
@@ -243,7 +278,20 @@ export function MenuOrder() {
               ))}
             </ul>
           ) : (
-            <p className="mt-8 text-muted">Menu tidak ditemukan. Coba kata kunci lain ya, Kak.</p>
+            <div className="mt-8 text-muted">
+              <p>Menu &quot;{query.trim()}&quot; tidak ditemukan. Coba kata kunci lain ya, Kak.</p>
+              <button
+                type="button"
+                onClick={() => {
+                  setQuery('');
+                  setActive('semua');
+                  setLimit(PAGE);
+                }}
+                className="mt-3 min-h-11 rounded-full border-2 border-accent px-6 font-bold text-accent"
+              >
+                Lihat semua menu
+              </button>
+            </div>
           )}
 
           {limit < filtered.length && (
