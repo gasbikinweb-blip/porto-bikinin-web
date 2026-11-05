@@ -1,4 +1,5 @@
 // Footer lengkap. Semua isi dari data situs; jangan menambah fakta yang belum dikonfirmasi.
+import Image from 'next/image';
 import { ArrowIcon, AtIcon, ClockIcon, InstagramIcon, PinIcon, WhatsAppIcon } from './icons';
 import { categories } from '@/data/categories';
 import { getItem } from '@/data/menu';
@@ -48,9 +49,14 @@ export function Footer() {
 
         <div className="grid gap-8 py-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1.2fr_1.2fr]">
           <div>
-            {/* TODO: ganti dengan file logo asli ICH */}
-            <p className="font-serif text-3xl">ICH</p>
-            <p className="mt-1 font-bold">Indonesia Creative House</p>
+            <Image
+              src="/images/logo.webp"
+              alt="Logo ICH"
+              width={88}
+              height={88}
+              className="size-22 rounded-full"
+            />
+            <p className="mt-3 font-bold">Indonesia Creative House</p>
             <p className="mt-3 leading-relaxed text-white/90">
               Pusat jajanan pasar di Cipete, Jakarta Selatan, sejak {site.since}. Snack box, tampah,
               nasi tumpeng, dan hantaran untuk berbagai acara.

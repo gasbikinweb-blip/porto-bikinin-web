@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useRef } from 'react';
 import { WhatsAppIcon } from './icons';
@@ -19,11 +20,15 @@ export function Header() {
   return (
     <header className="sticky top-0 z-30 border-b border-line bg-white/95 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-        {/* TODO: ganti dengan file logo asli ICH */}
         <Link href="/#beranda" className="flex min-h-11 items-center gap-2">
-          <span className="grid size-10 place-items-center rounded-full bg-accent text-xs font-extrabold text-white">
-            ICH
-          </span>
+          <Image
+            src="/images/logo.webp"
+            alt="Logo ICH"
+            width={44}
+            height={44}
+            priority
+            className="size-11 rounded-full"
+          />
           <span className="hidden text-sm leading-tight font-bold sm:block">
             Indonesia
             <br />
