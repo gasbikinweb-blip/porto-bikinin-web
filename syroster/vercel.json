@@ -4,6 +4,9 @@
   "buildCommand": "npm run build && cp out/pembaruan.html out/index.html",
   "outputDirectory": "out",
   "trailingSlash": true,
+  "redirects": [
+    { "source": "/((?!nonaktif).*)", "destination": "/nonaktif/", "permanent": false }
+  ],
   "headers": [
     {
       "source": "/(.*)",
