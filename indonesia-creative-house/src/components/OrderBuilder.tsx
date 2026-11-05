@@ -34,7 +34,7 @@ async function alamatDariTitik(lat: number, lon: number): Promise<string | null>
     if (!res.ok) return null;
     const data: unknown = await res.json();
     const name = (data as { display_name?: unknown }).display_name;
-    return typeof name === 'string' ? name.replace(/,s*Indonesia$/, '').slice(0, 200) : null;
+    return typeof name === 'string' ? name.replace(/,\s*Indonesia$/, '').slice(0, 200) : null;
   } catch {
     return null;
   }
