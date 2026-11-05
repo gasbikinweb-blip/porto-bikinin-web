@@ -15,7 +15,7 @@ export function MenuModal({
 }: {
   item: MenuItem | null;
   onClose: () => void;
-  onAdd: (m: MenuItem) => void;
+  onAdd: (m: MenuItem, qty: number) => void;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
   const isOpen = item !== null;
@@ -40,7 +40,7 @@ export function MenuModal({
         onClose();
       }}
       onClick={(e) => e.target === e.currentTarget && onClose()}
-      className="m-0 h-dvh max-h-none w-full max-w-none overflow-y-auto bg-white text-foreground sm:m-auto sm:h-auto sm:max-h-[90dvh] sm:max-w-4xl sm:rounded-3xl"
+      className="m-0 h-dvh max-h-none w-full max-w-none overflow-y-auto bg-white text-foreground sm:m-auto sm:h-auto sm:max-h-[90dvh] sm:max-w-5xl sm:rounded-3xl"
     >
       {item && <Detail key={item.slug} m={item} onClose={onClose} onAdd={onAdd} />}
     </dialog>
@@ -54,10 +54,12 @@ function Detail({
 }: {
   m: MenuItem;
   onClose: () => void;
-  onAdd: (m: MenuItem) => void;
+  onAdd: (m: MenuItem, qty: number) => void;
 }) {
   const [index, setIndex] = useState(0);
   const [copied, setCopied] = useState(false);
+  const min = m.minOrder ?? 1;
+  const [qty, setQty] = useState(min);
   const touchX = useRef<number | null>(null);
   const total = m.images.length;
   const img = m.images[index];
@@ -83,14 +85,14 @@ function Detail({
 
   return (
     <div
-      className="grid md:grid-cols-2"
+      className="relative grid md:grid-cols-2"
       onKeyDown={(e) => {
         if (total < 2) return;
         if (e.key === 'ArrowRight') go(1);
         if (e.key === 'ArrowLeft') go(-1);
       }}
     >
-      <div className="p-4">
+      <div className="p-4 sm:p-6">
         <div
           className="relative aspect-square overflow-hidden rounded-2xl bg-blush"
           onTouchStart={(e) => {
@@ -120,7 +122,7 @@ function Detail({
                 type="button"
                 onClick={() => go(-1)}
                 aria-label="Foto sebelumnya"
-                className="absolute top-1/2 left-2 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-xl"
+                className="absolute top-1/2 left-3 grid size-11 -translate-y-1/2 place-items-center rounded-xl bg-white text-2xl shadow"
               >
                 ‹
               </button>
@@ -128,7 +130,7 @@ function Detail({
                 type="button"
                 onClick={() => go(1)}
                 aria-label="Foto berikutnya"
-                className="absolute top-1/2 right-2 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-white/90 text-xl"
+                className="absolute top-1/2 right-3 grid size-11 -translate-y-1/2 place-items-center rounded-xl bg-accent text-2xl text-white shadow"
               >
                 ›
               </button>
@@ -136,17 +138,17 @@ function Detail({
           )}
         </div>
         {total > 1 && (
-          <ul className="flex gap-2 overflow-x-auto p-1 pt-3">
+          <ul className="grid grid-cols-4 gap-3 p-1 pt-3">
             {m.images.map((t, i) => (
-              <li key={t.src} className="shrink-0">
+              <li key={t.src}>
                 <button
                   type="button"
                   aria-label={`Tampilkan foto ${i + 1}`}
                   aria-current={i === index}
                   onClick={() => setIndex(i)}
-                  className={`relative block size-14 overflow-hidden rounded-lg ${i === index ? 'ring-2 ring-accent' : 'opacity-70'}`}
+                  className={`relative block aspect-square w-full overflow-hidden rounded-xl ${i === index ? 'ring-2 ring-accent' : 'opacity-70'}`}
                 >
-                  <Image src={t.thumb} alt="" fill sizes="56px" className="object-cover" />
+                  <Image src={t.thumb} alt="" fill sizes="120px" className="object-cover" />
                 </button>
               </li>
             ))}
@@ -154,69 +156,99 @@ function Detail({
         )}
       </div>
 
-      <div className="relative p-5 sm:p-7">
+      <div className="p-5 sm:p-7">
         <button
           type="button"
           onClick={onClose}
           aria-label="Tutup detail menu"
-          className="absolute top-3 right-3 grid size-11 place-items-center rounded-full border border-line text-xl"
+          className="absolute top-3 right-3 z-10 grid size-11 place-items-center rounded-full border border-line bg-white text-xl"
         >
           ×
         </button>
-        <p className="pr-12 text-sm font-semibold text-leaf">{categoryName(m.category)}</p>
-        <h2 id="judul-menu" className="mt-1 pr-12 font-serif text-3xl leading-tight text-accent">
+        <p className="pr-12 text-sm text-muted">{categoryName(m.category)}</p>
+        <h2 id="judul-menu" className="mt-1 pr-12 font-serif text-3xl leading-tight">
           {m.name}
         </h2>
-        <p className="mt-3 text-lg font-bold">{priceLabel(m)}</p>
-        <dl className="mt-4 divide-y divide-line border-y border-line text-sm">
-          {specs.map(
-            ([k, v]) =>
-              v && (
-                <div key={k} className="grid grid-cols-3 gap-3 py-2.5">
-                  <dt className="text-muted">{k}</dt>
-                  <dd className="col-span-2 font-semibold">{v}</dd>
-                </div>
-              ),
-          )}
-        </dl>
+        <p className="mt-3 text-2xl font-bold text-accent">{priceLabel(m)}</p>
+        {m.customizable && (
+          <p className="mt-3 leading-relaxed text-muted">
+            Isi bisa disesuaikan, tanyakan ke admin ya, Kak.
+          </p>
+        )}
         {m.contents && (
           <>
-            <h3 className="mt-4 text-sm font-bold">Pilihan dan isi</h3>
-            <ul className="mt-2 flex flex-wrap gap-1.5 text-xs">
+            <h3 className="mt-5 text-sm font-bold">Pilihan dan isi</h3>
+            <ul className="mt-2 flex flex-wrap gap-2 text-sm">
               {m.contents.map((c) => (
-                <li key={c} className="rounded-full bg-blush px-3 py-1">
+                <li key={c} className="rounded-full border border-line px-4 py-1.5">
                   {c}
                 </li>
               ))}
             </ul>
           </>
         )}
-        {m.customizable && (
-          <p className="mt-4 text-sm text-muted">
-            Isi bisa disesuaikan, tanyakan ke admin ya, Kak.
-          </p>
-        )}
-        <div className="mt-5 flex flex-col gap-2.5">
-          <button
-            type="button"
-            onClick={() => onAdd(m)}
-            className="min-h-12 rounded-full bg-accent px-6 font-bold text-white hover:bg-accent-strong"
-          >
-            Tambahkan ke Pesanan Acara
-          </button>
+
+        <h3 className="mt-5 text-sm font-bold">Jumlah ({m.unit})</h3>
+        <div className="mt-2 flex flex-wrap items-center gap-3">
+          <div className="flex items-center rounded-full border border-line">
+            <button
+              type="button"
+              onClick={() => setQty((n) => Math.max(min, n - 1))}
+              disabled={qty <= min}
+              aria-label="Kurangi jumlah"
+              className="grid size-12 place-items-center text-xl disabled:opacity-40"
+            >
+              −
+            </button>
+            <span aria-live="polite" className="w-10 text-center font-bold">
+              {qty}
+            </span>
+            <button
+              type="button"
+              onClick={() => setQty((n) => n + 1)}
+              aria-label="Tambah jumlah"
+              className="grid size-12 place-items-center text-xl"
+            >
+              +
+            </button>
+          </div>
           <a
-            href={buildWhatsAppLink(itemMessage(m.name, m.slug))}
+            href={buildWhatsAppLink(itemMessage(m.name, m.slug, qty, m.unit))}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border-2 border-accent px-6 font-bold text-accent"
+            className="inline-flex min-h-12 flex-1 items-center justify-center gap-2 rounded-full bg-accent px-6 font-bold whitespace-nowrap text-white hover:bg-accent-strong"
           >
             <WhatsAppIcon className="size-5" />
             Pesan via WhatsApp<span className="sr-only"> (tab baru)</span>
           </a>
-          <button type="button" onClick={copy} className="min-h-11 text-sm font-semibold underline">
-            {copied ? 'Link tersalin ✓' : 'Salin Link'}
-          </button>
         </div>
+        <button
+          type="button"
+          onClick={() => onAdd(m, qty)}
+          className="mt-3 min-h-12 w-full rounded-full border-2 border-accent px-6 font-bold text-accent"
+        >
+          Tambahkan ke Pesanan Acara
+        </button>
+
+        <dl className="mt-5 space-y-2 border-t border-line pt-5 text-sm">
+          {specs.map(
+            ([k, v]) =>
+              v && (
+                <div key={k} className="flex gap-2">
+                  <dt className="font-bold">{k}:</dt>
+                  <dd className="text-muted">{v}</dd>
+                </div>
+              ),
+          )}
+          <div className="flex items-center gap-2">
+            <dt className="font-bold">Bagikan:</dt>
+            <dd>
+              <button type="button" onClick={copy} className="min-h-11 font-semibold underline">
+                {copied ? 'Link tersalin ✓' : 'Salin Link'}
+              </button>
+            </dd>
+          </div>
+        </dl>
       </div>
     </div>
   );

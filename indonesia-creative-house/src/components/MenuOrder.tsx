@@ -78,8 +78,8 @@ export function MenuOrder() {
     document.getElementById('menu')?.scrollIntoView();
   };
 
-  const addToOrder = (m: MenuItem) => {
-    setLines((cur) => (cur[m.slug] ? cur : { ...cur, [m.slug]: m.minOrder ?? 1 }));
+  const addToOrder = (m: MenuItem, qty: number) => {
+    setLines((cur) => ({ ...cur, [m.slug]: qty }));
     trigger.current = null;
     close();
     // Tunggu modal tertutup dan history kembali

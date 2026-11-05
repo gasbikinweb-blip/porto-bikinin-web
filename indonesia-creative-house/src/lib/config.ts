@@ -26,5 +26,5 @@ export const generalMessage = 'Halo ICH, saya mau tanya menu dan pesanan untuk a
 
 export const itemUrl = (slug: string) => `${config.siteUrl}/#menu-${slug}`;
 
-export const itemMessage = (name: string, slug: string) =>
-  `Halo ICH, saya tertarik dengan ${name}. ${itemUrl(slug)}. Bisa info harga dan ketersediaannya?`;
+export const itemMessage = (name: string, slug: string, qty: number, unit: string) =>
+  `Halo ICH, saya tertarik dengan ${name} sebanyak ${qty} ${unit}. ${itemUrl(slug)}. Bisa info harga dan ketersediaannya?`;
