@@ -1,0 +1,510 @@
+{
+  "snack-box": [
+    {
+      "src": "/images/menu/snack-box/01.webp",
+      "thumb": "/images/menu/snack-box/01-thumb.webp",
+      "width": 1220,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/snack-box/02.webp",
+      "thumb": "/images/menu/snack-box/02-thumb.webp",
+      "width": 1220,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/snack-box/03.webp",
+      "thumb": "/images/menu/snack-box/03-thumb.webp",
+      "width": 1222,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/snack-box/04.webp",
+      "thumb": "/images/menu/snack-box/04-thumb.webp",
+      "width": 1221,
+      "height": 1400
+    }
+  ],
+  "snack-besekan": [
+    {
+      "src": "/images/menu/snack-besekan/01.webp",
+      "thumb": "/images/menu/snack-besekan/01-thumb.webp",
+      "width": 1221,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/snack-besekan/02.webp",
+      "thumb": "/images/menu/snack-besekan/02-thumb.webp",
+      "width": 1220,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/snack-besekan/03.webp",
+      "thumb": "/images/menu/snack-besekan/03-thumb.webp",
+      "width": 1220,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/snack-besekan/04.webp",
+      "thumb": "/images/menu/snack-besekan/04-thumb.webp",
+      "width": 1220,
+      "height": 1400
+    }
+  ],
+  "snack-cup": [
+    {
+      "src": "/images/menu/snack-cup/01.webp",
+      "thumb": "/images/menu/snack-cup/01-thumb.webp",
+      "width": 1080,
+      "height": 1008
+    },
+    {
+      "src": "/images/menu/snack-cup/02.webp",
+      "thumb": "/images/menu/snack-cup/02-thumb.webp",
+      "width": 1080,
+      "height": 1008
+    }
+  ],
+  "rantang-jajanan-pasar": [
+    {
+      "src": "/images/menu/rantang-jajanan-pasar/01.webp",
+      "thumb": "/images/menu/rantang-jajanan-pasar/01-thumb.webp",
+      "width": 1400,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/rantang-jajanan-pasar/02.webp",
+      "thumb": "/images/menu/rantang-jajanan-pasar/02-thumb.webp",
+      "width": 1400,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/rantang-jajanan-pasar/03.webp",
+      "thumb": "/images/menu/rantang-jajanan-pasar/03-thumb.webp",
+      "width": 1400,
+      "height": 1400
+    }
+  ],
+  "tampah-kue-jajanan-pasar": [
+    {
+      "src": "/images/menu/tampah-kue-jajanan-pasar/01.webp",
+      "thumb": "/images/menu/tampah-kue-jajanan-pasar/01-thumb.webp",
+      "width": 1400,
+      "height": 1307
+    },
+    {
+      "src": "/images/menu/tampah-kue-jajanan-pasar/02.webp",
+      "thumb": "/images/menu/tampah-kue-jajanan-pasar/02-thumb.webp",
+      "width": 1400,
+      "height": 1307
+    },
+    {
+      "src": "/images/menu/tampah-kue-jajanan-pasar/03.webp",
+      "thumb": "/images/menu/tampah-kue-jajanan-pasar/03-thumb.webp",
+      "width": 1400,
+      "height": 1307
+    },
+    {
+      "src": "/images/menu/tampah-kue-jajanan-pasar/04.webp",
+      "thumb": "/images/menu/tampah-kue-jajanan-pasar/04-thumb.webp",
+      "width": 1400,
+      "height": 1307
+    }
+  ],
+  "tampah-merah-putih": [
+    {
+      "src": "/images/menu/tampah-merah-putih/01.webp",
+      "thumb": "/images/menu/tampah-merah-putih/01-thumb.webp",
+      "width": 1050,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/tampah-merah-putih/02.webp",
+      "thumb": "/images/menu/tampah-merah-putih/02-thumb.webp",
+      "width": 1050,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/tampah-merah-putih/03.webp",
+      "thumb": "/images/menu/tampah-merah-putih/03-thumb.webp",
+      "width": 1050,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/tampah-merah-putih/04.webp",
+      "thumb": "/images/menu/tampah-merah-putih/04-thumb.webp",
+      "width": 1050,
+      "height": 1400
+    }
+  ],
+  "tampah-rebusan": [
+    {
+      "src": "/images/menu/tampah-rebusan/01.webp",
+      "thumb": "/images/menu/tampah-rebusan/01-thumb.webp",
+      "width": 1400,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/tampah-rebusan/02.webp",
+      "thumb": "/images/menu/tampah-rebusan/02-thumb.webp",
+      "width": 1400,
+      "height": 1400
+    }
+  ],
+  "tampah-rujak": [
+    {
+      "src": "/images/menu/tampah-rujak/01.webp",
+      "thumb": "/images/menu/tampah-rujak/01-thumb.webp",
+      "width": 1400,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/tampah-rujak/02.webp",
+      "thumb": "/images/menu/tampah-rujak/02-thumb.webp",
+      "width": 1400,
+      "height": 1400
+    }
+  ],
+  "nasi-tumpeng": [
+    {
+      "src": "/images/menu/nasi-tumpeng/01.webp",
+      "thumb": "/images/menu/nasi-tumpeng/01-thumb.webp",
+      "width": 1220,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/nasi-tumpeng/02.webp",
+      "thumb": "/images/menu/nasi-tumpeng/02-thumb.webp",
+      "width": 1222,
+      "height": 1400
+    }
+  ],
+  "nasi-box": [
+    {
+      "src": "/images/menu/nasi-box/01.webp",
+      "thumb": "/images/menu/nasi-box/01-thumb.webp",
+      "width": 1221,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/nasi-box/02.webp",
+      "thumb": "/images/menu/nasi-box/02-thumb.webp",
+      "width": 1221,
+      "height": 1400
+    }
+  ],
+  "nasi-besek": [
+    {
+      "src": "/images/menu/nasi-besek/01.webp",
+      "thumb": "/images/menu/nasi-besek/01-thumb.webp",
+      "width": 1220,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/nasi-besek/02.webp",
+      "thumb": "/images/menu/nasi-besek/02-thumb.webp",
+      "width": 1221,
+      "height": 1400
+    }
+  ],
+  "nasi-cup": [
+    {
+      "src": "/images/menu/nasi-cup/01.webp",
+      "thumb": "/images/menu/nasi-cup/01-thumb.webp",
+      "width": 1221,
+      "height": 1400
+    }
+  ],
+  "nasi-rantang": [
+    {
+      "src": "/images/menu/nasi-rantang/01.webp",
+      "thumb": "/images/menu/nasi-rantang/01-thumb.webp",
+      "width": 1221,
+      "height": 1400
+    }
+  ],
+  "nasi-bakul": [
+    {
+      "src": "/images/menu/nasi-bakul/01.webp",
+      "thumb": "/images/menu/nasi-bakul/01-thumb.webp",
+      "width": 1262,
+      "height": 1400
+    }
+  ],
+  "tumpeng-cenil": [
+    {
+      "src": "/images/menu/tumpeng-cenil/01.webp",
+      "thumb": "/images/menu/tumpeng-cenil/01-thumb.webp",
+      "width": 1080,
+      "height": 1238
+    },
+    {
+      "src": "/images/menu/tumpeng-cenil/02.webp",
+      "thumb": "/images/menu/tumpeng-cenil/02-thumb.webp",
+      "width": 1080,
+      "height": 1238
+    }
+  ],
+  "tampah-cenil-set": [
+    {
+      "src": "/images/menu/tampah-cenil-set/01.webp",
+      "thumb": "/images/menu/tampah-cenil-set/01-thumb.webp",
+      "width": 1220,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/tampah-cenil-set/02.webp",
+      "thumb": "/images/menu/tampah-cenil-set/02-thumb.webp",
+      "width": 1220,
+      "height": 1400
+    }
+  ],
+  "cenil-besek": [
+    {
+      "src": "/images/menu/cenil-besek/01.webp",
+      "thumb": "/images/menu/cenil-besek/01-thumb.webp",
+      "width": 1080,
+      "height": 1238
+    },
+    {
+      "src": "/images/menu/cenil-besek/02.webp",
+      "thumb": "/images/menu/cenil-besek/02-thumb.webp",
+      "width": 1080,
+      "height": 1238
+    }
+  ],
+  "cenil-cup": [
+    {
+      "src": "/images/menu/cenil-cup/01.webp",
+      "thumb": "/images/menu/cenil-cup/01-thumb.webp",
+      "width": 1220,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/cenil-cup/02.webp",
+      "thumb": "/images/menu/cenil-cup/02-thumb.webp",
+      "width": 1219,
+      "height": 1400
+    }
+  ],
+  "pempek-tampah": [
+    {
+      "src": "/images/menu/pempek-tampah/01.webp",
+      "thumb": "/images/menu/pempek-tampah/01-thumb.webp",
+      "width": 1223,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/pempek-tampah/02.webp",
+      "thumb": "/images/menu/pempek-tampah/02-thumb.webp",
+      "width": 1221,
+      "height": 1400
+    }
+  ],
+  "pempek-besek": [
+    {
+      "src": "/images/menu/pempek-besek/01.webp",
+      "thumb": "/images/menu/pempek-besek/01-thumb.webp",
+      "width": 1375,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/pempek-besek/02.webp",
+      "thumb": "/images/menu/pempek-besek/02-thumb.webp",
+      "width": 1375,
+      "height": 1400
+    }
+  ],
+  "pempek-rantang": [
+    {
+      "src": "/images/menu/pempek-rantang/01.webp",
+      "thumb": "/images/menu/pempek-rantang/01-thumb.webp",
+      "width": 1313,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/pempek-rantang/02.webp",
+      "thumb": "/images/menu/pempek-rantang/02-thumb.webp",
+      "width": 1313,
+      "height": 1400
+    }
+  ],
+  "dimsum-tampah": [
+    {
+      "src": "/images/menu/dimsum-tampah/01.webp",
+      "thumb": "/images/menu/dimsum-tampah/01-thumb.webp",
+      "width": 1218,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/dimsum-tampah/02.webp",
+      "thumb": "/images/menu/dimsum-tampah/02-thumb.webp",
+      "width": 1222,
+      "height": 1400
+    }
+  ],
+  "dimsum-besek-cup": [
+    {
+      "src": "/images/menu/dimsum-besek-cup/01.webp",
+      "thumb": "/images/menu/dimsum-besek-cup/01-thumb.webp",
+      "width": 1311,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/dimsum-besek-cup/02.webp",
+      "thumb": "/images/menu/dimsum-besek-cup/02-thumb.webp",
+      "width": 1311,
+      "height": 1400
+    }
+  ],
+  "dimsum-rantang": [
+    {
+      "src": "/images/menu/dimsum-rantang/01.webp",
+      "thumb": "/images/menu/dimsum-rantang/01-thumb.webp",
+      "width": 1219,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/dimsum-rantang/02.webp",
+      "thumb": "/images/menu/dimsum-rantang/02-thumb.webp",
+      "width": 1220,
+      "height": 1400
+    }
+  ],
+  "tampah-bubur-kendil": [
+    {
+      "src": "/images/menu/tampah-bubur-kendil/01.webp",
+      "thumb": "/images/menu/tampah-bubur-kendil/01-thumb.webp",
+      "width": 1314,
+      "height": 1400
+    }
+  ],
+  "bubur-manis-cup": [
+    {
+      "src": "/images/menu/bubur-manis-cup/01.webp",
+      "thumb": "/images/menu/bubur-manis-cup/01-thumb.webp",
+      "width": 1312,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/bubur-manis-cup/02.webp",
+      "thumb": "/images/menu/bubur-manis-cup/02-thumb.webp",
+      "width": 1313,
+      "height": 1400
+    }
+  ],
+  "serabi-tart": [
+    {
+      "src": "/images/menu/serabi-tart/01.webp",
+      "thumb": "/images/menu/serabi-tart/01-thumb.webp",
+      "width": 1400,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/serabi-tart/02.webp",
+      "thumb": "/images/menu/serabi-tart/02-thumb.webp",
+      "width": 1400,
+      "height": 1400
+    }
+  ],
+  "onde-tart": [
+    {
+      "src": "/images/menu/onde-tart/01.webp",
+      "thumb": "/images/menu/onde-tart/01-thumb.webp",
+      "width": 1400,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/onde-tart/02.webp",
+      "thumb": "/images/menu/onde-tart/02-thumb.webp",
+      "width": 1400,
+      "height": 1400
+    }
+  ],
+  "lapis-legit": [
+    {
+      "src": "/images/menu/lapis-legit/01.webp",
+      "thumb": "/images/menu/lapis-legit/01-thumb.webp",
+      "width": 1400,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/lapis-legit/02.webp",
+      "thumb": "/images/menu/lapis-legit/02-thumb.webp",
+      "width": 1400,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/lapis-legit/03.webp",
+      "thumb": "/images/menu/lapis-legit/03-thumb.webp",
+      "width": 1400,
+      "height": 1400
+    }
+  ],
+  "hantaran-rantang-cantik": [
+    {
+      "src": "/images/menu/hantaran-rantang-cantik/01.webp",
+      "thumb": "/images/menu/hantaran-rantang-cantik/01-thumb.webp",
+      "width": 1080,
+      "height": 1008
+    },
+    {
+      "src": "/images/menu/hantaran-rantang-cantik/02.webp",
+      "thumb": "/images/menu/hantaran-rantang-cantik/02-thumb.webp",
+      "width": 1080,
+      "height": 1008
+    },
+    {
+      "src": "/images/menu/hantaran-rantang-cantik/03.webp",
+      "thumb": "/images/menu/hantaran-rantang-cantik/03-thumb.webp",
+      "width": 1080,
+      "height": 1007
+    }
+  ],
+  "hantaran-lamaran": [
+    {
+      "src": "/images/menu/hantaran-lamaran/01.webp",
+      "thumb": "/images/menu/hantaran-lamaran/01-thumb.webp",
+      "width": 1051,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/hantaran-lamaran/02.webp",
+      "thumb": "/images/menu/hantaran-lamaran/02-thumb.webp",
+      "width": 1050,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/hantaran-lamaran/03.webp",
+      "thumb": "/images/menu/hantaran-lamaran/03-thumb.webp",
+      "width": 1050,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/hantaran-lamaran/04.webp",
+      "thumb": "/images/menu/hantaran-lamaran/04-thumb.webp",
+      "width": 1050,
+      "height": 1400
+    }
+  ],
+  "hampers-takjil-ramadhan": [
+    {
+      "src": "/images/menu/hampers-takjil-ramadhan/01.webp",
+      "thumb": "/images/menu/hampers-takjil-ramadhan/01-thumb.webp",
+      "width": 1400,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/hampers-takjil-ramadhan/02.webp",
+      "thumb": "/images/menu/hampers-takjil-ramadhan/02-thumb.webp",
+      "width": 1400,
+      "height": 1400
+    },
+    {
+      "src": "/images/menu/hampers-takjil-ramadhan/03.webp",
+      "thumb": "/images/menu/hampers-takjil-ramadhan/03-thumb.webp",
+      "width": 1400,
+      "height": 1400
+    }
+  ]
+}

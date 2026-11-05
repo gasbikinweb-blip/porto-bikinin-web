@@ -1,0 +1,95 @@
+@import 'tailwindcss';
+
+/* Blush pink, magenta dari logo, hijau daun pisang. Kontras teks sudah ≥ 4.5:1. */
+:root {
+  color-scheme: light;
+  --background: #fff9fa;
+  --blush: #fdeef3;
+  --foreground: #3a2a2c;
+  --muted: #6b5659;
+  --accent: #ad1457;
+  --accent-strong: #880e45;
+  --leaf: #3b6a2e;
+  --line: #eed9e0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-blush: var(--blush);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-leaf: var(--leaf);
+  --color-line: var(--line);
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-display);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+.animate-in {
+  animation: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-card {
+  animation: rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Muncul saat di-scroll (dipicu RevealObserver) */
+.reveal-ready .reveal:not(.is-visible) {
+  opacity: 0;
+}
+.reveal.is-visible {
+  animation: rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms) backwards;
+}
+
+/* Modal */
+dialog[open] {
+  animation: rise 0.3s ease-out;
+}
+dialog::backdrop {
+  background: rgb(60 20 35 / 0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}
