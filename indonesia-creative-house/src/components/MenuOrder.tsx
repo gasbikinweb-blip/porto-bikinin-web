@@ -154,7 +154,9 @@ export function MenuOrder() {
       <section id="menu" className="bg-white py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <h2 className="font-serif text-4xl text-accent sm:text-5xl">Menu & paket</h2>
-          <p className="mt-2 text-muted">Harga dapat berubah, konfirmasi via WhatsApp.</p>
+          <p className="mt-2 text-muted">
+            Price list lengkap ada di katalog WhatsApp kami. Harga dapat berubah.
+          </p>
 
           <div className="mt-6 flex flex-col gap-4">
             <label htmlFor="cari-menu" className="sr-only">

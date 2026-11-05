@@ -26,5 +26,39 @@ export const generalMessage = 'Halo ICH, saya mau tanya menu dan pesanan untuk a
 
 export const itemUrl = (slug: string) => `${config.siteUrl}/#menu-${slug}`;
 
+export type OrderForm = {
+  tanggal?: string;
+  pemesan?: string;
+  jam?: string;
+  pesanan: string[];
+  penerima?: string;
+  alamat?: string;
+  hp?: string;
+  bon?: string;
+  tambahan?: string[];
+};
+
+// Urutan dan label mengikuti form order dari admin ICH
+export const orderFormMessage = (o: OrderForm) =>
+  [
+    'Halo ICH, saya mau pesan:',
+    '',
+    `Hari, Tgl kirim: ${o.tanggal ?? ''}`,
+    `Nama Pemesan: ${o.pemesan ?? ''}`,
+    `Jam sampai: ${o.jam ?? ''}`,
+    'Pesanan:',
+    ...o.pesanan.map((p) => `- ${p}`),
+    '',
+    'Tujuan Kirim',
+    `Nama: ${o.penerima ?? ''}`,
+    `Alamat: ${o.alamat ?? ''}`,
+    `No hp: ${o.hp ?? ''}`,
+    `Bon/Kuitansi atas nama: ${o.bon ?? ''}`,
+    ...(o.tambahan?.length ? ['', ...o.tambahan] : []),
+  ].join('\n');
+
 export const itemMessage = (name: string, slug: string, qty: number, unit: string) =>
-  `Halo ICH, saya tertarik dengan ${name} sebanyak ${qty} ${unit}. ${itemUrl(slug)}. Bisa info harga dan ketersediaannya?`;
+  orderFormMessage({
+    pesanan: [`${name} ${qty} ${unit}`],
+    tambahan: [`Link menu: ${itemUrl(slug)}`],
+  });

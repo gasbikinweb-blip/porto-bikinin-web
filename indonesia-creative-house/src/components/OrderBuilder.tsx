@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { WhatsAppIcon } from './icons';
 import { formatRupiah, getItem, menu } from '@/data/menu';
 import { eventTypes, LEAD_DAYS } from '@/data/site';
-import { buildWhatsAppLink } from '@/lib/config';
+import { buildWhatsAppLink, orderFormMessage } from '@/lib/config';
 
 export type OrderLines = Record<string, number>;
 
@@ -38,7 +38,11 @@ export function OrderBuilder({
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [eventType, setEventType] = useState('');
-  const [area, setArea] = useState('');
+  const [pemesan, setPemesan] = useState('');
+  const [penerima, setPenerima] = useState('');
+  const [alamat, setAlamat] = useState('');
+  const [hp, setHp] = useState('');
+  const [bon, setBon] = useState('');
   const [notes, setNotes] = useState('');
   const [errors, setErrors] = useState<string[]>([]);
 
@@ -72,22 +76,40 @@ export function OrderBuilder({
     }
     if (!date) errs.push('Isi tanggal acara ya, Kak.');
     else if (date < dateAfter(0)) errs.push('Tanggal acara tidak boleh tanggal yang sudah lewat.');
-    if (!eventType) errs.push('Pilih jenis acara ya, Kak.');
-    if (!clean(area)) errs.push('Isi area pengantaran ya, Kak.');
+    if (!clean(pemesan)) errs.push('Isi nama pemesan ya, Kak.');
+    if (!time) errs.push('Isi jam sampai ya, Kak.');
+    if (!clean(penerima)) errs.push('Isi nama penerima ya, Kak.');
+    if (!clean(alamat)) errs.push('Isi alamat tujuan ya, Kak.');
+    if (!/^[0-9+\-\s]{8,20}$/.test(clean(hp)))
+      errs.push('Isi nomor HP penerima dengan benar ya, Kak.');
+    if (!clean(bon)) errs.push('Isi nama untuk bon/kuitansi ya, Kak.');
     setErrors(errs);
     if (errs.length) return;
 
-    const rows = slugs.map((s) => {
-      const item = getItem(s);
-      return `- ${item?.name} ${lines[s]} ${item?.unit}`;
+    const tanggal = new Date(`${date}T00:00:00`).toLocaleDateString('id-ID', {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
     });
-    const parts = [
-      `Halo ICH, saya mau pesan untuk acara ${eventType.toLowerCase()} tanggal ${date}${time ? ` jam ${time}` : ''}:`,
-      ...rows,
-      `Antar ke: ${clean(area)}.`,
-    ];
-    if (clean(notes)) parts.push(`Catatan: ${clean(notes)}.`);
-    window.open(buildWhatsAppLink(parts.join('\n')), '_blank', 'noopener,noreferrer');
+    const tambahan = [];
+    if (eventType) tambahan.push(`Jenis acara: ${eventType}`);
+    if (clean(notes)) tambahan.push(`Catatan: ${clean(notes)}`);
+    const message = orderFormMessage({
+      tanggal,
+      pemesan: clean(pemesan),
+      jam: time,
+      pesanan: slugs.map((s) => {
+        const item = getItem(s);
+        return `${item?.name} ${lines[s]} ${item?.unit}`;
+      }),
+      penerima: clean(penerima),
+      alamat: clean(alamat),
+      hp: clean(hp),
+      bon: clean(bon),
+      tambahan,
+    });
+    window.open(buildWhatsAppLink(message), '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -163,7 +185,7 @@ export function OrderBuilder({
           <div className="grid gap-5 sm:grid-cols-2">
             <div>
               <label htmlFor="tanggal" className={label}>
-                Tanggal acara
+                Hari, tanggal kirim
               </label>
               <input
                 id="tanggal"
@@ -182,7 +204,7 @@ export function OrderBuilder({
             </div>
             <div>
               <label htmlFor="jam" className={label}>
-                Jam antar (opsional)
+                Jam sampai
               </label>
               <input
                 id="jam"
@@ -193,8 +215,22 @@ export function OrderBuilder({
               />
             </div>
             <div>
+              <label htmlFor="pemesan" className={label}>
+                Nama pemesan
+              </label>
+              <input
+                id="pemesan"
+                type="text"
+                maxLength={80}
+                value={pemesan}
+                onChange={(e) => setPemesan(e.target.value)}
+                className={field}
+                autoComplete="name"
+              />
+            </div>
+            <div>
               <label htmlFor="jenis" className={label}>
-                Jenis acara
+                Jenis acara (opsional)
               </label>
               <select
                 id="jenis"
@@ -208,16 +244,60 @@ export function OrderBuilder({
                 ))}
               </select>
             </div>
+          </div>
+
+          <h3 className="pt-2 font-bold">Tujuan kirim</h3>
+          <div className="grid gap-5 sm:grid-cols-2">
             <div>
-              <label htmlFor="area" className={label}>
-                Area pengantaran
+              <label htmlFor="penerima" className={label}>
+                Nama penerima
               </label>
               <input
-                id="area"
+                id="penerima"
                 type="text"
                 maxLength={80}
-                value={area}
-                onChange={(e) => setArea(e.target.value)}
+                value={penerima}
+                onChange={(e) => setPenerima(e.target.value)}
+                className={field}
+              />
+            </div>
+            <div>
+              <label htmlFor="hp" className={label}>
+                No HP penerima
+              </label>
+              <input
+                id="hp"
+                type="tel"
+                inputMode="tel"
+                maxLength={20}
+                value={hp}
+                onChange={(e) => setHp(e.target.value)}
+                className={field}
+              />
+            </div>
+            <div className="sm:col-span-2">
+              <label htmlFor="alamat" className={label}>
+                Alamat
+              </label>
+              <textarea
+                id="alamat"
+                rows={2}
+                maxLength={200}
+                value={alamat}
+                onChange={(e) => setAlamat(e.target.value)}
+                className="w-full rounded-xl border border-line bg-white p-4 text-base"
+              />
+            </div>
+            <div>
+              <label htmlFor="bon" className={label}>
+                Bon/kuitansi atas nama
+              </label>
+              <input
+                id="bon"
+                type="text"
+                maxLength={80}
+                value={bon}
+                onChange={(e) => setBon(e.target.value)}
                 className={field}
               />
             </div>
@@ -240,8 +320,8 @@ export function OrderBuilder({
             <p className="rounded-xl bg-blush p-4 text-sm">
               <strong>Estimasi subtotal: {formatRupiah(subtotal)}</strong>
               <br />
-              Dari harga mulai untuk {priced.length} menu yang harganya tersedia. Total final dan
-              ongkir dikonfirmasi admin.
+              Dari harga mulai untuk {priced.length} menu yang harganya tersedia. Invoice dikirim
+              admin setelah form diterima.
             </p>
           )}
 

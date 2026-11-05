@@ -18,12 +18,15 @@ export const site = {
   handle: '@indonesiacreativehouse',
 };
 
-// TODO: konfirmasi alur dan metode bayar
+// Sumber: balasan otomatis WhatsApp ICH
 export const orderSteps = [
-  { title: 'Pilih menu', text: 'Lihat menu, lalu buka detail atau masukkan ke pesanan acara.' },
-  { title: 'Kirim rincian via WA', text: 'Sampaikan tanggal acara, jumlah, dan area antar.' },
-  { title: 'Konfirmasi admin', text: 'Admin mengonfirmasi total dan cara pembayaran.' },
-  { title: 'Pesanan siap', text: 'Pesanan diantar atau diambil sesuai kesepakatan.' },
+  { title: 'Pilih menu', text: 'Lihat menu di sini atau price list di katalog WhatsApp kami.' },
+  {
+    title: 'Isi form order',
+    text: 'Lengkapi tanggal kirim, pesanan, dan tujuan kirim, lalu kirim via WA.',
+  },
+  { title: 'Terima invoice', text: 'Admin mengirim invoice atau bon setelah form diterima.' },
+  { title: 'Kirim bukti transfer', text: 'Kirim bukti transfer ke WhatsApp admin ya, Kak.' },
 ];
 
 export const eventTypes = [
