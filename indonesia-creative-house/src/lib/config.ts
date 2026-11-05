@@ -48,7 +48,8 @@ export const orderFormMessage = (o: OrderForm) =>
     `Nama Pemesan: ${o.pemesan ?? ''}`,
     `Jam sampai: ${o.jam ?? ''}`,
     'Pesanan:',
-    ...o.pesanan.map((p) => `- ${p}`),
+    // Tiap menu di paragraf sendiri supaya tidak berdempetan
+    ...o.pesanan.flatMap((p, i) => (i ? ['', `- ${p}`] : [`- ${p}`])),
     '',
     'Tujuan Kirim',
     `Nama: ${o.penerima ?? ''}`,

@@ -21,6 +21,25 @@ const dateAfter = (days: number) => {
   return isoLocal(d);
 };
 
+// Ubah titik lokasi menjadi alamat lewat OpenStreetMap; hanya dipanggil saat tombol lokasi diklik
+async function alamatDariTitik(lat: number, lon: number): Promise<string | null> {
+  try {
+    const params = new URLSearchParams({
+      format: 'jsonv2',
+      lat: lat.toFixed(6),
+      lon: lon.toFixed(6),
+      'accept-language': 'id',
+    });
+    const res = await fetch(`https://nominatim.openstreetmap.org/reverse?${params}`);
+    if (!res.ok) return null;
+    const data: unknown = await res.json();
+    const name = (data as { display_name?: unknown }).display_name;
+    return typeof name === 'string' ? name.replace(/,s*Indonesia$/, '').slice(0, 200) : null;
+  } catch {
+    return null;
+  }
+}
+
 // Buang baris baru dan karakter kontrol dari teks bebas
 const clean = (s: string) =>
   Array.from(s)
@@ -43,6 +62,7 @@ export function OrderBuilder({
   const [alamat, setAlamat] = useState('');
   const [lokasi, setLokasi] = useState('');
   const [lokasiInfo, setLokasiInfo] = useState('');
+  const [alamatOtomatis, setAlamatOtomatis] = useState('');
   const [mencari, setMencari] = useState(false);
   const [hp, setHp] = useState('');
   const [bon, setBon] = useState('');
@@ -66,7 +86,8 @@ export function OrderBuilder({
       return next;
     });
 
-  // Lokasi hanya diminta saat tombol diklik dan hanya masuk ke pesan WhatsApp
+  // Lokasi hanya diminta saat tombol diklik; koordinat dikirim ke OpenStreetMap untuk mencari
+  // alamat, lalu masuk ke pesan WhatsApp. Tidak disimpan.
   const pakaiLokasi = () => {
     if (!navigator.geolocation) {
       setLokasiInfo('Browser ini tidak mendukung lokasi. Tulis alamatnya saja ya, Kak.');
@@ -75,10 +96,23 @@ export function OrderBuilder({
     setMencari(true);
     setLokasiInfo('');
     navigator.geolocation.getCurrentPosition(
-      ({ coords }) => {
+      async ({ coords }) => {
         setLokasi(
           `https://www.google.com/maps?q=${coords.latitude.toFixed(6)},${coords.longitude.toFixed(6)}`,
         );
+        const hasil = await alamatDariTitik(coords.latitude, coords.longitude);
+        if (hasil) {
+          // Alamat yang sudah diketik sendiri tidak ditimpa
+          if (clean(alamat) && alamat !== alamatOtomatis) {
+            setLokasiInfo(`Alamat terdeteksi: ${hasil}. Alamat yang Kakak tulis tetap dipakai.`);
+          } else {
+            setAlamat(hasil);
+            setAlamatOtomatis(hasil);
+            setLokasiInfo('Alamat terisi otomatis. Cek lagi dan tambahkan patokannya ya, Kak.');
+          }
+        } else {
+          setLokasiInfo('Titik lokasi tersimpan, tapi alamatnya perlu ditulis manual ya, Kak.');
+        }
         setMencari(false);
       },
       () => {
@@ -88,6 +122,34 @@ export function OrderBuilder({
       { enableHighAccuracy: true, timeout: 15000 },
     );
   };
+
+  // Isi pesan selalu terbaru, dipakai untuk pratinjau dan pengiriman
+  const tanggal = date
+    ? new Date(`${date}T00:00:00`).toLocaleDateString('id-ID', {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+      })
+    : '';
+  const tambahan = [];
+  if (eventType) tambahan.push(`Jenis acara: ${eventType}`);
+  if (clean(notes)) tambahan.push(`Catatan: ${clean(notes)}`);
+  const message = orderFormMessage({
+    tanggal,
+    pemesan: clean(pemesan),
+    jam: time,
+    pesanan: slugs.map((s) => {
+      const item = getItem(s);
+      return `${item?.name} ${lines[s]} ${item?.unit}`;
+    }),
+    penerima: clean(penerima),
+    alamat: clean(alamat),
+    lokasi,
+    hp: clean(hp),
+    bon: clean(bon),
+    tambahan,
+  });
 
   const send = () => {
     const errs: string[] = [];
@@ -112,30 +174,6 @@ export function OrderBuilder({
     setErrors(errs);
     if (errs.length) return;
 
-    const tanggal = new Date(`${date}T00:00:00`).toLocaleDateString('id-ID', {
-      weekday: 'long',
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    });
-    const tambahan = [];
-    if (eventType) tambahan.push(`Jenis acara: ${eventType}`);
-    if (clean(notes)) tambahan.push(`Catatan: ${clean(notes)}`);
-    const message = orderFormMessage({
-      tanggal,
-      pemesan: clean(pemesan),
-      jam: time,
-      pesanan: slugs.map((s) => {
-        const item = getItem(s);
-        return `${item?.name} ${lines[s]} ${item?.unit}`;
-      }),
-      penerima: clean(penerima),
-      alamat: clean(alamat),
-      lokasi,
-      hp: clean(hp),
-      bon: clean(bon),
-      tambahan,
-    });
     window.open(buildWhatsAppLink(message), '_blank', 'noopener,noreferrer');
   };
 
@@ -335,7 +373,10 @@ export function OrderBuilder({
                     </a>
                     <button
                       type="button"
-                      onClick={() => setLokasi('')}
+                      onClick={() => {
+                        setLokasi('');
+                        setLokasiInfo('');
+                      }}
                       className="min-h-11 text-sm font-semibold text-muted underline"
                     >
                       Hapus lokasi
@@ -344,9 +385,10 @@ export function OrderBuilder({
                 )}
               </div>
               <p aria-live="polite" className="mt-1 text-sm text-muted">
-                {lokasi
-                  ? 'Titik lokasi ikut terkirim. Pastikan ini lokasi tujuan kirim ya, Kak.'
-                  : lokasiInfo || 'Tetap tulis alamat dan patokannya agar kurir mudah menemukan.'}
+                {lokasiInfo ||
+                  (lokasi
+                    ? 'Titik lokasi ikut terkirim. Pastikan ini lokasi tujuan kirim ya, Kak.'
+                    : 'Klik tombol agar alamat terisi otomatis. Titik lokasi dicek lewat OpenStreetMap dan tidak kami simpan.')}
               </p>
             </div>
             <div>
@@ -385,6 +427,18 @@ export function OrderBuilder({
               admin setelah form diterima.
             </p>
           )}
+
+          {/* Pratinjau pesan WhatsApp sebelum dikirim */}
+          <div className="overflow-hidden rounded-2xl border border-line">
+            <p className="flex items-center gap-2 bg-[#075e54] px-4 py-3 text-sm font-bold text-white">
+              <WhatsAppIcon className="size-4" /> Pratinjau pesan WhatsApp
+            </p>
+            <div className="bg-[#ece5dd] p-3 sm:p-4">
+              <p className="ml-auto max-w-[95%] rounded-2xl rounded-tr-sm bg-[#dcf8c6] px-4 py-3 text-sm leading-relaxed break-words whitespace-pre-wrap text-[#111b21] shadow-sm">
+                {message}
+              </p>
+            </div>
+          </div>
 
           {errors.length > 0 && (
             <ul role="alert" className="list-inside list-disc text-sm font-semibold text-accent">
