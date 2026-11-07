@@ -86,3 +86,36 @@ export function LinkIcon({ className = 'size-4' }: IconProps) {
     </svg>
   );
 }
+
+export function ChatIcon({ className = 'size-5' }: IconProps) {
+  return (
+    <svg {...line} className={className}>
+      <path d="M4 5h16v11H9l-5 4z" />
+      <path d="M8 10h.01M12 10h.01M16 10h.01" />
+    </svg>
+  );
+}
+
+export function SparkleIcon({ className = 'size-5' }: IconProps) {
+  return (
+    <svg {...line} className={className}>
+      <path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18" />
+    </svg>
+  );
+}
+
+export function CalendarIcon({ className = 'size-5' }: IconProps) {
+  return (
+    <svg {...line} className={className}>
+      <path d="M8 3v4M16 3v4M4 10h16M6 5h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" />
+    </svg>
+  );
+}
+
+export function StarIcon({ className = 'size-5' }: IconProps) {
+  return (
+    <svg {...line} className={className}>
+      <path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z" />
+    </svg>
+  );
+}

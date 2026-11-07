@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Cormorant_Garamond, Jost, Pinyon_Script } from 'next/font/google';
 import Image from 'next/image';
 import { Header } from '@/components/Header';
-import { AtIcon, InstagramIcon, TikTokIcon, WhatsAppIcon } from '@/components/icons';
+import { AtIcon, InstagramIcon, PinIcon, TikTokIcon, WhatsAppIcon } from '@/components/icons';
 import { RevealObserver } from '@/components/RevealObserver';
 import { site } from '@/data/site';
 import { buildWhatsAppLink, config, generalMessage } from '@/lib/config';
@@ -44,6 +44,14 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = { themeColor: '#f6f1e9' };
 
+const footerLinks = [
+  { href: '#portofolio', label: 'Portofolio' },
+  { href: '#layanan', label: 'Layanan' },
+  { href: '#cara-booking', label: 'Cara Booking' },
+  { href: '#konsultasi', label: 'Konsultasi' },
+  { href: '#faq', label: 'FAQ' },
+];
+
 const socials = [
   { href: site.instagram, label: 'Instagram', Icon: InstagramIcon },
   { href: site.threads, label: 'Threads', Icon: AtIcon },
@@ -67,61 +75,99 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Header />
         <main id="konten">{children}</main>
 
-        <footer className="on-dark bg-night px-4 pt-20 pb-24 text-night-text sm:px-8">
-          <div className="mx-auto grid max-w-7xl gap-12 border-b border-white/10 pb-14 lg:grid-cols-[1.4fr_1fr_1fr]">
+        <footer className="on-dark bg-night px-4 pt-20 pb-28 text-night-text sm:px-8 sm:pb-24">
+          <div className="mx-auto grid max-w-7xl gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1.2fr_1fr]">
             <div>
-              <Image
-                src="/brand/monogram.png"
-                alt=""
-                width={190}
-                height={192}
-                className="h-16 w-auto brightness-0 invert"
-              />
-              <p className="mt-6 font-serif text-3xl tracking-[0.2em]">YMIDECORATION</p>
-              <p className="mt-1 text-xs tracking-[0.35em] text-night-muted uppercase">
-                event decoration
-              </p>
-              <p className="mt-6 max-w-sm text-sm leading-relaxed text-night-muted">
-                Dekorasi wedding, akad, dan lamaran di {site.city}.
+              <div className="flex items-center gap-4">
+                <Image
+                  src="/brand/monogram.png"
+                  alt=""
+                  width={190}
+                  height={192}
+                  className="h-14 w-auto brightness-0 invert"
+                />
+                <div className="leading-none">
+                  <p className="font-serif text-2xl tracking-[0.2em]">YMIDECORATION</p>
+                  <p className="mt-2 text-[0.65rem] tracking-[0.35em] text-night-muted uppercase">
+                    event decoration
+                  </p>
+                </div>
+              </div>
+              <p className="mt-6 max-w-xs text-sm leading-relaxed text-night-muted">
+                Dekorasi wedding, akad, engagement, dan ulang tahun di {site.city} dan sekitarnya.
               </p>
             </div>
+
+            <nav aria-label="Menu footer">
+              <p className="eyebrow">Menu</p>
+              <ul className="mt-5 grid gap-1 text-sm">
+                {footerLinks.map((l) => (
+                  <li key={l.href}>
+                    <a
+                      href={l.href}
+                      className="inline-flex min-h-10 items-center hover:text-gold-light"
+                    >
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
             <div>
               <p className="eyebrow">Hubungi</p>
-              <a
-                href={buildWhatsAppLink(generalMessage)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-5 inline-flex min-h-11 items-center gap-3 hover:text-gold-light"
-              >
-                <WhatsAppIcon className="size-5" />
-                {site.whatsappDisplay}
-                <span className="sr-only"> (tab baru)</span>
-              </a>
-              <p className="mt-2 text-sm leading-relaxed text-night-muted">{site.address}</p>
+              <ul className="mt-5 grid gap-3 text-sm">
+                <li>
+                  <a
+                    href={buildWhatsAppLink(generalMessage)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-10 items-center gap-3 hover:text-gold-light"
+                  >
+                    <WhatsAppIcon className="size-4 shrink-0" />
+                    {site.whatsappDisplay}
+                    <span className="sr-only"> (tab baru)</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={site.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex gap-3 leading-relaxed text-night-muted hover:text-gold-light"
+                  >
+                    <PinIcon className="mt-1 size-4 shrink-0" />
+                    {site.address}
+                    <span className="sr-only"> (tab baru)</span>
+                  </a>
+                </li>
+              </ul>
             </div>
+
             <div>
               <p className="eyebrow">Ikuti</p>
-              <ul className="mt-4">
+              <ul className="mt-5 flex gap-2">
                 {socials.map(({ href, label, Icon }) => (
                   <li key={href}>
                     <a
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex min-h-11 items-center gap-3 hover:text-gold-light"
+                      aria-label={`${label} (tab baru)`}
+                      className="grid size-11 place-items-center rounded-full border border-white/20 transition hover:border-gold-light hover:text-gold-light"
                     >
                       <Icon className="size-5" />
-                      {label}
-                      <span className="sr-only"> (tab baru)</span>
                     </a>
                   </li>
                 ))}
               </ul>
+              <p className="mt-4 text-sm text-night-muted">{site.handle}</p>
             </div>
           </div>
-          <div className="mx-auto flex max-w-7xl flex-col gap-2 pt-8 text-xs text-night-muted sm:flex-row sm:justify-between">
+
+          <div className="mx-auto mt-14 flex max-w-7xl flex-col gap-2 border-t border-white/10 pt-8 text-xs text-night-muted sm:flex-row sm:justify-between">
             <p>
-              © {new Date().getFullYear()} {site.name}. {site.handle}
+              © {new Date().getFullYear()} {site.name}. Semua hak dilindungi.
             </p>
             <p>Foto oleh vendor dokumentasi yang dikreditkan pada tiap acara.</p>
           </div>

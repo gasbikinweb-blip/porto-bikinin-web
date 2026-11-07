@@ -6,39 +6,51 @@ export type Service = {
   title: string;
   text: string;
   image: [slug: string, index: number];
+  // Unsur dekorasi yang terlihat di portofolio. TODO: konfirmasi isi paket ke pemilik
+  includes: string[];
 };
 
 export const services: Service[] = [
   {
     type: 'wedding',
     title: 'Wedding & Resepsi',
-    text: 'Pelaminan, lorong masuk, hingga galeri foto pasangan, dari intimate sampai megah.',
+    text: 'Pelaminan, lorong masuk, hingga galeri foto pasangan, dari intimate sampai megah. Warna dan rangkaian bunga disusun mengikuti ruang venue dan cerita Anda berdua.',
     image: ['della-adil', 1],
+    includes: [
+      'Backdrop pelaminan',
+      'Lorong & pintu masuk',
+      'Galeri foto pasangan',
+      'Rangkaian bunga',
+    ],
   },
   {
     type: 'akad',
     title: 'Akad',
-    text: 'Meja akad dan backdrop yang tenang dan khidmat untuk momen paling sakral.',
+    text: 'Meja akad dan backdrop yang tenang dan khidmat untuk momen paling sakral, dengan rangkaian bunga yang tidak berlebihan namun tetap berkesan.',
     image: ['berlin-aziz', 0],
+    includes: ['Meja akad', 'Backdrop & panel nama', 'Kursi akad', 'Papan welcome'],
   },
   {
     type: 'engagement',
     title: 'Engagement & Lamaran',
-    text: 'Panel nama pasangan, kursi, dan rangkaian bunga untuk acara lamaran yang hangat.',
+    text: 'Panel nama pasangan, kursi, dan rangkaian bunga untuk acara lamaran yang hangat bersama keluarga.',
     image: ['dita-iqbal', 0],
+    includes: ['Panel nama pasangan', 'Kursi pasangan', 'Bunga gantung', 'Karpet & alas'],
   },
   {
     type: 'birthday',
     title: 'Ulang Tahun',
     // TODO: ganti foto dengan dokumentasi dekorasi ulang tahun asli
-    text: 'Dekorasi ulang tahun dengan tema dan warna sesuai keinginan Anda.',
+    text: 'Dekorasi ulang tahun dengan tema dan warna sesuai keinginan Anda, dari perayaan kecil di rumah sampai acara di venue.',
     image: ['putri-luthfi', 0],
+    includes: ['Backdrop tema', 'Rangkaian bunga', 'Sudut foto'],
   },
   {
     type: 'other',
     title: 'Acara Lainnya',
-    text: 'Acara keluarga, syukuran, atau momen spesial lainnya. Ceritakan rencananya pada kami.',
+    text: 'Acara keluarga, syukuran, atau momen spesial lainnya. Ceritakan rencananya, lalu kami bantu wujudkan konsepnya.',
     image: ['shinta-aufar', 0],
+    includes: ['Konsep sesuai acara', 'Papan welcome', 'Rangkaian bunga'],
   },
 ];
 
