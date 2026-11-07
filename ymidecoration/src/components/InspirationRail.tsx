@@ -4,25 +4,65 @@
 import Image from 'next/image';
 import { useRef } from 'react';
 import { ArrowIcon } from './icons';
-import { getEvent } from '@/data/events';
+import generated from '@/data/images.generated.json';
+import { eventTypes, getEvent } from '@/data/events';
 
-// [judul detail, slug acara, urutan foto]
-const details: [string, string, number][] = [
-  ['Meja akad', 'berlin-aziz', 0],
-  ['Lorong masuk', 'della-adil', 0],
-  ['Papan welcome', 'shinta-aufar', 0],
+type Card = { label: string; note: string; href: string; thumb: string; alt: string };
+
+// Detail dari acara portofolio: klik membuka galeri acaranya. [judul, slug, urutan foto]
+const fromEvents: [string, string, number][] = [
+  ['Meja akad bunga merah', 'berlin-aziz', 0],
+  ['Lorong masuk bertirai', 'della-adil', 0],
   ['Rangkaian taman', 'putri-luthfi', 0],
-  ['Panel nama pasangan', 'dita-iqbal', 0],
+  ['Panel lengkung pastel', 'dita-iqbal', 0],
   ['Pelaminan bertirai', 'della-adil', 1],
-  ['Galeri foto pasangan', 'shinta-aufar', 2],
-  ['Backdrop bunga merah', 'berlin-aziz', 2],
 ];
 
-const cards = details.flatMap(([label, slug, i]) => {
-  const event = getEvent(slug);
-  const img = event?.images[i];
-  return event && img ? [{ label, event, img }] : [];
-});
+// Frame dari Highlight Instagram (lihat scripts/optimize-images.mjs): klik menuju konsultasi
+const extra = generated.events.inspirasi;
+const fromHighlight: [string, string, number, string][] = [
+  [
+    'Lengkung bunga putih',
+    'Wedding rooftop · Putih & hijau',
+    0,
+    'Lengkung besar bunga putih dengan lampu hangat saat senja',
+  ],
+  [
+    'Lengkung emas & bunga putih',
+    'Engagement · Putih & emas',
+    1,
+    'Rangka lengkung emas dengan bunga putih dan dua kursi kayu',
+  ],
+  [
+    'Kursi pasangan & karpet merah',
+    'Engagement · Merah & putih',
+    2,
+    'Dua kursi kayu berbantal putih di atas karpet merah bermotif',
+  ],
+  [
+    'Papan welcome & lilin',
+    'Wedding rooftop · Putih & hijau',
+    3,
+    'Papan welcome bening dengan rangkaian bunga putih dan lilin',
+  ],
+];
+
+const cards: Card[] = [
+  ...fromEvents.flatMap(([label, slug, i]) => {
+    const event = getEvent(slug);
+    const img = event?.images[i];
+    if (!event || !img) return [];
+    const note = `${eventTypes[event.type]} · ${event.paletteNote}`;
+    return [{ label, note, href: `#acara-${event.slug}`, thumb: img.thumb, alt: img.alt }];
+  }),
+  ...fromHighlight.flatMap(([label, note, i, alt]) => {
+    const img = extra?.[i];
+    return img ? [{ label, note, href: '#konsultasi', thumb: img.thumb, alt }] : [];
+  }),
+];
+// Selang-seling agar warna dan suasana tidak berurutan sama
+const order = [0, 5, 1, 6, 2, 7, 3, 8, 4];
+const rail = order.flatMap((i) => (cards[i] ? [cards[i]] : []));
 
 export function InspirationRail() {
   const list = useRef<HTMLUListElement>(null);
@@ -44,7 +84,7 @@ export function InspirationRail() {
           </h2>
           <p className="mt-5 leading-relaxed text-night-muted">
             Sudut-sudut kecil yang membuat acara terasa utuh. Pilih satu detail untuk melihat galeri
-            acaranya.
+            acaranya atau konsultasikan tema serupa.
           </p>
           <div className="mt-8 flex gap-2 lg:mt-auto">
             <button
@@ -71,13 +111,13 @@ export function InspirationRail() {
           data-stagger
           className="no-scrollbar -mr-4 flex min-w-0 snap-x snap-mandatory gap-5 overflow-x-auto pr-4 sm:-mr-8 sm:pr-8"
         >
-          {cards.map(({ label, event, img }) => (
-            <li key={img.src} className="reveal w-[68%] shrink-0 snap-start sm:w-[40%] lg:w-[30%]">
-              <a href={`#acara-${event.slug}`} className="group block">
+          {rail.map(({ label, note, href, thumb, alt }) => (
+            <li key={thumb} className="reveal w-[68%] shrink-0 snap-start sm:w-[40%] lg:w-[30%]">
+              <a href={href} className="group block">
                 <span className="relative block aspect-[3/4] overflow-hidden rounded-2xl bg-night-soft">
                   <Image
-                    src={img.thumb}
-                    alt={img.alt}
+                    src={thumb}
+                    alt={alt}
                     fill
                     sizes="(min-width: 1024px) 22vw, (min-width: 640px) 40vw, 68vw"
                     className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
@@ -87,9 +127,7 @@ export function InspirationRail() {
                   </span>
                 </span>
                 <span className="mt-4 block font-serif text-2xl">{label}</span>
-                <span className="mt-1 block text-sm text-night-muted">
-                  {event.title} · {event.images.length} foto
-                </span>
+                <span className="mt-1 block text-sm text-night-muted">{note}</span>
               </a>
             </li>
           ))}

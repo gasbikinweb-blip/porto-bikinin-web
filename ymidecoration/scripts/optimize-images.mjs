@@ -62,6 +62,17 @@ const events = {
   ],
 };
 
+// Frame dari video Highlight untuk kartu Tema & Inspirasi (bukan acara di portofolio).
+// Disimpan di public/images/acara/inspirasi/ dengan urutan sesuai daftar ini.
+const HANA = 'Hightlight/sorotan_Hana & felix_18196682200291916/04.mp4';
+const KADA = 'Hightlight/sorotan_Kada & elen_18046673260670171/02.mp4';
+events.inspirasi = [
+  { video: HANA, at: 18.5 },
+  { video: KADA, at: 8.8, cutBottom: 0.24 },
+  { video: KADA, at: 11.3, cutBottom: 0.3 },
+  { video: HANA, at: 5 },
+];
+
 // Foto hero (versi lebar 2000px)
 const HERO_SRC = `${F1}/2026-10-26_De8ZfDOn8lO/01.jpg`;
 
