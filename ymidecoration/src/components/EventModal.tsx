@@ -3,7 +3,7 @@
 // Modal galeri memakai <dialog> native: focus trap, Esc, dan aria-modal dari browser.
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
-import { ArrowIcon, CloseIcon, LinkIcon, WhatsAppIcon } from './icons';
+import { ArrowIcon, CloseIcon, LinkIcon, PlayIcon, WhatsAppIcon } from './icons';
 import { eventTypes, type PortfolioEvent } from '@/data/events';
 import { buildWhatsAppLink, eventMessage, eventUrl } from '@/lib/config';
 
@@ -48,8 +48,11 @@ function Detail({ e, onClose }: { e: PortfolioEvent; onClose: () => void }) {
   const [index, setIndex] = useState(0);
   const [copied, setCopied] = useState(false);
   const touchX = useRef<number | null>(null);
-  const total = e.images.length;
-  const img = e.images[index];
+  // Video (bila ada) tampil paling depan, lalu foto-foto
+  const offset = e.video ? 1 : 0;
+  const total = e.images.length + offset;
+  const isVideo = e.video !== undefined && index === 0;
+  const img = isVideo ? undefined : e.images[index - offset];
   const go = (step: number) => setIndex((i) => (i + step + total) % total);
 
   const copy = async () => {
@@ -103,6 +106,21 @@ function Detail({ e, onClose }: { e: PortfolioEvent; onClose: () => void }) {
             touchX.current = null;
           }}
         >
+          {isVideo && e.video && (
+            <video
+              key={e.video.src}
+              src={e.video.src}
+              poster={e.video.poster}
+              controls
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label={`Video dekorasi ${e.title}`}
+              className="absolute inset-0 size-full object-contain"
+            />
+          )}
           {img && (
             <Image
               key={img.src}
@@ -118,7 +136,7 @@ function Detail({ e, onClose }: { e: PortfolioEvent; onClose: () => void }) {
               <button
                 type="button"
                 onClick={() => go(-1)}
-                aria-label="Foto sebelumnya"
+                aria-label="Sebelumnya"
                 className="absolute top-1/2 left-1 grid size-12 -translate-y-1/2 place-items-center rounded-full bg-night/60 text-white backdrop-blur hover:bg-night"
               >
                 <ArrowIcon className="size-5 rotate-180" />
@@ -126,7 +144,7 @@ function Detail({ e, onClose }: { e: PortfolioEvent; onClose: () => void }) {
               <button
                 type="button"
                 onClick={() => go(1)}
-                aria-label="Foto berikutnya"
+                aria-label="Berikutnya"
                 className="absolute top-1/2 right-1 grid size-12 -translate-y-1/2 place-items-center rounded-full bg-night/60 text-white backdrop-blur hover:bg-night"
               >
                 <ArrowIcon className="size-5" />
@@ -143,21 +161,46 @@ function Detail({ e, onClose }: { e: PortfolioEvent; onClose: () => void }) {
           </p>
           {total > 1 && (
             <ul className="no-scrollbar flex gap-2 overflow-x-auto p-1">
-              {e.images.map((t, i) => (
-                <li key={t.src} className="shrink-0">
+              {e.video && (
+                <li className="shrink-0">
                   <button
                     type="button"
-                    aria-label={`Tampilkan foto ${i + 1}`}
-                    aria-current={i === index}
-                    onClick={() => setIndex(i)}
-                    className={`relative block size-14 overflow-hidden transition ${
-                      i === index ? 'ring-1 ring-gold-light' : 'opacity-50 hover:opacity-90'
+                    aria-label="Putar video"
+                    aria-current={index === 0}
+                    onClick={() => setIndex(0)}
+                    className={`relative grid size-14 place-items-center overflow-hidden bg-black transition ${
+                      index === 0 ? 'ring-1 ring-gold-light' : 'opacity-60 hover:opacity-90'
                     }`}
                   >
-                    <Image src={t.thumb} alt="" fill sizes="56px" className="object-cover" />
+                    <Image
+                      src={e.video.poster}
+                      alt=""
+                      fill
+                      sizes="56px"
+                      className="object-cover opacity-70"
+                    />
+                    <PlayIcon className="relative size-5 text-white" />
                   </button>
                 </li>
-              ))}
+              )}
+              {e.images.map((t, j) => {
+                const i = j + offset;
+                return (
+                  <li key={t.src} className="shrink-0">
+                    <button
+                      type="button"
+                      aria-label={`Tampilkan foto ${j + 1}`}
+                      aria-current={i === index}
+                      onClick={() => setIndex(i)}
+                      className={`relative block size-14 overflow-hidden transition ${
+                        i === index ? 'ring-1 ring-gold-light' : 'opacity-50 hover:opacity-90'
+                      }`}
+                    >
+                      <Image src={t.thumb} alt="" fill sizes="56px" className="object-cover" />
+                    </button>
+                  </li>
+                );
+              })}
             </ul>
           )}
         </div>

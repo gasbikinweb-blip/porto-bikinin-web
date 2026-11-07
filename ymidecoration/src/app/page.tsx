@@ -13,6 +13,7 @@ import {
 import { ConsultBuilder } from '@/components/ConsultBuilder';
 import { InspirationRail } from '@/components/InspirationRail';
 import { Services } from '@/components/Services';
+import { WeddingQuotes } from '@/components/WeddingQuotes';
 import { JsonLd } from '@/components/JsonLd';
 import { Portfolio } from '@/components/Portfolio';
 import { faqs, steps } from '@/data/content';
@@ -184,6 +185,8 @@ export default function HomePage() {
           </ol>
         </div>
       </section>
+
+      <WeddingQuotes />
 
       <ConsultBuilder />
 

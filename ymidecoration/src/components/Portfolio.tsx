@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { EventModal } from './EventModal';
 import { Select } from './Select';
-import { ArrowIcon, PinIcon, WhatsAppIcon } from './icons';
+import { ArrowIcon, PinIcon, PlayIcon, WhatsAppIcon } from './icons';
 import {
   events,
   eventTypes,
@@ -196,7 +196,9 @@ export function Portfolio() {
                     onClick={(ev) => open(feature, ev.currentTarget)}
                     className="inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-5 text-sm text-night hover:bg-gold-light"
                   >
-                    Lihat galeri · {feature.images.length}
+                    {feature.video
+                      ? 'Lihat video & foto'
+                      : `Lihat galeri · ${feature.images.length}`}
                     <ArrowIcon />
                   </button>
                 </div>
@@ -236,7 +238,15 @@ export function Portfolio() {
                           />
                         </span>
                         <span className="min-w-0 flex-1">
-                          <span className="block font-serif text-2xl leading-tight">{e.title}</span>
+                          <span className="flex items-center gap-2 font-serif text-2xl leading-tight">
+                            {e.title}
+                            {e.video && (
+                              <span className="inline-flex items-center gap-1 rounded-full bg-gold-light/25 px-2 py-0.5 font-sans text-[0.65rem] tracking-wider text-gold-text uppercase">
+                                <PlayIcon className="size-2.5" />
+                                Video
+                              </span>
+                            )}
+                          </span>
                           <span className="block truncate text-sm text-muted">{e.paletteNote}</span>
                           <span className="mt-1 flex items-center gap-1.5 text-xs text-gold-text">
                             <PinIcon className="size-3.5 shrink-0" />

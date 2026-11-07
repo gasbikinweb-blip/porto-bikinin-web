@@ -18,6 +18,11 @@ const F2 = 'Folder 2 - Isinya berhubungan semua';
 const F3 = 'Folder 3 - Isinya berhubungan semua';
 const F4 = 'Folder 4 - Isinya berhubungan semua';
 const F5 = 'Folder 5 - Isinya berhubungan semua';
+const F6 = 'Folder 6 - Isinya berhubungan semua';
+const F7 = 'Folder 7 - Isinya berhubungan semua';
+const F8 = 'Folder 8 - Isinya berhubungan semua';
+const F9 = 'Folder 9 - Isinya berhubungan semua';
+const F10 = 'Folder 10 - Isinya berhubungan semua';
 const PUTRI = '2026-10-12_DeYK-MbCwuc/01.mp4';
 
 // Urutan = urutan galeri; foto pertama = cover. `video` + `at` = frame video, `cutBottom` = buang tulisan di bawah.
@@ -55,6 +60,22 @@ const events = {
     `${F5}/2023-09-01_Cwoa_s1vmIE/02.jpg`,
     `${F5}/2023-09-01_CwoX1jkv5S2/01.jpg`,
   ],
+  'felix-hana': [
+    `${F10}/2024-01-11_C19QbO5hQwh/01.jpg`,
+    `${F10}/2024-01-11_C19RQt1h66e/01.jpg`,
+    `${F10}/2024-01-11_C19Q3IlhQcW/01.jpg`,
+    `${F10}/2024-01-11_C19Q3IlhQcW/02.jpg`,
+  ],
+  'dodo-henti': [`${F8}/2023-06-12_CtYah7QPc84/01.jpg`, `${F8}/2023-06-12_CtYZ-IzPEMM/01.jpg`],
+  'lamaran-taman-pastel': [`${F6}/2022-12-20_CmZOc4Av6rg/01.jpg`],
+  'lamaran-warna-warni': [
+    `${F7}/2023-02-02_CoKAAxMh_SI/01.jpg`,
+    `${F7}/2023-02-02_CoJ_hfIh_Cy/01.jpg`,
+  ],
+  'launching-cafe-pink': [
+    `${F9}/2023-06-18_CtooJM8vQnj/01.jpg`,
+    `${F9}/2023-06-18_CtonaT3v3T9/01.jpg`,
+  ],
   'putri-luthfi': [
     { video: PUTRI, at: 14.8, cutBottom: 0.12 },
     { video: PUTRI, at: 4.9, cutBottom: 0.12 },
@@ -76,6 +97,17 @@ events.inspirasi = [
   { video: `${F2}/2026-10-19_DeqJZeQC_yd/01.mp4`, at: 6.5 },
   { video: `${F4}/2024-04-26_C6NYpxoBm4L/01.mp4`, at: 16.5 },
 ];
+
+const IVON = 'Hightlight/sorotan_Ivon & Bryan_18056314120599122/01.mp4';
+const NOVI = 'Hightlight/sorotan_novi & arif_18076992386149413/06.mp4';
+// Acara dari video Highlight (hanya frame video)
+events['hana-felix-wedding'] = [{ video: HANA, at: 18.5 }, { video: HANA, at: 5 }, { video: HANA, at: 12 }];
+events['kada-elen'] = [
+  { video: KADA, at: 8.8, cutBottom: 0.24 },
+  { video: KADA, at: 11.3, cutBottom: 0.3 },
+];
+events['ivon-bryan'] = [{ video: IVON, at: 1, cutTop: 0.2 }, { video: IVON, at: 13.5, cutTop: 0.25 }];
+events['novi-arif'] = [{ video: NOVI, at: 31, cutBottom: 0.22 }, { video: NOVI, at: 33, cutBottom: 0.22 }];
 
 // Foto hero (versi lebar 2000px)
 const HERO_SRC = `${F1}/2026-10-26_De8ZfDOn8lO/01.jpg`;
@@ -102,8 +134,9 @@ async function load(src) {
     { maxBuffer: 1e8 },
   );
   const meta = await sharp(png).metadata();
-  const height = Math.round(meta.height * (1 - (src.cutBottom ?? 0)));
-  return sharp(png).extract({ left: 0, top: 0, width: meta.width, height }).toBuffer();
+  const top = Math.round(meta.height * (src.cutTop ?? 0));
+  const height = Math.round(meta.height * (1 - (src.cutBottom ?? 0))) - top;
+  return sharp(png).extract({ left: 0, top, width: meta.width, height }).toBuffer();
 }
 
 await rm(OUT, { recursive: true, force: true });

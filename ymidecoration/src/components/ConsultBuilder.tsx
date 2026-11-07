@@ -40,6 +40,7 @@ const longDate = (iso: string) =>
   });
 
 export function ConsultBuilder() {
+  const [name, setName] = useState('');
   const [type, setType] = useState<EventType | ''>('');
   const [date, setDate] = useState('');
   const [venue, setVenue] = useState('');
@@ -47,6 +48,9 @@ export function ConsultBuilder() {
   const [location, setLocation] = useState('');
   const [locating, setLocating] = useState(false);
   const [locationInfo, setLocationInfo] = useState('');
+  // Kueri untuk pratinjau peta (alamat atau koordinat); kosong bila lokasi dari link tempelan
+  const [mapQuery, setMapQuery] = useState('');
+  const [pasted, setPasted] = useState('');
   const [guests, setGuests] = useState('');
   const [palette, setPalette] = useState('');
   const [paletteNote, setPaletteNote] = useState('');
@@ -108,8 +112,45 @@ export function ConsultBuilder() {
   if (refEvent) lines.push(['Referensi', `${refEvent.title} ${eventUrl(refEvent.slug)}`]);
   if (budget) lines.push(['Budget', budget]);
   if (photos.length) lines.push(['Foto referensi', `${photos.length} foto terlampir`]);
-  const greeting = `Halo ${config.name}, saya ingin konsultasi dekorasi.`;
+  const who = clean(name) ? `saya ${clean(name)}, ` : 'saya ';
+  const greeting = `Halo ${config.name}, ${who}ingin konsultasi dekorasi.`;
   const message = [greeting, '', ...lines.map(([k, v]) => `${k}: ${v}`)].join('\n');
+
+  // Cari alamat yang diketik di Google Maps
+  const findAddress = () => {
+    const q = clean(address);
+    if (q.length < 5) {
+      setLocationInfo('Tulis alamat atau nama gedungnya dulu, lalu tekan Cari di peta.');
+      return;
+    }
+    setLocation(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`);
+    setMapQuery(q);
+    setLocationInfo(
+      'Cek pin di peta. Kalau kurang tepat, perjelas alamatnya atau tempel link dari Google Maps.',
+    );
+  };
+
+  // Link bagikan dari aplikasi Google Maps (pin dipilih sendiri)
+  const applyPasted = (value: string) => {
+    setPasted(value);
+    const link = value.match(
+      /https:\/\/(maps\.app\.goo\.gl|goo\.gl\/maps|(www\.)?google\.[a-z.]+\/maps)\S*/,
+    )?.[0];
+    if (link) {
+      setLocation(link);
+      setMapQuery('');
+      setLocationInfo('Link Google Maps dipakai sebagai titik lokasi.');
+    } else if (value.trim()) {
+      setLocationInfo('Link belum dikenali. Salin dari tombol Bagikan di Google Maps.');
+    }
+  };
+
+  const clearLocation = () => {
+    setLocation('');
+    setMapQuery('');
+    setPasted('');
+    setLocationInfo('');
+  };
 
   const useLocation = () => {
     if (!navigator.geolocation) {
@@ -120,9 +161,10 @@ export function ConsultBuilder() {
     setLocationInfo('');
     navigator.geolocation.getCurrentPosition(
       ({ coords }) => {
-        setLocation(
-          `https://www.google.com/maps?q=${coords.latitude.toFixed(6)},${coords.longitude.toFixed(6)}`,
-        );
+        const q = `${coords.latitude.toFixed(6)},${coords.longitude.toFixed(6)}`;
+        setLocation(`https://www.google.com/maps?q=${q}`);
+        setMapQuery(q);
+        setLocationInfo('Titik dari posisi Anda sekarang. Pastikan Anda sedang di lokasi acara.');
         setLocating(false);
       },
       () => {
@@ -255,7 +297,7 @@ export function ConsultBuilder() {
                   className="mt-1.5 text-right text-[0.7rem] text-[#5e6b5a]"
                   suppressHydrationWarning
                 >
-                  {time} ✓✓
+                  {time} <span className="tracking-[-0.35em]">✓✓</span>
                 </p>
               </div>
             </div>
@@ -263,6 +305,21 @@ export function ConsultBuilder() {
         </div>
 
         <div className="reveal grid content-start gap-8 sm:grid-cols-2">
+          <div className="sm:col-span-2">
+            <label htmlFor="nama" className={label}>
+              Nama Anda
+            </label>
+            <input
+              id="nama"
+              type="text"
+              autoComplete="name"
+              maxLength={60}
+              placeholder="Contoh: Rina"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className={field}
+            />
+          </div>
           <div>
             <p className={label} aria-hidden="true">
               Jenis acara
@@ -340,21 +397,25 @@ export function ConsultBuilder() {
             <div className="mt-3 flex flex-wrap items-center gap-3">
               <button
                 type="button"
+                onClick={findAddress}
+                className="inline-flex min-h-11 items-center gap-2 rounded-full bg-ink px-5 text-sm text-paper transition hover:opacity-85"
+              >
+                <PinIcon className="size-4" />
+                Cari di peta
+              </button>
+              <button
+                type="button"
                 onClick={useLocation}
                 disabled={locating}
                 className="inline-flex min-h-11 items-center gap-2 rounded-full border border-ink px-5 text-sm transition hover:bg-ink hover:text-paper disabled:opacity-60"
               >
                 <PinIcon className="size-4" />
-                {locating
-                  ? 'Mencari lokasi…'
-                  : location
-                    ? 'Perbarui lokasi'
-                    : 'Pakai lokasi saat ini'}
+                {locating ? 'Mencari lokasi…' : 'Pakai posisi saya'}
               </button>
               {location && (
                 <button
                   type="button"
-                  onClick={() => setLocation('')}
+                  onClick={clearLocation}
                   className="min-h-11 text-sm text-muted underline underline-offset-4"
                 >
                   Hapus lokasi
@@ -362,11 +423,50 @@ export function ConsultBuilder() {
               )}
             </div>
             <p aria-live="polite" className="mt-2 text-sm text-muted">
-              {location
-                ? 'Titik lokasi ikut terkirim. Pastikan Anda sedang berada di lokasi acara.'
-                : locationInfo ||
-                  'Berguna kalau Anda sedang berada di venue, misalnya saat survei.'}
+              {locationInfo ||
+                'Ketik alamat lalu Cari di peta. Tidak sedang di venue? Tidak perlu pakai posisi Anda.'}
             </p>
+            {mapQuery && (
+              <iframe
+                title="Pratinjau lokasi acara"
+                src={`https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=16&output=embed`}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="mt-3 h-56 w-full rounded-2xl border border-line"
+              />
+            )}
+            <details className="mt-3 text-sm">
+              <summary className="min-h-11 cursor-pointer py-3 text-muted underline underline-offset-4">
+                Mau pilih titik sendiri di Google Maps?
+              </summary>
+              <ol className="mt-1 list-decimal space-y-1 pl-5 text-muted">
+                <li>
+                  Buka{' '}
+                  <a
+                    href="https://www.google.com/maps"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-ink underline underline-offset-4"
+                  >
+                    Google Maps
+                  </a>
+                  , cari venue, lalu tekan lama untuk menaruh pin.
+                </li>
+                <li>Tekan Bagikan, salin link, lalu tempel di sini.</li>
+              </ol>
+              <label htmlFor="link-maps" className="sr-only">
+                Link Google Maps
+              </label>
+              <input
+                id="link-maps"
+                type="url"
+                inputMode="url"
+                placeholder="https://maps.app.goo.gl/…"
+                value={pasted}
+                onChange={(e) => applyPasted(e.target.value)}
+                className={`${field} mt-3`}
+              />
+            </details>
           </div>
 
           <div>

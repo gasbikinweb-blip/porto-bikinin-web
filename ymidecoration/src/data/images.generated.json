@@ -171,6 +171,82 @@
         "height": 1417
       }
     ],
+    "felix-hana": [
+      {
+        "src": "/images/acara/felix-hana/01.webp",
+        "thumb": "/images/acara/felix-hana/01-thumb.webp",
+        "width": 1440,
+        "height": 1440
+      },
+      {
+        "src": "/images/acara/felix-hana/02.webp",
+        "thumb": "/images/acara/felix-hana/02-thumb.webp",
+        "width": 1440,
+        "height": 1440
+      },
+      {
+        "src": "/images/acara/felix-hana/03.webp",
+        "thumb": "/images/acara/felix-hana/03-thumb.webp",
+        "width": 1440,
+        "height": 1439
+      },
+      {
+        "src": "/images/acara/felix-hana/04.webp",
+        "thumb": "/images/acara/felix-hana/04-thumb.webp",
+        "width": 1440,
+        "height": 1440
+      }
+    ],
+    "dodo-henti": [
+      {
+        "src": "/images/acara/dodo-henti/01.webp",
+        "thumb": "/images/acara/dodo-henti/01-thumb.webp",
+        "width": 1440,
+        "height": 959
+      },
+      {
+        "src": "/images/acara/dodo-henti/02.webp",
+        "thumb": "/images/acara/dodo-henti/02-thumb.webp",
+        "width": 1440,
+        "height": 959
+      }
+    ],
+    "lamaran-taman-pastel": [
+      {
+        "src": "/images/acara/lamaran-taman-pastel/01.webp",
+        "thumb": "/images/acara/lamaran-taman-pastel/01-thumb.webp",
+        "width": 1280,
+        "height": 1600
+      }
+    ],
+    "lamaran-warna-warni": [
+      {
+        "src": "/images/acara/lamaran-warna-warni/01.webp",
+        "thumb": "/images/acara/lamaran-warna-warni/01-thumb.webp",
+        "width": 1080,
+        "height": 1080
+      },
+      {
+        "src": "/images/acara/lamaran-warna-warni/02.webp",
+        "thumb": "/images/acara/lamaran-warna-warni/02-thumb.webp",
+        "width": 1280,
+        "height": 1600
+      }
+    ],
+    "launching-cafe-pink": [
+      {
+        "src": "/images/acara/launching-cafe-pink/01.webp",
+        "thumb": "/images/acara/launching-cafe-pink/01-thumb.webp",
+        "width": 1280,
+        "height": 1600
+      },
+      {
+        "src": "/images/acara/launching-cafe-pink/02.webp",
+        "thumb": "/images/acara/launching-cafe-pink/02-thumb.webp",
+        "width": 1440,
+        "height": 1440
+      }
+    ],
     "putri-luthfi": [
       {
         "src": "/images/acara/putri-luthfi/01.webp",
@@ -239,6 +315,68 @@
         "thumb": "/images/acara/inspirasi/08-thumb.webp",
         "width": 720,
         "height": 1280
+      }
+    ],
+    "hana-felix-wedding": [
+      {
+        "src": "/images/acara/hana-felix-wedding/01.webp",
+        "thumb": "/images/acara/hana-felix-wedding/01-thumb.webp",
+        "width": 720,
+        "height": 1280
+      },
+      {
+        "src": "/images/acara/hana-felix-wedding/02.webp",
+        "thumb": "/images/acara/hana-felix-wedding/02-thumb.webp",
+        "width": 720,
+        "height": 1280
+      },
+      {
+        "src": "/images/acara/hana-felix-wedding/03.webp",
+        "thumb": "/images/acara/hana-felix-wedding/03-thumb.webp",
+        "width": 720,
+        "height": 1280
+      }
+    ],
+    "kada-elen": [
+      {
+        "src": "/images/acara/kada-elen/01.webp",
+        "thumb": "/images/acara/kada-elen/01-thumb.webp",
+        "width": 720,
+        "height": 973
+      },
+      {
+        "src": "/images/acara/kada-elen/02.webp",
+        "thumb": "/images/acara/kada-elen/02-thumb.webp",
+        "width": 720,
+        "height": 896
+      }
+    ],
+    "ivon-bryan": [
+      {
+        "src": "/images/acara/ivon-bryan/01.webp",
+        "thumb": "/images/acara/ivon-bryan/01-thumb.webp",
+        "width": 720,
+        "height": 1024
+      },
+      {
+        "src": "/images/acara/ivon-bryan/02.webp",
+        "thumb": "/images/acara/ivon-bryan/02-thumb.webp",
+        "width": 720,
+        "height": 960
+      }
+    ],
+    "novi-arif": [
+      {
+        "src": "/images/acara/novi-arif/01.webp",
+        "thumb": "/images/acara/novi-arif/01-thumb.webp",
+        "width": 720,
+        "height": 998
+      },
+      {
+        "src": "/images/acara/novi-arif/02.webp",
+        "thumb": "/images/acara/novi-arif/02-thumb.webp",
+        "width": 720,
+        "height": 998
       }
     ]
   }

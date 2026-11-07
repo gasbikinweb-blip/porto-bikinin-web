@@ -1,6 +1,7 @@
 // Data portofolio. Nama, venue, tanggal, dan kredit HANYA dari caption Instagram.
 // Pemilik menyatakan semua pasangan mengizinkan fotonya tampil, jadi showFaces = true.
 import generated from './images.generated.json';
+import videoList from './videos.generated.json';
 
 export const eventTypes = {
   wedding: 'Wedding',
@@ -11,7 +12,13 @@ export const eventTypes = {
 } as const;
 export type EventType = keyof typeof eventTypes;
 
-export const palettes = ['Bold & Berwarna', 'Merah & Putih', 'Pastel', 'Hijau & Kuning'] as const;
+export const palettes = [
+  'Bold & Berwarna',
+  'Merah & Putih',
+  'Pastel',
+  'Hijau & Kuning',
+  'Terakota & Putih',
+] as const;
 export type Palette = (typeof palettes)[number];
 
 export type EventImage = { src: string; thumb: string; width: number; height: number; alt: string };
@@ -34,7 +41,12 @@ type RawEvent = {
   alts: string[];
 };
 
-export type PortfolioEvent = Omit<RawEvent, 'alts'> & { images: EventImage[]; cover: EventImage };
+export type EventVideo = { src: string; poster: string };
+export type PortfolioEvent = Omit<RawEvent, 'alts'> & {
+  images: EventImage[];
+  cover: EventImage;
+  video?: EventVideo;
+};
 
 const raw: RawEvent[] = [
   {
@@ -171,6 +183,157 @@ const raw: RawEvent[] = [
       'Pasangan berpose di depan backdrop pink dan putih',
     ],
   },
+  {
+    slug: 'felix-hana',
+    title: 'Felix & Hana',
+    type: 'engagement',
+    palette: 'Terakota & Putih',
+    paletteNote: 'Oranye terakota, putih, dan krem',
+    venue: 'Sult Cafe',
+    year: 2024,
+    concept:
+      'Engagement hangat dengan panel lengkung putih bertuliskan nama pasangan, rangkaian bunga kering oranye terakota dan putih di kedua sisi, serta kursi pasangan di tengah panggung kecil.',
+    credits: [{ role: 'Foto', name: '@oxxyphotography' }],
+    showFaces: true,
+    sourceFolders: ['Folder 10'],
+    alts: [
+      'Pasangan duduk di depan panel lengkung putih dengan bunga oranye terakota',
+      'Pasangan tersenyum menunjukkan cincin di depan dekorasi oranye dan putih',
+      'Pasangan berpose dengan buket bunga kering di depan rangkaian terakota',
+      'Pasangan bersama keluarga di depan panel lengkung putih',
+    ],
+  },
+  {
+    slug: 'dodo-henti',
+    title: 'Dodo & Henti',
+    type: 'engagement',
+    palette: 'Pastel',
+    paletteNote: 'Putih, krem, dan biru lembut',
+    year: 2023,
+    concept:
+      'Engagement sederhana namun rapi: panel lengkung putih bertuliskan nama, bunga biru dan putih di kaki panel, untaian bunga dari plafon, dan kursi kayu untuk pasangan. Paket dekorasi hemat yang tetap terlihat mewah.',
+    credits: [{ role: 'Foto', name: '@bluudz' }],
+    showFaces: true,
+    sourceFolders: ['Folder 8'],
+    alts: [
+      'Pasangan berdiri di ruangan dengan panel lengkung putih dan bunga biru',
+      'Pasangan saling menatap di depan dekorasi lengkung putih dan biru',
+    ],
+  },
+  {
+    slug: 'lamaran-taman-pastel',
+    title: 'Lamaran Taman Pastel',
+    type: 'engagement',
+    palette: 'Pastel',
+    paletteNote: 'Pink, biru, dan hijau daun',
+    year: 2022,
+    concept:
+      'Dekorasi lamaran bergaya taman dengan rangkaian mawar pink dan biru yang merambat di rangka kayu, dedaunan hijau segar, dan kursi bambu untuk pasangan.',
+    showFaces: true,
+    sourceFolders: ['Folder 6'],
+    alts: ['Rangkaian mawar pink dan biru dengan dedaunan hijau di atas kursi bambu'],
+  },
+  {
+    slug: 'lamaran-warna-warni',
+    title: 'Lamaran Warna-warni',
+    type: 'engagement',
+    palette: 'Bold & Berwarna',
+    paletteNote: 'Merah, oranye, pink, dan putih',
+    year: 2023,
+    concept:
+      'Lamaran ceria dengan rangkaian bunga merah, oranye, dan pink, papan welcome berbingkai emas, dua kursi kayu, serta karpet bermotif. Buket mawar dan lili putih menghiasi meja seserahan.',
+    showFaces: true,
+    sourceFolders: ['Folder 7'],
+    alts: [
+      'Papan welcome berbingkai emas dengan rangkaian bunga merah, oranye, dan pink',
+      'Rangkaian mawar putih dan lili di samping kursi kayu',
+    ],
+  },
+  {
+    slug: 'launching-cafe-pink',
+    title: 'Launching Produk di Cafe',
+    type: 'other',
+    palette: 'Pastel',
+    paletteNote: 'Pink, putih, dan peach',
+    year: 2023,
+    concept:
+      'Dekorasi acara launching brand kecantikan di cafe Surabaya: panel lengkung pink bertuliskan nama produk, diapit rangkaian bunga pink, putih, dan anggrek yang menjulang. Bukti YMI juga menangani acara di luar pernikahan.',
+    showFaces: true,
+    sourceFolders: ['Folder 9'],
+    alts: [
+      'Panel lengkung pink diapit rangkaian bunga pink di area cafe',
+      'Close-up panel lengkung pink dengan bunga pink dan anggrek putih',
+    ],
+  },
+  {
+    slug: 'hana-felix-wedding',
+    title: 'Hana & Felix',
+    type: 'wedding',
+    palette: 'Pastel',
+    paletteNote: 'Putih, hijau daun, dan cahaya lilin',
+    venue: 'Rooftop Maxone Tidar',
+    date: '24 Agustus 2024',
+    year: 2024,
+    concept:
+      'Wedding rooftop saat senja dengan lengkung besar bunga putih, papan welcome bening berhias bunga putih dan lilin, serta meja tamu bundar dengan rangkaian bunga putih di tiap meja.',
+    showFaces: true,
+    sourceFolders: ['Highlight Hana & Felix'],
+    alts: [
+      'Pasangan di depan lengkung besar bunga putih saat senja',
+      'Papan welcome bening dengan bunga putih dan lilin di koridor rooftop',
+      'Tamu duduk di meja bundar berhias bunga putih',
+    ],
+  },
+  {
+    slug: 'kada-elen',
+    title: 'Kada & Elen',
+    type: 'engagement',
+    palette: 'Merah & Putih',
+    paletteNote: 'Putih, emas, dan karpet merah',
+    date: '21 April 2024',
+    year: 2024,
+    concept:
+      'Engagement di rumah dengan rangka lengkung emas berhias bunga putih dan dedaunan, papan welcome lengkung, serta dua kursi kayu berbantal putih di atas karpet merah bermotif.',
+    showFaces: true,
+    sourceFolders: ['Highlight Kada & Elen'],
+    alts: [
+      'Rangka lengkung emas dengan bunga putih dan dua kursi kayu',
+      'Dua kursi kayu berbantal putih di atas karpet merah bermotif',
+    ],
+  },
+  {
+    slug: 'ivon-bryan',
+    title: 'Ivon & Bryan',
+    type: 'engagement',
+    palette: 'Bold & Berwarna',
+    paletteNote: 'Pink, merah, putih, dan lampion warna-warni',
+    date: '13 April 2024',
+    year: 2024,
+    concept:
+      'Engagement di restoran dengan papan welcome berbunga pink dan merah, kursi pasangan bergaya emas, serta lampion kertas warna-warni yang menggantung di sepanjang ruangan.',
+    showFaces: true,
+    sourceFolders: ['Highlight Ivon & Bryan'],
+    alts: [
+      'Papan welcome dengan rangkaian bunga putih, pink, dan merah',
+      'Pasangan di depan backdrop bunga merah dan kursi emas',
+    ],
+  },
+  {
+    slug: 'novi-arif',
+    title: 'Novi & Arif',
+    type: 'wedding',
+    palette: 'Pastel',
+    paletteNote: 'Pink, putih, dan hijau',
+    concept:
+      'Wedding di greenhouse kaca dengan backdrop putih yang dipenuhi bunga pink dan putih, payung kertas, dan rangkaian bunga di sepanjang jalur pengantin.',
+    credits: [{ role: 'WO', name: 'Sukses Manten' }],
+    showFaces: true,
+    sourceFolders: ['Highlight Novi & Arif'],
+    alts: [
+      'Pengantin dan keluarga di depan backdrop bunga pink di greenhouse',
+      'Prosesi keluarga di depan dekorasi pink dan putih',
+    ],
+  },
 ];
 
 const images = generated.events as Record<string, Omit<EventImage, 'alt'>[]>;
@@ -180,7 +343,8 @@ export const events: PortfolioEvent[] = raw.map(({ alts, ...e }) => {
   const cover = list[0];
   if (!cover)
     throw new Error(`Foto acara ${e.slug} belum dibuat. Jalankan npm run optimize-images.`);
-  return { ...e, images: list, cover };
+  const video = (videoList as Record<string, EventVideo>)[e.slug];
+  return { ...e, images: list, cover, ...(video ? { video } : {}) };
 });
 
 export const getEvent = (slug: string) => events.find((e) => e.slug === slug);

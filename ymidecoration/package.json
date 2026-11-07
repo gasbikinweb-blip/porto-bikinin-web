@@ -14,7 +14,8 @@
     "format": "prettier --write .",
     "audit": "npm audit --omit=dev",
     "optimize-images": "node scripts/optimize-images.mjs",
-    "optimize-videos": "node scripts/optimize-videos.mjs"
+    "optimize-videos": "node scripts/optimize-videos.mjs",
+    "event-videos": "node scripts/make-event-videos.mjs"
   },
   "dependencies": {
     "next": "16.4.5",
