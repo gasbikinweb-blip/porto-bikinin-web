@@ -1,4 +1,4 @@
-// Video acara untuk galeri portofolio: 720px, maks 30 detik, tanpa suara (hemat kuota + aman hak cipta musik).
+// Video acara untuk galeri portofolio: 720px, maks 30 detik, dengan suara AAC 96 kbps.
 // Hasil: public/videos/acara/[slug].mp4 + poster .webp, daftar di src/data/videos.generated.json
 // Butuh ffmpeg. Jalankan: npm run event-videos
 import { execFileSync } from 'node:child_process';
@@ -24,11 +24,52 @@ const list = {};
 for (const [slug, src] of Object.entries(videos)) {
   const input = `assets/${src}`;
   const mp4 = `${OUT}/${slug}.mp4`;
-  execFileSync('ffmpeg', ['-y', '-v', 'error', '-t', '30', '-i', input, '-an', '-map_metadata', '-1',
-    '-vf', 'scale=720:-2', '-c:v', 'libx264', '-preset', 'slow', '-crf', '28', '-pix_fmt', 'yuv420p',
-    '-movflags', '+faststart', mp4]);
-  execFileSync('ffmpeg', ['-y', '-v', 'error', '-ss', '1', '-i', input, '-frames:v', '1',
-    '-vf', 'scale=720:-2', '-c:v', 'libwebp', '-quality', '72', `${OUT}/${slug}.webp`]);
+  execFileSync('ffmpeg', [
+    '-y',
+    '-v',
+    'error',
+    '-t',
+    '30',
+    '-i',
+    input,
+    '-map_metadata',
+    '-1',
+    '-vf',
+    'scale=720:-2',
+    '-c:v',
+    'libx264',
+    '-preset',
+    'slow',
+    '-crf',
+    '28',
+    '-pix_fmt',
+    'yuv420p',
+    '-c:a',
+    'aac',
+    '-b:a',
+    '96k',
+    '-movflags',
+    '+faststart',
+    mp4,
+  ]);
+  execFileSync('ffmpeg', [
+    '-y',
+    '-v',
+    'error',
+    '-ss',
+    '1',
+    '-i',
+    input,
+    '-frames:v',
+    '1',
+    '-vf',
+    'scale=720:-2',
+    '-c:v',
+    'libwebp',
+    '-quality',
+    '72',
+    `${OUT}/${slug}.webp`,
+  ]);
   list[slug] = { src: `/videos/acara/${slug}.mp4`, poster: `/videos/acara/${slug}.webp` };
   console.log(`✓ ${slug}: ${(statSync(mp4).size / 1e6).toFixed(1)} MB`);
 }

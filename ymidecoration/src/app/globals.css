@@ -199,3 +199,15 @@ dialog::backdrop {
     opacity: 1 !important;
   }
 }
+
+/* Judul section: Berkshire Swash (hanya satu ketebalan, tanpa miring buatan) */
+h1,
+h2 {
+  font-family: var(--font-heading), var(--font-display), serif;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+h1 em,
+h2 em {
+  font-style: normal;
+}

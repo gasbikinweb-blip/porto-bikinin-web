@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Cormorant_Garamond, Jost, Pinyon_Script } from 'next/font/google';
+import { Berkshire_Swash, Cormorant_Garamond, Jost, Pinyon_Script } from 'next/font/google';
 import Image from 'next/image';
 import { Header } from '@/components/Header';
 import { AtIcon, InstagramIcon, PinIcon, TikTokIcon, WhatsAppIcon } from '@/components/icons';
@@ -16,6 +16,8 @@ const display = Cormorant_Garamond({
   style: ['normal', 'italic'],
   variable: '--font-display',
 });
+// Judul section memakai Berkshire Swash, teks biasa memakai Jost
+const heading = Berkshire_Swash({ subsets: ['latin'], weight: '400', variable: '--font-heading' });
 const script = Pinyon_Script({ subsets: ['latin'], weight: '400', variable: '--font-script' });
 
 const title = 'YMI Decoration | Dekorasi Wedding, Akad & Lamaran Surabaya';
@@ -64,7 +66,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       lang="id"
       suppressHydrationWarning
       data-scroll-behavior="smooth"
-      className={`${body.variable} ${display.variable} ${script.variable}`}
+      className={`${body.variable} ${display.variable} ${heading.variable} ${script.variable}`}
     >
       <head>
         {/* eslint-disable-next-line @next/next/no-sync-scripts -- harus jalan sebelum render agar tema tidak berkedip */}

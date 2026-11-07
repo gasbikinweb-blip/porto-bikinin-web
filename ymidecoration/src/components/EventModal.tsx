@@ -112,8 +112,6 @@ function Detail({ e, onClose }: { e: PortfolioEvent; onClose: () => void }) {
               src={e.video.src}
               poster={e.video.poster}
               controls
-              autoPlay
-              muted
               loop
               playsInline
               preload="metadata"
