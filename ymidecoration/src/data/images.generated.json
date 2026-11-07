@@ -1,0 +1,195 @@
+{
+  "hero": {
+    "src": "/images/hero.webp",
+    "width": 2000,
+    "height": 1333
+  },
+  "events": {
+    "della-adil": [
+      {
+        "src": "/images/acara/della-adil/01.webp",
+        "thumb": "/images/acara/della-adil/01-thumb.webp",
+        "width": 1600,
+        "height": 1067
+      },
+      {
+        "src": "/images/acara/della-adil/02.webp",
+        "thumb": "/images/acara/della-adil/02-thumb.webp",
+        "width": 1600,
+        "height": 1067
+      },
+      {
+        "src": "/images/acara/della-adil/03.webp",
+        "thumb": "/images/acara/della-adil/03-thumb.webp",
+        "width": 1600,
+        "height": 1067
+      },
+      {
+        "src": "/images/acara/della-adil/04.webp",
+        "thumb": "/images/acara/della-adil/04-thumb.webp",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "src": "/images/acara/della-adil/05.webp",
+        "thumb": "/images/acara/della-adil/05-thumb.webp",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "src": "/images/acara/della-adil/06.webp",
+        "thumb": "/images/acara/della-adil/06-thumb.webp",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "src": "/images/acara/della-adil/07.webp",
+        "thumb": "/images/acara/della-adil/07-thumb.webp",
+        "width": 1600,
+        "height": 1067
+      },
+      {
+        "src": "/images/acara/della-adil/08.webp",
+        "thumb": "/images/acara/della-adil/08-thumb.webp",
+        "width": 1600,
+        "height": 1067
+      }
+    ],
+    "berlin-aziz": [
+      {
+        "src": "/images/acara/berlin-aziz/01.webp",
+        "thumb": "/images/acara/berlin-aziz/01-thumb.webp",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "src": "/images/acara/berlin-aziz/02.webp",
+        "thumb": "/images/acara/berlin-aziz/02-thumb.webp",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "src": "/images/acara/berlin-aziz/03.webp",
+        "thumb": "/images/acara/berlin-aziz/03-thumb.webp",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "src": "/images/acara/berlin-aziz/04.webp",
+        "thumb": "/images/acara/berlin-aziz/04-thumb.webp",
+        "width": 1200,
+        "height": 1600
+      }
+    ],
+    "shinta-aufar": [
+      {
+        "src": "/images/acara/shinta-aufar/01.webp",
+        "thumb": "/images/acara/shinta-aufar/01-thumb.webp",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "src": "/images/acara/shinta-aufar/02.webp",
+        "thumb": "/images/acara/shinta-aufar/02-thumb.webp",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "src": "/images/acara/shinta-aufar/03.webp",
+        "thumb": "/images/acara/shinta-aufar/03-thumb.webp",
+        "width": 1200,
+        "height": 1600
+      },
+      {
+        "src": "/images/acara/shinta-aufar/04.webp",
+        "thumb": "/images/acara/shinta-aufar/04-thumb.webp",
+        "width": 1440,
+        "height": 960
+      },
+      {
+        "src": "/images/acara/shinta-aufar/05.webp",
+        "thumb": "/images/acara/shinta-aufar/05-thumb.webp",
+        "width": 1440,
+        "height": 960
+      },
+      {
+        "src": "/images/acara/shinta-aufar/06.webp",
+        "thumb": "/images/acara/shinta-aufar/06-thumb.webp",
+        "width": 1440,
+        "height": 960
+      },
+      {
+        "src": "/images/acara/shinta-aufar/07.webp",
+        "thumb": "/images/acara/shinta-aufar/07-thumb.webp",
+        "width": 1440,
+        "height": 960
+      },
+      {
+        "src": "/images/acara/shinta-aufar/08.webp",
+        "thumb": "/images/acara/shinta-aufar/08-thumb.webp",
+        "width": 1440,
+        "height": 960
+      },
+      {
+        "src": "/images/acara/shinta-aufar/09.webp",
+        "thumb": "/images/acara/shinta-aufar/09-thumb.webp",
+        "width": 1440,
+        "height": 960
+      }
+    ],
+    "dita-iqbal": [
+      {
+        "src": "/images/acara/dita-iqbal/01.webp",
+        "thumb": "/images/acara/dita-iqbal/01-thumb.webp",
+        "width": 1600,
+        "height": 1600
+      },
+      {
+        "src": "/images/acara/dita-iqbal/02.webp",
+        "thumb": "/images/acara/dita-iqbal/02-thumb.webp",
+        "width": 1440,
+        "height": 1297
+      }
+    ],
+    "nina-andre": [
+      {
+        "src": "/images/acara/nina-andre/01.webp",
+        "thumb": "/images/acara/nina-andre/01-thumb.webp",
+        "width": 1280,
+        "height": 1600
+      },
+      {
+        "src": "/images/acara/nina-andre/02.webp",
+        "thumb": "/images/acara/nina-andre/02-thumb.webp",
+        "width": 1280,
+        "height": 1600
+      },
+      {
+        "src": "/images/acara/nina-andre/03.webp",
+        "thumb": "/images/acara/nina-andre/03-thumb.webp",
+        "width": 1133,
+        "height": 1417
+      }
+    ],
+    "putri-luthfi": [
+      {
+        "src": "/images/acara/putri-luthfi/01.webp",
+        "thumb": "/images/acara/putri-luthfi/01-thumb.webp",
+        "width": 720,
+        "height": 1126
+      },
+      {
+        "src": "/images/acara/putri-luthfi/02.webp",
+        "thumb": "/images/acara/putri-luthfi/02-thumb.webp",
+        "width": 720,
+        "height": 1126
+      },
+      {
+        "src": "/images/acara/putri-luthfi/03.webp",
+        "thumb": "/images/acara/putri-luthfi/03-thumb.webp",
+        "width": 720,
+        "height": 1126
+      }
+    ]
+  }
+}

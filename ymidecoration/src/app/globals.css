@@ -1,0 +1,154 @@
+@import 'tailwindcss';
+
+/* Ivory hangat, emas monogram, dan charcoal. Teks emas memakai --gold-text agar kontras AA di atas ivory. */
+:root {
+  color-scheme: light;
+  --ivory: #f6f1e9;
+  --paper: #fbf8f3;
+  --ink: #1e1a16;
+  --muted: #64594e;
+  --gold: #9a7330;
+  --gold-text: #7a5a22;
+  --gold-light: #d8bb82;
+  --night: #17140f;
+  --night-soft: #221d17;
+  --night-text: #efe7da;
+  --night-muted: #b8ad9d;
+  --line: #e2d6c3;
+}
+
+@theme inline {
+  --color-ivory: var(--ivory);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-gold: var(--gold);
+  --color-gold-text: var(--gold-text);
+  --color-gold-light: var(--gold-light);
+  --color-night: var(--night);
+  --color-night-soft: var(--night-soft);
+  --color-night-text: var(--night-text);
+  --color-night-muted: var(--night-muted);
+  --color-line: var(--line);
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-display);
+  --font-script: var(--font-script);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--ivory);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Label kecil berhuruf kapital dengan garis emas */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold-text);
+}
+.eyebrow::before {
+  content: '';
+  width: 2.5rem;
+  height: 1px;
+  background: currentColor;
+}
+.on-dark .eyebrow {
+  color: var(--gold-light);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+@keyframes settle {
+  from {
+    transform: scale(1.08);
+  }
+}
+.animate-in {
+  animation: rise 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.hero-image {
+  animation: settle 2.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-card {
+  animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Muncul saat di-scroll (dipicu RevealObserver) */
+.reveal-ready .reveal:not(.is-visible) {
+  opacity: 0;
+}
+.reveal.is-visible {
+  animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms) backwards;
+}
+
+/* Modal galeri */
+dialog[open] {
+  animation: fade 0.35s ease-out;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+dialog::backdrop {
+  background: rgb(10 8 6 / 0.82);
+}
+
+.hero-shade {
+  background:
+    linear-gradient(
+      to top,
+      rgb(16 13 10 / 0.88) 0%,
+      rgb(16 13 10 / 0.35) 45%,
+      rgb(16 13 10 / 0.15) 70%
+    ),
+    linear-gradient(to bottom, rgb(16 13 10 / 0.55) 0%, transparent 22%),
+    linear-gradient(to right, rgb(16 13 10 / 0.65) 0%, rgb(16 13 10 / 0.2) 55%, transparent 75%);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}
