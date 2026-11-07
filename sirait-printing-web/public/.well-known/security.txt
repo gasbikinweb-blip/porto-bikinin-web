@@ -1,0 +1,5 @@
+# TODO: ganti kontak, domain, dan tanggal kedaluwarsa sebelum rilis (RFC 9116)
+Contact: https://wa.me/6285184158680
+Expires: 2027-10-25T00:00:00.000Z
+Preferred-Languages: id, en
+Canonical: https://sirait-printing.vercel.app/.well-known/security.txt

@@ -1,0 +1,52 @@
+[
+  {
+    "name": "tur-toko-print-kilat",
+    "title": "Print kilat, hasil rapi",
+    "src": "/videos/tur-toko-print-kilat.mp4",
+    "poster": "/videos/tur-toko-print-kilat.webp",
+    "width": 540,
+    "height": 960,
+    "duration": 33,
+    "sizeKb": 2849
+  },
+  {
+    "name": "tumpukan-jilid-lux",
+    "title": "Jilid lux siap diambil",
+    "src": "/videos/tumpukan-jilid-lux.mp4",
+    "poster": "/videos/tumpukan-jilid-lux.webp",
+    "width": 540,
+    "height": 960,
+    "duration": 16,
+    "sizeKb": 1432
+  },
+  {
+    "name": "senin-keramean",
+    "title": "Senin keramean",
+    "src": "/videos/senin-keramean.mp4",
+    "poster": "/videos/senin-keramean.webp",
+    "width": 540,
+    "height": 960,
+    "duration": 14,
+    "sizeKb": 1382
+  },
+  {
+    "name": "promo-print-195",
+    "title": "Rp195/lembar, rapi & cepat",
+    "src": "/videos/promo-print-195.mp4",
+    "poster": "/videos/promo-print-195.webp",
+    "width": 540,
+    "height": 960,
+    "duration": 24,
+    "sizeKb": 3437
+  },
+  {
+    "name": "cetak-a3",
+    "title": "Cetak A3 sudah bisa",
+    "src": "/videos/cetak-a3.mp4",
+    "poster": "/videos/cetak-a3.webp",
+    "width": 540,
+    "height": 960,
+    "duration": 18,
+    "sizeKb": 1224
+  }
+]

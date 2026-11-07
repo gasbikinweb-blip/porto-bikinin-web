@@ -1,0 +1,26 @@
+// Konfigurasi dari environment. Semua nilai NEXT_PUBLIC_* BERSIFAT PUBLIK (ikut ke browser), bukan secret.
+
+const DEFAULT_WA_NUMBER = '6285184158680';
+
+/**
+ * Bersihkan nomor WA ke format internasional tanpa "+", spasi, dan strip (contoh: 6285184158680).
+ * Awalan "0" diubah menjadi "62". Mengembalikan null kalau formatnya tidak valid.
+ */
+export function normalizeWaNumber(raw: string): string | null {
+  let digits = raw.replace(/\D/g, '');
+  if (digits.startsWith('0')) digits = `62${digits.slice(1)}`;
+  return /^[1-9]\d{9,14}$/.test(digits) ? digits : null;
+}
+
+const waNumber = normalizeWaNumber(process.env.NEXT_PUBLIC_WA_NUMBER || DEFAULT_WA_NUMBER);
+// Gagalkan build kalau nomor salah, supaya tidak ada tombol WA yang rusak di production
+if (!waNumber) {
+  throw new Error('NEXT_PUBLIC_WA_NUMBER tidak valid. Gunakan format 628xxxxxxxxxx.');
+}
+
+export const config = {
+  siteName: process.env.NEXT_PUBLIC_SITE_NAME || 'Sirait Printing',
+  // TODO: ganti dengan domain asli saat rilis
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://sirait-printing.vercel.app',
+  waNumber,
+} as const;

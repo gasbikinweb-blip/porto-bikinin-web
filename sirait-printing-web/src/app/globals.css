@@ -1,0 +1,94 @@
+@import 'tailwindcss';
+
+/*
+ * Palet ceria dari poster toko (merah, kuning, biru) versi bersih.
+ * Kontras sudah dicek: teks ink & muted di atas putih ≥ 4.5:1, putih di atas red ≥ 4.5:1,
+ * ink di atas yellow ≥ 4.5:1.
+ */
+:root {
+  color-scheme: light;
+  --background: #ffffff;
+  --surface: #f6f4ef;
+  --surface-2: #ece8de;
+  --ink: #16130f;
+  --muted: #57524a;
+  --red: #c8231b;
+  --red-strong: #a3170f;
+  --yellow: #ffd23f;
+  --yellow-soft: #fff3c4;
+  --blue: #1d4fd6;
+  --line: rgb(22 19 15 / 0.12);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-red: var(--red);
+  --color-red-strong: var(--red-strong);
+  --color-yellow: var(--yellow);
+  --color-yellow-soft: var(--yellow-soft);
+  --color-blue: var(--blue);
+  --color-line: var(--line);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-heading);
+
+  /* Skala judul fluid: HP → laptop → desktop */
+  --text-hero: clamp(2.5rem, 1.6rem + 4vw, 5rem);
+  --text-hero--line-height: 1;
+  --text-section: clamp(1.875rem, 1.35rem + 2.2vw, 3.25rem);
+  --text-section--line-height: 1.05;
+  --text-price: clamp(2.25rem, 1.6rem + 2.8vw, 3.75rem);
+  --text-price--line-height: 1;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Ruang untuk header sticky saat melompat ke #anchor */
+  scroll-padding-top: 4.5rem;
+}
+
+body {
+  font-size: clamp(1rem, 0.96rem + 0.15vw, 1.0625rem);
+  background: var(--background);
+  color: var(--ink);
+}
+
+::selection {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Spinner bawaan input angka disembunyikan; tombol −/+ kita sendiri */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
