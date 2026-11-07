@@ -4,6 +4,7 @@
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { CloseIcon, MenuIcon } from './icons';
+import { ThemeToggle } from './ThemeToggle';
 
 const links = [
   { href: '#portofolio', label: 'Portofolio' },
@@ -53,7 +54,7 @@ export function Header() {
               <li key={l.href}>
                 <a
                   href={l.href}
-                  className="relative py-2 after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-current after:transition-transform hover:after:scale-x-100"
+                  className="relative inline-flex min-h-11 items-center after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-current after:transition-transform hover:after:scale-x-100"
                 >
                   {l.label}
                 </a>
@@ -63,6 +64,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <ThemeToggle />
           <a
             href="#konsultasi"
             className={`hidden min-h-11 items-center border px-6 text-xs tracking-[0.2em] uppercase transition sm:inline-flex ${

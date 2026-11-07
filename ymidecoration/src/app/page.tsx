@@ -87,7 +87,7 @@ export default function HomePage() {
             <a
               href={buildWhatsAppLink(generalMessage)}
               {...external}
-              className="inline-flex min-h-12 items-center gap-2 rounded-md bg-white px-6 text-ink shadow-sm transition hover:bg-gold-light"
+              className="inline-flex min-h-12 items-center gap-2 rounded-md bg-white px-6 text-night shadow-sm transition hover:bg-gold-light"
             >
               <WhatsAppIcon className="size-5" />
               Konsultasi Sekarang<span className="sr-only"> (tab baru)</span>
@@ -139,7 +139,7 @@ export default function HomePage() {
               Prosesnya kami buat sederhana dan jelas, dari obrolan pertama sampai dekorasi
               dibongkar setelah acara.
             </p>
-            <div className="relative mt-10 max-w-md pt-10 pr-10">
+            <div data-anim="zoom" className="reveal relative mt-10 max-w-md pt-10 pr-10">
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-night">
                 {bookingImage && (
                   <Image
@@ -196,9 +196,9 @@ export default function HomePage() {
               Yang sering <em className="text-gold-text">ditanyakan</em>
             </h2>
           </div>
-          <div className="divide-y divide-line border-y border-line">
+          <div data-stagger className="divide-y divide-line border-y border-line">
             {faqs.map((f) => (
-              <details key={f.q} className="group py-2">
+              <details key={f.q} className="reveal group py-2">
                 <summary className="flex min-h-14 cursor-pointer items-center justify-between gap-6 font-serif text-2xl">
                   {f.q}
                   <span
@@ -226,7 +226,10 @@ export default function HomePage() {
           </div>
 
           <div className="mt-14 grid gap-5 lg:grid-cols-[1fr_1.4fr]">
-            <div className="flex flex-col gap-6 rounded-3xl border border-line bg-ivory p-6 sm:p-8">
+            <div
+              data-anim="left"
+              className="reveal flex flex-col gap-6 rounded-3xl border border-line bg-ivory p-6 sm:p-8"
+            >
               <div>
                 <p className="text-xs tracking-[0.2em] text-muted uppercase">WhatsApp</p>
                 <p className="mt-2 font-serif text-3xl">{site.whatsappDisplay}</p>
@@ -275,7 +278,10 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="relative min-h-80 overflow-hidden rounded-3xl border border-line bg-ivory lg:min-h-[28rem]">
+            <div
+              data-anim="right"
+              className="reveal relative min-h-80 overflow-hidden rounded-3xl border border-line bg-ivory lg:min-h-[28rem]"
+            >
               <iframe
                 src={site.mapsEmbed}
                 title="Peta lokasi studio YMI Decoration di Google Maps"

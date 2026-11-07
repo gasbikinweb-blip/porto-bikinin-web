@@ -145,7 +145,10 @@ export function Portfolio() {
         </div>
 
         {feature ? (
-          <div className="mt-6 grid grid-cols-1 gap-5 rounded-[2rem] border border-line bg-paper p-3 shadow-[0_30px_80px_-40px_rgb(30_26_22/0.35)] sm:p-5 lg:grid-cols-[1.35fr_1fr]">
+          <div
+            data-anim="zoom"
+            className="reveal mt-6 grid grid-cols-1 gap-5 rounded-[2rem] border border-line bg-paper p-3 shadow-[0_30px_80px_-40px_rgb(30_26_22/0.35)] sm:p-5 lg:grid-cols-[1.35fr_1fr]"
+          >
             {/* Acara utama */}
             <article
               key={feature.slug}
@@ -191,7 +194,7 @@ export function Portfolio() {
                   <button
                     type="button"
                     onClick={(ev) => open(feature, ev.currentTarget)}
-                    className="inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-5 text-sm text-ink hover:bg-gold-light"
+                    className="inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-5 text-sm text-night hover:bg-gold-light"
                   >
                     Lihat galeri · {feature.images.length}
                     <ArrowIcon />
@@ -208,11 +211,11 @@ export function Portfolio() {
                   {filtered.length} acara
                 </p>
               </div>
-              <ul className="flex flex-col gap-2.5">
+              <ul data-stagger className="flex flex-col gap-2.5">
                 {shown.map((e) => {
                   const active = e.slug === feature.slug;
                   return (
-                    <li key={e.slug}>
+                    <li key={e.slug} className="reveal">
                       <button
                         type="button"
                         aria-pressed={active}

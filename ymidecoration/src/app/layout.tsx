@@ -62,9 +62,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html
       lang="id"
+      suppressHydrationWarning
       data-scroll-behavior="smooth"
       className={`${body.variable} ${display.variable} ${script.variable}`}
     >
+      <head>
+        {/* eslint-disable-next-line @next/next/no-sync-scripts -- harus jalan sebelum render agar tema tidak berkedip */}
+        <script src="/theme-init.js" />
+      </head>
       <body className="min-h-dvh font-sans antialiased">
         <a
           href="#konten"
@@ -76,8 +81,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <main id="konten">{children}</main>
 
         <footer className="on-dark bg-night px-4 pt-20 pb-28 text-night-text sm:px-8 sm:pb-24">
-          <div className="mx-auto grid max-w-7xl gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1.2fr_1fr]">
-            <div>
+          <div
+            data-stagger
+            className="mx-auto grid max-w-7xl gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1.2fr_1fr]"
+          >
+            <div className="reveal">
               <div className="flex items-center gap-4">
                 <Image
                   src="/brand/monogram.png"
@@ -98,7 +106,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               </p>
             </div>
 
-            <nav aria-label="Menu footer">
+            <nav aria-label="Menu footer" className="reveal">
               <p className="eyebrow">Menu</p>
               <ul className="mt-5 grid gap-1 text-sm">
                 {footerLinks.map((l) => (
@@ -114,7 +122,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               </ul>
             </nav>
 
-            <div>
+            <div className="reveal">
               <p className="eyebrow">Hubungi</p>
               <ul className="mt-5 grid gap-3 text-sm">
                 <li>
@@ -144,7 +152,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               </ul>
             </div>
 
-            <div>
+            <div className="reveal">
               <p className="eyebrow">Ikuti</p>
               <ul className="mt-5 flex gap-2">
                 {socials.map(({ href, label, Icon }) => (

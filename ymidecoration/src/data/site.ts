@@ -3,7 +3,7 @@ export const site = {
   name: 'YMI Decoration',
   tagline: 'event decoration',
   description:
-    'YMI Decoration, vendor dekorasi wedding, akad, dan lamaran di Surabaya. Backdrop bunga, pelaminan, dan detail acara yang dibuat sesuai cerita Anda. Konsultasi lewat WhatsApp.',
+    'Vendor dekorasi wedding, akad, dan lamaran di Surabaya. Backdrop bunga dan pelaminan sesuai cerita Anda. Lihat portofolio dan konsultasi lewat WhatsApp.',
   city: 'Surabaya',
   // Dari titik Google Maps di Informasi.txt. TODO: konfirmasi alamat studio lengkap dan apakah boleh ditampilkan
   address: 'Jl. Manukan Sari I, Manukan Kulon, Tandes, Surabaya 60185',

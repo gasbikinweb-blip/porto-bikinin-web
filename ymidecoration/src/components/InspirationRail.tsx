@@ -68,10 +68,11 @@ export function InspirationRail() {
 
         <ul
           ref={list}
+          data-stagger
           className="no-scrollbar -mr-4 flex min-w-0 snap-x snap-mandatory gap-5 overflow-x-auto pr-4 sm:-mr-8 sm:pr-8"
         >
           {cards.map(({ label, event, img }) => (
-            <li key={img.src} className="w-[68%] shrink-0 snap-start sm:w-[40%] lg:w-[30%]">
+            <li key={img.src} className="reveal w-[68%] shrink-0 snap-start sm:w-[40%] lg:w-[30%]">
               <a href={`#acara-${event.slug}`} className="group block">
                 <span className="relative block aspect-[3/4] overflow-hidden rounded-2xl bg-night-soft">
                   <Image

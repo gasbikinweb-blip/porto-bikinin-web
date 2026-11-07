@@ -17,6 +17,20 @@
   --line: #e2d6c3;
 }
 
+/* Mode gelap: dipilih lewat tombol (data-theme), default mengikuti sistem (lihat public/theme-init.js) */
+[data-theme='dark'] {
+  color-scheme: dark;
+  --ivory: #13100d;
+  --paper: #1b1713;
+  --ink: #f1e9dc;
+  --muted: #b3a795;
+  --gold: #c9a463;
+  --gold-text: #d8bb82;
+  --night: #0c0a08;
+  --night-soft: #1a1612;
+  --line: #3a3128;
+}
+
 @theme inline {
   --color-ivory: var(--ivory);
   --color-paper: var(--paper);
@@ -43,6 +57,9 @@ html {
 body {
   background: var(--ivory);
   color: var(--ink);
+  transition:
+    background-color 0.4s,
+    color 0.4s;
 }
 
 :focus-visible {
@@ -105,6 +122,36 @@ details > summary::-webkit-details-marker {
 }
 .reveal.is-visible {
   animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms) backwards;
+}
+/* Varian: data-anim="zoom" untuk foto besar, "left"/"right" untuk dua kolom */
+.reveal[data-anim='zoom'].is-visible {
+  animation-name: zoom-in;
+  animation-duration: 1.2s;
+}
+.reveal[data-anim='left'].is-visible {
+  animation-name: from-left;
+}
+.reveal[data-anim='right'].is-visible {
+  animation-name: from-right;
+}
+@keyframes zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+    clip-path: inset(6% 6% 6% 6% round 2rem);
+  }
+}
+@keyframes from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+}
+@keyframes from-right {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
 }
 
 /* Modal galeri */

@@ -22,8 +22,15 @@ export function RevealObserver() {
       (entries) => {
         for (const entry of entries) {
           if (!entry.isIntersecting) continue;
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
+          // Di dalam carousel geser, kartu di luar layar ikut dimunculkan bersama kartu pertama
+          const parent = entry.target.parentElement;
+          const group = parent?.classList.contains('overflow-x-auto')
+            ? Array.from(parent.children)
+            : [entry.target];
+          for (const el of group) {
+            el.classList.add('is-visible');
+            observer.unobserve(el);
+          }
         }
       },
       { rootMargin: '0px 0px -8% 0px', threshold: 0.1 },
