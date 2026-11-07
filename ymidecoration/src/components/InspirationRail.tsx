@@ -18,7 +18,7 @@ const fromEvents: [string, string, number][] = [
   ['Pelaminan bertirai', 'della-adil', 1],
 ];
 
-// Frame dari Highlight Instagram (lihat scripts/optimize-images.mjs): klik menuju konsultasi
+// Frame dari video Highlight & Reels (lihat scripts/optimize-images.mjs): klik menuju konsultasi
 const extra = generated.events.inspirasi;
 const fromHighlight: [string, string, number, string][] = [
   [
@@ -45,6 +45,30 @@ const fromHighlight: [string, string, number, string][] = [
     3,
     'Papan welcome bening dengan rangkaian bunga putih dan lilin',
   ],
+  [
+    'Bunga liar biru & oranye',
+    'Wedding · Biru, oranye, dan kuning',
+    4,
+    'Rangkaian bunga biru, oranye, dan kuning di samping cermin lengkung',
+  ],
+  [
+    'Backdrop tirai royal',
+    'Wedding · Biru royal & oranye',
+    5,
+    'Backdrop tirai biru royal dan oranye dengan untaian bunga oranye di atas rumput hijau',
+  ],
+  [
+    'Detail bunga merah',
+    'Wedding · Merah & putih',
+    6,
+    'Close-up bunga merah, putih, dan amaranthus merah menjuntai',
+  ],
+  [
+    'Anggrek pink & biru muda',
+    'Engagement · Pink & biru muda',
+    7,
+    'Close-up anggrek pink dan bunga biru muda pada rangka lengkung emas',
+  ],
 ];
 
 const cards: Card[] = [
@@ -61,7 +85,7 @@ const cards: Card[] = [
   }),
 ];
 // Selang-seling agar warna dan suasana tidak berurutan sama
-const order = [0, 5, 1, 6, 2, 7, 3, 8, 4];
+const order = [0, 5, 9, 1, 11, 6, 2, 10, 7, 3, 12, 8, 4];
 const rail = order.flatMap((i) => (cards[i] ? [cards[i]] : []));
 
 export function InspirationRail() {

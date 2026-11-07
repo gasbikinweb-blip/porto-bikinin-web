@@ -215,6 +215,30 @@
         "thumb": "/images/acara/inspirasi/04-thumb.webp",
         "width": 720,
         "height": 1280
+      },
+      {
+        "src": "/images/acara/inspirasi/05.webp",
+        "thumb": "/images/acara/inspirasi/05-thumb.webp",
+        "width": 720,
+        "height": 1280
+      },
+      {
+        "src": "/images/acara/inspirasi/06.webp",
+        "thumb": "/images/acara/inspirasi/06-thumb.webp",
+        "width": 720,
+        "height": 1280
+      },
+      {
+        "src": "/images/acara/inspirasi/07.webp",
+        "thumb": "/images/acara/inspirasi/07-thumb.webp",
+        "width": 720,
+        "height": 1280
+      },
+      {
+        "src": "/images/acara/inspirasi/08.webp",
+        "thumb": "/images/acara/inspirasi/08-thumb.webp",
+        "width": 720,
+        "height": 1280
       }
     ]
   }

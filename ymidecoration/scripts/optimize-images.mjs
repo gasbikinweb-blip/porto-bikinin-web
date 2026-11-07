@@ -71,6 +71,10 @@ events.inspirasi = [
   { video: KADA, at: 8.8, cutBottom: 0.24 },
   { video: KADA, at: 11.3, cutBottom: 0.3 },
   { video: HANA, at: 5 },
+  { video: `${F1}/2026-10-26_De8XjiMiw7P/01.mp4`, at: 1.2 },
+  { video: `${F1}/2026-10-26_De8XjiMiw7P/01.mp4`, at: 18.5 },
+  { video: `${F2}/2026-10-19_DeqJZeQC_yd/01.mp4`, at: 6.5 },
+  { video: `${F4}/2024-04-26_C6NYpxoBm4L/01.mp4`, at: 16.5 },
 ];
 
 // Foto hero (versi lebar 2000px)
