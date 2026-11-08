@@ -82,7 +82,7 @@ acaranya. Slug dicek terhadap data, jadi hash yang tidak dikenal diabaikan. Tomb
 - **Inspirasi:** klik kartu detail membuka galeri acara asalnya.
 - **Konsultasi:** pratinjau pesan WhatsApp diperbarui langsung. Tombol "Pakai lokasi saat ini" menambahkan link
   Google Maps (hanya berjalan di HTTPS atau localhost). Foto referensi dari pengunjung hanya diproses di browser;
-  di HP dikirim lewat menu Bagikan (pilih WhatsApp lalu chat YMI), di browser lain pengunjung diminta melampirkannya
+  tombol Kirim selalu membuka chat nomor YMI langsung, lalu pengunjung diminta melampirkan foto
   manual di WhatsApp karena link `wa.me` tidak bisa membawa gambar.
 - **Mode terang/gelap:** tombol di header, default mengikuti pengaturan perangkat, pilihan disimpan di localStorage.
 - **Animasi scroll:** kelas `reveal` (+ `data-anim="zoom|left|right"`) dan `data-stagger`, semuanya mati otomatis

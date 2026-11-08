@@ -175,7 +175,7 @@ export function ConsultBuilder() {
     );
   };
 
-  const send = async () => {
+  const send = () => {
     const errs: string[] = [];
     if (!type || !types.includes(type)) errs.push('Pilih jenis acara.');
     if (!date) errs.push('Isi tanggal acara.');
@@ -191,20 +191,12 @@ export function ConsultBuilder() {
     if (errs.length) return;
     setNotice('');
 
-    // Ada foto: kirim lewat menu Bagikan HP (teks + foto sekaligus), pilih WhatsApp lalu chat YMI
-    const files = photos.map((p) => p.file);
-    if (files.length && navigator.canShare?.({ files, text: message })) {
-      try {
-        await navigator.share({ files, text: message });
-        return;
-      } catch (e) {
-        if (e instanceof DOMException && e.name === 'AbortError') return; // dibatalkan pengguna
-      }
-    }
+    // Selalu langsung ke chat WhatsApp YMI. Link wa.me tidak bisa membawa gambar,
+    // jadi foto referensi dilampirkan pengunjung sendiri di chat yang terbuka.
     window.open(buildWhatsAppLink(message), '_blank', 'noopener,noreferrer');
-    if (files.length) {
+    if (photos.length) {
       setNotice(
-        'Browser ini belum bisa mengirim foto langsung. Pesan sudah terbuka di WhatsApp, silakan lampirkan foto referensinya di chat ya.',
+        `Chat WhatsApp YMI sudah terbuka. Lampirkan ${photos.length} foto referensi Anda di chat tersebut ya (ikon klip/kamera).`,
       );
     }
   };
@@ -614,8 +606,8 @@ export function ConsultBuilder() {
           </button>
           {photos.length > 0 && !notice && (
             <p className="text-sm text-muted sm:col-span-2">
-              Di HP, menu Bagikan akan terbuka: pilih WhatsApp lalu chat {config.name} agar pesan
-              dan foto terkirim sekaligus.
+              Pesan langsung terbuka di chat WhatsApp {config.name}. Foto referensi dilampirkan di
+              chat tersebut, karena link WhatsApp tidak bisa membawa gambar.
             </p>
           )}
           {notice && (
