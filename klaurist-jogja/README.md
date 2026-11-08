@@ -13,7 +13,7 @@ upload, atau form yang mengirim data. Semua pesanan lewat WhatsApp.
 | `npm start` | Sajikan `out/` secara lokal |
 | `npm run lint` / `typecheck` / `format` | ESLint, TypeScript, Prettier |
 | `npm run audit` | Cek kerentanan dependency |
-| `npm run optimize-images` | `../assets/` → WebP di `public/images/` (maks 1200px + thumb 500px), logo, ikon, OG |
+| `npm run optimize-images` | `assets/` → WebP di `public/images/` (maks 1200px + thumb 500px), logo, ikon, OG |
 
 Node ≥ 20.9 (lihat `.nvmrc`). Versi dependency dikunci exact.
 
@@ -28,7 +28,7 @@ Node ≥ 20.9 (lihat `.nvmrc`). Versi dependency dikunci exact.
 
 ### Mengganti foto
 
-1. Taruh foto di `../assets/`, lalu daftarkan di array `photos` pada `scripts/optimize-images.mjs`.
+1. Taruh foto di `assets/`, lalu daftarkan di array `photos` pada `scripts/optimize-images.mjs`.
    Bila ada nama/wajah orang, isi `blur` dengan kotak yang perlu disamarkan.
 2. Jalankan `npm run optimize-images`.
 3. Isi `images` di data produk: `{ src, alt, width, height, kind: 'foto' }`.
@@ -42,7 +42,7 @@ Salin `.env.example` ke `.env.local` dan ubah `NEXT_PUBLIC_WA_NUMBER`, atau isi 
 
 ## Deploy
 
-- **Vercel:** Root Directory `klaurist-akrilik/klaurist-web`. `vercel.json` sudah mengatur build & header.
+- **Vercel:** Root Directory `klaurist-jogja`. `vercel.json` sudah mengatur build & header.
 - **Netlify / Cloudflare Pages:** build `npm run build`, publish `out`. Header dari `public/_headers`.
 - Set `NEXT_PUBLIC_SITE_URL` ke domain asli agar canonical, sitemap, dan link produk benar.
 
@@ -60,7 +60,7 @@ Salin `.env.example` ke `.env.local` dan ubah `NEXT_PUBLIC_WA_NUMBER`, atau isi 
 
 ## Hak cipta & privasi
 
-- Hanya aset dari `../assets/` milik Klaurist. Ilustrasi bunga dibuat sendiri (SVG).
+- Hanya aset dari `assets/` milik Klaurist. Ilustrasi bunga dibuat sendiri (SVG).
 - Nama wisudawan di foto papan **disamarkan** lewat `scripts/optimize-images.mjs`. Minta izin pemilik dan pelanggan
   sebelum menampilkan foto yang memperlihatkan nama atau wajah.
 - Foto `02.jpg` bertanda "Meta AI", jadi tidak dipakai sampai dipastikan foto produk asli.

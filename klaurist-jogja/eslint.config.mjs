@@ -11,5 +11,5 @@ export default defineConfig([
       'react/no-danger': 'error',
     },
   },
-  globalIgnores(['.next/**', 'out/**', 'node_modules/**', 'next-env.d.ts']),
+  globalIgnores(['.next/**', 'out/**', 'node_modules/**', 'next-env.d.ts', 'nextjs-static-catalog-starter/**', 'assets/**']),
 ]);

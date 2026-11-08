@@ -1,4 +1,4 @@
-// Mengolah aset dari ../assets/ menjadi WebP di public/images/ (maks 1200px + thumbnail 500px).
+// Mengolah aset dari assets/ menjadi WebP di public/images/ (maks 1200px + thumbnail 500px).
 // File asli TIDAK ditimpa. Metadata EXIF/GPS dibuang (sharp tidak menyalinnya).
 // Nama penerima di foto papan DISAMARKAN (blur) sampai ada izin pemilik & pelanggan.
 // Jalankan: npm run optimize-images
@@ -6,7 +6,7 @@ import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 
-const SRC = process.env.ASSETS_DIR ?? '../assets';
+const SRC = process.env.ASSETS_DIR ?? 'assets';
 const OUT = path.join('public', 'images');
 
 // Foto yang dipakai. `crop` = potong dari poster [kiri, atas, lebar, tinggi];

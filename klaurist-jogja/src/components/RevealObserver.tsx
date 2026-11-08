@@ -11,6 +11,24 @@ export function RevealObserver() {
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+    // Section yang belum diberi .reveal: blok-bloknya otomatis ikut muncul saat di-scroll
+    const auto = (el: Element) => {
+      if (el.closest('.reveal') || el.querySelector('.reveal') || el.matches('dialog, script'))
+        return;
+      el.classList.add('reveal');
+    };
+    document.querySelectorAll('main section, footer').forEach((section) => {
+      const kids = Array.from(section.children);
+      const box = kids.length === 1 && kids[0]!.children.length > 1 ? kids[0]! : section;
+      Array.from(box.children).forEach((child) => {
+        // Daftar/grid: tiap item muncul bergiliran
+        if (child.matches('ul, ol, dl') && !child.querySelector('.reveal')) {
+          child.setAttribute('data-stagger', '');
+          Array.from(child.children).forEach(auto);
+        } else auto(child);
+      });
+    });
+
     // Anak dari [data-stagger] muncul bergiliran
     document.querySelectorAll<HTMLElement>('[data-stagger]').forEach((parent) => {
       Array.from(parent.children).forEach((child, i) => {

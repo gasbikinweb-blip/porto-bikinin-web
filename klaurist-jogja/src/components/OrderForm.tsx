@@ -4,6 +4,7 @@
 import { useEffect, useState } from 'react';
 import { LocationTools } from './LocationTools';
 import { SectionTitle } from './SectionTitle';
+import { DatePicker } from './DatePicker';
 import { Select } from './Select';
 import { WhatsAppIcon } from './icons';
 import { addons } from '@/data/addons';
@@ -20,6 +21,15 @@ const label = 'block text-sm font-medium';
 
 const isoLocal = (d: Date) =>
   `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+// Pilihan jam per 30 menit, 07.00–21.00
+const timeOptions = [
+  { value: '', label: 'Belum tahu / fleksibel' },
+  ...Array.from({ length: 29 }, (_, i) => {
+    const t = `${String(7 + Math.floor(i / 2)).padStart(2, '0')}.${i % 2 ? '30' : '00'}`;
+    return { value: t, label: `${t} WIB` };
+  }),
+];
+
 const dateAfter = (days: number) => {
   const d = new Date();
   d.setDate(d.getDate() + days);
@@ -294,15 +304,7 @@ export function OrderForm() {
                 <label htmlFor="tanggal" className={label}>
                   {tab === 'papan' ? 'Tanggal acara' : 'Tanggal dibutuhkan'}
                 </label>
-                <input
-                  id="tanggal"
-                  type="date"
-                  min={dateAfter(0)}
-                  suppressHydrationWarning
-                  value={date}
-                  onChange={(e) => setDate(e.target.value)}
-                  className={field}
-                />
+                <DatePicker id="tanggal" min={dateAfter(0)} value={date} onChange={setDate} />
                 {tooSoon && (
                   <p className="mt-1 text-sm text-rose-strong">
                     Pemesanan sebaiknya H-{LEAD_DAYS}. Konfirmasi dulu ke admin ya, Kak.
@@ -313,13 +315,7 @@ export function OrderForm() {
                 <label htmlFor="jam" className={label}>
                   Jam (opsional)
                 </label>
-                <input
-                  id="jam"
-                  type="time"
-                  value={time}
-                  onChange={(e) => setTime(e.target.value)}
-                  className={field}
-                />
+                <Select id="jam" value={time} options={timeOptions} onChange={setTime} />
               </div>
 
               {tab === 'papan' ? (

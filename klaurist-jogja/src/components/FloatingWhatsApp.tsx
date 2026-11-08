@@ -15,10 +15,8 @@ export function FloatingWhatsApp() {
       <WhatsAppIcon className="relative size-7" />
       <span
         aria-hidden="true"
-        className="wa-blink absolute -top-1 -right-1 grid size-6 place-items-center rounded-full border-2 border-ivory bg-[#e5304a] text-xs font-semibold text-white"
-      >
-        1
-      </span>
+        className="wa-blink absolute top-0 right-0 size-4 rounded-full border-2 border-ivory bg-[#e5304a]"
+      />
     </a>
   );
 }

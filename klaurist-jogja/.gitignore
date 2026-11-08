@@ -9,3 +9,9 @@ npm-debug.log*
 .DS_Store
 .vercel
 .claude/
+
+# Bahan mentah (tidak di-commit)
+/assets/
+/nextjs-static-catalog-starter/
+/Informasi.txt
+/klaurist-web/
