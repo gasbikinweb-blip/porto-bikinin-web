@@ -2,8 +2,8 @@
 
 // Penyusun pesan konsultasi: dihitung di browser, tanpa <form> submit dan tanpa penyimpanan.
 // Pratinjau WhatsApp diperbarui langsung saat formulir diisi.
-import { useEffect, useRef, useState } from 'react';
-import { CloseIcon, PinIcon, WhatsAppIcon } from './icons';
+import { useState } from 'react';
+import { PinIcon, WhatsAppIcon } from './icons';
 import { Select } from './Select';
 import { budgets } from '@/data/content';
 import { events, eventTypes, palettes, type EventType } from '@/data/events';
@@ -25,10 +25,6 @@ const clean = (s: string) =>
 
 const types = Object.keys(eventTypes) as EventType[];
 
-// Foto referensi hanya diproses di browser pengguna, tidak diunggah ke server mana pun
-const MAX_PHOTOS = 4;
-const MAX_SIZE = 10 * 1024 * 1024;
-type Photo = { file: File; url: string };
 const paletteOptions = [...palettes, 'Putih & Hijau', 'Belum tahu'];
 
 const longDate = (iso: string) =>
@@ -57,43 +53,7 @@ export function ConsultBuilder() {
   const [ref, setRef] = useState('');
   const [budget, setBudget] = useState('');
   const [errors, setErrors] = useState<string[]>([]);
-  const [photos, setPhotos] = useState<Photo[]>([]);
-  const [photoInfo, setPhotoInfo] = useState('');
-  const [notice, setNotice] = useState('');
-  const urls = useRef<string[]>([]);
-
-  // Bersihkan URL pratinjau saat komponen dilepas
-  useEffect(() => () => urls.current.forEach((u) => URL.revokeObjectURL(u)), []);
-
-  const addPhotos = (list: FileList | null) => {
-    if (!list) return;
-    const ok: Photo[] = [];
-    let skipped = 0;
-    for (const file of Array.from(list)) {
-      if (!file.type.startsWith('image/') || file.size > MAX_SIZE) {
-        skipped++;
-        continue;
-      }
-      if (photos.length + ok.length >= MAX_PHOTOS) break;
-      const url = URL.createObjectURL(file);
-      urls.current.push(url);
-      ok.push({ file, url });
-    }
-    setPhotos((p) => [...p, ...ok]);
-    setPhotoInfo(
-      skipped
-        ? `${skipped} file dilewati. Gunakan gambar maksimal 10 MB.`
-        : photos.length + ok.length >= MAX_PHOTOS
-          ? `Maksimal ${MAX_PHOTOS} foto.`
-          : '',
-    );
-  };
-
-  const removePhoto = (url: string) => {
-    URL.revokeObjectURL(url);
-    urls.current = urls.current.filter((u) => u !== url);
-    setPhotos((p) => p.filter((x) => x.url !== url));
-  };
+  const [notes, setNotes] = useState('');
 
   const refEvent = events.find((e) => e.slug === ref);
   const guestCount = guests.trim() === '' ? null : Number(guests);
@@ -111,7 +71,7 @@ export function ConsultBuilder() {
   if (nuansa) lines.push(['Nuansa', nuansa]);
   if (refEvent) lines.push(['Referensi', `${refEvent.title} ${eventUrl(refEvent.slug)}`]);
   if (budget) lines.push(['Budget', budget]);
-  if (photos.length) lines.push(['Foto referensi', `${photos.length} foto terlampir`]);
+  if (clean(notes)) lines.push(['Catatan / referensi', clean(notes)]);
   const who = clean(name) ? `saya ${clean(name)}, ` : 'saya ';
   const greeting = `Halo ${config.name}, ${who}ingin konsultasi dekorasi.`;
   const message = [greeting, '', ...lines.map(([k, v]) => `${k}: ${v}`)].join('\n');
@@ -189,16 +149,7 @@ export function ConsultBuilder() {
       errs.push('Jumlah tamu harus bilangan bulat.');
     setErrors(errs);
     if (errs.length) return;
-    setNotice('');
-
-    // Selalu langsung ke chat WhatsApp YMI. Link wa.me tidak bisa membawa gambar,
-    // jadi foto referensi dilampirkan pengunjung sendiri di chat yang terbuka.
     window.open(buildWhatsAppLink(message), '_blank', 'noopener,noreferrer');
-    if (photos.length) {
-      setNotice(
-        `Chat WhatsApp YMI sudah terbuka. Lampirkan ${photos.length} foto referensi Anda di chat tersebut ya (ikon klip/kamera).`,
-      );
-    }
   };
 
   const time = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
@@ -235,22 +186,6 @@ export function ConsultBuilder() {
                 aria-live="polite"
                 className="ml-auto max-w-[92%] rounded-2xl rounded-tr-sm bg-[#dcf3d0] p-3.5 text-[0.9rem] leading-relaxed text-[#1b1b1b] shadow-sm"
               >
-                {photos.length > 0 && (
-                  <ul
-                    className={`-mx-1 -mt-1 mb-3 grid gap-1 overflow-hidden rounded-xl ${photos.length > 1 ? 'grid-cols-2' : ''}`}
-                  >
-                    {photos.map((p) => (
-                      <li key={p.url} className="relative aspect-square bg-white/60">
-                        {/* eslint-disable-next-line @next/next/no-img-element -- pratinjau lokal (blob:) */}
-                        <img
-                          src={p.url}
-                          alt="Foto referensi dari Anda"
-                          className="size-full object-cover"
-                        />
-                      </li>
-                    ))}
-                  </ul>
-                )}
                 <p>{greeting}</p>
                 {lines.length === 0 ? (
                   <p className="mt-2 text-[#5e6b5a] italic">
@@ -531,61 +466,18 @@ export function ConsultBuilder() {
           </div>
 
           <div className="sm:col-span-2">
-            <p className={label}>Foto referensi (opsional)</p>
-            <p className="mt-1 text-sm text-muted">
-              Punya contoh dekorasi impian? Tambahkan hingga {MAX_PHOTOS} foto. Foto tidak diunggah
-              ke website, hanya ikut dikirim ke WhatsApp.
-            </p>
-            <ul className="mt-4 flex flex-wrap gap-3">
-              {photos.map((p, i) => (
-                <li
-                  key={p.url}
-                  className="relative size-24 overflow-hidden rounded-2xl border border-line"
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element -- pratinjau lokal (blob:) */}
-                  <img
-                    src={p.url}
-                    alt={`Foto referensi ${i + 1}`}
-                    className="size-full object-cover"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => removePhoto(p.url)}
-                    aria-label={`Hapus foto referensi ${i + 1}`}
-                    className="absolute top-1 right-1 grid size-8 place-items-center rounded-full bg-night/70 text-white backdrop-blur hover:bg-night"
-                  >
-                    <CloseIcon className="size-4" />
-                  </button>
-                </li>
-              ))}
-              {photos.length < MAX_PHOTOS && (
-                <li>
-                  <label className="grid size-24 cursor-pointer place-items-center rounded-2xl border border-dashed border-gold bg-ivory text-center text-xs text-gold-text transition hover:bg-paper focus-within:ring-2 focus-within:ring-gold">
-                    <span>
-                      <span aria-hidden="true" className="block text-2xl leading-none">
-                        +
-                      </span>
-                      Tambah foto
-                    </span>
-                    <input
-                      type="file"
-                      accept="image/*"
-                      multiple
-                      className="sr-only"
-                      onChange={(e) => {
-                        addPhotos(e.target.files);
-                        e.target.value = '';
-                      }}
-                    />
-                  </label>
-                </li>
-              )}
-            </ul>
-            {photoInfo && (
-              <p aria-live="polite" className="mt-2 text-sm text-muted">
-                {photoInfo}
-              </p>
-            )}
+            <label htmlFor="catatan" className={label}>
+              Catatan &amp; link referensi (opsional)
+            </label>
+            <textarea
+              id="catatan"
+              rows={3}
+              maxLength={500}
+              placeholder="mis. link Google Drive / Pinterest berisi contoh dekorasi impian Anda, atau catatan lain"
+              value={notes}
+              onChange={(e) => setNotes(e.target.value)}
+              className={`${field} mt-2 resize-y py-3`}
+            />
           </div>
 
           {errors.length > 0 && (
@@ -604,17 +496,6 @@ export function ConsultBuilder() {
             <WhatsAppIcon className="size-5" />
             Kirim via WhatsApp
           </button>
-          {photos.length > 0 && !notice && (
-            <p className="text-sm text-muted sm:col-span-2">
-              Pesan langsung terbuka di chat WhatsApp {config.name}. Foto referensi dilampirkan di
-              chat tersebut, karena link WhatsApp tidak bisa membawa gambar.
-            </p>
-          )}
-          {notice && (
-            <p role="status" className="rounded-2xl bg-ivory p-4 text-sm sm:col-span-2">
-              {notice}
-            </p>
-          )}
         </div>
       </div>
     </section>
