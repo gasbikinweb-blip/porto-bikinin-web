@@ -111,10 +111,10 @@ export function Services() {
           setSelected(null);
         }}
         onClick={(e) => e.target === e.currentTarget && setSelected(null)}
-        className="m-0 h-dvh max-h-none w-full max-w-none overflow-y-auto bg-paper text-ink sm:m-auto sm:h-auto sm:max-h-[90dvh] sm:max-w-4xl sm:rounded-3xl"
+        className="m-0 h-dvh max-h-none w-full max-w-none overflow-y-auto bg-paper text-ink sm:m-auto sm:h-auto sm:max-h-[90dvh] sm:max-w-4xl sm:rounded-3xl open:flex open:flex-col"
       >
         {selected && (
-          <div key={selected.type} className="grid min-h-full sm:grid-cols-[1fr_1.1fr]">
+          <div key={selected.type} className="grid flex-1 sm:grid-cols-[1fr_1.1fr]">
             <div className="relative min-h-80 bg-night sm:min-h-full">
               {cover(selected) && (
                 <Image
