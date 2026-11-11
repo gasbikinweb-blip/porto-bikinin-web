@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Website Tidak Aktif</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #101214;
+        --text: #f2f3f4;
+        --muted: #a9afb5;
+        --accent: #e0a458;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100dvh;
+        display: grid;
+        place-items: center;
+        padding: 24px 16px;
+        overflow: hidden;
+        background: var(--bg);
+        color: var(--text);
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        text-align: center;
+      }
+      main {
+        position: relative;
+        max-width: 32rem;
+        animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      .power {
+        position: relative;
+        width: 96px;
+        height: 96px;
+        margin: 0 auto 32px;
+        display: grid;
+        place-items: center;
+      }
+      .ring {
+        position: absolute;
+        inset: 0;
+        border: 2px solid var(--accent);
+        border-radius: 50%;
+        animation: pulse 2.6s ease-out infinite;
+      }
+      .ring.two {
+        animation-delay: 1.3s;
+      }
+      svg {
+        width: 48px;
+        height: 48px;
+        color: var(--accent);
+        animation: flicker 4s linear infinite;
+      }
+      h1 {
+        margin: 0;
+        font-size: clamp(1.9rem, 6vw, 2.75rem);
+        line-height: 1.15;
+      }
+      p {
+        margin: 16px 0 0;
+        color: var(--muted);
+        font-size: 1.05rem;
+        line-height: 1.6;
+      }
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+      }
+      @keyframes pulse {
+        from {
+          opacity: 0.8;
+          transform: scale(0.7);
+        }
+        to {
+          opacity: 0;
+          transform: scale(1.5);
+        }
+      }
+      @keyframes flicker {
+        0%,
+        70%,
+        76%,
+        84%,
+        100% {
+          opacity: 1;
+        }
+        73%,
+        80% {
+          opacity: 0.25;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        main,
+        .ring,
+        svg {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="power" aria-hidden="true">
+        <span class="ring"></span>
+        <span class="ring two"></span>
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        >
+          <path d="M12 3v9" />
+          <path d="M6.3 7.3a8 8 0 1 0 11.4 0" />
+        </svg>
+      </div>
+      <h1>Website ini sudah tidak aktif</h1>
+      <p>Mohon maaf, layanan website ini telah dihentikan untuk sementara waktu.</p>
+    </main>
+  </body>
+</html>

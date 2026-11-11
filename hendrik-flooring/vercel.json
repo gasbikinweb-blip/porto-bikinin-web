@@ -4,6 +4,9 @@
   "buildCommand": "npm run build",
   "outputDirectory": "out",
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/((?!nonaktif).*)", "destination": "/nonaktif/", "permanent": false }
+  ],
   "headers": [
     {
       "source": "/(.*)",
