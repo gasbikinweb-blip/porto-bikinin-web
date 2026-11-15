@@ -1,4 +1,4 @@
-// Konten dari Instagram @akaa.construction (2026): klip video, katalog material, dan brosur.
+// Konten dari Instagram AKAA (@akaa.construction, 2026): klip video, katalog material, dan brosur.
 // Klip dipotong ~8 detik tanpa suara dari video IG asli (ffmpeg), poster = frame video.
 
 export type Reel = {
@@ -14,6 +14,22 @@ export type Reel = {
 };
 
 export const reels: readonly Reel[] = [
+  {
+    slug: 'kolam-renang-sn-house',
+    title: 'Area kolam renang',
+    place: 'SN House, Rancamaya',
+    date: '2026-10-19',
+    orientation: 'portrait',
+    project: 'sn-house-rancamaya',
+  },
+  {
+    slug: 'sn-house-17-oktober',
+    title: 'Plester & finishing dalam',
+    place: 'SN House, Rancamaya',
+    date: '2026-10-17',
+    orientation: 'portrait',
+    project: 'sn-house-rancamaya',
+  },
   {
     slug: 'sn-house-26-september',
     title: 'Progress dinding villa',

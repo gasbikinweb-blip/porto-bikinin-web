@@ -39,6 +39,12 @@ export const TikTokIcon = ({ className }: P) => (
   </svg>
 );
 
+export const FacebookIcon = ({ className }: P) => (
+  <svg {...line} className={className}>
+    <path d="M14.5 21v-7.5H17l.5-3h-3V8.7c0-.9.4-1.5 1.6-1.5h1.5V4.6c-.3 0-1.2-.1-2.3-.1-2.4 0-3.8 1.4-3.8 4V10.5H9v3h2.5V21" />
+  </svg>
+);
+
 export const CloseIcon = ({ className }: P) => (
   <svg {...line} className={className}>
     <path d="M6 6l12 12M18 6 6 18" />

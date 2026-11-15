@@ -1,4 +1,4 @@
-// Profil usaha. Sumber: bio IG/Threads @akaa.construction, katalog WhatsApp Business, caption 2026.
+// Profil usaha. Sosmed = akun AKAA OFFICIAL (permintaan pemilik). Sumber: bio IG, katalog WhatsApp Business, caption 2026.
 
 export const site = {
   brand: 'AKAA',
@@ -17,9 +17,10 @@ export const site = {
     'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3965.219754765404!2d106.9575!3d-6.3656!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6993778fd1ca4b%3A0xf16de5b85a36c885!2sRuko%20Fresh%20Market%2C%20Jl.%20Boulevard%20Kota%20Wisata%2C%20Ciangsana%2C%20Kec.%20Gn.%20Putri%2C%20Kabupaten%20Bogor%2C%20Jawa%20Barat%2016968!5e0!3m2!1sen!2sid!4v1794722647877!5m2!1sen!2sid',
   hours: 'Buka 24 jam' as string | undefined, // sumber: Google Business Profile
   social: {
-    instagram: 'https://www.instagram.com/akaa.construction/',
-    threads: 'https://www.threads.com/@akaa.construction',
+    instagram: 'https://www.instagram.com/akaa.official21/',
+    threads: 'https://www.threads.com/@akaa.official21',
     tiktok: 'https://www.tiktok.com/@akaa.official',
+    facebook: 'https://www.facebook.com/share/1CNKyMNK4B/',
   },
 } as const;
 

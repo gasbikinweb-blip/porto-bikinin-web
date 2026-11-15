@@ -1,10 +1,11 @@
-import { InstagramIcon, ThreadsIcon, TikTokIcon } from './icons';
+import { FacebookIcon, InstagramIcon, ThreadsIcon, TikTokIcon } from './icons';
 import { site } from '@/data/site';
 
 const items = [
   { href: site.social.instagram, label: 'Instagram', Icon: InstagramIcon },
   { href: site.social.threads, label: 'Threads', Icon: ThreadsIcon },
   { href: site.social.tiktok, label: 'TikTok', Icon: TikTokIcon },
+  { href: site.social.facebook, label: 'Facebook', Icon: FacebookIcon },
 ];
 
 export function Socials({ className = '' }: { className?: string }) {

@@ -92,6 +92,32 @@ const sn = {
     720,
     'progress',
   ),
+  // Frame video IG @akaa.official21, Oktober 2026
+  okt17: img(
+    'sn-house-rancamaya',
+    '11',
+    'Bangunan dua lantai SN House dengan perancah, 17 Oktober 2026',
+    720,
+    540,
+    'progress',
+  ),
+  plester: img(
+    'sn-house-rancamaya',
+    '12',
+    'Tukang memplester kusen pintu di dalam SN House',
+    720,
+    960,
+    'progress',
+  ),
+  kolam: img(
+    'sn-house-rancamaya',
+    '13',
+    'Penggalian area kolam renang SN House',
+    720,
+    960,
+    'progress',
+  ),
+  bitumen: img('sn-house-rancamaya', '14', 'Rangka atap bitumen SN House', 960, 720, 'progress'),
 };
 
 const harvest = [
@@ -188,7 +214,41 @@ const renov = [
   ),
 ];
 
-export const projects: readonly Project[] = [
+const interior = [
+  img(
+    'interior-apartemen',
+    '01',
+    'Kamar tidur apartemen dengan headboard, partisi kisi kayu, dan lemari custom',
+    1600,
+    1200,
+  ),
+  img(
+    'interior-apartemen',
+    '03',
+    'Kitchen set hijau mint dengan kabinet atas kayu dan meja granit hitam',
+    1600,
+    1200,
+  ),
+  img('interior-apartemen', '02', 'Kabinet dapur dengan rak tarik (pull-out) custom', 1280, 960),
+  img('interior-apartemen', '04', 'Balkon apartemen dengan lantai deck kayu', 1600, 1200),
+];
+
+const list: Project[] = [
+  {
+    slug: 'interior-apartemen',
+    name: 'Interior Apartemen Thamrin',
+    workType: 'interior',
+    // Sumber: IG @akaa.official21 18 Sep 2026 & @akaa.construction 11 Agu 2026 ("Interior Apartemen Thamrin Bekasi")
+    location: 'Bekasi',
+    status: 'selesai',
+    year: 2026,
+    scope:
+      'Custom interior unit apartemen: kitchen set, kabinet dengan rak tarik, lemari & headboard kamar tidur, serta lantai deck kayu di balkon.',
+    cover: interior[0]!,
+    images: interior,
+    featured: true,
+    sourcePosts: [ig('DdbiEYYBjk_'), ig('Db5D_mQx02Q')],
+  },
   {
     slug: 'sn-house-rancamaya',
     name: 'SN House Villa',
@@ -198,8 +258,12 @@ export const projects: readonly Project[] = [
     year: 2026,
     scope: 'Pembangunan villa dari struktur, atap, hingga instalasi piping dan wiring.',
     // TODO: konfirmasi bahwa kedua foto Mei 2026 adalah lokasi SN House
-    cover: sn.aug08,
+    cover: sn.okt17,
     images: [
+      sn.okt17,
+      sn.bitumen,
+      sn.kolam,
+      sn.plester,
       sn.aug08,
       sn.sep29,
       sn.sep18,
@@ -221,7 +285,10 @@ export const projects: readonly Project[] = [
       { date: '2026-09-18', stage: 'Update progress villa', images: [sn.sep18] },
       { date: '2026-09-22', stage: 'Pekerjaan rangka atap', images: [sn.atap] },
       { date: '2026-09-22', stage: 'Instalasi piping & wiring', images: [sn.piping] },
-      { date: '2026-09-29', stage: 'Update progress terbaru', images: [sn.sep29] },
+      { date: '2026-09-29', stage: 'Update progress villa', images: [sn.sep29] },
+      { date: '2026-10-17', stage: 'Plester & pekerjaan dalam', images: [sn.okt17, sn.plester] },
+      { date: '2026-10-19', stage: 'Penggalian area kolam renang', images: [sn.kolam] },
+      { date: '2026-10-19', stage: 'Rangka atap bitumen', images: [sn.bitumen] },
     ],
     featured: true,
     sourcePosts: [
@@ -360,6 +427,9 @@ export const projects: readonly Project[] = [
     sourcePosts: [ig('CNYxeSwH383'), ig('CN3mxt3nZJc')],
   },
 ];
+
+// Urut tahun pengerjaan 2020 -> 2026 (permintaan pemilik); tahun sama mengikuti urutan data
+export const projects: readonly Project[] = [...list].sort((a, b) => a.year - b.year);
 
 export const workTypeLabel: Record<Project['workType'], string> = {
   'bangun-baru': 'Bangun Baru',

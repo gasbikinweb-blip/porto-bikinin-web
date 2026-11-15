@@ -39,5 +39,5 @@ Root Directory: `akaa-construction-web`. Build & header sudah diatur di `vercel.
 
 ## Hak cipta & privasi
 
-- Foto hanya dari Instagram resmi @akaa.construction. **Pastikan izin klien** sebelum mempublikasikan foto rumah mereka.
+- Foto dari Instagram AKAA (@akaa.construction, @akaa.official21) dan kiriman pemilik. **Pastikan izin klien** sebelum mempublikasikan foto rumah mereka.
 - Lokasi proyek cukup tingkat kawasan/kota. Wajah, plat nomor, dan nomor rumah jangan ditampilkan.
