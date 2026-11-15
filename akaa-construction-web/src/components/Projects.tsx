@@ -213,7 +213,7 @@ export function Projects() {
           {list.map((p) => (
             <li
               key={p.slug}
-              className="reveal group relative overflow-hidden rounded-lg border border-line bg-surface"
+              className="animate-in group relative overflow-hidden rounded-lg border border-line bg-surface"
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-surface-2">
                 <Image
