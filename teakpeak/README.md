@@ -172,7 +172,7 @@ Tombol "Tanya via WhatsApp" mengirim pesan berisi detail produk (nama, bahan, uk
 
 - Foto pratinjau memakai `public/products/<slug>/og.jpg` (JPG 600px, dibuat `npm run optimize-images` dari foto `01`),
   karena WhatsApp tidak selalu menampilkan pratinjau WebP.
-- Link memakai `NEXT_PUBLIC_SITE_URL`. Sementara diisi subdomain Netlify `https://example.com`.
+- Link memakai `NEXT_PUBLIC_SITE_URL`. Sementara diisi subdomain Netlify `https://porto-teakpeak.vercel.app`.
   Saat membuat site di Netlify, beri nama `nama-site` (atau sesuaikan nilainya kalau nama itu sudah dipakai orang).
 - Kartu pratinjau **hanya muncul setelah website online** (WhatsApp tidak bisa membaca localhost). WhatsApp juga
   menyimpan cache pratinjau, jadi perubahan foto bisa butuh waktu untuk terlihat.

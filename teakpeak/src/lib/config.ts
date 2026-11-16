@@ -25,7 +25,7 @@ export const siteConfig = {
   description:
     'Teakpeak Furniture: furnitur kayu jati solid buatan Jepara. Kursi, sofa, meja, tempat tidur, dan penyimpanan, bisa custom untuk rumah, villa, kafe, dan restoran.',
   // TODO: ganti dengan domain asli setelah deploy
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://teakpeak.vercel.app',
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://porto-teakpeak.vercel.app',
   waNumber,
   // Tampilan nomor untuk dibaca manusia
   waDisplay: '0853-8508-3429',
