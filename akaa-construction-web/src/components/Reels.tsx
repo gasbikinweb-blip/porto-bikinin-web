@@ -6,13 +6,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowIcon, InstagramIcon, WhatsAppIcon } from './icons';
 import { reels, type Reel } from '@/data/media';
+import { VideoLightbox } from './VideoLightbox';
 import { site } from '@/data/site';
 import { buildWhatsAppLink } from '@/lib/whatsapp';
 
 const shortDate = (iso: string) =>
   new Date(`${iso}T00:00:00`).toLocaleDateString('id-ID', { day: 'numeric', month: 'short' });
 
-function ReelCard({ r }: { r: Reel }) {
+function ReelCard({ r, onOpen }: { r: Reel; onOpen: () => void }) {
   const ref = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
   const [muted, setMuted] = useState(true);
@@ -21,7 +22,7 @@ function ReelCard({ r }: { r: Reel }) {
   useEffect(() => {
     const onOther = (e: Event) => {
       const v = ref.current;
-      if (v && (e as CustomEvent<HTMLVideoElement>).detail !== v) {
+      if (v && (e as CustomEvent<HTMLVideoElement | null>).detail !== v) {
         v.muted = true;
         setMuted(true);
       }
@@ -85,6 +86,12 @@ function ReelCard({ r }: { r: Reel }) {
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 bg-gradient-to-t from-night via-night/10 to-night/30"
+        />
+        <button
+          type="button"
+          onClick={onOpen}
+          aria-label={`Putar layar penuh: ${r.title}`}
+          className="absolute inset-0 cursor-zoom-in"
         />
         <button
           type="button"
@@ -160,6 +167,7 @@ function ReelCard({ r }: { r: Reel }) {
 }
 
 export function Reels() {
+  const [open, setOpen] = useState<number | null>(null);
   return (
     <section id="video" className="overflow-hidden bg-night py-20 text-white sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -189,10 +197,20 @@ export function Reels() {
         data-stagger
         className="mt-10 flex snap-x snap-mandatory scroll-px-4 gap-4 overflow-x-auto px-4 pb-4 sm:scroll-px-6 sm:px-6 xl:scroll-px-[calc((100vw-80rem)/2+1.5rem)] xl:px-[calc((100vw-80rem)/2+1.5rem)]"
       >
-        {reels.map((r) => (
-          <ReelCard key={r.slug} r={r} />
+        {reels.map((r, i) => (
+          <ReelCard key={r.slug} r={r} onOpen={() => setOpen(i)} />
         ))}
       </ul>
+      <VideoLightbox
+        items={reels.map((r) => ({
+          src: `/reels/${r.slug}.mp4`,
+          poster: `/reels/${r.slug}.webp`,
+          title: r.title,
+          sub: r.place,
+        }))}
+        index={open}
+        onIndex={setOpen}
+      />
     </section>
   );
 }
