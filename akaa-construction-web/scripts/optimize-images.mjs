@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 // Mengolah foto pilihan dari ../akaa_construction/assets/content ig/ menjadi WebP di public/images/proyek/[slug]/.
 // File asli TIDAK ditimpa. Metadata (EXIF/GPS) otomatis dibuang oleh sharp.
 // Jalankan: npm run optimize-images
@@ -52,12 +53,15 @@ for (const [slug, name, file, crop] of photos) {
   console.log(`✓ ${file} -> ${dir}/${name}.webp`);
 }
 
-// Gambar pratinjau link (WhatsApp/medsos) dalam JPG
-await sharp(path.join(SRC, photos[0][2]))
-  .rotate()
-  .resize({ width: 1200, height: 630, fit: 'cover' })
-  .jpeg({ quality: 78, mozjpeg: true })
-  .toFile('public/og.jpg');
+// Gambar pratinjau link (WhatsApp/medsos) dalam JPG.
+// Tidak ditimpa bila sudah ada: public/og.jpg sekarang kolase desain khusus (foto proyek + logo + judul).
+if (!existsSync('public/og.jpg')) {
+  await sharp(path.join(SRC, photos[0][2]))
+    .rotate()
+    .resize({ width: 1200, height: 630, fit: 'cover' })
+    .jpeg({ quality: 78, mozjpeg: true })
+    .toFile('public/og.jpg');
+}
 
 // Ukuran tiap hasil, untuk diisi ke src/data/projects.ts
 for (const [slug, name] of photos) {

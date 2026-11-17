@@ -233,7 +233,7 @@ const interior = [
   img('interior-apartemen', '04', 'Balkon apartemen dengan lantai deck kayu', 1600, 1200),
 ];
 
-// Proyek 2022-2024: foto & keterangan dikirim pemilik via WhatsApp (17 Nov 2026)
+// Proyek 2022-2025: foto & keterangan dikirim pemilik via WhatsApp (17 Nov 2026)
 const p2022 = [
   img(
     'washpaint-epoxy-bekasi',
@@ -278,7 +278,45 @@ const p2024 = [
   ),
 ];
 
+const p2025 = [
+  img(
+    'granit-black-galaxy-bekasi',
+    '01',
+    'Lantai granit Black Galaxy yang baru terpasang di koridor gedung',
+    1600,
+    1204,
+  ),
+  img(
+    'granit-black-galaxy-bekasi',
+    '02',
+    'Hamparan granit Black Galaxy mengilap di area koridor',
+    1600,
+    1204,
+  ),
+  img(
+    'granit-black-galaxy-bekasi',
+    '03',
+    'Tukang memasang lantai granit Black Galaxy',
+    1600,
+    1200,
+    'progress',
+  ),
+];
+
 const list: Project[] = [
+  {
+    slug: 'granit-black-galaxy-bekasi',
+    name: 'Pemasangan Lantai Granit Black Galaxy',
+    workType: 'renovasi',
+    location: 'Bekasi',
+    status: 'selesai',
+    year: 2025,
+    scope: 'Pemasangan lantai granit Black Galaxy di area koridor.',
+    cover: p2025[0]!,
+    images: p2025,
+    featured: true,
+    sourcePosts: [],
+  },
   {
     slug: 'washpaint-epoxy-bekasi',
     name: 'Washpaint & Epoxy',
