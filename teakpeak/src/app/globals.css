@@ -321,3 +321,22 @@ body {
     opacity: 1 !important;
   }
 }
+
+/* Bar progres slide hero (7 detik) */
+@keyframes hero-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+.animate-hero-progress {
+  animation: hero-progress 7s linear forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-progress {
+    animation: none;
+    width: 100%;
+  }
+}

@@ -113,6 +113,7 @@ const products: readonly Product[] = [
       'Verla Arm Chair, foto 2',
       'Verla Arm Chair, foto 3',
       'Verla Arm Chair, foto 4',
+      'Verla Arm Chair, foto 5',
     ]),
     specs: {
       material: 'Rangka jati, sandaran rotan, dudukan upholstery',
@@ -151,6 +152,7 @@ const products: readonly Product[] = [
       'Alder Lounge Chair, foto 2',
       'Alder Lounge Chair, foto 3',
       'Alder Lounge Chair, foto 4',
+      'Alder Lounge Chair, foto 5',
     ]),
     specs: {
       material: 'Kayu jati & upholstery',
@@ -347,6 +349,7 @@ const products: readonly Product[] = [
       'Coffee Table Stand, foto 2',
       'Coffee Table Stand, foto 3',
       'Coffee Table Stand, foto 4',
+      'Coffee Table Stand, foto 5',
     ]),
     specs: {
       material: 'Kayu jati, top jati daur ulang',
@@ -440,6 +443,7 @@ const products: readonly Product[] = [
       'Elara Upholstered Bed, foto 2',
       'Elara Upholstered Bed, foto 3',
       'Elara Upholstered Bed, foto 4',
+      'Elara Upholstered Bed, foto 5',
     ]),
     specs: {
       material: 'Upholstery',
@@ -757,6 +761,8 @@ const products: readonly Product[] = [
       'Restaurant Dining Chair, foto 2',
       'Restaurant Dining Chair, foto 3',
       'Restaurant Dining Chair, foto 4',
+      'Restaurant Dining Chair, foto 5',
+      'Restaurant Dining Chair, foto 6',
     ]),
     specs: { material: 'Kayu solid', dimensions: 'Bisa custom', colors: ['Tanyakan via WhatsApp'] },
     featured: false,
@@ -790,6 +796,8 @@ const products: readonly Product[] = [
       'Compact Kitchen Set, foto 2',
       'Compact Kitchen Set, foto 3',
       'Compact Kitchen Set, foto 4',
+      'Compact Kitchen Set, foto 5',
+      'Compact Kitchen Set, foto 6',
     ]),
     specs: {
       material: 'Tanyakan via WhatsApp',

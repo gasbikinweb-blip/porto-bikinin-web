@@ -7,6 +7,7 @@ import { RoomSelector } from '@/components/RoomSelector';
 import { OrderSteps } from '@/components/OrderSteps';
 import { Placeholder } from '@/components/Placeholder';
 import { ProjectStories } from '@/components/ProjectStories';
+import { HeroRotator } from '@/components/HeroRotator';
 import { ProductCard } from '@/components/ProductCard';
 import { SectionHeading } from '@/components/SectionHeading';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
@@ -53,39 +54,11 @@ export default function HomePage() {
     <>
       {/* ---------- Hero ---------- */}
       <section className="theme-dark relative isolate -mt-16 flex min-h-[100svh] items-center overflow-hidden sm:-mt-20">
-        {/* Gambar sebagai poster & cadangan; video di atasnya (disembunyikan bila reduced motion) */}
-        <Image
-          src="/scenes/living-void.webp"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="absolute inset-0 -z-20 animate-ken-burns object-cover"
-        />
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/65 via-black/40 to-page" />
 
-        <div className="mx-auto w-full max-w-7xl px-4 pt-28 pb-20 text-center sm:px-6">
-          <p
-            className="animate-in text-xs font-semibold tracking-[0.35em] text-accent-strong uppercase"
-            style={{ '--delay': '100ms' } as React.CSSProperties}
-          >
-            Timeless • Custom • Crafted in Jepara
-          </p>
-          <h1
-            className="animate-in mx-auto mt-5 max-w-4xl font-serif text-4xl leading-[1.1] font-medium tracking-tight sm:text-6xl lg:text-7xl"
-            style={{ '--delay': '250ms' } as React.CSSProperties}
-          >
-            Timeless Strength, Crafted in Jepara
-          </h1>
-          <p
-            className="animate-in mx-auto mt-6 max-w-xl text-base leading-relaxed text-foreground/80 sm:text-lg"
-            style={{ '--delay': '450ms' } as React.CSSProperties}
-          >
-            Furnitur kayu jati solid buatan pengrajin Jepara. Ukuran, warna, dan finishing bisa
-            custom untuk rumah, villa, kafe, dan restoran.
-          </p>
+        <HeroRotator>
           <div
-            className="animate-in mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
+            className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
             style={{ '--delay': '650ms' } as React.CSSProperties}
           >
             <Link
@@ -97,7 +70,7 @@ export default function HomePage() {
             </Link>
             <WhatsAppButton variant="outline" />
           </div>
-        </div>
+        </HeroRotator>
 
         <a
           href="#intro"
@@ -359,9 +332,9 @@ export default function HomePage() {
           <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
             <SectionHeading
               id="judul-story"
-              eyebrow="Our project • Production • Delivered"
+              eyebrow="Video • Project • Production • Delivered"
               title="Dari Workshop sampai ke Rumah Anda"
-              description="Dokumentasi asli dari workshop Jepara: proses produksi, hasil terpasang, sampai pengiriman ke pelanggan."
+              description="Video produk dan dokumentasi asli dari workshop Jepara: proses produksi, hasil terpasang, sampai pengiriman. Klik video untuk menonton layar penuh dengan suara."
             />
             <a
               href={siteConfig.instagram}
