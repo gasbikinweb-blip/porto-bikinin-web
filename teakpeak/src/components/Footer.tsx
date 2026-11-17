@@ -75,7 +75,25 @@ export function Footer() {
                 Threads {siteConfig.instagramHandle}
               </a>
             </li>
+            <li>
+              <a href={siteConfig.tiktok} {...external} className="hover:text-accent-strong">
+                TikTok {siteConfig.instagramHandle}
+              </a>
+            </li>
+            <li>
+              <a href={siteConfig.facebook} {...external} className="hover:text-accent-strong">
+                Facebook Teakpeak
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${siteConfig.email}`} className="hover:text-accent-strong">
+                {siteConfig.email}
+              </a>
+            </li>
             <li>{siteConfig.address}</li>
+            <li>
+              {siteConfig.hours[0].day}, {siteConfig.hours[0].time}
+            </li>
           </ul>
         </div>
       </div>

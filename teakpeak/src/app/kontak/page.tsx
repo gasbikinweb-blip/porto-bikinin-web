@@ -40,7 +40,7 @@ export default function ContactPage() {
         </div>
 
         <div className="reveal rounded-2xl border border-line bg-surface p-8">
-          <h2 className="font-serif text-2xl">Layanan</h2>
+          <h2 className="font-serif text-2xl">Jam Buka</h2>
           <dl className="mt-3 space-y-2 text-sm">
             {siteConfig.hours.map((h) => (
               <div key={h.day} className="flex justify-between gap-4">
@@ -66,6 +66,26 @@ export default function ContactPage() {
           className="rounded-full border border-line px-5 py-2.5 transition-colors hover:border-accent"
         >
           Threads {siteConfig.instagramHandle}
+        </a>
+        <a
+          href={siteConfig.tiktok}
+          {...external}
+          className="rounded-full border border-line px-5 py-2.5 transition-colors hover:border-accent"
+        >
+          TikTok {siteConfig.instagramHandle}
+        </a>
+        <a
+          href={siteConfig.facebook}
+          {...external}
+          className="rounded-full border border-line px-5 py-2.5 transition-colors hover:border-accent"
+        >
+          Facebook Teakpeak
+        </a>
+        <a
+          href={`mailto:${siteConfig.email}`}
+          className="rounded-full border border-line px-5 py-2.5 transition-colors hover:border-accent"
+        >
+          {siteConfig.email}
         </a>
       </div>
     </section>

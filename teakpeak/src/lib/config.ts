@@ -33,8 +33,11 @@ export const siteConfig = {
   instagramHandle: '@teakpeak.id',
   threads: 'https://www.threads.com/@teakpeak.id',
   linktree: 'https://lynk.id/teakpeakfurniture',
-  // Bio IG: "Timeless Strength, Crafted in Jepara". TODO: alamat workshop lengkap dari pemilik
+  tiktok: 'https://www.tiktok.com/@teakpeak.id',
+  facebook: 'https://www.facebook.com/share/19VUEWk6V9/',
+  email: 'teakpeakfurniture@gmail.com',
+  // Sumber: profil WhatsApp Business Teakpeak. TODO: alamat workshop lengkap dari pemilik
   address: 'Jepara, Jawa Tengah, Indonesia',
-  // TODO: jam operasional asli dari pemilik
-  hours: [{ day: 'Konsultasi & pemesanan', time: 'Via WhatsApp / DM Instagram' }],
+  // Sumber: profil WhatsApp Business (09:00 - 22:00). TODO: konfirmasi hari libur
+  hours: [{ day: 'Setiap hari', time: '09.00 – 22.00 WIB' }],
 } as const;
