@@ -233,7 +233,91 @@ const interior = [
   img('interior-apartemen', '04', 'Balkon apartemen dengan lantai deck kayu', 1600, 1200),
 ];
 
+// Proyek 2022-2024: foto & keterangan dikirim pemilik via WhatsApp (17 Nov 2026)
+const p2022 = [
+  img(
+    'washpaint-epoxy-bekasi',
+    '01',
+    'Koridor dengan dinding finishing washpaint dan lantai epoxy mengilap',
+    1600,
+    1200,
+  ),
+];
+const p2023 = [
+  img(
+    'gazebo-interior-cafe-jakarta',
+    '01',
+    'Gazebo rangka baja dengan taman dan lantai grass block',
+    1600,
+    1200,
+  ),
+  img(
+    'gazebo-interior-cafe-jakarta',
+    '02',
+    'Interior kafe dengan dinding kisi kayu, plafon anyaman, dan meja kasir',
+    1200,
+    1600,
+  ),
+];
+const p2024 = [
+  img(
+    'kitchen-set-canopy-yoga-jakarta',
+    '01',
+    'Pemasangan kanopi bambu untuk area yoga',
+    1600,
+    1200,
+    'progress',
+  ),
+  img(
+    'kitchen-set-canopy-yoga-jakarta',
+    '02',
+    'Kitchen set dengan meja bar berlampu di bawah tangga',
+    1600,
+    1200,
+    'progress',
+  ),
+];
+
 const list: Project[] = [
+  {
+    slug: 'washpaint-epoxy-bekasi',
+    name: 'Washpaint & Epoxy',
+    workType: 'renovasi',
+    location: 'Bekasi',
+    status: 'selesai',
+    year: 2022,
+    scope: 'Finishing dinding washpaint dan pelapisan lantai epoxy.',
+    cover: p2022[0]!,
+    images: p2022,
+    featured: true,
+    sourcePosts: [],
+  },
+  {
+    slug: 'gazebo-interior-cafe-jakarta',
+    name: 'Gazebo & Interior Cafe',
+    workType: 'interior',
+    location: 'Jakarta',
+    status: 'selesai',
+    year: 2023,
+    scope: 'Pembangunan gazebo taman dan pengerjaan interior kafe.',
+    cover: p2023[0]!,
+    images: p2023,
+    featured: true,
+    sourcePosts: [],
+  },
+  {
+    slug: 'kitchen-set-canopy-yoga-jakarta',
+    name: 'Kitchen Set & Canopy Yoga',
+    workType: 'interior',
+    location: 'Jakarta',
+    status: 'selesai',
+    year: 2024,
+    scope: 'Pembuatan kitchen set dan kanopi bambu untuk area yoga.',
+    cover: p2024[0]!,
+    images: p2024,
+    featured: true,
+    sourcePosts: [],
+  },
   {
     slug: 'interior-apartemen',
     name: 'Interior Apartemen Thamrin',
