@@ -1,6 +1,7 @@
 // Section statis halaman utama (server component)
 import Image from 'next/image';
-import { ArrowIcon, CheckIcon, PinIcon, ServiceIcon, WhatsAppIcon } from './icons';
+import { ArrowIcon, CheckIcon, InstagramIcon, PinIcon, WhatsAppIcon } from './icons';
+import { HeroSlides } from './HeroSlides';
 import { Socials } from './Socials';
 import { advantages } from '@/data/advantages';
 import { faqs } from '@/data/faq';
@@ -28,87 +29,76 @@ function Heading({ eyebrow, title, text }: { eyebrow: string; title: string; tex
 }
 
 export function Hero() {
-  const hero = projects.find((p) => p.slug === 'hotel-kemang')!.cover;
-  const total = projects.length;
+  const sn = projects.find((p) => p.slug === 'sn-house-rancamaya')!;
   return (
-    <section id="beranda" className="relative overflow-hidden bg-background">
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 pt-10 pb-16 sm:px-6 lg:grid-cols-[1fr_1.1fr] lg:gap-14 lg:pt-14 lg:pb-24">
-        <div>
-          <p className="animate-in inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-xs font-bold text-muted">
-            <span className="grid size-5 place-items-center rounded-full bg-accent text-accent-ink">
-              <CheckIcon className="size-3" />
-            </span>
-            Free konsultasi &amp; survei · {site.area}
-          </p>
-          <h1
-            className="animate-in mt-6 font-display text-4xl leading-[1.05] font-black sm:text-5xl xl:text-6xl"
-            style={{ '--delay': '120ms' } as React.CSSProperties}
-          >
-            <span className="text-accent-text">Wujudkan Rumah Impian</span> dengan Jasa Bangun &amp;
-            Renovasi Terpercaya
-          </h1>
-          <p
-            className="animate-in mt-6 max-w-xl text-lg leading-relaxed text-muted"
-            style={{ '--delay': '240ms' } as React.CSSProperties}
-          >
-            {site.tagline}. Dari desain sampai finishing, dikerjakan tim AKAA yang berkantor di
-            Cibubur.
-          </p>
-          <div
-            className="animate-in mt-8 flex flex-wrap gap-3"
-            style={{ '--delay': '360ms' } as React.CSSProperties}
-          >
-            <a href="#konsultasi" className={`${btnPrimary} rounded-full`}>
-              Konsultasi Gratis <ArrowIcon className="size-5" />
-            </a>
-            <a
-              href="#proyek"
-              className="inline-flex min-h-12 items-center rounded-full border border-line bg-surface px-6 font-bold hover:border-foreground"
-            >
-              Lihat Proyek
-            </a>
-          </div>
-          <dl
-            className="animate-in mt-10 flex flex-wrap gap-x-8 gap-y-4 border-t border-line pt-6"
-            style={{ '--delay': '480ms' } as React.CSSProperties}
-          >
-            {[
-              [`${total}+`, 'Proyek terdokumentasi'],
-              ['5', 'Layanan'],
-              ['Rp0', 'Biaya survei'],
-            ].map(([v, l]) => (
-              <div key={l}>
-                <dt className="sr-only">{l}</dt>
-                <dd className="font-display text-3xl font-black">{v}</dd>
-                <dd className="text-sm text-muted">{l}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
+    <section
+      id="beranda"
+      className="relative isolate flex min-h-[calc(100svh-4rem)] items-center overflow-hidden bg-night text-white"
+    >
+      {/* Latar: foto proyek AKAA bergantian tiap 5 detik */}
+      <HeroSlides />
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-night/85 via-night/45 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-gradient-to-t from-night to-transparent" />
 
-        <div
-          className="animate-in relative aspect-[4/3.6] lg:aspect-[4/4.2]"
-          style={{ '--delay': '200ms' } as React.CSSProperties}
+      <div className="mx-auto w-full max-w-7xl px-4 pt-16 pb-40 sm:px-6 sm:pt-20">
+        <p className="eyebrow animate-in !text-accent">AKAA Construction · {site.subtitle}</p>
+        <h1
+          className="animate-in mt-5 max-w-3xl font-display text-4xl leading-[1.05] font-black break-words sm:text-6xl lg:text-7xl"
+          style={{ '--delay': '120ms' } as React.CSSProperties}
         >
-          {/* Bingkai foto dengan sudut kiri atas terpotong diagonal */}
-          <div className="hero-shape absolute inset-0 overflow-hidden bg-surface-2">
-            <Image
-              src={hero.src}
-              alt={hero.alt}
-              fill
-              priority
-              sizes="(min-width: 1024px) 640px, 100vw"
-              className="animate-ken-burns object-cover"
-            />
-          </div>
-          <div className="absolute bottom-4 left-4 rounded-xl border border-line bg-surface/95 px-4 py-3 shadow-xl backdrop-blur sm:bottom-6 sm:-left-6">
-            <p className="text-xs font-bold tracking-widest text-accent-text uppercase">
-              Kantor kami
-            </p>
-            <p className="mt-0.5 text-sm font-semibold">Kota Wisata, Cibubur</p>
-          </div>
+          Wujudkan rumah impian, dibangun dengan <span className="text-accent">sepenuh hati</span>
+        </h1>
+        <p
+          className="animate-in mt-6 max-w-xl text-lg text-white/80"
+          style={{ '--delay': '240ms' } as React.CSSProperties}
+        >
+          {site.tagline}. Jasa bangun rumah, renovasi, dan interior di {site.area}, dari desain
+          sampai finishing.
+        </p>
+        <div
+          className="animate-in mt-8 flex flex-wrap gap-3"
+          style={{ '--delay': '360ms' } as React.CSSProperties}
+        >
+          <a href="#konsultasi" className={`${btnPrimary} rounded-full`}>
+            Konsultasi Gratis <ArrowIcon className="size-5" />
+          </a>
+          <a
+            href="#proyek"
+            className="inline-flex min-h-12 items-center rounded-full border border-white/40 px-6 font-bold hover:border-white"
+          >
+            Lihat Proyek
+          </a>
         </div>
       </div>
+
+      {/* Teks raksasa transparan di dasar */}
+      <p
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-[0.18em] left-0 -z-10 font-display text-[34vw] leading-none font-black whitespace-nowrap text-white/[0.07] uppercase select-none"
+      >
+        AKAA
+      </p>
+
+      {/* Kartu proyek mengambang */}
+      <a
+        href={`#proyek-${sn.slug}`}
+        className="animate-in absolute right-4 bottom-6 flex w-[min(20rem,calc(100%-2rem))] items-center gap-3 rounded-2xl border border-white/15 bg-night/70 p-3 backdrop-blur-md transition hover:border-accent sm:right-8 sm:bottom-10"
+        style={{ '--delay': '520ms' } as React.CSSProperties}
+      >
+        <span className="relative size-20 shrink-0 overflow-hidden rounded-xl">
+          <Image src={sn.cover.thumb} alt="" fill sizes="80px" className="object-cover" />
+        </span>
+        <span className="min-w-0 flex-1">
+          <span className="text-[11px] font-bold tracking-widest text-accent uppercase">
+            Sedang berjalan
+          </span>
+          <span className="block truncate font-bold">{sn.name}</span>
+          <span className="block text-xs text-white/70">{sn.location}</span>
+          <span className="mt-1 inline-flex items-center gap-1 text-xs font-bold">
+            Lihat proyek <ArrowIcon className="size-3.5" />
+          </span>
+        </span>
+      </a>
     </section>
   );
 }
@@ -142,43 +132,109 @@ export function PromoBanner() {
   );
 }
 
+// Gaya tiap kartu layanan: gelap, aksen kuning dengan foto, atau foto penuh
+const serviceLook: Record<string, { tone: 'dark' | 'accent' | 'photo'; img?: string }> = {
+  'bangun-rumah': { tone: 'photo', img: '/images/proyek/sn-house-rancamaya/15.webp' },
+  renovasi: { tone: 'dark' },
+  interior: { tone: 'accent', img: '/images/proyek/interior-apartemen/01.webp' },
+  taman: { tone: 'photo', img: '/images/proyek/gazebo-interior-cafe-jakarta/01.webp' },
+  material: { tone: 'dark' },
+};
+
 export function Services() {
   return (
     <section id="layanan" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28">
-      <Heading
-        eyebrow="Layanan"
-        title="Satu tim untuk rumah impian Anda"
-        text="Bangun baru, renovasi, interior, taman, sampai suplai material untuk kawasan Jabodetabek."
-      />
-      <ul data-stagger className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {services.map((s) => (
-          <li
-            key={s.id}
-            className="reveal flex flex-col rounded-lg border border-line bg-surface p-6"
-          >
-            <span className="grid size-12 place-items-center rounded-md bg-accent text-accent-ink">
-              <ServiceIcon name={s.icon} className="size-6" />
-            </span>
-            <h3 className="mt-5 font-display text-2xl font-extrabold uppercase">{s.name}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted">{s.description}</p>
-            <ul className="mt-4 space-y-1.5 text-sm">
-              {s.points.map((p) => (
-                <li key={p} className="flex items-center gap-2">
-                  <CheckIcon className="size-4 text-accent-text" /> {p}
-                </li>
-              ))}
-            </ul>
-            <a
-              href={buildWhatsAppLink(serviceMessage(s.name))}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-auto inline-flex min-h-11 items-center gap-2 pt-6 text-sm font-bold text-accent-text hover:underline"
+      <div className="reveal grid items-start gap-6 lg:grid-cols-[1fr_2.4fr]">
+        <span className="inline-flex w-fit items-center gap-2 rounded-full border border-line px-4 py-1.5 text-xs font-bold tracking-widest uppercase">
+          Layanan <ArrowIcon className="size-3" />
+        </span>
+        <div>
+          <h2 className="font-display text-4xl leading-[1.05] font-extrabold uppercase sm:text-5xl">
+            Satu tim untuk rumah impian Anda
+          </h2>
+          <p className="mt-4 max-w-2xl leading-relaxed text-muted">
+            Bangun baru, renovasi, interior, taman, sampai suplai material untuk kawasan
+            Jabodetabek.
+          </p>
+        </div>
+      </div>
+      <ul data-stagger className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
+        {services.map((s, i) => {
+          const look = serviceLook[s.id] ?? { tone: 'dark' as const };
+          const wide = i >= 3;
+          const card =
+            look.tone === 'accent'
+              ? 'bg-accent text-accent-ink'
+              : look.tone === 'photo'
+                ? 'bg-night text-white'
+                : 'bg-night text-white';
+          return (
+            <li
+              key={s.id}
+              className={`reveal group relative isolate flex min-h-[26rem] flex-col overflow-hidden rounded-[28px] p-7 ${card} ${wide ? 'lg:col-span-3' : 'lg:col-span-2'}`}
             >
-              Konsultasikan <ArrowIcon className="size-4" />
-              <span className="sr-only"> layanan {s.name} via WhatsApp (tab baru)</span>
-            </a>
-          </li>
-        ))}
+              {look.tone === 'photo' && look.img && (
+                <>
+                  <Image
+                    src={look.img}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 50vw, (min-width: 640px) 50vw, 100vw"
+                    className="-z-10 object-cover transition duration-700 group-hover:scale-105"
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 -z-10 bg-gradient-to-t from-night via-night/60 to-night/20"
+                  />
+                </>
+              )}
+              {look.tone === 'accent' && look.img && (
+                <div className="absolute right-0 bottom-0 -z-10 h-[46%] w-[72%] overflow-hidden rounded-tl-[28px]">
+                  <Image
+                    src={look.img}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 25vw, 70vw"
+                    className="object-cover transition duration-700 group-hover:scale-105"
+                  />
+                </div>
+              )}
+              <p className="text-xs font-bold tracking-widest opacity-70">
+                {String(i + 1).padStart(2, '0')}.
+              </p>
+              <span
+                aria-hidden="true"
+                className={`mt-3 block h-px w-full ${look.tone === 'accent' ? 'bg-accent-ink/40' : 'bg-white/30'}`}
+              />
+              <div className={look.tone === 'accent' ? 'mt-6' : 'mt-auto pt-10'}>
+                <h3 className="font-display text-3xl leading-tight font-extrabold">{s.name}</h3>
+                <p
+                  className={`mt-3 max-w-sm text-sm leading-relaxed ${look.tone === 'accent' ? 'text-accent-ink/80' : 'text-white/75'}`}
+                >
+                  {s.description}
+                </p>
+                <a
+                  href={buildWhatsAppLink(serviceMessage(s.name))}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-5 inline-flex min-h-11 items-center text-sm font-bold underline underline-offset-4 after:absolute after:inset-0"
+                >
+                  Konsultasikan
+                  <span className="sr-only"> layanan {s.name} via WhatsApp (tab baru)</span>
+                </a>
+              </div>
+              {/* Takik sudut kanan bawah dengan tombol panah */}
+              <span
+                aria-hidden="true"
+                className="absolute right-0 bottom-0 grid size-[4.5rem] place-items-center rounded-tl-[26px] bg-background"
+              >
+                <span className="grid size-11 place-items-center rounded-full bg-accent text-accent-ink transition group-hover:rotate-45">
+                  <ArrowIcon className="size-5 -rotate-45" />
+                </span>
+              </span>
+            </li>
+          );
+        })}
       </ul>
     </section>
   );
@@ -357,77 +413,141 @@ export function Faq() {
 }
 
 export function Contact() {
+  const ext = { target: '_blank', rel: 'noopener noreferrer' } as const;
+  const rows = [
+    {
+      href: buildWhatsAppLink(generalMessage),
+      title: 'WhatsApp',
+      sub: siteConfig.waDisplay,
+      icon: <WhatsAppIcon className="size-5" />,
+      external: true,
+    },
+    {
+      href: `mailto:${site.email}`,
+      title: 'Email',
+      sub: site.email,
+      icon: (
+        <svg
+          viewBox="0 0 24 24"
+          className="size-5"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={1.8}
+          aria-hidden="true"
+        >
+          <rect x="3" y="5" width="18" height="14" rx="2" />
+          <path d="m3 7 9 6 9-6" />
+        </svg>
+      ),
+      external: false,
+    },
+    {
+      href: site.mapsUrl,
+      title: 'Kantor',
+      sub: 'Ruko Fresh Market, Kota Wisata Cibubur',
+      icon: <PinIcon className="size-5" />,
+      external: true,
+    },
+    {
+      href: '#konsultasi',
+      title: 'Jam operasional',
+      sub: site.hours ?? 'Hubungi kami via WhatsApp',
+      icon: (
+        <svg
+          viewBox="0 0 24 24"
+          className="size-5"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={1.8}
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 7v5l3 2" strokeLinecap="round" />
+        </svg>
+      ),
+      external: false,
+    },
+    {
+      href: site.social.instagram,
+      title: 'Instagram',
+      sub: '@akaa.official21',
+      icon: <InstagramIcon className="size-5" />,
+      external: true,
+    },
+  ];
+
   return (
     <section id="kontak" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28">
-      <div className="reveal grid gap-8 rounded-lg border border-line bg-surface p-6 sm:p-10 lg:grid-cols-2">
-        <div>
-          <p className="eyebrow">Kontak</p>
-          <h2 className="mt-4 font-display text-4xl font-extrabold uppercase">
-            Mampir atau chat kami
-          </h2>
-          <p className="mt-4 text-muted">
-            Melayani {site.area}: {site.areaDetail.join(', ')}.
-          </p>
-          <Socials className="mt-6" />
+      <div className="grid gap-5 lg:grid-cols-[1fr_1.35fr]">
+        {/* Kiri: daftar kontak */}
+        <div className="reveal rounded-[28px] border border-line bg-surface p-5 sm:p-7">
+          <p className="text-sm text-muted">Hubungi kami</p>
+          <ul className="mt-4 divide-y divide-line">
+            {rows.map((r) => (
+              <li key={r.title}>
+                <a
+                  href={r.href}
+                  {...(r.external ? ext : {})}
+                  className="group flex min-h-16 items-center gap-4 py-3"
+                >
+                  <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-surface-2 text-accent-text transition group-hover:bg-accent group-hover:text-accent-ink">
+                    {r.icon}
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block font-bold">{r.title}</span>
+                    <span className="block truncate text-sm text-muted">{r.sub}</span>
+                  </span>
+                  <ArrowIcon className="size-4 shrink-0 text-muted transition group-hover:translate-x-1 group-hover:text-foreground" />
+                  {r.external && <span className="sr-only"> (tab baru)</span>}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <Socials className="mt-5" />
         </div>
-        <dl className="grid gap-5 text-sm">
-          <div>
-            <dt className="font-bold">Kantor</dt>
-            <dd className="mt-1 text-muted">{site.office}</dd>
-            <dd>
-              <a
-                href={site.mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 inline-flex min-h-11 items-center gap-2 font-bold text-accent-text hover:underline"
-              >
-                <PinIcon className="size-5" /> Buka di Google Maps
-                <span className="sr-only"> (tab baru)</span>
-              </a>
-            </dd>
+
+        {/* Kanan: kartu gelap dengan peta lokasi */}
+        <div className="reveal flex flex-col overflow-hidden rounded-[28px] bg-night text-white">
+          <div className="p-6 sm:p-8">
+            <h2 className="font-display text-3xl leading-tight font-extrabold sm:text-4xl">
+              Mampir ke kantor kami, atau kami yang datang ke lokasi Anda
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-white/70">{site.office}</p>
+            <ul className="mt-5 grid gap-2 text-sm sm:grid-cols-3">
+              {['Free konsultasi', 'Free survei lokasi', `Melayani ${site.area}`].map((t) => (
+                <li key={t} className="flex items-center gap-2">
+                  <CheckIcon className="size-4 text-accent" /> {t}
+                </li>
+              ))}
+            </ul>
           </div>
-          <div>
-            <dt className="font-bold">WhatsApp</dt>
-            <dd className="mt-1">
-              <a
-                href={buildWhatsAppLink(generalMessage)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-h-11 items-center gap-2 rounded-md bg-wa px-5 font-bold text-white"
-              >
-                <WhatsAppIcon className="size-5" /> {siteConfig.waDisplay}
-                <span className="sr-only"> (tab baru)</span>
-              </a>
-            </dd>
+          <iframe
+            src={site.mapsEmbed}
+            title={`Peta lokasi kantor AKAA: ${site.office}`}
+            loading="lazy"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+            className="block h-64 w-full flex-1 border-0 sm:h-72"
+          />
+          <div className="flex flex-wrap gap-3 p-6 sm:p-8">
+            <a
+              href={buildWhatsAppLink(generalMessage)}
+              {...ext}
+              className="inline-flex min-h-12 items-center gap-2 rounded-full bg-accent px-6 font-bold text-accent-ink hover:brightness-95"
+            >
+              <WhatsAppIcon className="size-5" /> Jadwalkan Survei
+              <span className="sr-only"> (tab baru)</span>
+            </a>
+            <a
+              href={site.mapsUrl}
+              {...ext}
+              className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/30 px-6 font-bold hover:border-white"
+            >
+              <PinIcon className="size-5" /> Buka di Google Maps
+              <span className="sr-only"> (tab baru)</span>
+            </a>
           </div>
-          <div>
-            <dt className="font-bold">Jam operasional</dt>
-            <dd className="mt-1 text-muted">
-              {site.hours ?? 'Hubungi kami via WhatsApp untuk jadwal temu.'}
-            </dd>
-          </div>
-          <div>
-            <dt className="font-bold">Email</dt>
-            <dd className="mt-1">
-              <a
-                href={`mailto:${site.email}`}
-                className="inline-flex min-h-11 items-center font-semibold text-accent-text hover:underline"
-              >
-                {site.email}
-              </a>
-            </dd>
-          </div>
-        </dl>
-      </div>
-      <div className="reveal mt-6 overflow-hidden rounded-lg border border-line bg-surface-2">
-        <iframe
-          src={site.mapsEmbed}
-          title={`Peta lokasi kantor AKAA: ${site.office}`}
-          loading="lazy"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-          className="block h-72 w-full border-0 sm:h-96"
-        />
+        </div>
       </div>
     </section>
   );

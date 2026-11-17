@@ -117,6 +117,14 @@ const sn = {
     960,
     'progress',
   ),
+  nov17: img(
+    'sn-house-rancamaya',
+    '15',
+    'Progress SN House Villa Rancamaya, 17 November 2026',
+    1600,
+    1200,
+    'progress',
+  ),
   bitumen: img('sn-house-rancamaya', '14', 'Rangka atap bitumen SN House', 960, 720, 'progress'),
 };
 
@@ -380,8 +388,9 @@ const list: Project[] = [
     year: 2026,
     scope: 'Pembangunan villa dari struktur, atap, hingga instalasi piping dan wiring.',
     // TODO: konfirmasi bahwa kedua foto Mei 2026 adalah lokasi SN House
-    cover: sn.okt17,
+    cover: sn.nov17,
     images: [
+      sn.nov17,
       sn.okt17,
       sn.bitumen,
       sn.kolam,
@@ -411,6 +420,7 @@ const list: Project[] = [
       { date: '2026-10-17', stage: 'Plester & pekerjaan dalam', images: [sn.okt17, sn.plester] },
       { date: '2026-10-19', stage: 'Penggalian area kolam renang', images: [sn.kolam] },
       { date: '2026-10-19', stage: 'Rangka atap bitumen', images: [sn.bitumen] },
+      { date: '2026-11-17', stage: 'Struktur 3 lantai & atap terpasang', images: [sn.nov17] },
     ],
     featured: true,
     sourcePosts: [

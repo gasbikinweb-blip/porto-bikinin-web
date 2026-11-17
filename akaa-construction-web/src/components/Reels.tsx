@@ -1,6 +1,7 @@
 'use client';
 
-// Klip video pendek dari IG. Diputar otomatis (tanpa suara) hanya saat terlihat di layar,
+// Klip video pendek dari IG (dengan suara asli). Diputar otomatis tanpa suara hanya saat terlihat;
+// tombol speaker menyalakan suara (satu video bersuara sekaligus).
 // tidak autoplay bila pengguna memilih "kurangi animasi".
 import { useEffect, useRef, useState } from 'react';
 import { ArrowIcon, InstagramIcon, WhatsAppIcon } from './icons';
@@ -14,6 +15,32 @@ const shortDate = (iso: string) =>
 function ReelCard({ r }: { r: Reel }) {
   const ref = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
+  const [muted, setMuted] = useState(true);
+
+  // Hanya satu video bersuara: bila video lain dinyalakan suaranya, video ini dibisukan
+  useEffect(() => {
+    const onOther = (e: Event) => {
+      const v = ref.current;
+      if (v && (e as CustomEvent<HTMLVideoElement>).detail !== v) {
+        v.muted = true;
+        setMuted(true);
+      }
+    };
+    window.addEventListener('reel-sound', onOther);
+    return () => window.removeEventListener('reel-sound', onOther);
+  }, []);
+
+  const toggleSound = () => {
+    const v = ref.current;
+    if (!v) return;
+    const next = !v.muted;
+    v.muted = next;
+    setMuted(next);
+    if (!next) {
+      window.dispatchEvent(new CustomEvent('reel-sound', { detail: v }));
+      v.play().catch(() => {});
+    }
+  };
 
   useEffect(() => {
     const v = ref.current;
@@ -74,6 +101,31 @@ function ReelCard({ r }: { r: Reel }) {
               <path d="M8 5v14l11-7z" />
             </svg>
           )}
+        </button>
+        <button
+          type="button"
+          onClick={toggleSound}
+          aria-pressed={!muted}
+          aria-label={muted ? `Nyalakan suara video ${r.title}` : `Matikan suara video ${r.title}`}
+          className="absolute top-15 right-3 grid size-10 place-items-center rounded-full bg-night/60 text-white backdrop-blur hover:bg-night aria-pressed:bg-accent aria-pressed:text-accent-ink"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            className="size-4"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M11 5 6 9H3v6h3l5 4V5Z" fill="currentColor" />
+            {muted ? (
+              <path d="m22 9-6 6m0-6 6 6" />
+            ) : (
+              <path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" />
+            )}
+          </svg>
         </button>
         <span className="absolute top-3 left-3 rounded-full bg-accent px-2.5 py-1 text-[11px] font-bold text-accent-ink">
           {shortDate(r.date)}

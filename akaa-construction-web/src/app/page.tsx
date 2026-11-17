@@ -37,7 +37,7 @@ export default function Home() {
             addressCountry: 'ID',
           },
           email: site.email,
-          openingHours: 'Mo-Su 00:00-23:59',
+          openingHours: 'Mo-Sa 08:00-17:00',
           areaServed: ['Jakarta', 'Bogor', 'Depok', 'Tangerang', 'Bekasi'],
           sameAs: Object.values(site.social),
         }}
