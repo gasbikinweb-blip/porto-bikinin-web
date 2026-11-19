@@ -5,3 +5,5 @@ package-lock.json
 Gambar
 *.jpeg
 assets-src
+assets
+nextjs-static-catalog-starter

@@ -1,9 +1,9 @@
 # Generator data produk dari folder Shopee (sekali jalan, hasil dicek manual).
 # Menyalin foto ke assets-src/produk/<slug>/ (urutan: sampul dulu) dan menulis src/data/products.ts.
-# Jalankan dari folder haraanja-web:  python scripts/build-products.py
+# Jalankan dari folder haraanja-project:  python scripts/build-products.py
 import json, os, re, shutil
 
-SRC = '../assets/shopee/haraanjaproject'
+SRC = 'assets/shopee/haraanjaproject'
 DST = 'assets-src/produk'
 W = ['pernikahan', 'khitan', 'hajatan']  # momen umum
 

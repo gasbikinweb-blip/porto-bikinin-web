@@ -34,10 +34,7 @@ export const siteConfig = {
   threads: 'https://www.threads.com/@haraanjaproject_souvenir',
   tiktok: 'https://www.tiktok.com/@haraanjaproject',
   invitation: 'https://www.instagram.com/haraanjaproject_invitation/',
-  // Dari caption IG (23 Jul 2026). TODO: lengkapi nomor/patokan alamat
-  address: 'Jl. Pahlawan Timur (dekat JNE), Kota Probolinggo, Jawa Timur',
-  mapsUrl:
-    'https://www.google.com/maps/search/?api=1&query=Haraanja+Project+Jl.+Pahlawan+Timur+Probolinggo',
+  address: 'Probolinggo - Jawa Timur',
   // TODO: jam operasional dari pemilik
   hours: [{ day: 'Konsultasi & pemesanan', time: 'Via WhatsApp' }],
 } as const;

@@ -30,7 +30,7 @@ npm run lint && npm run typecheck && npm run build   # hasil di /out
 
 ## Deploy (Vercel)
 
-Root Directory: `haraanja-project/haraanja-web`. Header keamanan ada di `vercel.json` dan `public/_headers` (header di `next.config.ts` **tidak** berlaku untuk static export). CSP memakai `'unsafe-inline'` untuk script karena static export tidak bisa nonce — trade-off yang disengaja.
+Root Directory: `haraanja-project`. Header keamanan ada di `vercel.json` dan `public/_headers` (header di `next.config.ts` **tidak** berlaku untuk static export). CSP memakai `'unsafe-inline'` untuk script karena static export tidak bisa nonce — trade-off yang disengaja.
 
 ## Catatan
 

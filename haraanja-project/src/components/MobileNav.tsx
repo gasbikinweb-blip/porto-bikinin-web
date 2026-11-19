@@ -4,9 +4,11 @@
 
 import { useState } from 'react';
 import { navLinks } from './nav-links';
+import { useActiveSection } from './useActiveSection';
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
+  const active = useActiveSection();
   return (
     <div className="lg:hidden">
       <button
@@ -38,7 +40,8 @@ export function MobileNav() {
               <a
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="block border-b border-line py-4 font-serif text-2xl last:border-0"
+                aria-current={active === l.href.slice(1) ? 'location' : undefined}
+                className="flex items-center justify-between border-b border-line py-4 font-serif text-2xl last:border-0 aria-[current=location]:text-accent aria-[current=location]:after:size-2 aria-[current=location]:after:rounded-full aria-[current=location]:after:bg-gold aria-[current=location]:after:content-['']"
               >
                 {l.label}
               </a>

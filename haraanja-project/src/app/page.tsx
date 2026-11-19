@@ -1,7 +1,15 @@
 // Halaman satu-satunya: semua section dengan anchor
 import Image from 'next/image';
 import { Catalog } from '@/components/Catalog';
-import { CheckIcon, ChevronIcon, ShopIcon, WhatsAppIcon } from '@/components/icons';
+import {
+  CheckIcon,
+  ChevronIcon,
+  InstagramIcon,
+  ShopIcon,
+  ThreadsIcon,
+  TikTokIcon,
+  WhatsAppIcon,
+} from '@/components/icons';
 import { CategoryCards, HeroSeasonCard, SeasonalShowcase } from '@/components/Home';
 import { Gallery, OccasionCards } from '@/components/Interactive';
 import { JsonLd } from '@/components/JsonLd';
@@ -33,8 +41,7 @@ export default function HomePage() {
           image: new URL('/images/galeri/mangkok-daun.webp', siteConfig.url).href,
           address: {
             '@type': 'PostalAddress',
-            streetAddress: 'Jl. Pahlawan Timur',
-            addressLocality: 'Kota Probolinggo',
+            addressLocality: 'Probolinggo',
             addressRegion: 'Jawa Timur',
             addressCountry: 'ID',
           },
@@ -337,15 +344,6 @@ export default function HomePage() {
             <div>
               <dt className="font-semibold">Alamat</dt>
               <dd className="mt-1 text-muted">{siteConfig.address}</dd>
-              <dd>
-                <a
-                  href={siteConfig.mapsUrl}
-                  {...ext}
-                  className="mt-1 inline-flex min-h-11 items-center font-semibold text-accent underline"
-                >
-                  Buka di Google Maps<span className="sr-only"> (tab baru)</span>
-                </a>
-              </dd>
             </div>
             <div>
               <dt className="font-semibold">Jam operasional</dt>
@@ -357,19 +355,22 @@ export default function HomePage() {
             </div>
             <div>
               <dt className="font-semibold">Media sosial</dt>
-              <dd className="mt-1 flex flex-wrap gap-x-4 gap-y-1">
-                {[
-                  ['Instagram', siteConfig.instagram],
-                  ['Threads', siteConfig.threads],
-                  ['TikTok', siteConfig.tiktok],
-                  ['Undangan @haraanjaproject_invitation', siteConfig.invitation],
-                ].map(([l, h]) => (
+              <dd className="mt-2 flex flex-wrap gap-2">
+                {(
+                  [
+                    ['Instagram', siteConfig.instagram, InstagramIcon],
+                    ['Threads', siteConfig.threads, ThreadsIcon],
+                    ['TikTok', siteConfig.tiktok, TikTokIcon],
+                    ['Undangan', siteConfig.invitation, InstagramIcon],
+                  ] as const
+                ).map(([l, h, Icon]) => (
                   <a
                     key={l}
                     href={h}
                     {...ext}
-                    className="inline-flex min-h-11 items-center text-accent underline"
+                    className="inline-flex min-h-11 items-center gap-2 rounded-full border border-line bg-surface px-4 text-sm font-semibold transition hover:-translate-y-0.5 hover:border-accent hover:text-accent"
                   >
+                    <Icon className="size-[18px]" />
                     {l}
                     <span className="sr-only"> (tab baru)</span>
                   </a>

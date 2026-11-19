@@ -9,3 +9,8 @@ npm-debug.log*
 .DS_Store
 .vercel
 .claude/
+
+# Bahan mentah & catatan lokal (tidak ikut repo)
+/assets/
+/nextjs-static-catalog-starter/
+/LAPORAN-LANGKAH-0.md

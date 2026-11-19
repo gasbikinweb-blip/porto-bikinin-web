@@ -116,3 +116,44 @@ export function FlowerIcon({ className = 'size-5' }: IconProps) {
     </svg>
   );
 }
+
+export function InstagramIcon({ className = 'size-5' }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      aria-hidden="true"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.8}
+    >
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function TikTokIcon({ className = 'size-5' }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true" fill="currentColor">
+      <path d="M16.6 3c.3 2.2 1.6 3.6 3.9 3.8v3.1a7.6 7.6 0 0 1-3.8-1.1v6.1c0 3.9-3.2 6.1-6.3 5.6-2.8-.4-4.6-2.6-4.4-5.4.2-3 2.9-5.1 6-4.7v3.2c-1.5-.4-3 .4-3.1 1.8-.1 1.2.8 2.1 2 2.1 1.3 0 2.2-.9 2.2-2.4V3h3.5Z" />
+    </svg>
+  );
+}
+
+export function ThreadsIcon({ className = 'size-5' }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      aria-hidden="true"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.8}
+      strokeLinecap="round"
+    >
+      <path d="M17.5 8.2C16.6 5.5 14.6 4 12 4 7.6 4 5 7.2 5 12s2.6 8 7 8c3.2 0 5.6-1.8 5.6-4.6 0-2.4-1.9-3.9-5-3.9-2.2 0-3.6 1-3.6 2.4 0 1.3 1.1 2.1 2.6 2.1 2.6 0 3.8-2 3.8-5.4 0-2.1-1.3-3.4-3.3-3.4-1.4 0-2.4.6-2.9 1.5" />
+    </svg>
+  );
+}
