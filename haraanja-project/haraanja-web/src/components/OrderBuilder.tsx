@@ -7,8 +7,9 @@ import { addons, occasions } from '@/data/catalog-meta';
 import { getProduct, products } from '@/data/products';
 import type { OccasionId } from '@/data/types';
 import { siteConfig } from '@/lib/config';
-import { formatRupiah } from '@/lib/format';
+import { formatPrice, formatRupiah } from '@/lib/format';
 import { buildWhatsAppLink } from '@/lib/whatsapp';
+import { ThemedSelect } from './ThemedSelect';
 import { WhatsAppIcon } from './icons';
 import { ADD_EVENT, type AddDetail } from './ProductModal';
 
@@ -166,62 +167,58 @@ export function OrderBuilder() {
           <label htmlFor="o-produk" className={label}>
             Souvenir *
           </label>
-          <select
+          <ThemedSelect
             id="o-produk"
             value={slug}
-            onChange={(e) => {
-              setSlug(e.target.value);
+            onChange={(v) => {
+              setSlug(v);
               setVariant('');
             }}
-            className={field}
-          >
-            <option value="">Pilih souvenir</option>
-            {souvenirs.map((s) => (
-              <option key={s.slug} value={s.slug}>
-                {s.name}
-              </option>
-            ))}
-          </select>
+            placeholder="Pilih souvenir"
+            options={souvenirs.map((x) => ({
+              value: x.slug,
+              label: x.name,
+              thumb: x.images[0]?.thumb,
+              hint: formatPrice(x.price, x.priceNote),
+            }))}
+          />
         </div>
         {p?.variants && p.variants.length > 0 && (
           <div className="sm:col-span-2">
             <label htmlFor="o-varian" className={label}>
               Pilihan / varian
             </label>
-            <select
+            <ThemedSelect
               id="o-varian"
               value={variant}
-              onChange={(e) => setVariant(e.target.value)}
-              className={field}
-            >
-              <option value="">Bebas / tanya admin</option>
-              {p.variants.map((v) => (
-                <option key={v.label} value={v.label}>
-                  {v.label}
-                </option>
-              ))}
-            </select>
+              onChange={setVariant}
+              placeholder="Bebas / tanya admin"
+              options={p.variants.map((v) => ({
+                value: v.label,
+                label: v.label,
+                thumb: v.image?.thumb,
+              }))}
+            />
           </div>
         )}
         <div className="sm:col-span-2">
           <label htmlFor="o-kemasan" className={label}>
             Kemasan (opsional)
           </label>
-          <select
+          <ThemedSelect
             id="o-kemasan"
             value={pack}
-            onChange={(e) => setPack(e.target.value)}
-            className={field}
-          >
-            <option value="">
-              {p?.includedPackaging ? `Bawaan: ${p.includedPackaging}` : 'Tanpa / tanya admin'}
-            </option>
-            {packs.map((s) => (
-              <option key={s.slug} value={s.slug}>
-                {s.name}
-              </option>
-            ))}
-          </select>
+            onChange={setPack}
+            placeholder={
+              p?.includedPackaging ? `Bawaan: ${p.includedPackaging}` : 'Tanpa / tanya admin'
+            }
+            options={packs.map((x) => ({
+              value: x.slug,
+              label: x.name,
+              thumb: x.images[0]?.thumb,
+              hint: formatPrice(x.price, x.priceNote),
+            }))}
+          />
         </div>
         <div>
           <label htmlFor="o-jumlah" className={label}>
@@ -241,19 +238,13 @@ export function OrderBuilder() {
           <label htmlFor="o-acara" className={label}>
             Jenis acara *
           </label>
-          <select
+          <ThemedSelect
             id="o-acara"
             value={occ}
-            onChange={(e) => setOcc(e.target.value as OccasionId | '')}
-            className={field}
-          >
-            <option value="">Pilih acara</option>
-            {occasions.map((o) => (
-              <option key={o.id} value={o.id}>
-                {o.name}
-              </option>
-            ))}
-          </select>
+            onChange={(v) => setOcc(v as OccasionId | '')}
+            placeholder="Pilih acara"
+            options={occasions.map((o) => ({ value: o.id, label: `${o.icon}  ${o.name}` }))}
+          />
         </div>
         <div className="sm:col-span-2">
           <label htmlFor="o-tanggal" className={label}>
