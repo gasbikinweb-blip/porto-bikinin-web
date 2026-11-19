@@ -1,0 +1,389 @@
+@import 'tailwindcss';
+
+/*
+ * Palet warna (ganti sesuai brand). Semua komponen memakai token ini.
+ * Mode gelap (default) dan mode terang. Cek kontras teks minimal 4.5:1 saat mengganti warna.
+ * Tema dipasang lewat atribut data-theme di <html> (lihat public/theme-init.js).
+ * Kelas .theme-dark memaksa palet gelap di area tertentu (teks di atas foto/video).
+ */
+:root {
+  /* Palet Haraanja: ivory, maroon (box custom), emas lembut (logo), dusty pink. Kontras teks dicek ≥ 4.5:1 */
+  color-scheme: light;
+  --page: #fbf7f2;
+  --background: #fbf7f2;
+  --surface: #ffffff;
+  --surface-2: #f5e7e4;
+  --foreground: #2b2426;
+  --muted: #6b5c5f;
+  --accent: #7a1f2b;
+  --accent-strong: #5e1620;
+  --gold: #8a6420;
+  --line: rgb(43 36 38 / 0.12);
+}
+
+/* Mode gelap (dipilih lewat tombol tema) + area teks di atas foto */
+:root[data-theme='dark'],
+.theme-dark {
+  color-scheme: dark;
+  --background: #1c1416;
+  --surface: #261c1e;
+  --surface-2: #33252a;
+  --foreground: #f6eee9;
+  --muted: #c9b6b2;
+  --accent: #eaa7b1;
+  --accent-strong: #f5c6cd;
+  --gold: #dcb96f;
+  --line: rgb(246 238 233 / 0.14);
+}
+
+:root[data-theme='dark'] {
+  --page: #1c1416;
+}
+
+.theme-dark {
+  color: var(--foreground);
+}
+
+/* Transisi halus saat ganti tema (hanya warna) */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition:
+    background-color 0.5s ease,
+    border-color 0.5s ease,
+    color 0.5s ease !important;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-gold: var(--gold);
+  --color-line: var(--line);
+  --color-page: var(--page);
+  --font-sans: var(--font-jost);
+  --font-serif: var(--font-cormorant);
+  --font-script: var(--font-pinyon);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--background);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 3px;
+}
+
+/* ---------- Animasi ---------- */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes ken-burns {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes wa-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgb(37 211 102 / 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgb(37 211 102 / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgb(37 211 102 / 0);
+  }
+}
+
+@keyframes scroll-dot {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+}
+
+/* Animasi masuk saat halaman dibuka (hero) */
+.animate-in {
+  animation: fade-up 1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: var(--delay, 0ms);
+}
+
+.animate-ken-burns {
+  animation: ken-burns 14s ease-out both;
+}
+
+.animate-wa-pulse {
+  animation: wa-pulse 2.4s ease-out infinite;
+}
+
+.animate-scroll-dot {
+  animation: scroll-dot 1.6s ease-in-out infinite;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--duration, 40s) linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/*
+ * Muncul saat di-scroll (dipicu RevealObserver).
+ * Varian: .reveal (naik), + .reveal-left / .reveal-right / .reveal-zoom / .reveal-blur.
+ * Memakai animation (bukan transition) agar tidak bentrok dengan efek hover.
+ */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(48px);
+  }
+}
+@keyframes reveal-left {
+  from {
+    opacity: 0;
+    transform: translateX(-72px);
+  }
+}
+@keyframes reveal-right {
+  from {
+    opacity: 0;
+    transform: translateX(72px);
+  }
+}
+@keyframes reveal-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.86);
+  }
+}
+@keyframes reveal-blur {
+  from {
+    opacity: 0;
+    filter: blur(14px);
+    transform: translateY(24px);
+  }
+}
+
+.reveal-ready .reveal:not(.is-visible) {
+  opacity: 0;
+}
+.reveal.is-visible {
+  animation: reveal-up 0.95s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms) backwards;
+}
+.reveal.reveal-left.is-visible {
+  animation-name: reveal-left;
+}
+.reveal.reveal-right.is-visible {
+  animation-name: reveal-right;
+}
+.reveal.reveal-zoom.is-visible {
+  animation-name: reveal-zoom;
+}
+.reveal.reveal-blur.is-visible {
+  animation-name: reveal-blur;
+}
+
+/* Gambar yang tersingkap seperti tirai */
+@keyframes curtain {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+.reveal.reveal-curtain.is-visible {
+  animation-name: curtain;
+  animation-duration: 1.3s;
+}
+
+/* ---------- Room select ("pilih karakter") ---------- */
+@keyframes stage-in {
+  from {
+    opacity: 0;
+    transform: scale(1.14);
+    filter: blur(10px) saturate(0.4);
+  }
+}
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+@keyframes bob {
+  50% {
+    transform: translate(-50%, -5px);
+  }
+}
+@keyframes flash {
+  from {
+    opacity: 0.55;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.animate-stage {
+  animation: stage-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-slide-in {
+  animation: slide-in-left 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-rise {
+  animation: rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--delay, 0ms);
+}
+.animate-bob {
+  animation: bob 1.2s ease-in-out infinite;
+}
+.animate-flash {
+  animation: flash 0.6s ease-out both;
+}
+
+/* ---------- Kutipan ---------- */
+@keyframes progress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+.animate-quote {
+  animation: reveal-blur 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-progress {
+  animation: progress var(--duration, 7s) linear both;
+}
+
+/* Hormati pengguna yang meminta gerakan minimal */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* ---------- Showcase musiman: hidup hanya saat terlihat (data-active) ---------- */
+@keyframes flake-fall {
+  from {
+    transform: translate3d(0, -2rem, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  to {
+    transform: translate3d(2rem, 34rem, 0) rotate(240deg);
+    opacity: 0;
+  }
+}
+.seasonal-flake {
+  opacity: 0;
+}
+.seasonal-img {
+  transform: scale(1.12);
+  transition:
+    opacity 1s ease,
+    transform 6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.seasonal-text {
+  opacity: 0;
+  transform: translateX(-2.5rem);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.seasonal[data-active='true'] .seasonal-img {
+  transform: scale(1);
+}
+.seasonal[data-active='true'] .seasonal-text {
+  opacity: 1;
+  transform: none;
+}
+.seasonal[data-active='true'] .seasonal-flake {
+  animation: flake-fall linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .seasonal-text,
+  .seasonal-img {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .seasonal[data-active='true'] .seasonal-flake {
+    animation: none;
+  }
+}
+
+/* Logo: tukar versi terang/gelap sesuai tema */
+.logo-dark {
+  display: none;
+}
+[data-theme='dark'] .logo-light,
+.theme-dark .logo-light {
+  display: none;
+}
+[data-theme='dark'] .logo-dark,
+.theme-dark .logo-dark {
+  display: block;
+}
