@@ -59,11 +59,11 @@ export function Hero() {
           className="animate-in mt-8 flex flex-wrap gap-3"
           style={{ '--delay': '360ms' } as React.CSSProperties}
         >
-          <a href="#konsultasi" className={`${btnPrimary} rounded-full`}>
+          <a href="/kontak#konsultasi" className={`${btnPrimary} rounded-full`}>
             Konsultasi Gratis <ArrowIcon className="size-5" />
           </a>
           <a
-            href="#proyek"
+            href="/proyek"
             className="inline-flex min-h-12 items-center rounded-full border border-white/40 px-6 font-bold hover:border-white"
           >
             Lihat Proyek
@@ -81,7 +81,7 @@ export function Hero() {
 
       {/* Kartu proyek mengambang */}
       <a
-        href={`#proyek-${sn.slug}`}
+        href={`/proyek#proyek-${sn.slug}`}
         className="animate-in absolute right-4 bottom-6 flex w-[min(20rem,calc(100%-2rem))] items-center gap-3 rounded-2xl border border-white/15 bg-night/70 p-3 backdrop-blur-md transition hover:border-accent sm:right-8 sm:bottom-10"
         style={{ '--delay': '520ms' } as React.CSSProperties}
       >
@@ -122,7 +122,7 @@ export function PromoBanner() {
           <p className="mt-1 text-sm">{promo.terms.join(' · ')}</p>
         </div>
         <a
-          href="#konsultasi"
+          href="/kontak#konsultasi"
           className="inline-flex min-h-12 items-center rounded-md bg-night px-6 font-bold text-white"
         >
           Klaim promo
@@ -262,7 +262,7 @@ export function Advantages() {
             pun dipasang.
           </p>
           <a
-            href="#konsultasi"
+            href="/kontak#konsultasi"
             className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-xl bg-white px-6 font-bold text-night shadow hover:brightness-95"
           >
             Mulai Konsultasi <ArrowIcon className="size-5" />
@@ -361,7 +361,7 @@ export function Process() {
             ))}
           </ol>
           <a
-            href="#konsultasi"
+            href="/kontak#konsultasi"
             className="reveal mt-12 inline-flex min-h-11 items-center gap-2 font-bold text-accent hover:underline"
           >
             Mulai dari langkah pertama <ArrowIcon className="size-4" />
@@ -449,7 +449,7 @@ export function Contact() {
       external: true,
     },
     {
-      href: '#konsultasi',
+      href: '/kontak#konsultasi',
       title: 'Jam operasional',
       sub: site.hours ?? 'Hubungi kami via WhatsApp',
       icon: (
@@ -478,7 +478,7 @@ export function Contact() {
 
   return (
     <section id="kontak" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28">
-      <div className="grid gap-5 lg:grid-cols-[1fr_1.35fr]">
+      <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1fr_1.35fr] [&>*]:min-w-0">
         {/* Kiri: daftar kontak */}
         <div className="reveal rounded-[28px] border border-line bg-surface p-5 sm:p-7">
           <p className="text-sm text-muted">Hubungi kami</p>

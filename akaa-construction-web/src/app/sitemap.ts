@@ -5,5 +5,9 @@ import { siteConfig } from '@/lib/config';
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [{ url: new URL('/', siteConfig.url).href, changeFrequency: 'weekly', priority: 1 }];
+  return ['/', '/tentang', '/layanan', '/proyek', '/kontak'].map((path) => ({
+    url: new URL(path, siteConfig.url).href,
+    changeFrequency: 'weekly',
+    priority: path === '/' ? 1 : 0.8,
+  }));
 }

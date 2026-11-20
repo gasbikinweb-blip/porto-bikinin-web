@@ -152,7 +152,7 @@ function ReelCard({ r, onOpen }: { r: Reel; onOpen: () => void }) {
             </a>
             {r.project && (
               <a
-                href={`#proyek-${r.project}`}
+                href={`/proyek#proyek-${r.project}`}
                 aria-label={`Lihat detail proyek ${r.place}`}
                 className="grid size-10 shrink-0 place-items-center rounded-full border border-white/40 hover:border-white"
               >

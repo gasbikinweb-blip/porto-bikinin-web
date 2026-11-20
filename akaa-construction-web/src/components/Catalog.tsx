@@ -78,7 +78,7 @@ export function Catalog() {
               </ul>
               <div className="mt-auto pt-6">
                 <a
-                  href={`#pesan-${main.id}`}
+                  href={`/kontak#pesan-${main.id}`}
                   className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-accent px-6 font-bold text-accent-ink hover:brightness-95"
                 >
                   <CartIcon /> Pesan &amp; Hitung Estimasi
@@ -112,7 +112,7 @@ export function Catalog() {
                 </h3>
                 <p className="mt-1 line-clamp-2 text-sm text-muted">{c.text}</p>
                 <a
-                  href={`#pesan-${c.id}`}
+                  href={`/kontak#pesan-${c.id}`}
                   className="mt-auto inline-flex min-h-10 items-center gap-1.5 pt-2 text-sm font-bold text-accent-text hover:underline"
                 >
                   Pesan / tanya harga <ArrowIcon className="size-4" />

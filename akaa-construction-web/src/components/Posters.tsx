@@ -89,7 +89,7 @@ export function Posters() {
               </button>
             </div>
             <a
-              href={open.order ? `#pesan-${open.order}` : '#konsultasi'}
+              href={open.order ? `/kontak#pesan-${open.order}` : '/kontak#konsultasi'}
               onClick={() => {
                 dlg.current?.close();
                 setOpen(null);

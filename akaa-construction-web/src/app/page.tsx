@@ -1,18 +1,7 @@
-import { ConsultBuilder } from '@/components/ConsultBuilder';
-import { Catalog } from '@/components/Catalog';
-import { Posters } from '@/components/Posters';
-import { Reels } from '@/components/Reels';
 import { JsonLd } from '@/components/JsonLd';
-import { Projects } from '@/components/Projects';
-import {
-  Advantages,
-  Contact,
-  Faq,
-  Hero,
-  Process,
-  PromoBanner,
-  Services,
-} from '@/components/Sections';
+import { LegacyHashRedirect } from '@/components/LegacyHashRedirect';
+import { CtaBand, FeaturedProjects } from '@/components/PageParts';
+import { Advantages, Hero, PromoBanner, Services } from '@/components/Sections';
 import { site } from '@/data/site';
 import { siteConfig } from '@/lib/config';
 
@@ -42,18 +31,13 @@ export default function Home() {
           sameAs: Object.values(site.social),
         }}
       />
+      <LegacyHashRedirect />
       <Hero />
       <PromoBanner />
       <Services />
-      <Catalog />
       <Advantages />
-      <Reels />
-      <Projects />
-      <Process />
-      <Posters />
-      <ConsultBuilder />
-      <Faq />
-      <Contact />
+      <FeaturedProjects />
+      <CtaBand />
     </>
   );
 }

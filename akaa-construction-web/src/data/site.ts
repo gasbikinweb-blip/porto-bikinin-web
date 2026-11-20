@@ -24,11 +24,11 @@ export const site = {
   },
 } as const;
 
+// Menu: 5 halaman (Paket Pro)
 export const navLinks = [
-  { href: '#layanan', label: 'Layanan' },
-  { href: '#katalog', label: 'Katalog' },
-  { href: '#video', label: 'Video' },
-  { href: '#proyek', label: 'Proyek' },
-  { href: '#cara-kerja', label: 'Cara Kerja' },
-  { href: '#faq', label: 'FAQ' },
+  { href: '/', label: 'Beranda' },
+  { href: '/tentang', label: 'Tentang' },
+  { href: '/layanan', label: 'Layanan' },
+  { href: '/proyek', label: 'Proyek' },
+  { href: '/kontak', label: 'Kontak' },
 ] as const;
