@@ -1,0 +1,153 @@
+@import 'tailwindcss';
+
+/*
+ * Palet butik: ivory hangat, charcoal untuk teks & tombol, abu hangat untuk teks sekunder,
+ * dusty rose sebagai aksen tipis. Kontras dicek:
+ * - ink #1e1c1a di atas ivory #faf7f2 ≈ 16:1, muted #6b625a ≈ 5.6:1
+ * - rose-ink #8e5c66 di atas ivory ≈ 5.2:1 (untuk teks aksen kecil)
+ */
+:root {
+  --background: #faf7f2;
+  --surface: #f2ede5;
+  --card: #ffffff;
+  --ink: #1e1c1a;
+  --muted: #6b625a;
+  --line: #e2dbd1;
+  --rose: #c9a5a9;
+  --rose-ink: #8e5c66;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-rose: var(--rose);
+  --color-rose-ink: var(--rose-ink);
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-display), ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--ink);
+  font-weight: 350;
+}
+
+::selection {
+  background: var(--rose);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* Label kecil kapital berspasi lebar */
+.eyebrow {
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Judul kapital serif tipis, selaras logo */
+.display-caps {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* Tombol */
+.btn {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0 1.75rem;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  border: 1px solid var(--ink);
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+.btn-solid {
+  background: var(--ink);
+  color: var(--background);
+}
+.btn-solid:hover {
+  background: #3a3632;
+}
+.btn-line:hover {
+  background: var(--ink);
+  color: var(--background);
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Fade-in halus saat digulir; tanpa JS / reduced motion konten tetap terlihat */
+.reveal-ready .reveal:not(.is-visible) {
+  opacity: 0;
+}
+.reveal.is-visible {
+  animation: fade-up 0.9s cubic-bezier(0.2, 0.6, 0.2, 1) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+.animate-fade {
+  animation: fade-in 0.5s ease both;
+}
+
+/* Modal: bottom sheet di HP */
+dialog.sheet[open] {
+  animation: sheet-up 0.35s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+dialog.sheet::backdrop {
+  background: rgb(30 28 26 / 0.55);
+  backdrop-filter: blur(3px);
+}
+@keyframes sheet-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
