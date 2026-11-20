@@ -34,6 +34,8 @@ export const metadata: Metadata = {
     'jasa interior rumah Jabodetabek',
   ],
   alternates: { canonical: '/' },
+  // Verifikasi Google Search Console (meta tag google-site-verification)
+  verification: { google: 'RnbozMo0GR_fvTvogpUqpc9lo-DzRboMsib0EYCFst0' },
   openGraph: {
     type: 'website',
     locale: 'id_ID',
