@@ -32,8 +32,8 @@ function safeHttpsUrl(raw: string | undefined): string | undefined {
 
 export const siteConfig = {
   name: process.env.NEXT_PUBLIC_SITE_NAME ?? 'SANARÉA',
-  // TODO: ganti dengan domain asli
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sanarea.vercel.app',
+  // Domain live (Vercel); bisa ditimpa NEXT_PUBLIC_SITE_URL
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://porto-sanarea-id.vercel.app',
   waNumber,
   marketplaceUrl: safeHttpsUrl(process.env.NEXT_PUBLIC_MARKETPLACE_URL),
 } as const;

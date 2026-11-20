@@ -3,11 +3,13 @@ import { Catalog } from '@/components/Catalog';
 import { FeaturedCollection } from '@/components/FeaturedCollection';
 import { HeroShowcase } from '@/components/HeroShowcase';
 import { JsonLd } from '@/components/JsonLd';
+import { MomentsLine } from '@/components/MomentsLine';
+import { QuoteCarousel } from '@/components/QuoteCarousel';
+import { StoreChat } from '@/components/StoreChat';
 import { StoreSlideshow } from '@/components/StoreSlideshow';
 import { StoreStatus } from '@/components/StoreStatus';
 import { faqs } from '@/data/faq';
 import { img } from '@/data/images';
-import { moments } from '@/data/moments';
 import { getProduct } from '@/data/products';
 import { activePromos } from '@/data/promos';
 import { site } from '@/data/site';
@@ -162,32 +164,24 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Kutipan brand */}
+      <section id="quotes" aria-label="Kutipan Sanaréa" className="border-t border-line">
+        <div className="mx-auto max-w-7xl px-4 py-24 sm:px-8 sm:py-28">
+          <QuoteCarousel />
+        </div>
+      </section>
+
       {/* Moments */}
       <section id="moments" className="border-t border-line bg-surface/60">
         <div className="mx-auto max-w-7xl px-4 py-24 sm:px-8 sm:py-32">
           <Heading
             eyebrow="Sanaréa Moments"
             title="Sampai Jumpa di Booth"
-            text="Sesekali kami hadir di Car Free Day dan event di Cianjur."
+            text="Sesekali kami hadir di Car Free Day dan event di Cianjur. Ini beberapa momennya, digantung rapi seperti koleksi kami."
           />
-          <ul data-stagger className="mt-14 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
-            {moments.map((m) => (
-              <li key={m.src} className="reveal">
-                <figure>
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-[1.4rem] bg-surface">
-                    <Image
-                      src={m.thumb}
-                      alt={m.alt}
-                      fill
-                      sizes="(min-width: 1024px) 30vw, 48vw"
-                      className="object-cover"
-                    />
-                  </div>
-                  <figcaption className="eyebrow mt-3">{m.label}</figcaption>
-                </figure>
-              </li>
-            ))}
-          </ul>
+          <div className="mt-14">
+            <MomentsLine />
+          </div>
         </div>
       </section>
 
@@ -223,6 +217,16 @@ export default function Home() {
         </div>
         <div className="reveal">
           <StoreSlideshow images={storePhotos} />
+        </div>
+      </section>
+
+      {/* Chat WhatsApp dengan preview */}
+      <section
+        aria-label="Chat WhatsApp"
+        className="mx-auto w-full max-w-7xl px-4 pb-24 sm:px-8 sm:pb-32"
+      >
+        <div className="reveal">
+          <StoreChat />
         </div>
       </section>
 

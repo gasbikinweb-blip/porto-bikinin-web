@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import type { Img, Product } from '@/data/types';
 import { buildWhatsAppLink, orderMessage } from '@/lib/whatsapp';
+import { site } from '@/data/site';
 import { WhatsAppIcon } from './icons';
 
 type Variant = { slug: string; name: string; image: Img };
@@ -81,6 +82,9 @@ export function HeroShowcase({ product, detail }: { product: Product; detail: Im
             Viscose Premium · Motif Marmer
           </p>
           <p className={`${label} mt-1 text-center`}>A Modest Soul Essentials</p>
+          <p className="mx-auto mt-3 max-w-sm text-center font-serif text-lg leading-snug font-light text-muted italic">
+            {site.taglineLong}
+          </p>
         </div>
 
         {/* Kanan: ukuran, warna, aksi */}

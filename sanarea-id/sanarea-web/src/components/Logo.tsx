@@ -3,7 +3,7 @@
 export function Logo({ className = '' }: { className?: string }) {
   return (
     <span
-      className={`font-serif text-lg font-light tracking-[0.42em] uppercase sm:text-xl ${className}`}
+      className={`font-serif text-base font-light tracking-[0.26em] uppercase sm:text-xl sm:tracking-[0.42em] ${className}`}
     >
       Sanaréa
     </span>

@@ -15,6 +15,46 @@
   --line: #e2dbd1;
   --rose: #c9a5a9;
   --rose-ink: #8e5c66;
+  --solid-hover: #3a3632;
+  /* Gelembung chat WhatsApp di preview */
+  --bubble: #d9fdd3;
+  --bubble-ink: #111b21;
+}
+
+/*
+ * Mode gelap: cokelat-arang hangat (bukan hitam pekat) agar tetap terasa butik.
+ * ink #f1ece4 di atas #15130f ≈ 15:1, muted #b5ab9f ≈ 8:1, rose-ink #dcadb4 ≈ 9:1.
+ * Ikut sistem, kecuali pengunjung memilih lewat tombol (data-theme).
+ */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --background: #15130f;
+    --surface: #1e1b17;
+    --card: #23201b;
+    --ink: #f1ece4;
+    --muted: #b5ab9f;
+    --line: #36312a;
+    --rose: #a9858a;
+    --rose-ink: #dcadb4;
+    --solid-hover: #d9d2c7;
+    --bubble: #005c4b;
+    --bubble-ink: #e9edef;
+  }
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --background: #15130f;
+  --surface: #1e1b17;
+  --card: #23201b;
+  --ink: #f1ece4;
+  --muted: #b5ab9f;
+  --line: #36312a;
+  --rose: #a9858a;
+  --rose-ink: #dcadb4;
+  --solid-hover: #d9d2c7;
+  --bubble: #005c4b;
+  --bubble-ink: #e9edef;
 }
 
 @theme inline {
@@ -26,6 +66,8 @@
   --color-line: var(--line);
   --color-rose: var(--rose);
   --color-rose-ink: var(--rose-ink);
+  --color-bubble: var(--bubble);
+  --color-bubble-ink: var(--bubble-ink);
   --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-display), ui-serif, Georgia, serif;
 }
@@ -38,6 +80,9 @@ html {
 body {
   background: var(--background);
   color: var(--ink);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
   font-weight: 350;
 }
 
@@ -51,50 +96,53 @@ body {
   outline-offset: 3px;
 }
 
-/* Label kecil kapital berspasi lebar */
-.eyebrow {
-  font-size: 0.7rem;
-  font-weight: 400;
-  letter-spacing: 0.32em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
+/* Kelas komponen di @layer components agar utilitas Tailwind (mis. hidden, sm:inline-flex) tetap bisa menimpa */
+@layer components {
+  /* Label kecil kapital berspasi lebar */
+  .eyebrow {
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
 
-/* Judul kapital serif tipis, selaras logo */
-.display-caps {
-  font-family: var(--font-serif);
-  font-weight: 300;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
+  /* Judul kapital serif tipis, selaras logo */
+  .display-caps {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
 
-/* Tombol */
-.btn {
-  display: inline-flex;
-  min-height: 3rem;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  padding: 0 1.75rem;
-  font-size: 0.72rem;
-  font-weight: 400;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  border: 1px solid var(--ink);
-  transition:
-    background-color 0.25s ease,
-    color 0.25s ease;
-}
-.btn-solid {
-  background: var(--ink);
-  color: var(--background);
-}
-.btn-solid:hover {
-  background: #3a3632;
-}
-.btn-line:hover {
-  background: var(--ink);
-  color: var(--background);
+  /* Tombol */
+  .btn {
+    display: inline-flex;
+    min-height: 3rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 0 1.75rem;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    border: 1px solid var(--ink);
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease;
+  }
+  .btn-solid {
+    background: var(--ink);
+    color: var(--background);
+  }
+  .btn-solid:hover {
+    background: var(--solid-hover);
+  }
+  .btn-line:hover {
+    background: var(--ink);
+    color: var(--background);
+  }
 }
 
 summary::-webkit-details-marker {
@@ -139,7 +187,53 @@ dialog.sheet::backdrop {
   }
 }
 
+/* Moments "jemuran": goyang pelan dari titik jepit, flip 3D saat diklik */
+.moment-card {
+  transform-origin: 50% 0;
+  transform: rotate(var(--tilt, 0deg));
+  animation: sway 6s ease-in-out infinite;
+  animation-delay: var(--sway-delay, 0s);
+}
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(var(--tilt, 0deg));
+  }
+  50% {
+    transform: rotate(calc(var(--tilt, 0deg) * -0.6));
+  }
+}
+.moment-flip {
+  perspective: 1000px;
+}
+.moment-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.3, 0.7, 0.2, 1);
+}
+.moment-flip[aria-pressed='true'] .moment-inner {
+  transform: rotateY(180deg);
+}
+/* Desktop: sedikit terangkat saat diarahkan kursor */
+@media (hover: hover) {
+  .moment-flip:hover .moment-inner {
+    transform: translateY(-6px) rotateY(var(--peek, 0deg));
+  }
+  .moment-flip[aria-pressed='true']:hover .moment-inner {
+    transform: translateY(-6px) rotateY(180deg);
+  }
+}
+.moment-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.moment-back {
+  transform: rotateY(180deg);
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .moment-card {
+    animation: none;
+  }
   html {
     scroll-behavior: auto;
   }

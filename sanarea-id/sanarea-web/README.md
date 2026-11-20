@@ -77,4 +77,4 @@ Isi env `NEXT_PUBLIC_WA_NUMBER` dan `NEXT_PUBLIC_SITE_URL`, lalu ganti domain di
 - Pengiriman luar Cianjur, metode bayar, retur, reseller (FAQ & Cara Order)
 - Cara perawatan per bahan; cerita brand & tahun berdiri dari pemilik
 - File logo asli (resolusi tinggi / vektor) dan favicon
-- Domain asli (`NEXT_PUBLIC_SITE_URL`, `robots.txt`)
+- Domain sendiri (sekarang porto-sanarea-id.vercel.app)

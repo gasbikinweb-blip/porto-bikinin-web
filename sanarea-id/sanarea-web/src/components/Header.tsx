@@ -6,6 +6,7 @@ import { buildWhatsAppLink, generalMessage } from '@/lib/whatsapp';
 import { CartButton } from './CartButton';
 import { Logo } from './Logo';
 import { navLinks } from './nav-links';
+import { ThemeToggle } from './ThemeToggle';
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -41,7 +42,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-30 border-b border-line bg-background/90 backdrop-blur-md">
-      <div className="mx-auto grid h-16 max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 sm:h-20 sm:px-8">
+      <div className="mx-auto grid h-16 max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-2 px-3 sm:gap-4 sm:h-20 sm:px-8">
         <a href="#beranda" aria-label="SANARÉA, ke beranda" className="flex min-h-11 items-center">
           <Logo />
         </a>
@@ -80,7 +81,8 @@ export function Header() {
           </svg>
         </button>
 
-        <div className="flex items-center justify-end gap-2">
+        <div className="flex items-center justify-end gap-1 sm:gap-2">
+          <ThemeToggle />
           <CartButton />
           <a
             href={buildWhatsAppLink(generalMessage)}

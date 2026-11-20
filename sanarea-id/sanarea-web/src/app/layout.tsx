@@ -51,11 +51,22 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport: Viewport = { themeColor: '#faf7f2' };
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#faf7f2' },
+    { media: '(prefers-color-scheme: dark)', color: '#15130f' },
+  ],
+};
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="id" className={`${display.variable} ${body.variable}`}>
+    // suppressHydrationWarning: atribut data-theme dipasang theme-init.js sebelum React aktif
+    <html lang="id" className={`${display.variable} ${body.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Sengaja sinkron agar tema terpasang sebelum halaman digambar; file kecil & lokal */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script src="/theme-init.js" />
+      </head>
       <body className="flex min-h-dvh flex-col font-sans antialiased">
         <a
           href="#konten"

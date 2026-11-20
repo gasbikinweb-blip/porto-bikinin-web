@@ -88,3 +88,53 @@ export function PinIcon({ className = 'size-5' }: IconProps) {
     </svg>
   );
 }
+
+export function InstagramIcon({ className = 'size-5' }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.4"
+    >
+      <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.3" cy="6.7" r="0.9" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function ThreadsIcon({ className = 'size-5' }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+    >
+      <path d="M16.6 11.2c-.4-2.3-2-3.5-4.3-3.5-2.4 0-4 1.4-4 3.3 0 1.8 1.5 3 3.6 3 2.6 0 4.3-1.7 4.3-4.7 0-4.1-2.7-6.3-6.4-6.3C6 3 3.5 6.4 3.5 12s2.6 9 6.6 9c3.6 0 6.4-2 6.4-5.2 0-1.8-1-3.2-2.8-4" />
+    </svg>
+  );
+}
+
+export function ClockIcon({ className = 'size-5' }: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.4"
+      strokeLinecap="round"
+    >
+      <circle cx="12" cy="12" r="8.5" />
+      <path d="M12 7.5V12l3 2" />
+    </svg>
+  );
+}

@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-# TODO: ganti domain sesuai NEXT_PUBLIC_SITE_URL
-Sitemap: https://sanarea.vercel.app/sitemap.xml
+# Domain sesuai NEXT_PUBLIC_SITE_URL
+Sitemap: https://porto-sanarea-id.vercel.app/sitemap.xml
