@@ -165,9 +165,22 @@ export default function Home() {
       </section>
 
       {/* Kutipan brand */}
-      <section id="quotes" aria-label="Kutipan Sanaréa" className="border-t border-line">
-        <div className="mx-auto max-w-7xl px-4 py-24 sm:px-8 sm:py-28">
-          <QuoteCarousel />
+      <section
+        id="quotes"
+        aria-label="Kutipan Sanaréa"
+        className="relative isolate overflow-hidden"
+      >
+        {/* Latar: foto depan toko, digelapkan & sedikit blur agar kutipan tetap terbaca */}
+        <Image
+          src={storePhotos[0]!.src}
+          alt=""
+          fill
+          sizes="100vw"
+          className="-z-20 scale-110 object-cover blur-[2px]"
+        />
+        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[#15130f]/70" />
+        <div className="mx-auto max-w-7xl px-4 py-28 sm:px-8 sm:py-36">
+          <QuoteCarousel tone="light" />
         </div>
       </section>
 

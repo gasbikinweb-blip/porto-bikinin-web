@@ -5,7 +5,9 @@
 import { useEffect, useState } from 'react';
 import { quotes } from '@/data/quotes';
 
-export function QuoteCarousel() {
+/** tone="light": teks putih untuk dipasang di atas foto gelap */
+export function QuoteCarousel({ tone = 'default' }: { tone?: 'default' | 'light' }) {
+  const light = tone === 'light';
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const q = quotes[index];
@@ -24,15 +26,22 @@ export function QuoteCarousel() {
       onFocus={() => setPaused(true)}
       onBlur={() => setPaused(false)}
     >
-      <span aria-hidden="true" className="block font-serif text-7xl leading-none text-rose-ink">
+      <span
+        aria-hidden="true"
+        className={`block font-serif text-7xl leading-none ${light ? 'text-[#e9c3c9]' : 'text-rose-ink'}`}
+      >
         “
       </span>
       {q && (
         <figure key={index} className="animate-fade" aria-live="polite">
-          <blockquote className="font-serif text-3xl leading-snug font-light text-balance sm:text-4xl">
+          <blockquote
+            className={`font-serif text-3xl leading-snug font-light text-balance sm:text-4xl ${light ? 'text-white' : ''}`}
+          >
             {q.text}
           </blockquote>
-          <figcaption className="eyebrow mt-6">{q.source}</figcaption>
+          <figcaption className={`eyebrow mt-6 ${light ? '!text-white/75' : ''}`}>
+            {q.source}
+          </figcaption>
         </figure>
       )}
       <div className="mt-8 flex justify-center gap-1">
@@ -47,7 +56,7 @@ export function QuoteCarousel() {
             <span className="sr-only">Kutipan {i + 1}</span>
             <span
               aria-hidden="true"
-              className="h-1.5 w-1.5 rounded-full bg-line transition-all group-aria-[current=true]:w-6 group-aria-[current=true]:bg-ink"
+              className={`h-1.5 w-1.5 rounded-full transition-all group-aria-[current=true]:w-6 ${light ? 'bg-white/40 group-aria-[current=true]:bg-white' : 'bg-line group-aria-[current=true]:bg-ink'}`}
             />
           </button>
         ))}
