@@ -192,7 +192,11 @@ export default function HomePage() {
       </section>
 
       {/* ---------- Room select ("pilih karakter") ---------- */}
-      <section aria-labelledby="judul-ruang" className="relative overflow-hidden bg-surface py-24">
+      <section
+        id="layanan"
+        aria-labelledby="judul-ruang"
+        className="relative scroll-mt-20 overflow-hidden bg-surface py-24"
+      >
         {/* Cahaya latar dekoratif */}
         <div
           aria-hidden="true"

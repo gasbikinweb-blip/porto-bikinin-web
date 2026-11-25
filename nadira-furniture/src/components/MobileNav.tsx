@@ -4,11 +4,13 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { navLinks } from './nav-links';
+import { useActiveNav } from './use-active-nav';
 
 export function MobileNav() {
+  const active = useActiveNav();
   const [open, setOpen] = useState(false);
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <button
         type="button"
         aria-expanded={open}
@@ -38,7 +40,8 @@ export function MobileNav() {
               <Link
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="block border-b border-line py-4 font-serif text-2xl last:border-0"
+                aria-current={l.href === active ? 'page' : undefined}
+                className={`block border-b border-line py-4 font-serif text-2xl last:border-0 ${l.href === active ? 'text-accent-strong' : ''}`}
               >
                 {l.label}
               </Link>

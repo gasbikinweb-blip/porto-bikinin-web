@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import { buildWhatsAppLink, generalMessage } from '@/lib/whatsapp';
+import { DesktopNav } from './DesktopNav';
 import { HeaderShell } from './HeaderShell';
 import { WhatsAppIcon } from './icons';
 import { MobileNav } from './MobileNav';
 import { ThemeToggle } from './ThemeToggle';
-import { navLinks } from './nav-links';
 
 export function Header() {
   return (
@@ -19,20 +19,7 @@ export function Header() {
           </span>
         </Link>
 
-        <nav aria-label="Navigasi utama" className="hidden md:block">
-          <ul className="flex items-center gap-8 text-sm tracking-wide">
-            {navLinks.map((l) => (
-              <li key={l.href}>
-                <Link
-                  href={l.href}
-                  className="relative py-2 text-foreground/80 transition-colors after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-300 hover:text-foreground hover:after:w-full"
-                >
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <DesktopNav />
 
         <div className="flex items-center gap-2">
           <a

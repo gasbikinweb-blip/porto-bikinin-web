@@ -18,7 +18,7 @@ const steps = [
 
 export function OrderSteps() {
   return (
-    <section aria-labelledby="cara-pesan" className="bg-surface py-24">
+    <section aria-labelledby="cara-pesan" className="scroll-mt-20 bg-surface py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <SectionHeading
           id="cara-pesan"
