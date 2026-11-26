@@ -8,10 +8,11 @@ import { OrderSteps } from '@/components/OrderSteps';
 import { Placeholder } from '@/components/Placeholder';
 import { ProjectStories } from '@/components/ProjectStories';
 import { HeroRotator } from '@/components/HeroRotator';
-import { ProductCard } from '@/components/ProductCard';
 import { SectionHeading } from '@/components/SectionHeading';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
-import { getCategories, getFeaturedProducts } from '@/data/products';
+import { getAllProducts, getCategories } from '@/data/products';
+import { ProductCatalog } from '@/components/ProductCatalog';
+import { SurveyComposer } from '@/components/SurveyComposer';
 import { quotes } from '@/data/quotes';
 import { getRooms } from '@/data/rooms';
 import { siteConfig } from '@/lib/config';
@@ -46,7 +47,6 @@ const faqs = [
 ];
 
 export default function HomePage() {
-  const featured = getFeaturedProducts();
   const categories = getCategories();
   const rooms = getRooms();
 
@@ -62,7 +62,7 @@ export default function HomePage() {
             style={{ '--delay': '650ms' } as React.CSSProperties}
           >
             <Link
-              href="/produk"
+              href="/#portofolio"
               className="group inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3 text-sm font-semibold text-background transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-strong"
             >
               Lihat Portofolio
@@ -84,7 +84,7 @@ export default function HomePage() {
       </section>
 
       {/* ---------- Intro ---------- */}
-      <section id="intro" aria-labelledby="judul-intro" className="py-24">
+      <section id="tentang" aria-labelledby="judul-intro" className="scroll-mt-20 py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-20">
           <div>
             <SectionHeading
@@ -102,10 +102,10 @@ export default function HomePage() {
               ))}
             </ul>
             <Link
-              href="/tentang"
+              href="/#kontak"
               className="reveal group mt-10 inline-flex items-center gap-2 text-sm font-semibold text-accent-strong"
             >
-              Kenali kami lebih dekat
+              Jadwalkan survei gratis
               <ArrowIcon className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
           </div>
@@ -166,7 +166,7 @@ export default function HomePage() {
           {categories.map((c) => (
             <Link
               key={c.slug}
-              href={`/produk?kategori=${c.slug}`}
+              href={`/?kategori=${c.slug}#portofolio`}
               className="group flex items-center gap-8 px-8 font-serif text-5xl whitespace-nowrap text-foreground/90 transition-colors hover:text-accent-strong sm:text-7xl"
             >
               {c.name}
@@ -223,39 +223,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ---------- Produk unggulan ---------- */}
-      <section aria-labelledby="judul-unggulan" className="py-24">
+      {/* ---------- Portofolio (semua karya) ---------- */}
+      <section id="portofolio" aria-labelledby="judul-portofolio" className="scroll-mt-20 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
-            <SectionHeading
-              id="judul-unggulan"
-              eyebrow="Karya pilihan"
-              title="Hasil Pengerjaan Terbaik"
-            />
-            <Link
-              href="/produk"
-              className="reveal group inline-flex items-center gap-2 rounded-full border border-line px-5 py-2.5 text-sm transition-colors hover:border-accent"
-            >
-              Lihat semua karya
-              <ArrowIcon className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
+          <SectionHeading
+            id="judul-portofolio"
+            eyebrow="Portofolio"
+            title="Karya Nadira Furniture"
+            description="Hasil pengerjaan asli di rumah pelanggan. Klik karya untuk melihat foto lengkap, lalu tanya model serupa via WhatsApp."
+            align="center"
+          />
+          <div className="mt-12">
+            <ProductCatalog products={getAllProducts()} categories={getCategories()} />
           </div>
-          <ul data-stagger className="mt-12 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-            {featured.length === 0 &&
-              [1, 2, 3].map((n) => (
-                <li key={n} className="reveal reveal-zoom">
-                  <Placeholder label="Produk" className="aspect-[4/5] rounded-2xl" />
-                </li>
-              ))}
-            {featured.map((p) => (
-              <li key={p.slug} className="reveal reveal-zoom">
-                <ProductCard
-                  product={p}
-                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                />
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
@@ -278,61 +258,6 @@ export default function HomePage() {
           ))}
         </Marquee>
       </div>
-
-      {/* ---------- Proyek ---------- */}
-      <section aria-labelledby="judul-proyek" className="py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="grid gap-6 lg:grid-cols-2 lg:items-end">
-            <SectionHeading
-              id="judul-proyek"
-              eyebrow="Proyek custom"
-              title="Dari Dapur sampai Kamar Tidur"
-            />
-            <p className="reveal leading-relaxed text-muted">
-              Dari satu meja rias sampai interior satu rumah. Semua kami ukur, desain, kerjakan, dan
-              pasang sendiri di lokasi Anda.
-            </p>
-          </div>
-          <div className="reveal reveal-zoom theme-dark relative mt-12 aspect-[4/5] overflow-hidden rounded-3xl sm:aspect-[16/9]">
-            <Image
-              src="/projects/kitchen-set-island-modern/01.webp"
-              alt="Kitchen set modern abu dengan island dan kisi kayu"
-              fill
-              sizes="(min-width: 1280px) 1232px, 100vw"
-              className="absolute inset-0 object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-            {/* Hotspot dekoratif seperti katalog interior */}
-            {[
-              ['top-[30%] left-[20%]', 'Kabinet atas'],
-              ['top-[55%] left-[60%]', 'Island'],
-              ['top-[40%] right-[15%]', 'Lampu LED'],
-            ].map(([pos, label]) => (
-              <span
-                key={label}
-                className={`group absolute hidden sm:flex ${pos} items-center gap-2`}
-              >
-                <span className="grid size-9 place-items-center rounded-full bg-accent text-background shadow-lg ring-4 ring-accent/30 transition-transform duration-300 group-hover:rotate-90">
-                  <PlusIcon className="size-4" />
-                </span>
-                <span className="rounded-full bg-background/80 px-3 py-1 text-xs opacity-0 backdrop-blur transition-opacity duration-300 group-hover:opacity-100">
-                  {label}
-                </span>
-              </span>
-            ))}
-            <div className="absolute inset-x-0 bottom-0 flex flex-col gap-4 p-6 sm:flex-row sm:items-end sm:justify-between sm:p-10">
-              <p className="max-w-md font-serif text-2xl sm:text-3xl">
-                Konsultasikan interior custom untuk rumah Anda.
-              </p>
-              <WhatsAppButton
-                message={`Halo ${siteConfig.name}, saya ingin konsultasi interior custom.`}
-              >
-                Konsultasi Proyek
-              </WhatsAppButton>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ---------- Our Project & Delivered (sorotan IG) ---------- */}
       <section aria-labelledby="judul-story" className="border-t border-line py-24">
@@ -408,28 +333,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ---------- CTA penutup ---------- */}
-      <section aria-labelledby="judul-cta" className="relative isolate overflow-hidden py-28">
-        <Image
-          src="/projects/kitchen-set-hitam-motif/01.webp"
-          alt=""
-          fill
-          sizes="100vw"
-          className="absolute inset-0 -z-10 object-cover"
-        />
-        <div className="absolute inset-0 -z-10 bg-background/80" />
-        <div className="reveal reveal-blur mx-auto max-w-3xl px-4 text-center sm:px-6">
-          <p className="text-xs font-semibold tracking-[0.3em] text-accent uppercase">
-            {siteConfig.tagline}
-          </p>
-          <h2 id="judul-cta" className="mt-4 font-serif text-4xl leading-tight sm:text-6xl">
-            Siap Mewujudkan Interior Impian?
-          </h2>
-          <p className="mx-auto mt-5 max-w-xl text-muted">
-            Ceritakan kebutuhan Anda. Kami jadwalkan survei gratis dan bantu pilihkan model, ukuran,
-            dan warna yang paling pas.
-          </p>
-          <WhatsAppButton className="mt-10">Jadwalkan Survei Gratis</WhatsAppButton>
+      {/* ---------- Kontak ---------- */}
+      <section id="kontak" aria-labelledby="judul-kontak" className="scroll-mt-20 border-t border-line bg-surface/40 py-24">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6">
+          <SectionHeading
+            id="judul-kontak"
+            eyebrow="Kontak"
+            title="Siap Mewujudkan Interior Impian?"
+            description="Semua pertanyaan dan pemesanan kami layani lewat WhatsApp. Survei dan konsultasi gratis untuk area Bandung Raya."
+            align="center"
+          />
+          <div className="reveal mt-10 flex flex-wrap justify-center gap-3 text-sm">
+            <WhatsAppButton>Chat {siteConfig.waDisplay}</WhatsAppButton>
+            <a
+              href={siteConfig.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center rounded-full border border-line px-6 py-3 transition-colors hover:border-accent"
+            >
+              Instagram {siteConfig.instagramHandle}
+            </a>
+          </div>
+          <SurveyComposer />
         </div>
       </section>
     </>

@@ -18,7 +18,7 @@ export default function NotFound() {
           Kembali ke Beranda
         </Link>
         <Link
-          href="/produk"
+          href="/#portofolio"
           className="rounded-full border border-line px-6 py-3 text-sm hover:border-accent"
         >
           Lihat Katalog

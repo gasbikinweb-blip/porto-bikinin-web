@@ -41,7 +41,7 @@ export function Footer() {
             {getCategories().map((c) => (
               <li key={c.slug}>
                 <Link
-                  href={`/produk?kategori=${c.slug}`}
+                  href={`/?kategori=${c.slug}#portofolio`}
                   className="transition-colors hover:text-accent-strong"
                 >
                   {c.name}

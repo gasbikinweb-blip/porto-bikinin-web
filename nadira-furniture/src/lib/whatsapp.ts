@@ -19,7 +19,7 @@ export type ProductInquiry = {
 };
 
 /** Link katalog yang langsung membuka modal detail produk */
-export const productUrl = (slug: string) => new URL(`/produk#produk-${slug}`, siteConfig.url).href;
+export const productUrl = (slug: string) => new URL(`/#produk-${slug}`, siteConfig.url).href;
 
 /** Pesan berisi detail produk + link yang membuka modal produk di katalog. */
 export function productMessage(p: ProductInquiry): string {

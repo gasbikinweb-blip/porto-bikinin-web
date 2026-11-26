@@ -6,9 +6,8 @@ import { useEffect, useRef, useState } from 'react';
 import { getAllProducts, getCategory, type Product } from '@/data/products';
 import { siteConfig } from '@/lib/config';
 import { formatPrice } from '@/lib/format';
-import { productMessage } from '@/lib/whatsapp';
 import { ProductGallery } from './ProductGallery';
-import { WhatsAppButton } from './WhatsAppButton';
+import { InquiryComposer } from './InquiryComposer';
 
 const PREFIX = '#produk-';
 const bySlug = new Map(getAllProducts().map((p) => [p.slug, p]));
@@ -94,19 +93,7 @@ export function ProductModal() {
                 ))}
               </dl>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <WhatsAppButton
-                  message={productMessage({ ...product, ...product.specs })}
-                  className="sm:flex-1"
-                />
-                <WhatsAppButton
-                  variant="outline"
-                  message={`Halo ${siteConfig.name}, saya mau model seperti ${product.name} tapi dengan ukuran/warna berbeda. Bisa dibantu?`}
-                  className="sm:flex-1"
-                >
-                  Custom Ukuran/Warna
-                </WhatsAppButton>
-              </div>
+              <InquiryComposer key={product.slug} product={product} />
               <p className="mt-4 text-xs text-muted">
                 Ukuran, warna, dan motif bisa disesuaikan. Survei & konsultasi gratis, harga final
                 setelah ukur lokasi.

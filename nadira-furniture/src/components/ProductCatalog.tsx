@@ -60,7 +60,7 @@ export function ProductCatalog({ products, categories }: Props) {
       </div>
 
       <p className="sr-only" aria-live="polite">
-        Menampilkan {visible.length} produk
+        Menampilkan {visible.length} karya
       </p>
 
       <ul className="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

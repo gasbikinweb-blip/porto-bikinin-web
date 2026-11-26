@@ -86,9 +86,7 @@ const products: readonly Product[] = [
     year: 2025,
     description:
       'Backdrop TV custom yang merapikan kabel dan perangkat, dilengkapi rak display dan pencahayaan agar ruang keluarga terasa lebih hidup.',
-    images: gallery('backdrop-tv-lengkung-led', [
-      'Backdrop TV Lengkung LED buatan Nadira Furniture',
-    ]),
+    images: gallery('backdrop-tv-lengkung-led', ["Backdrop TV Lengkung LED buatan Nadira Furniture"]),
     specs: MATERIAL,
     featured: true,
   },
@@ -99,13 +97,7 @@ const products: readonly Product[] = [
     year: 2024,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-island-modern', [
-      'Kitchen Set Island Modern buatan Nadira Furniture',
-      'Kitchen Set Island Modern, foto 2',
-      'Kitchen Set Island Modern, foto 3',
-      'Kitchen Set Island Modern, foto 4',
-      'Kitchen Set Island Modern, foto 5',
-    ]),
+    images: gallery('kitchen-set-island-modern', ["Kitchen Set Island Modern buatan Nadira Furniture", "Kitchen Set Island Modern, foto 2", "Kitchen Set Island Modern, foto 3", "Kitchen Set Island Modern, foto 4", "Kitchen Set Island Modern, foto 5"]),
     specs: MATERIAL,
     featured: true,
   },
@@ -116,14 +108,7 @@ const products: readonly Product[] = [
     year: 2024,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-minibar-kisi', [
-      'Kitchen Set & Minibar Kisi buatan Nadira Furniture',
-      'Kitchen Set & Minibar Kisi, foto 2',
-      'Kitchen Set & Minibar Kisi, foto 3',
-      'Kitchen Set & Minibar Kisi, foto 4',
-      'Kitchen Set & Minibar Kisi, foto 5',
-      'Kitchen Set & Minibar Kisi, foto 6',
-    ]),
+    images: gallery('kitchen-set-minibar-kisi', ["Kitchen Set & Minibar Kisi buatan Nadira Furniture", "Kitchen Set & Minibar Kisi, foto 2", "Kitchen Set & Minibar Kisi, foto 3", "Kitchen Set & Minibar Kisi, foto 4", "Kitchen Set & Minibar Kisi, foto 5", "Kitchen Set & Minibar Kisi, foto 6"]),
     specs: MATERIAL,
     featured: true,
   },
@@ -134,12 +119,7 @@ const products: readonly Product[] = [
     year: 2024,
     description:
       'Lemari custom setinggi plafon dengan pembagian rak, gantungan, dan laci sesuai kebutuhan. Model, warna, dan ukuran bebas request.',
-    images: gallery('lemari-kaca-walk-in', [
-      'Lemari Kaca Walk-in buatan Nadira Furniture',
-      'Lemari Kaca Walk-in, foto 2',
-      'Lemari Kaca Walk-in, foto 3',
-      'Lemari Kaca Walk-in, foto 4',
-    ]),
+    images: gallery('lemari-kaca-walk-in', ["Lemari Kaca Walk-in buatan Nadira Furniture", "Lemari Kaca Walk-in, foto 2", "Lemari Kaca Walk-in, foto 3", "Lemari Kaca Walk-in, foto 4"]),
     specs: MATERIAL,
     featured: true,
   },
@@ -150,10 +130,7 @@ const products: readonly Product[] = [
     year: 2023,
     description:
       'Lemari custom setinggi plafon dengan pembagian rak, gantungan, dan laci sesuai kebutuhan. Model, warna, dan ukuran bebas request.',
-    images: gallery('lemari-putih-display-arch', [
-      'Lemari Putih Display Lengkung buatan Nadira Furniture',
-      'Lemari Putih Display Lengkung, foto 2',
-    ]),
+    images: gallery('lemari-putih-display-arch', ["Lemari Putih Display Lengkung buatan Nadira Furniture", "Lemari Putih Display Lengkung, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -164,7 +141,7 @@ const products: readonly Product[] = [
     year: 2023,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-kayu-l', ['Kitchen Set Kayu Bentuk L buatan Nadira Furniture']),
+    images: gallery('kitchen-set-kayu-l', ["Kitchen Set Kayu Bentuk L buatan Nadira Furniture"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -175,7 +152,7 @@ const products: readonly Product[] = [
     year: 2023,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-abu-marmer', ['Kitchen Set Abu Marmer buatan Nadira Furniture']),
+    images: gallery('kitchen-set-abu-marmer', ["Kitchen Set Abu Marmer buatan Nadira Furniture"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -186,9 +163,7 @@ const products: readonly Product[] = [
     year: 2023,
     description:
       'Backdrop TV custom yang merapikan kabel dan perangkat, dilengkapi rak display dan pencahayaan agar ruang keluarga terasa lebih hidup.',
-    images: gallery('backdrop-tv-kayu-kaca-display', [
-      'Backdrop TV & Lemari Display buatan Nadira Furniture',
-    ]),
+    images: gallery('backdrop-tv-kayu-kaca-display', ["Backdrop TV & Lemari Display buatan Nadira Furniture"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -199,7 +174,7 @@ const products: readonly Product[] = [
     year: 2023,
     description:
       'Lemari custom setinggi plafon dengan pembagian rak, gantungan, dan laci sesuai kebutuhan. Model, warna, dan ukuran bebas request.',
-    images: gallery('lemari-motif-marmer', ['Lemari Motif Marmer buatan Nadira Furniture']),
+    images: gallery('lemari-motif-marmer', ["Lemari Motif Marmer buatan Nadira Furniture"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -210,7 +185,7 @@ const products: readonly Product[] = [
     year: 2023,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-industrial', ['Kitchen Set Industrial buatan Nadira Furniture']),
+    images: gallery('kitchen-set-industrial', ["Kitchen Set Industrial buatan Nadira Furniture"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -221,7 +196,7 @@ const products: readonly Product[] = [
     year: 2023,
     description:
       'Partisi custom untuk membagi ruang tanpa membuatnya sempit, bisa dipadukan dengan rak display atau backdrop TV.',
-    images: gallery('partisi-kisi-kayu', ['Partisi Kisi Kayu buatan Nadira Furniture']),
+    images: gallery('partisi-kisi-kayu', ["Partisi Kisi Kayu buatan Nadira Furniture"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -232,9 +207,7 @@ const products: readonly Product[] = [
     year: 2022,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-abu-subway', [
-      'Kitchen Set Abu Keramik Subway buatan Nadira Furniture',
-    ]),
+    images: gallery('kitchen-set-abu-subway', ["Kitchen Set Abu Keramik Subway buatan Nadira Furniture"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -245,11 +218,7 @@ const products: readonly Product[] = [
     year: 2022,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-putih-marmer', [
-      'Kitchen Set Putih Backsplash Marmer buatan Nadira Furniture',
-      'Kitchen Set Putih Backsplash Marmer, foto 2',
-      'Kitchen Set Putih Backsplash Marmer, foto 3',
-    ]),
+    images: gallery('kitchen-set-putih-marmer', ["Kitchen Set Putih Backsplash Marmer buatan Nadira Furniture", "Kitchen Set Putih Backsplash Marmer, foto 2", "Kitchen Set Putih Backsplash Marmer, foto 3"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -260,9 +229,7 @@ const products: readonly Product[] = [
     year: 2022,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-klasik-putih', [
-      'Kitchen Set Klasik Putih buatan Nadira Furniture',
-    ]),
+    images: gallery('kitchen-set-klasik-putih', ["Kitchen Set Klasik Putih buatan Nadira Furniture"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -273,12 +240,7 @@ const products: readonly Product[] = [
     year: 2022,
     description:
       'Lemari custom setinggi plafon dengan pembagian rak, gantungan, dan laci sesuai kebutuhan. Model, warna, dan ukuran bebas request.',
-    images: gallery('lemari-klasik-kaca', [
-      'Lemari Klasik Pintu Kaca buatan Nadira Furniture',
-      'Lemari Klasik Pintu Kaca, foto 2',
-      'Lemari Klasik Pintu Kaca, foto 3',
-      'Lemari Klasik Pintu Kaca, foto 4',
-    ]),
+    images: gallery('lemari-klasik-kaca', ["Lemari Klasik Pintu Kaca buatan Nadira Furniture", "Lemari Klasik Pintu Kaca, foto 2", "Lemari Klasik Pintu Kaca, foto 3", "Lemari Klasik Pintu Kaca, foto 4"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -289,10 +251,7 @@ const products: readonly Product[] = [
     year: 2022,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-kayu-island', [
-      'Kitchen Set Kayu dengan Island buatan Nadira Furniture',
-      'Kitchen Set Kayu dengan Island, foto 2',
-    ]),
+    images: gallery('kitchen-set-kayu-island', ["Kitchen Set Kayu dengan Island buatan Nadira Furniture", "Kitchen Set Kayu dengan Island, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -303,10 +262,7 @@ const products: readonly Product[] = [
     year: 2022,
     description:
       'Lemari custom setinggi plafon dengan pembagian rak, gantungan, dan laci sesuai kebutuhan. Model, warna, dan ukuran bebas request.',
-    images: gallery('lemari-cermin-cokelat', [
-      'Lemari Cermin Cokelat buatan Nadira Furniture',
-      'Lemari Cermin Cokelat, foto 2',
-    ]),
+    images: gallery('lemari-cermin-cokelat', ["Lemari Cermin Cokelat buatan Nadira Furniture", "Lemari Cermin Cokelat, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -317,11 +273,7 @@ const products: readonly Product[] = [
     year: 2022,
     description:
       'Kamar set custom: dipan, headboard, lemari, dan meja dibuat serasi dalam satu desain sesuai ukuran kamar.',
-    images: gallery('kamar-set-kayu-led', [
-      'Kamar Set Kayu LED buatan Nadira Furniture',
-      'Kamar Set Kayu LED, foto 2',
-      'Kamar Set Kayu LED, foto 3',
-    ]),
+    images: gallery('kamar-set-kayu-led', ["Kamar Set Kayu LED buatan Nadira Furniture", "Kamar Set Kayu LED, foto 2", "Kamar Set Kayu LED, foto 3"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -332,10 +284,7 @@ const products: readonly Product[] = [
     year: 2022,
     description:
       'Partisi custom untuk membagi ruang tanpa membuatnya sempit, bisa dipadukan dengan rak display atau backdrop TV.',
-    images: gallery('partisi-kisi-backdrop-tv', [
-      'Partisi Kisi & Backdrop TV buatan Nadira Furniture',
-      'Partisi Kisi & Backdrop TV, foto 2',
-    ]),
+    images: gallery('partisi-kisi-backdrop-tv', ["Partisi Kisi & Backdrop TV buatan Nadira Furniture", "Partisi Kisi & Backdrop TV, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -346,10 +295,7 @@ const products: readonly Product[] = [
     year: 2022,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-hitam-minibar', [
-      'Kitchen Set Hitam dengan Minibar buatan Nadira Furniture',
-      'Kitchen Set Hitam dengan Minibar, foto 2',
-    ]),
+    images: gallery('kitchen-set-hitam-minibar', ["Kitchen Set Hitam dengan Minibar buatan Nadira Furniture", "Kitchen Set Hitam dengan Minibar, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -360,10 +306,7 @@ const products: readonly Product[] = [
     year: 2022,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-hitam-motif', [
-      'Kitchen Set Hitam Backsplash Motif buatan Nadira Furniture',
-      'Kitchen Set Hitam Backsplash Motif, foto 2',
-    ]),
+    images: gallery('kitchen-set-hitam-motif', ["Kitchen Set Hitam Backsplash Motif buatan Nadira Furniture", "Kitchen Set Hitam Backsplash Motif, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -374,10 +317,7 @@ const products: readonly Product[] = [
     year: 2022,
     description:
       'Furnitur custom untuk sudut yang sulit, dari kolong tangga, rak sepatu, sampai meja kerja. Setiap sentimeter dimanfaatkan.',
-    images: gallery('lemari-bawah-tangga-hitam', [
-      'Lemari Bawah Tangga Hitam buatan Nadira Furniture',
-      'Lemari Bawah Tangga Hitam, foto 2',
-    ]),
+    images: gallery('lemari-bawah-tangga-hitam', ["Lemari Bawah Tangga Hitam buatan Nadira Furniture", "Lemari Bawah Tangga Hitam, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -388,9 +328,7 @@ const products: readonly Product[] = [
     year: 2022,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-kayu-natural', [
-      'Kitchen Set Kayu Natural buatan Nadira Furniture',
-    ]),
+    images: gallery('kitchen-set-kayu-natural', ["Kitchen Set Kayu Natural buatan Nadira Furniture", "Kitchen Set Kayu Natural, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -401,11 +339,7 @@ const products: readonly Product[] = [
     year: 2022,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-abu-marmer-l', [
-      'Kitchen Set Abu Marmer L buatan Nadira Furniture',
-      'Kitchen Set Abu Marmer L, foto 2',
-      'Kitchen Set Abu Marmer L, foto 3',
-    ]),
+    images: gallery('kitchen-set-abu-marmer-l', ["Kitchen Set Abu Marmer L buatan Nadira Furniture", "Kitchen Set Abu Marmer L, foto 2", "Kitchen Set Abu Marmer L, foto 3"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -416,11 +350,7 @@ const products: readonly Product[] = [
     year: 2022,
     description:
       'Partisi custom untuk membagi ruang tanpa membuatnya sempit, bisa dipadukan dengan rak display atau backdrop TV.',
-    images: gallery('partisi-kisi-ruang-tamu', [
-      'Partisi Kisi Ruang Tamu buatan Nadira Furniture',
-      'Partisi Kisi Ruang Tamu, foto 2',
-      'Partisi Kisi Ruang Tamu, foto 3',
-    ]),
+    images: gallery('partisi-kisi-ruang-tamu', ["Partisi Kisi Ruang Tamu buatan Nadira Furniture", "Partisi Kisi Ruang Tamu, foto 2", "Partisi Kisi Ruang Tamu, foto 3"]),
     specs: MATERIAL,
     featured: true,
   },
@@ -431,10 +361,7 @@ const products: readonly Product[] = [
     year: 2022,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-putih-led-hangat', [
-      'Kitchen Set Putih LED Hangat buatan Nadira Furniture',
-      'Kitchen Set Putih LED Hangat, foto 2',
-    ]),
+    images: gallery('kitchen-set-putih-led-hangat', ["Kitchen Set Putih LED Hangat buatan Nadira Furniture", "Kitchen Set Putih LED Hangat, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -445,10 +372,7 @@ const products: readonly Product[] = [
     year: 2022,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-kayu-marmer', [
-      'Kitchen Set Kayu Top Marmer buatan Nadira Furniture',
-      'Kitchen Set Kayu Top Marmer, foto 2',
-    ]),
+    images: gallery('kitchen-set-kayu-marmer', ["Kitchen Set Kayu Top Marmer buatan Nadira Furniture", "Kitchen Set Kayu Top Marmer, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -459,10 +383,7 @@ const products: readonly Product[] = [
     year: 2022,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-putih-glossy-minibar', [
-      'Kitchen Set Putih Glossy & Minibar buatan Nadira Furniture',
-      'Kitchen Set Putih Glossy & Minibar, foto 2',
-    ]),
+    images: gallery('kitchen-set-putih-glossy-minibar', ["Kitchen Set Putih Glossy & Minibar buatan Nadira Furniture", "Kitchen Set Putih Glossy & Minibar, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -473,10 +394,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-hitam-doff', [
-      'Kitchen Set Hitam Doff buatan Nadira Furniture',
-      'Kitchen Set Hitam Doff, foto 2',
-    ]),
+    images: gallery('kitchen-set-hitam-doff', ["Kitchen Set Hitam Doff buatan Nadira Furniture", "Kitchen Set Hitam Doff, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -487,10 +405,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Furnitur custom untuk sudut yang sulit, dari kolong tangga, rak sepatu, sampai meja kerja. Setiap sentimeter dimanfaatkan.',
-    images: gallery('meja-kerja-rak-besi', [
-      'Meja Kerja Rak Besi buatan Nadira Furniture',
-      'Meja Kerja Rak Besi, foto 2',
-    ]),
+    images: gallery('meja-kerja-rak-besi', ["Meja Kerja Rak Besi buatan Nadira Furniture", "Meja Kerja Rak Besi, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -501,7 +416,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Backdrop TV custom yang merapikan kabel dan perangkat, dilengkapi rak display dan pencahayaan agar ruang keluarga terasa lebih hidup.',
-    images: gallery('backdrop-tv-meja-rias', ['Backdrop TV & Meja Rias buatan Nadira Furniture']),
+    images: gallery('backdrop-tv-meja-rias', ["Backdrop TV & Meja Rias buatan Nadira Furniture"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -512,10 +427,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Backdrop TV custom yang merapikan kabel dan perangkat, dilengkapi rak display dan pencahayaan agar ruang keluarga terasa lebih hidup.',
-    images: gallery('backdrop-tv-panel-kayu', [
-      'Backdrop TV Panel Kayu buatan Nadira Furniture',
-      'Backdrop TV Panel Kayu, foto 2',
-    ]),
+    images: gallery('backdrop-tv-panel-kayu', ["Backdrop TV Panel Kayu buatan Nadira Furniture", "Backdrop TV Panel Kayu, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -526,7 +438,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Backdrop TV custom yang merapikan kabel dan perangkat, dilengkapi rak display dan pencahayaan agar ruang keluarga terasa lebih hidup.',
-    images: gallery('backdrop-tv-marmer-led', ['Backdrop TV Marmer LED buatan Nadira Furniture']),
+    images: gallery('backdrop-tv-marmer-led', ["Backdrop TV Marmer LED buatan Nadira Furniture"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -537,9 +449,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-abu-mungil', [
-      'Kitchen Set Abu Dapur Mungil buatan Nadira Furniture',
-    ]),
+    images: gallery('kitchen-set-abu-mungil', ["Kitchen Set Abu Dapur Mungil buatan Nadira Furniture"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -550,11 +460,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Kamar set custom: dipan, headboard, lemari, dan meja dibuat serasi dalam satu desain sesuai ukuran kamar.',
-    images: gallery('kamar-set-backdrop-tv', [
-      'Kamar Set & Backdrop TV buatan Nadira Furniture',
-      'Kamar Set & Backdrop TV, foto 2',
-      'Kamar Set & Backdrop TV, foto 3',
-    ]),
+    images: gallery('kamar-set-backdrop-tv', ["Kamar Set & Backdrop TV buatan Nadira Furniture", "Kamar Set & Backdrop TV, foto 2", "Kamar Set & Backdrop TV, foto 3"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -565,12 +471,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-abu-gelap', [
-      'Kitchen Set Abu Gelap buatan Nadira Furniture',
-      'Kitchen Set Abu Gelap, foto 2',
-      'Kitchen Set Abu Gelap, foto 3',
-      'Kitchen Set Abu Gelap, foto 4',
-    ]),
+    images: gallery('kitchen-set-abu-gelap', ["Kitchen Set Abu Gelap buatan Nadira Furniture", "Kitchen Set Abu Gelap, foto 2", "Kitchen Set Abu Gelap, foto 3", "Kitchen Set Abu Gelap, foto 4", "Kitchen Set Abu Gelap, foto 5"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -581,10 +482,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-abu-kayu-led', [
-      'Kitchen Set Abu Kayu LED buatan Nadira Furniture',
-      'Kitchen Set Abu Kayu LED, foto 2',
-    ]),
+    images: gallery('kitchen-set-abu-kayu-led', ["Kitchen Set Abu Kayu LED buatan Nadira Furniture", "Kitchen Set Abu Kayu LED, foto 2", "Kitchen Set Abu Kayu LED, foto 3", "Kitchen Set Abu Kayu LED, foto 4"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -595,11 +493,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-navy-gold', [
-      'Kitchen Set Navy Handle Gold buatan Nadira Furniture',
-      'Kitchen Set Navy Handle Gold, foto 2',
-      'Kitchen Set Navy Handle Gold, foto 3',
-    ]),
+    images: gallery('kitchen-set-navy-gold', ["Kitchen Set Navy Handle Gold buatan Nadira Furniture", "Kitchen Set Navy Handle Gold, foto 2", "Kitchen Set Navy Handle Gold, foto 3"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -610,10 +504,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-led-putih', [
-      'Kitchen Set Putih Lampu LED buatan Nadira Furniture',
-      'Kitchen Set Putih Lampu LED, foto 2',
-    ]),
+    images: gallery('kitchen-set-led-putih', ["Kitchen Set Putih Lampu LED buatan Nadira Furniture", "Kitchen Set Putih Lampu LED, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -624,7 +515,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-putih-l', ['Kitchen Set Putih Bentuk L buatan Nadira Furniture']),
+    images: gallery('kitchen-set-putih-l', ["Kitchen Set Putih Bentuk L buatan Nadira Furniture"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -635,10 +526,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Partisi custom untuk membagi ruang tanpa membuatnya sempit, bisa dipadukan dengan rak display atau backdrop TV.',
-    images: gallery('partisi-backdrop-tv-putih', [
-      'Partisi & Backdrop TV Putih buatan Nadira Furniture',
-      'Partisi & Backdrop TV Putih, foto 2',
-    ]),
+    images: gallery('partisi-backdrop-tv-putih', ["Partisi & Backdrop TV Putih buatan Nadira Furniture", "Partisi & Backdrop TV Putih, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -649,10 +537,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Meja rias custom dengan banyak laci dan cermin, pas untuk kamar maupun kebutuhan MUA. Ukuran dan warna menyesuaikan ruangan.',
-    images: gallery('meja-rias-display-tas', [
-      'Meja Rias & Display Tas buatan Nadira Furniture',
-      'Meja Rias & Display Tas, foto 2',
-    ]),
+    images: gallery('meja-rias-display-tas', ["Meja Rias & Display Tas buatan Nadira Furniture", "Meja Rias & Display Tas, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -663,9 +548,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Lemari custom setinggi plafon dengan pembagian rak, gantungan, dan laci sesuai kebutuhan. Model, warna, dan ukuran bebas request.',
-    images: gallery('lemari-display-cokelat', [
-      'Lemari Display Cokelat Putih buatan Nadira Furniture',
-    ]),
+    images: gallery('lemari-display-cokelat', ["Lemari Display Cokelat Putih buatan Nadira Furniture"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -676,12 +559,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Furnitur custom untuk sudut yang sulit, dari kolong tangga, rak sepatu, sampai meja kerja. Setiap sentimeter dimanfaatkan.',
-    images: gallery('rak-sepatu-kaca', [
-      'Rak Sepatu Pintu Kaca buatan Nadira Furniture',
-      'Rak Sepatu Pintu Kaca, foto 2',
-      'Rak Sepatu Pintu Kaca, foto 3',
-      'Rak Sepatu Pintu Kaca, foto 4',
-    ]),
+    images: gallery('rak-sepatu-kaca', ["Rak Sepatu Pintu Kaca buatan Nadira Furniture", "Rak Sepatu Pintu Kaca, foto 2", "Rak Sepatu Pintu Kaca, foto 3", "Rak Sepatu Pintu Kaca, foto 4", "Rak Sepatu Pintu Kaca, foto 5"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -692,9 +570,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-island-kulkas', [
-      'Kitchen Set dengan Island buatan Nadira Furniture',
-    ]),
+    images: gallery('kitchen-set-island-kulkas', ["Kitchen Set dengan Island buatan Nadira Furniture"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -705,10 +581,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-u-hitam', [
-      'Kitchen Set U Hitam buatan Nadira Furniture',
-      'Kitchen Set U Hitam, foto 2',
-    ]),
+    images: gallery('kitchen-set-u-hitam', ["Kitchen Set U Hitam buatan Nadira Furniture", "Kitchen Set U Hitam, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -719,10 +592,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-island-putih', [
-      'Kitchen Set Island Putih buatan Nadira Furniture',
-      'Kitchen Set Island Putih, foto 2',
-    ]),
+    images: gallery('kitchen-set-island-putih', ["Kitchen Set Island Putih buatan Nadira Furniture", "Kitchen Set Island Putih, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -733,10 +603,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Backdrop TV custom yang merapikan kabel dan perangkat, dilengkapi rak display dan pencahayaan agar ruang keluarga terasa lebih hidup.',
-    images: gallery('backdrop-tv-cermin-led', [
-      'Backdrop TV Cermin LED buatan Nadira Furniture',
-      'Backdrop TV Cermin LED, foto 2',
-    ]),
+    images: gallery('backdrop-tv-cermin-led', ["Backdrop TV Cermin LED buatan Nadira Furniture", "Backdrop TV Cermin LED, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -747,11 +614,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Backdrop TV custom yang merapikan kabel dan perangkat, dilengkapi rak display dan pencahayaan agar ruang keluarga terasa lebih hidup.',
-    images: gallery('backdrop-tv-kayu-hangat', [
-      'Backdrop TV Kayu Hangat buatan Nadira Furniture',
-      'Backdrop TV Kayu Hangat, foto 2',
-      'Backdrop TV Kayu Hangat, foto 3',
-    ]),
+    images: gallery('backdrop-tv-kayu-hangat', ["Backdrop TV Kayu Hangat buatan Nadira Furniture", "Backdrop TV Kayu Hangat, foto 2", "Backdrop TV Kayu Hangat, foto 3", "Backdrop TV Kayu Hangat, foto 4"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -762,7 +625,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Furnitur custom untuk sudut yang sulit, dari kolong tangga, rak sepatu, sampai meja kerja. Setiap sentimeter dimanfaatkan.',
-    images: gallery('rak-buku-terbuka', ['Rak Buku & TV Terbuka buatan Nadira Furniture']),
+    images: gallery('rak-buku-terbuka', ["Rak Buku & TV Terbuka buatan Nadira Furniture", "Rak Buku & TV Terbuka, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -773,10 +636,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-krem-minibar', [
-      'Kitchen Set Krem dengan Minibar buatan Nadira Furniture',
-      'Kitchen Set Krem dengan Minibar, foto 2',
-    ]),
+    images: gallery('kitchen-set-krem-minibar', ["Kitchen Set Krem dengan Minibar buatan Nadira Furniture", "Kitchen Set Krem dengan Minibar, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -787,9 +647,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Lemari custom setinggi plafon dengan pembagian rak, gantungan, dan laci sesuai kebutuhan. Model, warna, dan ukuran bebas request.',
-    images: gallery('lemari-pakaian-putih-glossy', [
-      'Lemari Pakaian Putih Glossy buatan Nadira Furniture',
-    ]),
+    images: gallery('lemari-pakaian-putih-glossy', ["Lemari Pakaian Putih Glossy buatan Nadira Furniture"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -800,9 +658,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-cokelat-kaca', [
-      'Kitchen Set Cokelat Pintu Kaca buatan Nadira Furniture',
-    ]),
+    images: gallery('kitchen-set-cokelat-kaca', ["Kitchen Set Cokelat Pintu Kaca buatan Nadira Furniture"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -813,7 +669,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Backdrop TV custom yang merapikan kabel dan perangkat, dilengkapi rak display dan pencahayaan agar ruang keluarga terasa lebih hidup.',
-    images: gallery('backdrop-tv-kayu-kaca', ['Backdrop TV Kayu & Kaca buatan Nadira Furniture']),
+    images: gallery('backdrop-tv-kayu-kaca', ["Backdrop TV Kayu & Kaca buatan Nadira Furniture"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -824,10 +680,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Furnitur custom untuk sudut yang sulit, dari kolong tangga, rak sepatu, sampai meja kerja. Setiap sentimeter dimanfaatkan.',
-    images: gallery('rak-bawah-tangga', [
-      'Rak & Lemari Bawah Tangga buatan Nadira Furniture',
-      'Rak & Lemari Bawah Tangga, foto 2',
-    ]),
+    images: gallery('rak-bawah-tangga', ["Rak & Lemari Bawah Tangga buatan Nadira Furniture", "Rak & Lemari Bawah Tangga, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -838,12 +691,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-putih-krem', [
-      'Kitchen Set Putih Krem buatan Nadira Furniture',
-      'Kitchen Set Putih Krem, foto 2',
-      'Kitchen Set Putih Krem, foto 3',
-      'Kitchen Set Putih Krem, foto 4',
-    ]),
+    images: gallery('kitchen-set-putih-krem', ["Kitchen Set Putih Krem buatan Nadira Furniture", "Kitchen Set Putih Krem, foto 2", "Kitchen Set Putih Krem, foto 3", "Kitchen Set Putih Krem, foto 4"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -854,11 +702,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Furnitur custom untuk sudut yang sulit, dari kolong tangga, rak sepatu, sampai meja kerja. Setiap sentimeter dimanfaatkan.',
-    images: gallery('lemari-bawah-tangga-krem', [
-      'Lemari Bawah Tangga Krem buatan Nadira Furniture',
-      'Lemari Bawah Tangga Krem, foto 2',
-      'Lemari Bawah Tangga Krem, foto 3',
-    ]),
+    images: gallery('lemari-bawah-tangga-krem', ["Lemari Bawah Tangga Krem buatan Nadira Furniture", "Lemari Bawah Tangga Krem, foto 2", "Lemari Bawah Tangga Krem, foto 3"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -869,10 +713,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-cokelat-l', [
-      'Kitchen Set Cokelat Bentuk L buatan Nadira Furniture',
-      'Kitchen Set Cokelat Bentuk L, foto 2',
-    ]),
+    images: gallery('kitchen-set-cokelat-l', ["Kitchen Set Cokelat Bentuk L buatan Nadira Furniture", "Kitchen Set Cokelat Bentuk L, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -883,7 +724,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-lavender', ['Kitchen Set Lavender buatan Nadira Furniture']),
+    images: gallery('kitchen-set-lavender', ["Kitchen Set Lavender buatan Nadira Furniture", "Kitchen Set Lavender, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -894,10 +735,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-putih-minibar', [
-      'Kitchen Set Putih dengan Minibar buatan Nadira Furniture',
-      'Kitchen Set Putih dengan Minibar, foto 2',
-    ]),
+    images: gallery('kitchen-set-putih-minibar', ["Kitchen Set Putih dengan Minibar buatan Nadira Furniture", "Kitchen Set Putih dengan Minibar, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -908,7 +746,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Lemari custom setinggi plafon dengan pembagian rak, gantungan, dan laci sesuai kebutuhan. Model, warna, dan ukuran bebas request.',
-    images: gallery('lemari-cermin-kayu', ['Lemari Cermin Motif Kayu buatan Nadira Furniture']),
+    images: gallery('lemari-cermin-kayu', ["Lemari Cermin Motif Kayu buatan Nadira Furniture"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -919,9 +757,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-backsplash-mozaik', [
-      'Kitchen Set Backsplash Mozaik buatan Nadira Furniture',
-    ]),
+    images: gallery('kitchen-set-backsplash-mozaik', ["Kitchen Set Backsplash Mozaik buatan Nadira Furniture"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -932,10 +768,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-putih-top-hitam', [
-      'Kitchen Set Putih Top Hitam buatan Nadira Furniture',
-      'Kitchen Set Putih Top Hitam, foto 2',
-    ]),
+    images: gallery('kitchen-set-putih-top-hitam', ["Kitchen Set Putih Top Hitam buatan Nadira Furniture", "Kitchen Set Putih Top Hitam, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -946,10 +779,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Kitchen set custom dibuat sesuai ukuran dapur: kabinet atas & bawah rapi, banyak ruang simpan, dan finishing HPL yang mudah dibersihkan.',
-    images: gallery('kitchen-set-abu-minibar', [
-      'Kitchen Set Abu dengan Minibar buatan Nadira Furniture',
-      'Kitchen Set Abu dengan Minibar, foto 2',
-    ]),
+    images: gallery('kitchen-set-abu-minibar', ["Kitchen Set Abu dengan Minibar buatan Nadira Furniture", "Kitchen Set Abu dengan Minibar, foto 2", "Kitchen Set Abu dengan Minibar, foto 3"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -960,10 +790,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Lemari custom setinggi plafon dengan pembagian rak, gantungan, dan laci sesuai kebutuhan. Model, warna, dan ukuran bebas request.',
-    images: gallery('lemari-sliding-cermin', [
-      'Lemari Sliding Cermin buatan Nadira Furniture',
-      'Lemari Sliding Cermin, foto 2',
-    ]),
+    images: gallery('lemari-sliding-cermin', ["Lemari Sliding Cermin buatan Nadira Furniture", "Lemari Sliding Cermin, foto 2"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -974,7 +801,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Meja rias custom dengan banyak laci dan cermin, pas untuk kamar maupun kebutuhan MUA. Ukuran dan warna menyesuaikan ruangan.',
-    images: gallery('meja-rias-putih-laci', ['Meja Rias Putih 8 Laci buatan Nadira Furniture']),
+    images: gallery('meja-rias-putih-laci', ["Meja Rias Putih 8 Laci buatan Nadira Furniture"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -985,12 +812,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Kamar set custom: dipan, headboard, lemari, dan meja dibuat serasi dalam satu desain sesuai ukuran kamar.',
-    images: gallery('kamar-set-headboard-led', [
-      'Kamar Set Headboard LED buatan Nadira Furniture',
-      'Kamar Set Headboard LED, foto 2',
-      'Kamar Set Headboard LED, foto 3',
-      'Kamar Set Headboard LED, foto 4',
-    ]),
+    images: gallery('kamar-set-headboard-led', ["Kamar Set Headboard LED buatan Nadira Furniture", "Kamar Set Headboard LED, foto 2", "Kamar Set Headboard LED, foto 3", "Kamar Set Headboard LED, foto 4"]),
     specs: MATERIAL,
     featured: false,
   },
@@ -1001,11 +823,7 @@ const products: readonly Product[] = [
     year: 2021,
     description:
       'Meja rias custom dengan banyak laci dan cermin, pas untuk kamar maupun kebutuhan MUA. Ukuran dan warna menyesuaikan ruangan.',
-    images: gallery('meja-rias-hollywood', [
-      'Meja Rias Lampu Hollywood buatan Nadira Furniture',
-      'Meja Rias Lampu Hollywood, foto 2',
-      'Meja Rias Lampu Hollywood, foto 3',
-    ]),
+    images: gallery('meja-rias-hollywood', ["Meja Rias Lampu Hollywood buatan Nadira Furniture", "Meja Rias Lampu Hollywood, foto 2", "Meja Rias Lampu Hollywood, foto 3"]),
     specs: MATERIAL,
     featured: true,
   },
