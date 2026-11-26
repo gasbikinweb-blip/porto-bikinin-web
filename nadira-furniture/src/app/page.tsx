@@ -53,34 +53,8 @@ export default function HomePage() {
   return (
     <>
       {/* ---------- Hero ---------- */}
-      <section className="theme-dark relative isolate -mt-16 flex min-h-[100svh] items-center overflow-hidden sm:-mt-20">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/65 via-black/40 to-page" />
-
-        <HeroRotator>
-          <div
-            className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
-            style={{ '--delay': '650ms' } as React.CSSProperties}
-          >
-            <Link
-              href="/#portofolio"
-              className="group inline-flex items-center gap-2 rounded-full bg-foreground px-7 py-3 text-sm font-semibold text-background transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-strong"
-            >
-              Lihat Portofolio
-              <ArrowIcon className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
-            <WhatsAppButton variant="outline" />
-          </div>
-        </HeroRotator>
-
-        <a
-          href="#intro"
-          className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 sm:block"
-          aria-label="Gulir ke bawah"
-        >
-          <span className="flex h-10 w-6 justify-center rounded-full border border-foreground/40 pt-2">
-            <span className="animate-scroll-dot block size-1.5 rounded-full bg-foreground" />
-          </span>
-        </a>
+      <section className="theme-dark relative isolate -mt-16 overflow-hidden sm:-mt-20">
+        <HeroRotator />
       </section>
 
       {/* ---------- Intro ---------- */}
