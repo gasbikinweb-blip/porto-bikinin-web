@@ -13,3 +13,4 @@ npm-debug.log*
 # Bahan mentah dari Instagram (210 MB, caption berisi akun klien). Hasil olahan ada di public/.
 assets nadira-furniture/
 scripts/nadira-assets/out.json
+informasi.txt

@@ -31,6 +31,7 @@ export const siteConfig = {
   waDisplay: '0813-2497-4722',
   instagram: 'https://www.instagram.com/nadira.furniture/',
   instagramHandle: '@nadira.furniture',
+  threads: 'https://www.threads.com/@nadira.furniture',
   // Sumber: caption Instagram ("Lokasi : Bandung", proyek di Rancamanyar). TODO: alamat workshop lengkap
   address: 'Bandung, Jawa Barat',
   // TODO: jam buka dari pemilik
