@@ -38,7 +38,7 @@ Folder `assets nadira-furniture/` (bahan mentah) tidak ikut di-commit.
 
 - Alamat workshop lengkap & jam buka (`config.ts`).
 - Logo (sementara logo teks).
-- Domain (sementara `https://nadira-furniture.vercel.app`).
+- Domain (sementara `https://porto-nadira-furniture.vercel.app`).
 
 ## Deploy
 

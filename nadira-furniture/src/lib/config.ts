@@ -25,7 +25,7 @@ export const siteConfig = {
   description:
     'Nadira Furniture: jasa interior custom di Bandung. Kitchen set, lemari, backdrop TV, meja rias, kamar set, dan partisi dari multiplek 18 mm & HPL TACO. Survei dan konsultasi gratis.',
   // TODO: ganti dengan domain asli setelah deploy
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nadira-furniture.vercel.app',
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://porto-nadira-furniture.vercel.app',
   waNumber,
   // Tampilan nomor untuk dibaca manusia
   waDisplay: '0813-2497-4722',

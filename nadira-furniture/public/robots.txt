@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Ganti domain sesuai NEXT_PUBLIC_SITE_URL
-Sitemap: https://nadira-furniture.vercel.app/sitemap.xml
+Sitemap: https://porto-nadira-furniture.vercel.app/sitemap.xml
