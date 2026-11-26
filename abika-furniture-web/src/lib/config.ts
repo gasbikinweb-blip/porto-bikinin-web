@@ -13,7 +13,7 @@ if (!waNumber) throw new Error('NEXT_PUBLIC_WA_NUMBER tidak valid. Gunakan forma
 export const config = {
   siteName: process.env.NEXT_PUBLIC_SITE_NAME || 'Abika Furniture',
   // TODO: ganti dengan domain asli saat deploy
-  siteUrl: (process.env.NEXT_PUBLIC_SITE_URL || 'https://abika-furniture.vercel.app').replace(
+  siteUrl: (process.env.NEXT_PUBLIC_SITE_URL || 'https://porto-abika-furniture.vercel.app').replace(
     /\/+$/,
     '',
   ),
