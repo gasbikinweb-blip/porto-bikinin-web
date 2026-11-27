@@ -1,0 +1,488 @@
+{
+  "products": {
+    "sofa-luxury-ukir-klasik": [
+      {
+        "src": "/images/produk/sofa-luxury-ukir-klasik/01.webp",
+        "thumb": "/images/produk/sofa-luxury-ukir-klasik/01-thumb.webp",
+        "width": 1328,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/sofa-luxury-ukir-klasik/02.webp",
+        "thumb": "/images/produk/sofa-luxury-ukir-klasik/02-thumb.webp",
+        "width": 1328,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/sofa-luxury-ukir-klasik/03.webp",
+        "thumb": "/images/produk/sofa-luxury-ukir-klasik/03-thumb.webp",
+        "width": 1328,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/sofa-luxury-ukir-klasik/04.webp",
+        "thumb": "/images/produk/sofa-luxury-ukir-klasik/04-thumb.webp",
+        "width": 1328,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/sofa-luxury-ukir-klasik/05.webp",
+        "thumb": "/images/produk/sofa-luxury-ukir-klasik/05-thumb.webp",
+        "width": 1328,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/sofa-luxury-ukir-klasik/06.webp",
+        "thumb": "/images/produk/sofa-luxury-ukir-klasik/06-thumb.webp",
+        "width": 1328,
+        "height": 1400
+      }
+    ],
+    "sofa-chesterfield-peach": [
+      {
+        "src": "/images/produk/sofa-chesterfield-peach/01.webp",
+        "thumb": "/images/produk/sofa-chesterfield-peach/01-thumb.webp",
+        "width": 1215,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/sofa-chesterfield-peach/02.webp",
+        "thumb": "/images/produk/sofa-chesterfield-peach/02-thumb.webp",
+        "width": 1215,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/sofa-chesterfield-peach/03.webp",
+        "thumb": "/images/produk/sofa-chesterfield-peach/03-thumb.webp",
+        "width": 896,
+        "height": 1032
+      }
+    ],
+    "sofa-chesterfield-abu": [
+      {
+        "src": "/images/produk/sofa-chesterfield-abu/01.webp",
+        "thumb": "/images/produk/sofa-chesterfield-abu/01-thumb.webp",
+        "width": 1071,
+        "height": 1400
+      }
+    ],
+    "sofa-set-living-luxury": [
+      {
+        "src": "/images/produk/sofa-set-living-luxury/01.webp",
+        "thumb": "/images/produk/sofa-set-living-luxury/01-thumb.webp",
+        "width": 1050,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/sofa-set-living-luxury/02.webp",
+        "thumb": "/images/produk/sofa-set-living-luxury/02-thumb.webp",
+        "width": 821,
+        "height": 1095
+      },
+      {
+        "src": "/images/produk/sofa-set-living-luxury/03.webp",
+        "thumb": "/images/produk/sofa-set-living-luxury/03-thumb.webp",
+        "width": 441,
+        "height": 589
+      }
+    ],
+    "sofa-dg-stainless": [
+      {
+        "src": "/images/produk/sofa-dg-stainless/01.webp",
+        "thumb": "/images/produk/sofa-dg-stainless/01-thumb.webp",
+        "width": 1050,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/sofa-dg-stainless/02.webp",
+        "thumb": "/images/produk/sofa-dg-stainless/02-thumb.webp",
+        "width": 1050,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/sofa-dg-stainless/03.webp",
+        "thumb": "/images/produk/sofa-dg-stainless/03-thumb.webp",
+        "width": 1050,
+        "height": 1400
+      }
+    ],
+    "sofa-scandinavian": [
+      {
+        "src": "/images/produk/sofa-scandinavian/01.webp",
+        "thumb": "/images/produk/sofa-scandinavian/01-thumb.webp",
+        "width": 1050,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/sofa-scandinavian/02.webp",
+        "thumb": "/images/produk/sofa-scandinavian/02-thumb.webp",
+        "width": 1050,
+        "height": 1400
+      }
+    ],
+    "sofa-scandinavian-klasik": [
+      {
+        "src": "/images/produk/sofa-scandinavian-klasik/01.webp",
+        "thumb": "/images/produk/sofa-scandinavian-klasik/01-thumb.webp",
+        "width": 900,
+        "height": 1200
+      },
+      {
+        "src": "/images/produk/sofa-scandinavian-klasik/02.webp",
+        "thumb": "/images/produk/sofa-scandinavian-klasik/02-thumb.webp",
+        "width": 900,
+        "height": 1200
+      }
+    ],
+    "sofa-tufting-modern": [
+      {
+        "src": "/images/produk/sofa-tufting-modern/01.webp",
+        "thumb": "/images/produk/sofa-tufting-modern/01-thumb.webp",
+        "width": 928,
+        "height": 1024
+      }
+    ],
+    "sofa-minimalis-bingkai-hitam": [
+      {
+        "src": "/images/produk/sofa-minimalis-bingkai-hitam/01.webp",
+        "thumb": "/images/produk/sofa-minimalis-bingkai-hitam/01-thumb.webp",
+        "width": 720,
+        "height": 960
+      }
+    ],
+    "sofa-putih-lengkung": [
+      {
+        "src": "/images/produk/sofa-putih-lengkung/01.webp",
+        "thumb": "/images/produk/sofa-putih-lengkung/01-thumb.webp",
+        "width": 552,
+        "height": 736
+      }
+    ],
+    "sofa-l-cerelons": [
+      {
+        "src": "/images/produk/sofa-l-cerelons/01.webp",
+        "thumb": "/images/produk/sofa-l-cerelons/01-thumb.webp",
+        "width": 1200,
+        "height": 1104
+      }
+    ],
+    "kursi-sofa-aerox": [
+      {
+        "src": "/images/produk/kursi-sofa-aerox/01.webp",
+        "thumb": "/images/produk/kursi-sofa-aerox/01-thumb.webp",
+        "width": 1400,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/kursi-sofa-aerox/02.webp",
+        "thumb": "/images/produk/kursi-sofa-aerox/02-thumb.webp",
+        "width": 1291,
+        "height": 1400
+      }
+    ],
+    "lounge-chair-klasik": [
+      {
+        "src": "/images/produk/lounge-chair-klasik/01.webp",
+        "thumb": "/images/produk/lounge-chair-klasik/01-thumb.webp",
+        "width": 1050,
+        "height": 1400
+      }
+    ],
+    "meja-makan-sultan": [
+      {
+        "src": "/images/produk/meja-makan-sultan/01.webp",
+        "thumb": "/images/produk/meja-makan-sultan/01-thumb.webp",
+        "width": 773,
+        "height": 1031
+      },
+      {
+        "src": "/images/produk/meja-makan-sultan/02.webp",
+        "thumb": "/images/produk/meja-makan-sultan/02-thumb.webp",
+        "width": 773,
+        "height": 1031
+      },
+      {
+        "src": "/images/produk/meja-makan-sultan/03.webp",
+        "thumb": "/images/produk/meja-makan-sultan/03-thumb.webp",
+        "width": 774,
+        "height": 1032
+      }
+    ],
+    "meja-makan-luxury-putih": [
+      {
+        "src": "/images/produk/meja-makan-luxury-putih/01.webp",
+        "thumb": "/images/produk/meja-makan-luxury-putih/01-thumb.webp",
+        "width": 900,
+        "height": 1200
+      }
+    ],
+    "meja-makan-klasik": [
+      {
+        "src": "/images/produk/meja-makan-klasik/01.webp",
+        "thumb": "/images/produk/meja-makan-klasik/01-thumb.webp",
+        "width": 1050,
+        "height": 1400
+      }
+    ],
+    "meja-makan-gold": [
+      {
+        "src": "/images/produk/meja-makan-gold/01.webp",
+        "thumb": "/images/produk/meja-makan-gold/01-thumb.webp",
+        "width": 1056,
+        "height": 1400
+      }
+    ],
+    "coffee-table-marmer-carrara": [
+      {
+        "src": "/images/produk/coffee-table-marmer-carrara/01.webp",
+        "thumb": "/images/produk/coffee-table-marmer-carrara/01-thumb.webp",
+        "width": 1220,
+        "height": 1400
+      }
+    ],
+    "meja-rias-modern": [
+      {
+        "src": "/images/produk/meja-rias-modern/01.webp",
+        "thumb": "/images/produk/meja-rias-modern/01-thumb.webp",
+        "width": 760,
+        "height": 760
+      }
+    ],
+    "meja-rias-lampu-cermin": [
+      {
+        "src": "/images/produk/meja-rias-lampu-cermin/01.webp",
+        "thumb": "/images/produk/meja-rias-lampu-cermin/01-thumb.webp",
+        "width": 1024,
+        "height": 1365
+      },
+      {
+        "src": "/images/produk/meja-rias-lampu-cermin/02.webp",
+        "thumb": "/images/produk/meja-rias-lampu-cermin/02-thumb.webp",
+        "width": 720,
+        "height": 955
+      }
+    ],
+    "meja-rias-putih-klasik": [
+      {
+        "src": "/images/produk/meja-rias-putih-klasik/01.webp",
+        "thumb": "/images/produk/meja-rias-putih-klasik/01-thumb.webp",
+        "width": 1050,
+        "height": 1400
+      }
+    ],
+    "meja-rias-eropa": [
+      {
+        "src": "/images/produk/meja-rias-eropa/01.webp",
+        "thumb": "/images/produk/meja-rias-eropa/01-thumb.webp",
+        "width": 1056,
+        "height": 1400
+      }
+    ],
+    "credenza-luxury": [
+      {
+        "src": "/images/produk/credenza-luxury/01.webp",
+        "thumb": "/images/produk/credenza-luxury/01-thumb.webp",
+        "width": 1050,
+        "height": 1400
+      },
+      {
+        "src": "/images/produk/credenza-luxury/02.webp",
+        "thumb": "/images/produk/credenza-luxury/02-thumb.webp",
+        "width": 1050,
+        "height": 1400
+      }
+    ],
+    "meja-konsol-klasik": [
+      {
+        "src": "/images/produk/meja-konsol-klasik/01.webp",
+        "thumb": "/images/produk/meja-konsol-klasik/01-thumb.webp",
+        "width": 552,
+        "height": 736
+      }
+    ],
+    "buffet-tv-putih-klasik": [
+      {
+        "src": "/images/produk/buffet-tv-putih-klasik/01.webp",
+        "thumb": "/images/produk/buffet-tv-putih-klasik/01-thumb.webp",
+        "width": 1024,
+        "height": 1365
+      }
+    ],
+    "credenza-putih-ukir": [
+      {
+        "src": "/images/produk/credenza-putih-ukir/01.webp",
+        "thumb": "/images/produk/credenza-putih-ukir/01-thumb.webp",
+        "width": 736,
+        "height": 981
+      }
+    ],
+    "credenza-luxury-gold": [
+      {
+        "src": "/images/produk/credenza-luxury-gold/01.webp",
+        "thumb": "/images/produk/credenza-luxury-gold/01-thumb.webp",
+        "width": 1056,
+        "height": 1400
+      }
+    ],
+    "bufet-ukir-putih": [
+      {
+        "src": "/images/produk/bufet-ukir-putih/01.webp",
+        "thumb": "/images/produk/bufet-ukir-putih/01-thumb.webp",
+        "width": 1008,
+        "height": 1008
+      }
+    ],
+    "lemari-pakaian-custom": [
+      {
+        "src": "/images/produk/lemari-pakaian-custom/01.webp",
+        "thumb": "/images/produk/lemari-pakaian-custom/01-thumb.webp",
+        "width": 832,
+        "height": 1024
+      }
+    ],
+    "walk-in-wardrobe": [
+      {
+        "src": "/images/produk/walk-in-wardrobe/01.webp",
+        "thumb": "/images/produk/walk-in-wardrobe/01-thumb.webp",
+        "width": 1056,
+        "height": 1400
+      }
+    ],
+    "bed-caroline-luxury": [
+      {
+        "src": "/images/produk/bed-caroline-luxury/01.webp",
+        "thumb": "/images/produk/bed-caroline-luxury/01-thumb.webp",
+        "width": 1050,
+        "height": 1400
+      }
+    ],
+    "set-bed-tufting-abu": [
+      {
+        "src": "/images/produk/set-bed-tufting-abu/01.webp",
+        "thumb": "/images/produk/set-bed-tufting-abu/01-thumb.webp",
+        "width": 1050,
+        "height": 1400
+      }
+    ],
+    "set-bed-wall-decor": [
+      {
+        "src": "/images/produk/set-bed-wall-decor/01.webp",
+        "thumb": "/images/produk/set-bed-wall-decor/01-thumb.webp",
+        "width": 1050,
+        "height": 1400
+      }
+    ],
+    "bed-klasik-luxury": [
+      {
+        "src": "/images/produk/bed-klasik-luxury/01.webp",
+        "thumb": "/images/produk/bed-klasik-luxury/01-thumb.webp",
+        "width": 1056,
+        "height": 1400
+      }
+    ],
+    "kamar-set-luxury": [
+      {
+        "src": "/images/produk/kamar-set-luxury/01.webp",
+        "thumb": "/images/produk/kamar-set-luxury/01-thumb.webp",
+        "width": 1056,
+        "height": 1400
+      }
+    ],
+    "kitchen-set-luxury": [
+      {
+        "src": "/images/produk/kitchen-set-luxury/01.webp",
+        "thumb": "/images/produk/kitchen-set-luxury/01-thumb.webp",
+        "width": 736,
+        "height": 981
+      },
+      {
+        "src": "/images/produk/kitchen-set-luxury/02.webp",
+        "thumb": "/images/produk/kitchen-set-luxury/02-thumb.webp",
+        "width": 736,
+        "height": 981
+      },
+      {
+        "src": "/images/produk/kitchen-set-luxury/03.webp",
+        "thumb": "/images/produk/kitchen-set-luxury/03-thumb.webp",
+        "width": 896,
+        "height": 1194
+      }
+    ],
+    "kitchen-island-bar": [
+      {
+        "src": "/images/produk/kitchen-island-bar/01.webp",
+        "thumb": "/images/produk/kitchen-island-bar/01-thumb.webp",
+        "width": 900,
+        "height": 1200
+      },
+      {
+        "src": "/images/produk/kitchen-island-bar/02.webp",
+        "thumb": "/images/produk/kitchen-island-bar/02-thumb.webp",
+        "width": 1024,
+        "height": 1365
+      }
+    ],
+    "pintu-custom-luxury": [
+      {
+        "src": "/images/produk/pintu-custom-luxury/01.webp",
+        "thumb": "/images/produk/pintu-custom-luxury/01-thumb.webp",
+        "width": 864,
+        "height": 1080
+      },
+      {
+        "src": "/images/produk/pintu-custom-luxury/02.webp",
+        "thumb": "/images/produk/pintu-custom-luxury/02-thumb.webp",
+        "width": 1086,
+        "height": 1357
+      },
+      {
+        "src": "/images/produk/pintu-custom-luxury/03.webp",
+        "thumb": "/images/produk/pintu-custom-luxury/03-thumb.webp",
+        "width": 1080,
+        "height": 1350
+      }
+    ],
+    "carport-kayu-jati": [
+      {
+        "src": "/images/produk/carport-kayu-jati/01.webp",
+        "thumb": "/images/produk/carport-kayu-jati/01-thumb.webp",
+        "width": 944,
+        "height": 944
+      }
+    ],
+    "panel-dinding-dekorasi": [
+      {
+        "src": "/images/produk/panel-dinding-dekorasi/01.webp",
+        "thumb": "/images/produk/panel-dinding-dekorasi/01-thumb.webp",
+        "width": 1050,
+        "height": 1400
+      }
+    ]
+  },
+  "gallery": [
+    {
+      "src": "/images/galeri/01.webp",
+      "thumb": "/images/galeri/01-thumb.webp",
+      "width": 981,
+      "height": 1308
+    },
+    {
+      "src": "/images/galeri/02.webp",
+      "thumb": "/images/galeri/02-thumb.webp",
+      "width": 736,
+      "height": 981
+    },
+    {
+      "src": "/images/galeri/03.webp",
+      "thumb": "/images/galeri/03-thumb.webp",
+      "width": 1050,
+      "height": 1400
+    },
+    {
+      "src": "/images/galeri/04.webp",
+      "thumb": "/images/galeri/04-thumb.webp",
+      "width": 1056,
+      "height": 1400
+    }
+  ]
+}
