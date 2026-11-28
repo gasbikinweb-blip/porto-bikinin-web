@@ -1,0 +1,16 @@
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+.env
+.env*.local
+npm-debug.log*
+.DS_Store
+.vercel
+.claude/
+
+# Bahan mentah dari Instagram (145 MB). Hasil olahan ada di public/.
+assets ruang-mebel-furniture/
+scripts/ruang-mebel-assets/out.json
+informasi.txt
